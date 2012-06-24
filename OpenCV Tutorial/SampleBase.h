@@ -42,12 +42,16 @@ public:
   //! Processes a frame and returns output image 
   virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame) = 0;
   
+  bool hasIcon() const;
+  
   const std::vector<SampleOption>& getOptions();
   
 protected:
   void registerOption(std::string name, bool  * value);
   void registerOption(std::string name, int   *  value, int min, int max);
   void registerOption(std::string name, float *  value, float min, float max);
+
+  static void getGray(const cv::Mat& input, cv::Mat& gray);
   
 private:
   std::vector<SampleOption> m_options;

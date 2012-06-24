@@ -48,3 +48,26 @@ void SampleBase::registerOption(std::string name, float *  value, float min, flo
   
   m_options.push_back(opt);
 }
+
+bool SampleBase::hasIcon() const
+{
+  return false == getSampleIcon().empty();
+}
+
+void SampleBase::getGray(const cv::Mat& input, cv::Mat& gray)
+{
+  const int numChannes = input.channels();
+  
+  if (numChannes == 4)
+  {
+    cv::cvtColor(input, gray, CV_BGRA2GRAY);
+  }
+  else if (numChannes == 2)
+  {
+    cv::cvtColor(input, gray, CV_BGR2GRAY);
+  }
+  else if (numChannes == 1)
+  {
+    gray = input;
+  }
+}
