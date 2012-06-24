@@ -9,6 +9,8 @@ Step by step tutorials
 
 Copyright
 ==========================
-Idea and development by Eugene Khvedchenya
-computer-vision-talks.com
+Idea and development by Eugene Khvedchenya <ekhvedchenya@gmail.com>
+
+http://computer-vision-talks.com
+
 Licensed via GPL
