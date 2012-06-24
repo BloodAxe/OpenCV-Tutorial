@@ -26,6 +26,9 @@
 		8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */; };
 		8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */; };
 		8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */; };
+		8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */; };
+		8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */; };
+		8A4388EF1597BFB200027D3C /* SampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388EE1597BFB100027D3C /* SampleViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,11 @@
 		8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EdgeDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
 		8A4388E61597B75400027D3C /* UIImage2OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage2OpenCV.h; sourceTree = "<group>"; };
 		8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImage2OpenCV.mm; sourceTree = "<group>"; };
+		8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContourDetectionSampleIcon.png; sourceTree = "<group>"; };
+		8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ContourDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
+		8A4388ED1597BFB100027D3C /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleViewController.h; path = ../SampleViewController.h; sourceTree = "<group>"; };
+		8A4388EE1597BFB100027D3C /* SampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SampleViewController.mm; path = ../SampleViewController.mm; sourceTree = "<group>"; };
+		8A4388F01597C49B00027D3C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
+				8A4388F01597C49B00027D3C /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +114,8 @@
 		8A43886E1595BC4F00027D3C /* OpenCV Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388ED1597BFB100027D3C /* SampleViewController.h */,
+				8A4388EE1597BFB100027D3C /* SampleViewController.mm */,
 				8A4388A61595DE5800027D3C /* AppDelegate.h */,
 				8A4388A71595DE5800027D3C /* AppDelegate.mm */,
 				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
@@ -177,6 +188,8 @@
 		8A4388E41597B6E500027D3C /* Contour Detection */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */,
+				8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */,
 				8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */,
 				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
 			);
@@ -241,6 +254,8 @@
 				8A4388D81596E11700027D3C /* Icon-72@2x.png in Resources */,
 				8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */,
 				8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */,
+				8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */,
+				8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +274,7 @@
 				8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */,
 				8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */,
 				8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */,
+				8A4388EF1597BFB200027D3C /* SampleViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
