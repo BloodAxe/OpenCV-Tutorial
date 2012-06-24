@@ -79,6 +79,17 @@
   std::string sampleName = sample->getName();
   
   cell.textLabel.text = [NSString stringWithCString:sampleName.c_str() encoding:NSASCIIStringEncoding];
+
+  if (sample->hasIcon())
+  {
+    std::string icon = sample->getSampleIcon();
+    NSString * iconStr = [NSString stringWithCString:icon.c_str() encoding:NSASCIIStringEncoding];
+    cell.imageView.image = [UIImage imageNamed:iconStr];
+  }
+  else
+  {
+    cell.imageView.image = nil;
+  }
   
   return cell;
 }
