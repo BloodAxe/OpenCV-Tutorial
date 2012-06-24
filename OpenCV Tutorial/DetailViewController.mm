@@ -21,7 +21,10 @@
 
 #pragma mark - Managing the detail item
 
-- (IBAction)startSamplePressed:(id)sender {
+- (IBAction)startSamplePressed:(id)sender
+{
+  
+  
 }
 
 - (void)setDetailItem:(SampleBase*) sample
@@ -46,16 +49,16 @@
   {
     std::string name = currentSample->getName();
     std::string desc = currentSample->getDescription();
-    std::string icon = currentSample->getSampleIcon();
 
-    NSString * nameStr = [NSString stringWithCString:desc.c_str() encoding:NSASCIIStringEncoding];
-    NSString * descStr = [NSString stringWithCString:name.c_str() encoding:NSASCIIStringEncoding];
+    NSString * nameStr = [NSString stringWithCString:name.c_str() encoding:NSASCIIStringEncoding];
+    NSString * descStr = [NSString stringWithCString:desc.c_str() encoding:NSASCIIStringEncoding];
 
     self.sampleDescriptionTextView.text = descStr;
     self.title = nameStr;     
     
-    if (!icon.empty())
+    if (currentSample->hasIcon())
     {
+      std::string icon = currentSample->getSampleIcon();
       NSString * iconStr = [NSString stringWithCString:icon.c_str() encoding:NSASCIIStringEncoding];
       self.sampleIconView.image = [UIImage imageNamed:iconStr];
     }
