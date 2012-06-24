@@ -18,7 +18,12 @@ std::string ContourDetectionSample::getName() const
 //! Returns a detailed sample description
 std::string ContourDetectionSample::getDescription() const
 {
-  return "";
+  return "Image contour detection is fundamental to many image analysis applications, including image segmentation, object recognition and classiﬁcation.";
+}
+
+std::string ContourDetectionSample::getSampleIcon() const
+{
+  return "ContourDetectionSampleIcon.png";
 }
 
 //! Returns true if this sample requires setting a reference image for latter use

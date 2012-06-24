@@ -16,6 +16,8 @@ class ContourDetectionSample : public SampleBase
   //! Gets a sample name
   virtual std::string getName() const;
   
+  virtual std::string getSampleIcon() const;
+  
   //! Returns a detailed sample description
   virtual std::string getDescription() const;
   
