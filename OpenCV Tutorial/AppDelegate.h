@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SampleBase.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+@public
+  std::vector<SampleBase*> allSamples;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 @end

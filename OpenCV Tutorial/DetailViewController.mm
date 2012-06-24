@@ -14,23 +14,26 @@
 @end
 
 @implementation DetailViewController
+@synthesize sampleIconView;
+@synthesize sampleDescriptionTextView;
 
-@synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (IBAction)startSamplePressed:(id)sender {
+}
+
+- (void)setDetailItem:(SampleBase*) sample
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
+    if (currentSample != sample)
+    {
+        currentSample = sample;
         [self configureView];
     }
 
-    if (self.masterPopoverController != nil) {
+    if (self.masterPopoverController != nil)
+    {
         [self.masterPopoverController dismissPopoverAnimated:YES];
     }        
 }
@@ -39,8 +42,27 @@
 {
     // Update the user interface for the detail item.
 
-  if (self.detailItem) {
-      self.detailDescriptionLabel.text = [self.detailItem description];
+  if (currentSample)
+  {
+    std::string name = currentSample->getName();
+    std::string desc = currentSample->getDescription();
+    std::string icon = currentSample->getSampleIcon();
+
+    NSString * nameStr = [NSString stringWithCString:desc.c_str() encoding:NSASCIIStringEncoding];
+    NSString * descStr = [NSString stringWithCString:name.c_str() encoding:NSASCIIStringEncoding];
+
+    self.sampleDescriptionTextView.text = descStr;
+    self.title = nameStr;     
+    
+    if (!icon.empty())
+    {
+      NSString * iconStr = [NSString stringWithCString:icon.c_str() encoding:NSASCIIStringEncoding];
+      self.sampleIconView.image = [UIImage imageNamed:iconStr];
+    }
+    else
+    {
+      self.sampleIconView.image = nil;
+    }
   }
 }
 
@@ -53,9 +75,9 @@
 
 - (void)viewDidUnload
 {
+  [self setSampleIconView:nil];
+  [self setSampleDescriptionTextView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-  self.detailDescriptionLabel = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

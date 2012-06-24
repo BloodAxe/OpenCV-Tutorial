@@ -9,6 +9,11 @@
 #include "SampleBase.h"
 #include <iostream>
 
+std::string SampleBase::getSampleIcon() const
+{
+  return "";
+}
+
 const std::vector<SampleOption>& SampleBase::getOptions()
 {
   return m_options;

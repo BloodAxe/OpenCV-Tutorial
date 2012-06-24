@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SampleBase.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+{
+  SampleBase* currentSample;
+}
+- (IBAction)startSamplePressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *sampleIconView;
+@property (weak, nonatomic) IBOutlet UITextView *sampleDescriptionTextView;
 
-@property (strong, nonatomic) id detailItem;
-
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+- (void) setDetailItem:(SampleBase*) sample;
 
 @end

@@ -10,17 +10,21 @@
 		8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4388681595BC4F00027D3C /* UIKit.framework */; };
 		8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886A1595BC4F00027D3C /* Foundation.framework */; };
 		8A43889C1595DE5800027D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886C1595BC4F00027D3C /* CoreGraphics.framework */; };
-		8A4388A21595DE5800027D3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388A01595DE5800027D3C /* InfoPlist.strings */; };
-		8A4388A41595DE5800027D3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388A31595DE5800027D3C /* main.m */; };
-		8A4388A81595DE5800027D3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388A71595DE5800027D3C /* AppDelegate.m */; };
+		8A4388A81595DE5800027D3C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388A71595DE5800027D3C /* AppDelegate.mm */; };
 		8A4388AB1595DE5800027D3C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */; };
 		8A4388AE1595DE5800027D3C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */; };
-		8A4388B11595DE5800027D3C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388B01595DE5800027D3C /* MasterViewController.m */; };
-		8A4388B41595DE5800027D3C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388B31595DE5800027D3C /* DetailViewController.m */; };
+		8A4388B11595DE5800027D3C /* MasterViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388B01595DE5800027D3C /* MasterViewController.mm */; };
+		8A4388B41595DE5800027D3C /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388B31595DE5800027D3C /* DetailViewController.mm */; };
 		8A4388D21596E0ED00027D3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D11596E0ED00027D3C /* Icon.png */; };
 		8A4388D41596E10600027D3C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D31596E10600027D3C /* Icon@2x.png */; };
 		8A4388D61596E11200027D3C /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D51596E11200027D3C /* Icon-72.png */; };
 		8A4388D81596E11700027D3C /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D71596E11700027D3C /* Icon-72@2x.png */; };
+		8A4388DA1597171900027D3C /* EdgeDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */; };
+		8A4388DC1597189A00027D3C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388741595BC4F00027D3C /* main.mm */; };
+		8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A43888B1595C1F000027D3C /* SampleBase.cpp */; };
+		8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */; };
+		8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */; };
+		8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,33 +35,27 @@
 		8A4388721595BC4F00027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A4388741595BC4F00027D3C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		8A4388761595BC4F00027D3C /* OpenCV Tutorial-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCV Tutorial-Prefix.pch"; sourceTree = "<group>"; };
-		8A4388771595BC4F00027D3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8A4388781595BC4F00027D3C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		8A43887B1595BC4F00027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		8A43887E1595BC4F00027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		8A4388801595BC4F00027D3C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8A4388811595BC4F00027D3C /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		8A4388891595BCC400027D3C /* SampleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleBase.h; sourceTree = "<group>"; };
 		8A43888B1595C1F000027D3C /* SampleBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleBase.cpp; sourceTree = "<group>"; };
 		8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourDetectionSample.cpp; sourceTree = "<group>"; };
 		8A4388931595CB0300027D3C /* ContourDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContourDetectionSample.h; sourceTree = "<group>"; };
 		8A4388981595DE5800027D3C /* OpenCV Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenCV Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A43889F1595DE5800027D3C /* OpenCV Tutorial-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenCV Tutorial-Info.plist"; sourceTree = "<group>"; };
-		8A4388A11595DE5800027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8A4388A31595DE5800027D3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A4388A51595DE5800027D3C /* OpenCV Tutorial-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCV Tutorial-Prefix.pch"; sourceTree = "<group>"; };
 		8A4388A61595DE5800027D3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8A4388A71595DE5800027D3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8A4388A71595DE5800027D3C /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		8A4388AA1595DE5800027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		8A4388AD1595DE5800027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		8A4388AF1595DE5800027D3C /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		8A4388B01595DE5800027D3C /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		8A4388B01595DE5800027D3C /* MasterViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MasterViewController.mm; sourceTree = "<group>"; };
 		8A4388B21595DE5800027D3C /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		8A4388B31595DE5800027D3C /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8A4388B31595DE5800027D3C /* DetailViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DetailViewController.mm; sourceTree = "<group>"; };
 		8A4388D11596E0ED00027D3C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		8A4388D31596E10600027D3C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		8A4388D51596E11200027D3C /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		8A4388D71596E11700027D3C /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeDetectionSample.cpp; sourceTree = "<group>"; };
+		8A4388DB1597172300027D3C /* EdgeDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeDetectionSample.h; sourceTree = "<group>"; };
+		8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EdgeDetectionSampleIcon.png; sourceTree = "<group>"; };
+		8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EdgeDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
-				8A43889D1595DE5800027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
 			);
@@ -105,14 +102,16 @@
 		8A43886E1595BC4F00027D3C /* OpenCV Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388A61595DE5800027D3C /* AppDelegate.h */,
+				8A4388A71595DE5800027D3C /* AppDelegate.mm */,
+				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
+				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
+				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
+				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
+				8A4388B21595DE5800027D3C /* DetailViewController.h */,
+				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
 				8A43888A1595C1DF00027D3C /* Samples */,
 				8A4388881595BCB000027D3C /* VideoSource */,
-				8A4388771595BC4F00027D3C /* AppDelegate.h */,
-				8A4388781595BC4F00027D3C /* AppDelegate.mm */,
-				8A43887A1595BC4F00027D3C /* MainStoryboard_iPhone.storyboard */,
-				8A43887D1595BC4F00027D3C /* MainStoryboard_iPad.storyboard */,
-				8A4388801595BC4F00027D3C /* ViewController.h */,
-				8A4388811595BC4F00027D3C /* ViewController.mm */,
 				8A43886F1595BC4F00027D3C /* Supporting Files */,
 			);
 			path = "OpenCV Tutorial";
@@ -140,39 +139,13 @@
 		8A43888A1595C1DF00027D3C /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388DF15971FE000027D3C /* EdgeDetection */,
 				8A4388891595BCC400027D3C /* SampleBase.h */,
 				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
 				8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */,
 				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
 			);
 			name = Samples;
-			sourceTree = "<group>";
-		};
-		8A43889D1595DE5800027D3C /* OpenCV Tutorial */ = {
-			isa = PBXGroup;
-			children = (
-				8A4388A61595DE5800027D3C /* AppDelegate.h */,
-				8A4388A71595DE5800027D3C /* AppDelegate.m */,
-				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
-				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
-				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
-				8A4388B01595DE5800027D3C /* MasterViewController.m */,
-				8A4388B21595DE5800027D3C /* DetailViewController.h */,
-				8A4388B31595DE5800027D3C /* DetailViewController.m */,
-				8A43889E1595DE5800027D3C /* Supporting Files */,
-			);
-			path = "OpenCV Tutorial";
-			sourceTree = "<group>";
-		};
-		8A43889E1595DE5800027D3C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8A43889F1595DE5800027D3C /* OpenCV Tutorial-Info.plist */,
-				8A4388A01595DE5800027D3C /* InfoPlist.strings */,
-				8A4388A31595DE5800027D3C /* main.m */,
-				8A4388A51595DE5800027D3C /* OpenCV Tutorial-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8A4388D01596E0B300027D3C /* Icons */ = {
@@ -184,6 +157,17 @@
 				8A4388D11596E0ED00027D3C /* Icon.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		8A4388DF15971FE000027D3C /* EdgeDetection */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */,
+				8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */,
+				8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */,
+				8A4388DB1597172300027D3C /* EdgeDetectionSample.h */,
+			);
+			name = EdgeDetection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,13 +220,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A4388A21595DE5800027D3C /* InfoPlist.strings in Resources */,
 				8A4388AB1595DE5800027D3C /* MainStoryboard_iPhone.storyboard in Resources */,
 				8A4388AE1595DE5800027D3C /* MainStoryboard_iPad.storyboard in Resources */,
 				8A4388D21596E0ED00027D3C /* Icon.png in Resources */,
 				8A4388D41596E10600027D3C /* Icon@2x.png in Resources */,
 				8A4388D61596E11200027D3C /* Icon-72.png in Resources */,
 				8A4388D81596E11700027D3C /* Icon-72@2x.png in Resources */,
+				8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */,
+				8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A4388A41595DE5800027D3C /* main.m in Sources */,
-				8A4388A81595DE5800027D3C /* AppDelegate.m in Sources */,
-				8A4388B11595DE5800027D3C /* MasterViewController.m in Sources */,
-				8A4388B41595DE5800027D3C /* DetailViewController.m in Sources */,
+				8A4388A81595DE5800027D3C /* AppDelegate.mm in Sources */,
+				8A4388B11595DE5800027D3C /* MasterViewController.mm in Sources */,
+				8A4388B41595DE5800027D3C /* DetailViewController.mm in Sources */,
+				8A4388DA1597171900027D3C /* EdgeDetectionSample.cpp in Sources */,
+				8A4388DC1597189A00027D3C /* main.mm in Sources */,
+				8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */,
+				8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,30 +255,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8A4388721595BC4F00027D3C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8A43887A1595BC4F00027D3C /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A43887B1595BC4F00027D3C /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		8A43887D1595BC4F00027D3C /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A43887E1595BC4F00027D3C /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		8A4388A01595DE5800027D3C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A4388A11595DE5800027D3C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -368,7 +332,7 @@
 		8A4388B61595DE5800027D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
@@ -381,7 +345,7 @@
 		8A4388B71595DE5800027D3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
