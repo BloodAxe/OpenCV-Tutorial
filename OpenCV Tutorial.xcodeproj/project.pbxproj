@@ -25,6 +25,7 @@
 		8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */; };
 		8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */; };
 		8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */; };
+		8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		8A4388DB1597172300027D3C /* EdgeDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeDetectionSample.h; sourceTree = "<group>"; };
 		8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EdgeDetectionSampleIcon.png; sourceTree = "<group>"; };
 		8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EdgeDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
+		8A4388E61597B75400027D3C /* UIImage2OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage2OpenCV.h; sourceTree = "<group>"; };
+		8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImage2OpenCV.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				8A4388711595BC4F00027D3C /* InfoPlist.strings */,
 				8A4388741595BC4F00027D3C /* main.mm */,
 				8A4388761595BC4F00027D3C /* OpenCV Tutorial-Prefix.pch */,
+				8A4388E61597B75400027D3C /* UIImage2OpenCV.h */,
+				8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -139,11 +144,10 @@
 		8A43888A1595C1DF00027D3C /* Samples */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388DF15971FE000027D3C /* EdgeDetection */,
+				8A4388E41597B6E500027D3C /* Contour Detection */,
+				8A4388DF15971FE000027D3C /* Edge Detection */,
 				8A4388891595BCC400027D3C /* SampleBase.h */,
 				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
-				8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */,
-				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -159,7 +163,7 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
-		8A4388DF15971FE000027D3C /* EdgeDetection */ = {
+		8A4388DF15971FE000027D3C /* Edge Detection */ = {
 			isa = PBXGroup;
 			children = (
 				8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */,
@@ -167,7 +171,16 @@
 				8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */,
 				8A4388DB1597172300027D3C /* EdgeDetectionSample.h */,
 			);
-			name = EdgeDetection;
+			name = "Edge Detection";
+			sourceTree = "<group>";
+		};
+		8A4388E41597B6E500027D3C /* Contour Detection */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */,
+				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
+			);
+			name = "Contour Detection";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +258,7 @@
 				8A4388DC1597189A00027D3C /* main.mm in Sources */,
 				8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */,
 				8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */,
+				8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +314,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lzlib",
+					"-lopencv_contrib",
+					"-lopencv_legacy",
+					"-lopencv_features2d",
+					"-lopencv_imgproc",
+					"-lopencv_video",
+					"-lopencv_core",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
@@ -322,6 +346,16 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lzlib",
+					"-lopencv_contrib",
+					"-lopencv_legacy",
+					"-lopencv_features2d",
+					"-lopencv_imgproc",
+					"-lopencv_video",
+					"-lopencv_core",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
@@ -336,7 +370,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/debug\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -349,7 +385,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/release\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
