@@ -41,6 +41,10 @@ void EdgeDetectionSample::setReferenceFrame(const cv::Mat& reference)
 //! Processes a frame and returns output image 
 bool EdgeDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame)
 {
+  cv::Mat gray;
+  getGray(inputFrame, gray);
+  
+  cv::Canny(gray, outputFrame, 10, 20);
   return true;
   //cv::findC
 }
