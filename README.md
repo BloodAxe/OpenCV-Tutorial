@@ -19,6 +19,7 @@ When all is done
 Step by step tutorials
 ==========================
 * http://computer-vision-talks.com/2012/06/opencv-tutorial-a-collection-of-opencv-samples-for-iphoneipad-part-1/
+* http://computer-vision-talks.com/2012/07/opencv-tutorial-part-2/
 
 Copyright
 ==========================
