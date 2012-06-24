@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A4388691595BC4F00027D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4388681595BC4F00027D3C /* UIKit.framework */; };
-		8A43886B1595BC4F00027D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886A1595BC4F00027D3C /* Foundation.framework */; };
-		8A43886D1595BC4F00027D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886C1595BC4F00027D3C /* CoreGraphics.framework */; };
-		8A4388731595BC4F00027D3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388711595BC4F00027D3C /* InfoPlist.strings */; };
-		8A4388751595BC4F00027D3C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388741595BC4F00027D3C /* main.mm */; };
-		8A4388791595BC4F00027D3C /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388781595BC4F00027D3C /* AppDelegate.mm */; };
-		8A43887C1595BC4F00027D3C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A43887A1595BC4F00027D3C /* MainStoryboard_iPhone.storyboard */; };
-		8A43887F1595BC4F00027D3C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A43887D1595BC4F00027D3C /* MainStoryboard_iPad.storyboard */; };
-		8A4388821595BC4F00027D3C /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388811595BC4F00027D3C /* ViewController.mm */; };
-		8A43888C1595C1F000027D3C /* SampleBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A43888B1595C1F000027D3C /* SampleBase.cpp */; };
+		8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4388681595BC4F00027D3C /* UIKit.framework */; };
+		8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886A1595BC4F00027D3C /* Foundation.framework */; };
+		8A43889C1595DE5800027D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886C1595BC4F00027D3C /* CoreGraphics.framework */; };
+		8A4388A21595DE5800027D3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388A01595DE5800027D3C /* InfoPlist.strings */; };
+		8A4388A41595DE5800027D3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388A31595DE5800027D3C /* main.m */; };
+		8A4388A81595DE5800027D3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388A71595DE5800027D3C /* AppDelegate.m */; };
+		8A4388AB1595DE5800027D3C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */; };
+		8A4388AE1595DE5800027D3C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */; };
+		8A4388B11595DE5800027D3C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388B01595DE5800027D3C /* MasterViewController.m */; };
+		8A4388B41595DE5800027D3C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388B31595DE5800027D3C /* DetailViewController.m */; };
+		8A4388D21596E0ED00027D3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D11596E0ED00027D3C /* Icon.png */; };
+		8A4388D41596E10600027D3C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D31596E10600027D3C /* Icon@2x.png */; };
+		8A4388D61596E11200027D3C /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D51596E11200027D3C /* Icon-72.png */; };
+		8A4388D81596E11700027D3C /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388D71596E11700027D3C /* Icon-72@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A4388641595BC4F00027D3C /* OpenCV Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenCV Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4388681595BC4F00027D3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8A43886A1595BC4F00027D3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A43886C1595BC4F00027D3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -36,16 +39,35 @@
 		8A4388811595BC4F00027D3C /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		8A4388891595BCC400027D3C /* SampleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleBase.h; sourceTree = "<group>"; };
 		8A43888B1595C1F000027D3C /* SampleBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleBase.cpp; sourceTree = "<group>"; };
+		8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourDetectionSample.cpp; sourceTree = "<group>"; };
+		8A4388931595CB0300027D3C /* ContourDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContourDetectionSample.h; sourceTree = "<group>"; };
+		8A4388981595DE5800027D3C /* OpenCV Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenCV Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A43889F1595DE5800027D3C /* OpenCV Tutorial-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenCV Tutorial-Info.plist"; sourceTree = "<group>"; };
+		8A4388A11595DE5800027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8A4388A31595DE5800027D3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8A4388A51595DE5800027D3C /* OpenCV Tutorial-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCV Tutorial-Prefix.pch"; sourceTree = "<group>"; };
+		8A4388A61595DE5800027D3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8A4388A71595DE5800027D3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8A4388AA1595DE5800027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		8A4388AD1595DE5800027D3C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		8A4388AF1595DE5800027D3C /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		8A4388B01595DE5800027D3C /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		8A4388B21595DE5800027D3C /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		8A4388B31595DE5800027D3C /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8A4388D11596E0ED00027D3C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		8A4388D31596E10600027D3C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		8A4388D51596E11200027D3C /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
+		8A4388D71596E11700027D3C /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8A4388611595BC4F00027D3C /* Frameworks */ = {
+		8A4388951595DE5800027D3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A4388691595BC4F00027D3C /* UIKit.framework in Frameworks */,
-				8A43886B1595BC4F00027D3C /* Foundation.framework in Frameworks */,
-				8A43886D1595BC4F00027D3C /* CoreGraphics.framework in Frameworks */,
+				8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */,
+				8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */,
+				8A43889C1595DE5800027D3C /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
+				8A43889D1595DE5800027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
 			);
@@ -64,7 +87,7 @@
 		8A4388651595BC4F00027D3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388641595BC4F00027D3C /* OpenCV Tutorial.app */,
+				8A4388981595DE5800027D3C /* OpenCV Tutorial.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,6 +121,7 @@
 		8A43886F1595BC4F00027D3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388D01596E0B300027D3C /* Icons */,
 				8A4388701595BC4F00027D3C /* OpenCV Tutorial-Info.plist */,
 				8A4388711595BC4F00027D3C /* InfoPlist.strings */,
 				8A4388741595BC4F00027D3C /* main.mm */,
@@ -118,20 +142,60 @@
 			children = (
 				8A4388891595BCC400027D3C /* SampleBase.h */,
 				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
+				8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */,
+				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
 			);
 			name = Samples;
+			sourceTree = "<group>";
+		};
+		8A43889D1595DE5800027D3C /* OpenCV Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388A61595DE5800027D3C /* AppDelegate.h */,
+				8A4388A71595DE5800027D3C /* AppDelegate.m */,
+				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
+				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
+				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
+				8A4388B01595DE5800027D3C /* MasterViewController.m */,
+				8A4388B21595DE5800027D3C /* DetailViewController.h */,
+				8A4388B31595DE5800027D3C /* DetailViewController.m */,
+				8A43889E1595DE5800027D3C /* Supporting Files */,
+			);
+			path = "OpenCV Tutorial";
+			sourceTree = "<group>";
+		};
+		8A43889E1595DE5800027D3C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A43889F1595DE5800027D3C /* OpenCV Tutorial-Info.plist */,
+				8A4388A01595DE5800027D3C /* InfoPlist.strings */,
+				8A4388A31595DE5800027D3C /* main.m */,
+				8A4388A51595DE5800027D3C /* OpenCV Tutorial-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A4388D01596E0B300027D3C /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388D71596E11700027D3C /* Icon-72@2x.png */,
+				8A4388D51596E11200027D3C /* Icon-72.png */,
+				8A4388D31596E10600027D3C /* Icon@2x.png */,
+				8A4388D11596E0ED00027D3C /* Icon.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A4388631595BC4F00027D3C /* OpenCV Tutorial */ = {
+		8A4388971595DE5800027D3C /* OpenCV Tutorial */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A4388851595BC4F00027D3C /* Build configuration list for PBXNativeTarget "OpenCV Tutorial" */;
+			buildConfigurationList = 8A4388B51595DE5800027D3C /* Build configuration list for PBXNativeTarget "OpenCV Tutorial" */;
 			buildPhases = (
-				8A4388601595BC4F00027D3C /* Sources */,
-				8A4388611595BC4F00027D3C /* Frameworks */,
-				8A4388621595BC4F00027D3C /* Resources */,
+				8A4388941595DE5800027D3C /* Sources */,
+				8A4388951595DE5800027D3C /* Frameworks */,
+				8A4388961595DE5800027D3C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -139,7 +203,7 @@
 			);
 			name = "OpenCV Tutorial";
 			productName = "OpenCV Tutorial";
-			productReference = 8A4388641595BC4F00027D3C /* OpenCV Tutorial.app */;
+			productReference = 8A4388981595DE5800027D3C /* OpenCV Tutorial.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,33 +226,37 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A4388631595BC4F00027D3C /* OpenCV Tutorial */,
+				8A4388971595DE5800027D3C /* OpenCV Tutorial */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8A4388621595BC4F00027D3C /* Resources */ = {
+		8A4388961595DE5800027D3C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A4388731595BC4F00027D3C /* InfoPlist.strings in Resources */,
-				8A43887C1595BC4F00027D3C /* MainStoryboard_iPhone.storyboard in Resources */,
-				8A43887F1595BC4F00027D3C /* MainStoryboard_iPad.storyboard in Resources */,
+				8A4388A21595DE5800027D3C /* InfoPlist.strings in Resources */,
+				8A4388AB1595DE5800027D3C /* MainStoryboard_iPhone.storyboard in Resources */,
+				8A4388AE1595DE5800027D3C /* MainStoryboard_iPad.storyboard in Resources */,
+				8A4388D21596E0ED00027D3C /* Icon.png in Resources */,
+				8A4388D41596E10600027D3C /* Icon@2x.png in Resources */,
+				8A4388D61596E11200027D3C /* Icon-72.png in Resources */,
+				8A4388D81596E11700027D3C /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8A4388601595BC4F00027D3C /* Sources */ = {
+		8A4388941595DE5800027D3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A4388751595BC4F00027D3C /* main.mm in Sources */,
-				8A4388791595BC4F00027D3C /* AppDelegate.mm in Sources */,
-				8A4388821595BC4F00027D3C /* ViewController.mm in Sources */,
-				8A43888C1595C1F000027D3C /* SampleBase.cpp in Sources */,
+				8A4388A41595DE5800027D3C /* main.m in Sources */,
+				8A4388A81595DE5800027D3C /* AppDelegate.m in Sources */,
+				8A4388B11595DE5800027D3C /* MasterViewController.m in Sources */,
+				8A4388B41595DE5800027D3C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +283,30 @@
 			isa = PBXVariantGroup;
 			children = (
 				8A43887E1595BC4F00027D3C /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		8A4388A01595DE5800027D3C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A4388A11595DE5800027D3C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A4388AA1595DE5800027D3C /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A4388AD1595DE5800027D3C /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
@@ -273,9 +365,11 @@
 			};
 			name = Release;
 		};
-		8A4388861595BC4F00027D3C /* Debug */ = {
+		8A4388B61595DE5800027D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
@@ -284,9 +378,11 @@
 			};
 			name = Debug;
 		};
-		8A4388871595BC4F00027D3C /* Release */ = {
+		8A4388B71595DE5800027D3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
@@ -307,11 +403,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A4388851595BC4F00027D3C /* Build configuration list for PBXNativeTarget "OpenCV Tutorial" */ = {
+		8A4388B51595DE5800027D3C /* Build configuration list for PBXNativeTarget "OpenCV Tutorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8A4388861595BC4F00027D3C /* Debug */,
-				8A4388871595BC4F00027D3C /* Release */,
+				8A4388B61595DE5800027D3C /* Debug */,
+				8A4388B71595DE5800027D3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

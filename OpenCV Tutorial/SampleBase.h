@@ -41,7 +41,6 @@ public:
   
   const std::vector<SampleOption>& getOptions();
   
-  
 protected:
   void registerOption(std::string name, bool  * value);
   void registerOption(std::string name, int   *  value, int min, int max);
