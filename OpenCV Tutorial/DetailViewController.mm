@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "SampleViewController.h"
+#import "VideoViewController.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -106,6 +108,18 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+#pragma mark - Run Sample
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([[segue identifier] isEqualToString:@"processVideo"])
+  {
+    VideoViewController * sampleController = [segue destinationViewController];
+    [sampleController setSample:currentSample];
+  }
 }
 
 @end

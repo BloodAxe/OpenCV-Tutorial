@@ -20,16 +20,12 @@ class ContourDetectionSample : public SampleBase
   
   //! Returns a detailed sample description
   virtual std::string getDescription() const;
-  
-  //! Returns true if this sample requires setting a reference image for latter use
-  virtual bool isReferenceFrameRequired() const;
-  
-  //! Sets the reference frame for latter processing
-  virtual void setReferenceFrame(const cv::Mat& reference);
-  
+    
   //! Processes a frame and returns output image 
   virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame);
 
+private:
+  cv::Mat gray, edges;
 };
 
 #endif

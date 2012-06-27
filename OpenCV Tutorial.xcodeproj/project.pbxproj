@@ -28,7 +28,18 @@
 		8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */; };
 		8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */; };
 		8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */; };
-		8A4388EF1597BFB200027D3C /* SampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388EE1597BFB100027D3C /* SampleViewController.mm */; };
+		8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FC01599AC42008C72DB /* VideoSource.mm */; };
+		8A723FC81599B6EE008C72DB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FC71599B6EE008C72DB /* AVFoundation.framework */; };
+		8A723FCB1599B6F2008C72DB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FC91599B6F2008C72DB /* GLKit.framework */; };
+		8A723FCC1599B6F2008C72DB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FCA1599B6F2008C72DB /* OpenGLES.framework */; };
+		8A723FCF1599B6FC008C72DB /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FCD1599B6FC008C72DB /* CoreImage.framework */; };
+		8A723FD01599B6FC008C72DB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FCE1599B6FC008C72DB /* CoreMedia.framework */; };
+		8A723FD21599B700008C72DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FD11599B700008C72DB /* QuartzCore.framework */; };
+		8A723FD41599B70B008C72DB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FD31599B70B008C72DB /* CoreVideo.framework */; };
+		8A723FD71599B738008C72DB /* SampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FD61599B738008C72DB /* SampleViewController.mm */; };
+		8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDA1599BB74008C72DB /* VideoViewController.mm */; };
+		8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDD1599BB95008C72DB /* GLESImageView.mm */; };
+		8A723FE01599ECF3008C72DB /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A723FDF1599ECF3008C72DB /* refresh.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,9 +75,23 @@
 		8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImage2OpenCV.mm; sourceTree = "<group>"; };
 		8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContourDetectionSampleIcon.png; sourceTree = "<group>"; };
 		8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ContourDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
-		8A4388ED1597BFB100027D3C /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleViewController.h; path = ../SampleViewController.h; sourceTree = "<group>"; };
-		8A4388EE1597BFB100027D3C /* SampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SampleViewController.mm; path = ../SampleViewController.mm; sourceTree = "<group>"; };
 		8A4388F01597C49B00027D3C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		8A723FBF1599AC42008C72DB /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
+		8A723FC01599AC42008C72DB /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
+		8A723FC71599B6EE008C72DB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8A723FC91599B6F2008C72DB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		8A723FCA1599B6F2008C72DB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8A723FCD1599B6FC008C72DB /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		8A723FCE1599B6FC008C72DB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8A723FD11599B700008C72DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8A723FD31599B70B008C72DB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		8A723FD51599B738008C72DB /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
+		8A723FD61599B738008C72DB /* SampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleViewController.mm; sourceTree = "<group>"; };
+		8A723FD91599BB74008C72DB /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		8A723FDA1599BB74008C72DB /* VideoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoViewController.mm; sourceTree = "<group>"; };
+		8A723FDC1599BB95008C72DB /* GLESImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESImageView.h; sourceTree = "<group>"; };
+		8A723FDD1599BB95008C72DB /* GLESImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESImageView.mm; sourceTree = "<group>"; };
+		8A723FDF1599ECF3008C72DB /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +99,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A723FD41599B70B008C72DB /* CoreVideo.framework in Frameworks */,
+				8A723FD21599B700008C72DB /* QuartzCore.framework in Frameworks */,
+				8A723FCF1599B6FC008C72DB /* CoreImage.framework in Frameworks */,
+				8A723FD01599B6FC008C72DB /* CoreMedia.framework in Frameworks */,
+				8A43889C1595DE5800027D3C /* CoreGraphics.framework in Frameworks */,
+				8A723FCB1599B6F2008C72DB /* GLKit.framework in Frameworks */,
+				8A723FCC1599B6F2008C72DB /* OpenGLES.framework in Frameworks */,
+				8A723FC81599B6EE008C72DB /* AVFoundation.framework in Frameworks */,
 				8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */,
 				8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */,
-				8A43889C1595DE5800027D3C /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +118,13 @@
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
+				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
+				8A723FD11599B700008C72DB /* QuartzCore.framework */,
+				8A723FCD1599B6FC008C72DB /* CoreImage.framework */,
+				8A723FCE1599B6FC008C72DB /* CoreMedia.framework */,
+				8A723FC91599B6F2008C72DB /* GLKit.framework */,
+				8A723FCA1599B6F2008C72DB /* OpenGLES.framework */,
+				8A723FC71599B6EE008C72DB /* AVFoundation.framework */,
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
@@ -114,16 +153,18 @@
 		8A43886E1595BC4F00027D3C /* OpenCV Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388ED1597BFB100027D3C /* SampleViewController.h */,
-				8A4388EE1597BFB100027D3C /* SampleViewController.mm */,
-				8A4388A61595DE5800027D3C /* AppDelegate.h */,
-				8A4388A71595DE5800027D3C /* AppDelegate.mm */,
-				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
-				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
+				8A723FDF1599ECF3008C72DB /* refresh.png */,
 				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
 				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
 				8A4388B21595DE5800027D3C /* DetailViewController.h */,
 				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
+				8A723FD51599B738008C72DB /* SampleViewController.h */,
+				8A723FD61599B738008C72DB /* SampleViewController.mm */,
+				8A723FD91599BB74008C72DB /* VideoViewController.h */,
+				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
+				8A723FDC1599BB95008C72DB /* GLESImageView.h */,
+				8A723FDD1599BB95008C72DB /* GLESImageView.mm */,
+				8A723FD81599B751008C72DB /* Storyboards */,
 				8A43888A1595C1DF00027D3C /* Samples */,
 				8A4388881595BCB000027D3C /* VideoSource */,
 				8A43886F1595BC4F00027D3C /* Supporting Files */,
@@ -134,6 +175,8 @@
 		8A43886F1595BC4F00027D3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388A61595DE5800027D3C /* AppDelegate.h */,
+				8A4388A71595DE5800027D3C /* AppDelegate.mm */,
 				8A4388D01596E0B300027D3C /* Icons */,
 				8A4388701595BC4F00027D3C /* OpenCV Tutorial-Info.plist */,
 				8A4388711595BC4F00027D3C /* InfoPlist.strings */,
@@ -148,6 +191,8 @@
 		8A4388881595BCB000027D3C /* VideoSource */ = {
 			isa = PBXGroup;
 			children = (
+				8A723FBF1599AC42008C72DB /* VideoSource.h */,
+				8A723FC01599AC42008C72DB /* VideoSource.mm */,
 			);
 			name = VideoSource;
 			sourceTree = "<group>";
@@ -194,6 +239,15 @@
 				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
 			);
 			name = "Contour Detection";
+			sourceTree = "<group>";
+		};
+		8A723FD81599B751008C72DB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
+				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +310,7 @@
 				8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */,
 				8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */,
 				8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */,
+				8A723FE01599ECF3008C72DB /* refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +329,10 @@
 				8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */,
 				8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */,
 				8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */,
-				8A4388EF1597BFB200027D3C /* SampleViewController.mm in Sources */,
+				8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */,
+				8A723FD71599B738008C72DB /* SampleViewController.mm in Sources */,
+				8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */,
+				8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +486,7 @@
 				8A4388B71595DE5800027D3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
