@@ -18,6 +18,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *sampleDescriptionTextView;
 
 - (void) setDetailItem:(SampleBase*) sample;
-- (void) configureView;
 
 @end

@@ -34,10 +34,10 @@ public:
   virtual std::string getSampleIcon() const;
   
   //! Returns true if this sample requires setting a reference image for latter use
-  virtual bool isReferenceFrameRequired() const;
+  virtual bool isReferenceFrameRequired() const = 0;
   
   //! Sets the reference frame for latter processing
-  virtual void setReferenceFrame(const cv::Mat& reference);
+  virtual void setReferenceFrame(const cv::Mat& reference) = 0;
   
   //! Processes a frame and returns output image 
   virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame) = 0;

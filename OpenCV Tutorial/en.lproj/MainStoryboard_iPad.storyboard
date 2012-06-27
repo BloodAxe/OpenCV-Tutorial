@@ -43,7 +43,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startSamplePressed:" destination="4" eventType="touchUpInside" id="a1a-P7-nZl"/>
-                                    <segue destination="K8a-OQ-WeD" kind="push" identifier="processVideo" id="Ud3-re-obG"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="tPU-Jj-DGE">
@@ -72,43 +71,6 @@
             </objects>
             <point key="canvasLocation" x="448" y="248"/>
         </scene>
-        <!--Video View Controller-->
-        <scene sceneID="U9Y-ka-Ay8">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="peJ-8j-LDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="K8a-OQ-WeD" customClass="VideoViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vaP-WG-vWu" customClass="GLESImageView">
-                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hEw-tq-fmx">
-                                <rect key="frame" x="43" y="24" width="29" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" image="refresh.png">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleCameraPressed:" destination="K8a-OQ-WeD" eventType="touchUpInside" id="PGc-Ge-ZLl"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="6P7-oN-iGf"/>
-                    <connections>
-                        <outlet property="imageView" destination="vaP-WG-vWu" id="rlK-Uo-5wA"/>
-                        <outlet property="toggleCameraButton" destination="hEw-tq-fmx" id="f10-bQ-yT3"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1511" y="102"/>
-        </scene>
         <!--Split View Controller-->
         <scene sceneID="18">
             <objects>
@@ -125,11 +87,11 @@
             </objects>
             <point key="canvasLocation" x="-687" y="-630"/>
         </scene>
-        <!--Master View Controller - All samples-->
+        <!--Master View Controller - Master-->
         <scene sceneID="24">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="" title="All samples" clearsSelectionOnViewWillAppear="NO" id="19" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="" title="Master" clearsSelectionOnViewWillAppear="NO" id="19" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="20">
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,7 +124,7 @@
                             <outlet property="delegate" destination="19" id="21"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All samples" id="40"/>
+                    <navigationItem key="navigationItem" title="Master" id="40"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="859" y="-631"/>
@@ -180,12 +142,9 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-484" y="366"/>
+            <point key="canvasLocation" x="-366" y="248"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="refresh.png" width="32" height="32"/>
-    </resources>
     <classes>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
@@ -195,19 +154,8 @@
                 <relationship kind="outlet" name="sampleIconView" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="GLESImageView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GLESImageView.h"/>
-        </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="VideoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="toggleCameraPressed:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="GLESImageView"/>
-                <relationship kind="outlet" name="toggleCameraButton" candidateClass="UIButton"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -37,18 +37,6 @@
   //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];  
   //self.navigationItem.rightBarButtonItem = addButton;
   self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-  
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-  {
-    AppDelegate * appDel = [UIApplication sharedApplication].delegate;
-
-    SampleBase * sample = appDel->allSamples[0];
-    
-    DetailViewController * detailController = self.detailViewController;
-    
-    [detailController setDetailItem:sample];
-    [detailController configureView];
-  }
 }
 
 - (void)viewDidUnload
@@ -65,6 +53,7 @@
     return YES;
   }
 }
+
 
 
 #pragma mark - Table View
@@ -118,10 +107,7 @@
     AppDelegate * appDel = [UIApplication sharedApplication].delegate;
     SampleBase * sample = appDel->allSamples[indexPath.row];
 
-    DetailViewController * detailController = self.detailViewController;
-    
-    [detailController setDetailItem:sample];
-    [detailController configureView];
+    [self.detailViewController setDetailItem:sample];
   }
 }
 

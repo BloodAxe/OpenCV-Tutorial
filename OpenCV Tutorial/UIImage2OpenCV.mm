@@ -48,66 +48,34 @@
   return view;
 }
 
-+(UIImage*) imageWithMat:(const cv::Mat&) image
++(UIImage*) fromMat:(const cv::Mat&) bitmap
 {
+  const int bitmapWidth  = bitmap.cols;
+  const int bitmapHeight = bitmap.rows;
   
-  NSData *data = [NSData dataWithBytes:image.data length:image.elemSize()*image.total()];
-  
-  CGColorSpaceRef colorSpace;
-  
-  if (image.elemSize() == 1)
-  {
-    colorSpace = CGColorSpaceCreateDeviceGray();
-  }
-  else
-  {
-    colorSpace = CGColorSpaceCreateDeviceRGB();
-  }
-  
-  bool hasAlpha = image.channels() == 4;
-  
-  CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
-  
-  CGBitmapInfo bmInfo = (hasAlpha ? kCGImageAlphaLast : kCGImageAlphaNone) | kCGBitmapByteOrderDefault;
-  
-  // Creating CGImage from cv::Mat
-  CGImageRef imageRef = CGImageCreate(image.cols,                                 //width
-                                      image.rows,                                 //height
-                                      8,                                          //bits per component
-                                      8 * image.elemSize(),                       //bits per pixel
-                                      image.step.p[0],                            //bytesPerRow
-                                      colorSpace,                                 //colorspace
-                                      bmInfo,// bitmap info
-                                      provider,                                   //CGDataProviderRef
-                                      NULL,                                       //decode
-                                      false,                                      //should interpolate
-                                      kCGRenderingIntentDefault                   //intent
-                                      );
-  
-  UIImageOrientation imgOrientation = UIImageOrientationUp;
-  UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-  switch (orientation) 
-  {
-    case UIDeviceOrientationPortrait:
-      imgOrientation = UIImageOrientationUp; break;
+  const int bitsPerComponent = 8;
+  const int bitsPerPixel     = 32;
+  const int bytesPerRow      = bitmapWidth * bitmapHeight * bitsPerPixel / 8;
 
-    case UIDeviceOrientationLandscapeLeft:
-      imgOrientation = UIImageOrientationLeft; break;
-    
-    case UIDeviceOrientationLandscapeRight:
-      imgOrientation = UIImageOrientationRight; break;
-    
-    case UIDeviceOrientationPortraitUpsideDown:
-      imgOrientation = UIImageOrientationDown; break;
-  };
-    
-  // Getting UIImage from CGImage
-  UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:1 orientation:imgOrientation];
-  CGImageRelease(imageRef);
-  CGDataProviderRelease(provider);
-  CGColorSpaceRelease(colorSpace);
+  const int dataSize = bitmap.rows * bitmap.cols * bitmap.depth();
   
-  return finalImage;
+  CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, bitmap.data, dataSize, NULL);  
+  
+  CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+  CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaLast;
+  
+  CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+  CGImageRef imageRef = CGImageCreate(bitmapWidth,
+                           bitmapHeight,
+                           bitsPerComponent,
+                           bitsPerPixel,
+                           bytesPerRow,
+                           colorSpaceRef,
+                           bitmapInfo,
+                           provider,NULL,NO,renderingIntent);
+  
+  UIImage *newImage = [UIImage imageWithCGImage:imageRef];
+  return newImage;
 
 }
 
