@@ -64,6 +64,7 @@
   CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
   CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaLast;
   
+<<<<<<< HEAD
   CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
   CGImageRef imageRef = CGImageCreate(bitmapWidth,
                            bitmapHeight,
@@ -73,6 +74,33 @@
                            colorSpaceRef,
                            bitmapInfo,
                            provider,NULL,NO,renderingIntent);
+=======
+  UIImageOrientation imgOrientation = UIImageOrientationUp;
+  UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+  switch (orientation) 
+  {
+    case UIDeviceOrientationPortrait:
+      imgOrientation = UIImageOrientationUp; break;
+
+    case UIDeviceOrientationLandscapeLeft:
+      imgOrientation = UIImageOrientationLeft; break;
+    
+    case UIDeviceOrientationLandscapeRight:
+      imgOrientation = UIImageOrientationRight; break;
+    
+    case UIDeviceOrientationPortraitUpsideDown:
+      imgOrientation = UIImageOrientationDown; break;
+
+    default:
+      break;
+  };
+    
+  // Getting UIImage from CGImage
+  UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:1 orientation:imgOrientation];
+  CGImageRelease(imageRef);
+  CGDataProviderRelease(provider);
+  CGColorSpaceRelease(colorSpace);
+>>>>>>> Default case added
   
   UIImage *newImage = [UIImage imageWithCGImage:imageRef];
   return newImage;
