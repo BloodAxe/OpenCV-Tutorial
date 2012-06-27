@@ -13,6 +13,6 @@
 
 -(cv::Mat) toMat;
 
-+(UIImage*) fromMat:(const cv::Mat&) data;
++(UIImage*) imageWithMat:(const cv::Mat&) data;
 
 @end

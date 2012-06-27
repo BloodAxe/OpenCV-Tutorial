@@ -71,3 +71,15 @@ void SampleBase::getGray(const cv::Mat& input, cv::Mat& gray)
     gray = input;
   }
 }
+
+//! Returns true if this sample requires setting a reference image for latter use
+bool SampleBase::isReferenceFrameRequired() const
+{
+  return false;
+}
+
+//! Sets the reference frame for latter processing
+void SampleBase::setReferenceFrame(const cv::Mat& reference)
+{
+  // Does nothing. Override this method if you need to
+}
