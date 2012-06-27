@@ -128,12 +128,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   //NSLog(@"Frame captured: %lu x %lu", width,height);
   
   cv::Mat frame(height, width, CV_8UC4, (void*)baseAddress);
-  
-  //cv::Mat t;
-  //cv::flip(frame,t,0);
-  //cv::Mat result = t.t();
-  //cv::flip(result,result,0);
-  
+
   [delegate frameCaptured:frame];
   
 	/*We unlock the  image buffer*/

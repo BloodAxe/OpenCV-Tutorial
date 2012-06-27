@@ -50,9 +50,6 @@
 - (void) setSample:(SampleBase*) sample
 {
   currentSample = sample;
-  
-  // Configure view
-  //title = [currentSample
 }
 
 - (IBAction)toggleCameraPressed:(id)sender
