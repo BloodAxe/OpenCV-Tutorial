@@ -116,36 +116,6 @@
             </objects>
             <point key="canvasLocation" x="902" y="64"/>
         </scene>
-        <!--View Controller - Video-->
-        <scene sceneID="0yv-U9-8iB">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HWY-hp-oME" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Video" id="hcI-Jy-uAl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9sK-9q-mYW">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Video" id="SVQ-8F-jFR"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1985" y="650"/>
-        </scene>
-        <!--View Controller - Options-->
-        <scene sceneID="vi8-Jc-di1">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbz-2j-cB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Options" id="YCt-Bx-gIR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eB5-nm-VoA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Options" id="9qb-PZ-wkK"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1985" y="1217"/>
-        </scene>
         <!--Video View Controller-->
         <scene sceneID="b2s-8I-Qbe">
             <objects>
@@ -154,59 +124,38 @@
                     <view key="view" contentMode="scaleToFill" id="swk-Os-2zy" customClass="GLESImageView">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="n00-eD-6Ng">
+                                <rect key="frame" x="20" y="20" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="refresh.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleCameraPressed:" destination="Wac-Dj-mok" eventType="touchUpInside" id="hwh-oj-ze8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-70-nt7"/>
                     <connections>
                         <outlet property="imageView" destination="swk-Os-2zy" id="221-Da-bUK"/>
+                        <outlet property="toggleCameraButton" destination="n00-eD-6Ng" id="cqk-OK-r52"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1431" y="-185"/>
-        </scene>
-        <!--View Controller - Picture-->
-        <scene sceneID="yXV-On-uu8">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wdG-qn-EYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Picture" id="yRe-Qa-5lM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RSU-TL-91B">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Ej3-Z4-BYw">
-                                <rect key="frame" x="-1" y="1" width="320" height="411"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Picture" id="Dc4-Yd-sFm"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1985" y="85"/>
-        </scene>
-        <!--Sample View Controller-->
-        <scene sceneID="xzm-ir-pC6">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GXw-w0-tte" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController definesPresentationContext="YES" id="fwR-pH-YG1" customClass="SampleViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="JGt-G7-IyP"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="WGp-kq-iqI">
-                        <rect key="frame" x="129" y="330" width="163" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="yRe-Qa-5lM" kind="relationship" relationship="viewControllers" id="rRH-NF-LsZ"/>
-                        <segue destination="hcI-Jy-uAl" kind="relationship" relationship="viewControllers" id="dGf-ej-uYV"/>
-                        <segue destination="YCt-Bx-gIR" kind="relationship" relationship="viewControllers" id="jjM-f8-vgl"/>
-                    </connections>
-                </tabBarController>
-            </objects>
-            <point key="canvasLocation" x="1431" y="392"/>
+            <point key="canvasLocation" x="1397" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="refresh.png" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
