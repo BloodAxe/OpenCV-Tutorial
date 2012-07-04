@@ -68,6 +68,16 @@
   return [captureDevices count] > 1;
 }
 
+- (AVCaptureVideoOrientation) videoOrientation
+{
+  AVCaptureConnection * connection = [captureOutput connectionWithMediaType:AVMediaTypeVideo];
+  if (connection)
+    return [connection videoOrientation];
+  
+  NSLog(@"Warning  - cannot find AVCaptureConnection object");
+  return AVCaptureVideoOrientationLandscapeRight;
+}
+
 - (void) toggleCamera
 {
   currentCameraIndex++;
@@ -75,7 +85,7 @@
   currentCameraIndex = currentCameraIndex % camerasCount;
   
   AVCaptureDevice *videoDevice = [captureDevices objectAtIndex:currentCameraIndex];
-  
+
   [session beginConfiguration];
   
   if (captureInput)
@@ -125,10 +135,26 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   size_t width = CVPixelBufferGetWidth(imageBuffer); 
   size_t height = CVPixelBufferGetHeight(imageBuffer);  
   size_t stride = CVPixelBufferGetBytesPerRow(imageBuffer);
-  //NSLog(@"Frame captured: %lu x %lu", width,height);
   
-  cv::Mat frame(height, width, CV_8UC4, (void*)baseAddress);
+  cv::Mat frame(height, width, CV_8UC4, (void*)baseAddress, stride);
 
+  if ([self videoOrientation] == AVCaptureVideoOrientationLandscapeLeft)
+  {
+    cv::flip(frame, frame, 0);
+  }
+  
+  /*
+  cv::Vec4b tlPixel = frame.at<cv::Vec4b>(0,0);
+  cv::Vec4b trPixel = frame.at<cv::Vec4b>(0,width - 1);
+  cv::Vec4b blPixel = frame.at<cv::Vec4b>(height-1, 0);
+  cv::Vec4b brPixel = frame.at<cv::Vec4b>(height-1, width - 1);
+
+
+  std::cout << "TL: " << (int)tlPixel[0] << " " << (int)tlPixel[1] << " " << (int)tlPixel[2] << std::endl
+            << "TR: " << (int)trPixel[0] << " " << (int)trPixel[1] << " " << (int)trPixel[2] << std::endl
+            << "BL: " << (int)blPixel[0] << " " << (int)blPixel[1] << " " << (int)blPixel[2] << std::endl
+            << "BR: " << (int)brPixel[0] << " " << (int)brPixel[1] << " " << (int)brPixel[2] << std::endl;
+  */
   [delegate frameCaptured:frame];
   
 	/*We unlock the  image buffer*/

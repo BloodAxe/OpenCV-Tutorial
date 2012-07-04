@@ -20,6 +20,7 @@
 
 @property id<VideoSourceDelegate> delegate;
 
+- (AVCaptureVideoOrientation) videoOrientation;
 - (bool) hasMultipleCameras;
 - (void) toggleCamera;
 
