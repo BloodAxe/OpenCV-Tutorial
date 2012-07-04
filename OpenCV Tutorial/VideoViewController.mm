@@ -8,24 +8,29 @@
 
 #import "VideoViewController.h"
 #import "UIImage2OpenCV.h"
+#import "FPSCalculator.h"
 
 @interface VideoViewController ()
 {
   VideoSource * videoSource;
   SampleBase  * currentSample;
   cv::Mat outputFrame;
+  FPSCalculator * fpsCalc;
 
 }
 
 @end
 
 @implementation VideoViewController
+@synthesize fpsLabel;
 @synthesize imageView;
 @synthesize toggleCameraButton;
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  fpsCalc = [[FPSCalculator alloc]init];
   
 	// Do any additional setup after loading the view, typically from a nib.
   videoSource = [[VideoSource alloc] init];
@@ -94,17 +99,22 @@
 {
   dispatch_sync( dispatch_get_main_queue(), 
                 ^{ 
+                  
+                  [fpsCalc putTimeMark];
+                  
                   if (currentSample)
                   {
                     currentSample->processFrame(frame, outputFrame);
                     [imageView drawFrame:outputFrame];
                   }
                   
+                  fpsLabel.text = [fpsCalc getFPSAsText];
                 });
 }
 
 - (void)viewDidUnload {
   [self setToggleCameraButton:nil];
+    [self setFpsLabel:nil];
   [super viewDidUnload];
 }
 @end

@@ -18,6 +18,7 @@
 
 - (void) setSample:(SampleBase*) sample;
 - (IBAction)toggleCameraPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *fpsLabel;
 
 @end
 
