@@ -197,6 +197,16 @@
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 }
 
+- (UIViewController *)viewController {
+  UIResponder *responder = self;
+  while (![responder isKindOfClass:[UIViewController class]]) {
+    responder = [responder nextResponder];
+    if (nil == responder) {
+      break;
+    }
+  }
+  return (UIViewController *)responder;
+}
 
 - (void)drawFrame:(const cv::Mat&) bgraFrame
 {
@@ -206,46 +216,65 @@
   glBindTexture(GL_TEXTURE_2D, backgroundTextureId);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bgraFrame.cols, bgraFrame.rows, 0, GL_BGRA, GL_UNSIGNED_BYTE, bgraFrame.data);
   
-  GLfloat w = self.bounds.size.width;
-  GLfloat h = self.bounds.size.height;
+  UIInterfaceOrientation uiOrientation = [[self viewController] interfaceOrientation];
+  
+  GLfloat * textureVertices;
+  static GLfloat textureVerticesPortrait[] =
+  {
+    1, 1,   1, 0,
+    0, 1,   0, 0
+  };  
+  
+  static GLfloat textureVerticesPortraitUpsideDown[] =
+  {
+    0, 0,   0, 1,
+    1, 0,   1, 1
+  };
+  
+  static GLfloat textureVerticesLandscapeLeft[] =
+  {
+    1, 0,   0, 0,
+    1, 1,   0, 1
+  };  
+  
+  static GLfloat textureVerticesLandscapeRight[] =
+  {
+    0, 1,   1, 1,
+    0, 0,   1, 0
+  }; 
+  
+  switch (uiOrientation)
+  {
+    case UIInterfaceOrientationPortrait:
+      textureVertices = textureVerticesPortrait;
+      break;
+
+    case UIInterfaceOrientationPortraitUpsideDown:
+      textureVertices = textureVerticesPortraitUpsideDown;
+      break;
+
+    case UIInterfaceOrientationLandscapeLeft:
+      textureVertices = textureVerticesLandscapeLeft;
+      break;
+
+    case UIInterfaceOrientationLandscapeRight:
+    default:
+      textureVertices = textureVerticesLandscapeRight;
+      break;
+  };
   
   static const GLfloat squareVertices[] =
   {
-    0, 0,
-    w, 0,
-    0, h,
-    w, h
+    -1, -1,
+    +1, -1,
+    -1, +1,
+    +1, +1
   };
   
-  /*
-   // For back-facing camera
-   static const GLfloat textureVertices[] =
-   {
-   1, 0,
-   1, 1,
-   0, 0,
-   0, 1
-   };/**/
-  
-  // For front-facing camera
-  static const GLfloat textureVertices[] =
-  {
-    1, 1,
-    1, 0,
-    0, 1,
-    0, 0
-  };
+
   
   glMatrixMode(GL_PROJECTION);
-  
-  static const GLfloat proj[] =
-  {
-    0, -2.f/w, 0, 0,
-    -2.f/h, 0, 0, 0,
-    0, 0, 1, 0,
-    1, 1, 0, 1
-  };
-  glLoadMatrixf(proj);
+  glLoadIdentity();
   
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
