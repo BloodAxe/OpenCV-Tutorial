@@ -12,10 +12,13 @@
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 {
   SampleBase* currentSample;
+  UIImagePickerController * imagePicker;
 }
-- (IBAction)startSamplePressed:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *sampleIconView;
 @property (weak, nonatomic) IBOutlet UITextView *sampleDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *runOnImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *runOnVideoButton;
 
 - (void) setDetailItem:(SampleBase*) sample;
 - (void) configureView;

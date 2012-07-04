@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SampleBase.h"
 
-@interface ImageViewController : UIViewController
+@interface ImageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+- (void) setSample:(SampleBase*) sample;
+- (void) setImage:(UIImage*) image;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
