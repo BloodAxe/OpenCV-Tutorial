@@ -45,6 +45,7 @@
   }
     
   CFRelease(rawData);
+  
   return view;
 }
 
@@ -86,20 +87,22 @@
   
   UIImageOrientation imgOrientation = UIImageOrientationUp;
   UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+ 
   switch (orientation) 
   {
-    case UIDeviceOrientationPortrait:
-      imgOrientation = UIImageOrientationUp; break;
-
     case UIDeviceOrientationLandscapeLeft:
-      imgOrientation = UIImageOrientationLeft; break;
+      imgOrientation = UIImageOrientationUp; break;
     
     case UIDeviceOrientationLandscapeRight:
-      imgOrientation = UIImageOrientationRight; break;
+      imgOrientation = UIImageOrientationDown; break;
     
     case UIDeviceOrientationPortraitUpsideDown:
-      imgOrientation = UIImageOrientationDown; break;
-  };
+      imgOrientation = UIImageOrientationRightMirrored; break;
+
+    default:
+    case UIDeviceOrientationPortrait:
+      imgOrientation = UIImageOrientationRight; break;
+ };
     
   // Getting UIImage from CGImage
   UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:1 orientation:imgOrientation];

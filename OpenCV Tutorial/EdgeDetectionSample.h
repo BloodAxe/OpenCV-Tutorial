@@ -25,6 +25,9 @@ class EdgeDetectionSample : public SampleBase
   //! Processes a frame and returns output image 
   virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame);
   
+private:
+  cv::Mat grayImage;
+  cv::Mat edges;
 };
 
 #endif

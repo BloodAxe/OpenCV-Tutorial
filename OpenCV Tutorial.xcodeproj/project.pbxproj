@@ -24,7 +24,7 @@
 		8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A43888B1595C1F000027D3C /* SampleBase.cpp */; };
 		8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */; };
 		8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */; };
-		8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */; };
+		8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png */; };
 		8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */; };
 		8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */; };
 		8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */; };
@@ -40,12 +40,15 @@
 		8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDA1599BB74008C72DB /* VideoViewController.mm */; };
 		8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDD1599BB95008C72DB /* GLESImageView.mm */; };
 		8A723FE01599ECF3008C72DB /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A723FDF1599ECF3008C72DB /* refresh.png */; };
+		8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7F85015A462400052C95A /* FPSCalculator.mm */; };
 		8AB993B815A3548A00D6AB1D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993B715A3548A00D6AB1D /* Default.png */; };
 		8AB993BA15A3549200D6AB1D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993B915A3549200D6AB1D /* Default@2x.png */; };
 		8AB993BC15A3549F00D6AB1D /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */; };
 		8AB993BE15A354B100D6AB1D /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BD15A354B100D6AB1D /* Default-Portrait@2x~ipad.png */; };
 		8AB993C015A354BA00D6AB1D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BF15A354BA00D6AB1D /* Default-Landscape@2x~ipad.png */; };
 		8AB993C215A354BF00D6AB1D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */; };
+		8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */; };
+		8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +79,7 @@
 		8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EdgeDetectionSample.cpp; sourceTree = "<group>"; };
 		8A4388DB1597172300027D3C /* EdgeDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeDetectionSample.h; sourceTree = "<group>"; };
 		8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EdgeDetectionSampleIcon.png; sourceTree = "<group>"; };
-		8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EdgeDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
+		8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EdgeDetectionSampleIcon~ipad.png"; sourceTree = "<group>"; };
 		8A4388E61597B75400027D3C /* UIImage2OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage2OpenCV.h; sourceTree = "<group>"; };
 		8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImage2OpenCV.mm; sourceTree = "<group>"; };
 		8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContourDetectionSampleIcon.png; sourceTree = "<group>"; };
@@ -98,12 +101,17 @@
 		8A723FDC1599BB95008C72DB /* GLESImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESImageView.h; sourceTree = "<group>"; };
 		8A723FDD1599BB95008C72DB /* GLESImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESImageView.mm; sourceTree = "<group>"; };
 		8A723FDF1599ECF3008C72DB /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		8AA7F84F15A462400052C95A /* FPSCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSCalculator.h; sourceTree = "<group>"; };
+		8AA7F85015A462400052C95A /* FPSCalculator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FPSCalculator.mm; sourceTree = "<group>"; };
 		8AB993B715A3548A00D6AB1D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		8AB993B915A3549200D6AB1D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		8AB993BD15A354B100D6AB1D /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		8AB993BF15A354BA00D6AB1D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		8AE69C0415A3A47F00DAA115 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */,
 				8A723FD41599B70B008C72DB /* CoreVideo.framework in Frameworks */,
 				8A723FD21599B700008C72DB /* QuartzCore.framework in Frameworks */,
 				8A723FCF1599B6FC008C72DB /* CoreImage.framework in Frameworks */,
@@ -130,6 +139,7 @@
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
+				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
@@ -165,17 +175,7 @@
 		8A43886E1595BC4F00027D3C /* OpenCV Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				8A723FDF1599ECF3008C72DB /* refresh.png */,
-				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
-				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
-				8A4388B21595DE5800027D3C /* DetailViewController.h */,
-				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
-				8A723FD51599B738008C72DB /* SampleViewController.h */,
-				8A723FD61599B738008C72DB /* SampleViewController.mm */,
-				8A723FD91599BB74008C72DB /* VideoViewController.h */,
-				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
-				8A723FDC1599BB95008C72DB /* GLESImageView.h */,
-				8A723FDD1599BB95008C72DB /* GLESImageView.mm */,
+				8AA7F84E15A462250052C95A /* View Controllers */,
 				8A723FD81599B751008C72DB /* Storyboards */,
 				8A43888A1595C1DF00027D3C /* Samples */,
 				8A4388881595BCB000027D3C /* VideoSource */,
@@ -187,16 +187,19 @@
 		8A43886F1595BC4F00027D3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A4388D01596E0B300027D3C /* Icons */,
+				8AA7F84D15A4620A0052C95A /* Button Images */,
 				8AB993C315A354F900D6AB1D /* Startup Images */,
 				8A4388A61595DE5800027D3C /* AppDelegate.h */,
 				8A4388A71595DE5800027D3C /* AppDelegate.mm */,
-				8A4388D01596E0B300027D3C /* Icons */,
 				8A4388701595BC4F00027D3C /* OpenCV Tutorial-Info.plist */,
 				8A4388711595BC4F00027D3C /* InfoPlist.strings */,
 				8A4388741595BC4F00027D3C /* main.mm */,
 				8A4388761595BC4F00027D3C /* OpenCV Tutorial-Prefix.pch */,
 				8A4388E61597B75400027D3C /* UIImage2OpenCV.h */,
 				8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */,
+				8AA7F84F15A462400052C95A /* FPSCalculator.h */,
+				8AA7F85015A462400052C95A /* FPSCalculator.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,7 +238,7 @@
 		8A4388DF15971FE000027D3C /* Edge Detection */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png */,
+				8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png */,
 				8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */,
 				8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */,
 				8A4388DB1597172300027D3C /* EdgeDetectionSample.h */,
@@ -261,6 +264,33 @@
 				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8AA7F84D15A4620A0052C95A /* Button Images */ = {
+			isa = PBXGroup;
+			children = (
+				8A723FDF1599ECF3008C72DB /* refresh.png */,
+			);
+			name = "Button Images";
+			sourceTree = "<group>";
+		};
+		8AA7F84E15A462250052C95A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
+				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
+				8A4388B21595DE5800027D3C /* DetailViewController.h */,
+				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
+				8A723FD51599B738008C72DB /* SampleViewController.h */,
+				8A723FD61599B738008C72DB /* SampleViewController.mm */,
+				8A723FD91599BB74008C72DB /* VideoViewController.h */,
+				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
+				8AE69C0415A3A47F00DAA115 /* ImageViewController.h */,
+				8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */,
+				8A723FDC1599BB95008C72DB /* GLESImageView.h */,
+				8A723FDD1599BB95008C72DB /* GLESImageView.mm */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		8AB993C315A354F900D6AB1D /* Startup Images */ = {
@@ -333,7 +363,7 @@
 				8A4388D61596E11200027D3C /* Icon-72.png in Resources */,
 				8A4388D81596E11700027D3C /* Icon-72@2x.png in Resources */,
 				8A4388E115971FF200027D3C /* EdgeDetectionSampleIcon.png in Resources */,
-				8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon@2x.png in Resources */,
+				8A4388E315971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png in Resources */,
 				8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */,
 				8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */,
 				8A723FE01599ECF3008C72DB /* refresh.png in Resources */,
@@ -365,6 +395,8 @@
 				8A723FD71599B738008C72DB /* SampleViewController.mm in Sources */,
 				8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */,
 				8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */,
+				8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */,
+				8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +511,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/debug\"";
+				OTHER_CFLAGS = "-mfpu=neon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -494,6 +527,10 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/release\"";
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-mfpu=neon",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

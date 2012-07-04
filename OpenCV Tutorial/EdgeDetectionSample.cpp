@@ -29,11 +29,9 @@ std::string EdgeDetectionSample::getDescription() const
 //! Processes a frame and returns output image 
 bool EdgeDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame)
 {
-  cv::Mat gray;
-  getGray(inputFrame, gray);
+  getGray(inputFrame, grayImage);
   
-  cv::Mat edges;
-  cv::Canny(gray, edges, 50, 150);
+  cv::Canny(grayImage, edges, 50, 150);
   
   cv::cvtColor(edges, outputFrame, CV_GRAY2BGRA);
   return true;
