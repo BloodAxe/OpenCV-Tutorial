@@ -13,6 +13,7 @@
 
 -(cv::Mat) toMat;
 
-+(UIImage*) imageWithMat:(const cv::Mat&) data;
++(UIImage*) imageWithMat:(const cv::Mat&) image andImageOrientation: (UIImageOrientation) orientation;
++(UIImage*) imageWithMat:(const cv::Mat&) image andDeviceOrientation: (UIDeviceOrientation) orientation;
 
 @end

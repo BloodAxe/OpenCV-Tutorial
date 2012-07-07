@@ -64,7 +64,7 @@
 
 - (void) saveProcessingResult:(id) sender
 {
-  UIImage * image = [UIImage imageWithMat:outputFrame.clone()];
+  UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
   UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 

@@ -49,9 +49,31 @@
   return view;
 }
 
-+(UIImage*) imageWithMat:(const cv::Mat&) image
-{
++(UIImage*) imageWithMat:(const cv::Mat&) image andDeviceOrientation: (UIDeviceOrientation) orientation
+{ 
+  UIImageOrientation imgOrientation = UIImageOrientationUp;
   
+  switch (orientation) 
+  {
+    case UIDeviceOrientationLandscapeLeft:
+      imgOrientation = UIImageOrientationUp; break;
+      
+    case UIDeviceOrientationLandscapeRight:
+      imgOrientation = UIImageOrientationDown; break;
+      
+    case UIDeviceOrientationPortraitUpsideDown:
+      imgOrientation = UIImageOrientationRightMirrored; break;
+      
+    default:
+    case UIDeviceOrientationPortrait:
+      imgOrientation = UIImageOrientationRight; break;
+  };
+  
+  return [UIImage imageWithMat:image andImageOrientation:imgOrientation];
+}
+
++(UIImage*) imageWithMat:(const cv::Mat&) image andImageOrientation: (UIImageOrientation) orientation;
+{  
   NSData *data = [NSData dataWithBytes:image.data length:image.elemSize()*image.total()];
   
   CGColorSpaceRef colorSpace;
@@ -84,34 +106,14 @@
                                       false,                                      //should interpolate
                                       kCGRenderingIntentDefault                   //intent
                                       );
-  
-  UIImageOrientation imgOrientation = UIImageOrientationUp;
-  UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
- 
-  switch (orientation) 
-  {
-    case UIDeviceOrientationLandscapeLeft:
-      imgOrientation = UIImageOrientationUp; break;
-    
-    case UIDeviceOrientationLandscapeRight:
-      imgOrientation = UIImageOrientationDown; break;
-    
-    case UIDeviceOrientationPortraitUpsideDown:
-      imgOrientation = UIImageOrientationRightMirrored; break;
-
-    default:
-    case UIDeviceOrientationPortrait:
-      imgOrientation = UIImageOrientationRight; break;
- };
     
   // Getting UIImage from CGImage
-  UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:1 orientation:imgOrientation];
+  UIImage *finalImage = [UIImage imageWithCGImage:imageRef scale:1 orientation:orientation];
   CGImageRelease(imageRef);
   CGDataProviderRelease(provider);
   CGColorSpaceRelease(colorSpace);
   
   return finalImage;
-
 }
 
 @end

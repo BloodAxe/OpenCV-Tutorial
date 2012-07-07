@@ -107,7 +107,7 @@
     cv::Mat outputImage;
     
     currentSample->processFrame(inputImage, outputImage);
-    UIImage * result = [UIImage imageWithMat:outputImage];
+    UIImage * result = [UIImage imageWithMat:outputImage andImageOrientation:[currentImage imageOrientation]];
     
     self.imageView.image = result;
   }

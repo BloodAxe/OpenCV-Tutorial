@@ -7,6 +7,7 @@
 //
 
 #include "SampleBase.h"
+#include "TargetConditionals.h"
 #include <iostream>
 
 std::string SampleBase::getSampleIcon() const
