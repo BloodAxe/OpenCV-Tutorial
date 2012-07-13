@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ContourDetectionSample.h"
 #import "EdgeDetectionSample.h"
+#import "ImageFiltersSample.h"
 
 @implementation AppDelegate
 
@@ -17,8 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
-  allSamples.push_back( new ContourDetectionSample() );
+  //allSamples.push_back( new ContourDetectionSample() );
   allSamples.push_back( new EdgeDetectionSample());
+  //allSamples.push_back( new ImageFiltersSample());
 
   
     // Override point for customization after application launch.
