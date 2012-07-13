@@ -9,16 +9,7 @@
 #ifndef OpenCV_Tutorial_SampleBase_h
 #define OpenCV_Tutorial_SampleBase_h
 
-typedef enum { OptionKindBoolean, OptionKindInt32, OptionKindFloat, OptionKindStringEnum } OptionKind;
-
-struct SampleOption
-{
-  OptionKind kind;
-  void * ptr;
-  
-//  virtual bool parse(std::string& value) = 0;
-//  virtual std::string toString
-};
+#include "SampleOptions.h"
 
 //! Base class for all samples
 class SampleBase
@@ -44,17 +35,21 @@ public:
   
   bool hasIcon() const;
   
-  const std::vector<SampleOption>& getOptions();
+  typedef std::vector<SampleOption*> OptionsSection;
+  typedef std::map<std::string, OptionsSection> OptionsMap;
+  
+  const OptionsMap& getOptions() const;
   
 protected:
-  void registerOption(std::string name, bool  * value);
-  void registerOption(std::string name, int   *  value, int min, int max);
-  void registerOption(std::string name, float *  value, float min, float max);
+  void registerOption(std::string name, std::string section, bool  * value);
+  void registerOption(std::string name, std::string section, int   *  value, int min, int max);
+  void registerOption(std::string name, std::string section, float *  value, float min, float max);
+  void registerOption(std::string name, std::string section, std::string* value, std::vector<std::string> stringEnums, int defaultValue = 0);
 
   static void getGray(const cv::Mat& input, cv::Mat& gray);
   
 private:
-  std::vector<SampleOption> m_options;
+  OptionsMap m_optionsWithSections;
 };
 
 #endif

@@ -15,40 +15,35 @@ std::string SampleBase::getSampleIcon() const
   return "";
 }
 
-const std::vector<SampleOption>& SampleBase::getOptions()
+const SampleBase::OptionsMap& SampleBase::getOptions() const
 {
-  return m_options;
+  return m_optionsWithSections;
 }
 
-void SampleBase::registerOption(std::string name, bool  * value)
+void SampleBase::registerOption(std::string name, std::string section, bool  * value)
 {
-  SampleOption opt;
-  
-  opt.kind = OptionKindBoolean;
-  opt.ptr  = value;
-  
-  m_options.push_back(opt);
+  SampleOption * opt = new BooleanOption(name, section, value);
+  m_optionsWithSections[section].push_back(opt);
 }
 
-void SampleBase::registerOption(std::string name, int   *  value, int min, int max)
+void SampleBase::registerOption(std::string name, std::string section, int   *  value, int min, int max)
 {
-  SampleOption opt;
-  
-  opt.kind = OptionKindBoolean;
-  opt.ptr  = value;
-  
-  m_options.push_back(opt);
+  SampleOption * opt = new Int32Option(name, section, value, min, max);
+  m_optionsWithSections[section].push_back(opt);
 }
 
-void SampleBase::registerOption(std::string name, float *  value, float min, float max)
+void SampleBase::registerOption(std::string name, std::string section, float *  value, float min, float max)
 {
-  SampleOption opt;
-  
-  opt.kind = OptionKindBoolean;
-  opt.ptr  = value;
-  
-  m_options.push_back(opt);
+  SampleOption * opt = new FloatOption(name, section, value, min, max);
+  m_optionsWithSections[section].push_back(opt);
 }
+
+void SampleBase::registerOption(std::string name, std::string section, std::string* value, std::vector<std::string> stringEnums, int defaultValue)
+{
+  SampleOption * opt = new StringEnumOption(name, section, value, stringEnums, defaultValue);
+  m_optionsWithSections[section].push_back(opt);  
+}
+
 
 bool SampleBase::hasIcon() const
 {
