@@ -10,4 +10,8 @@
 
 @interface NSString (StdString)
 
++ (NSString*) stringWithStdString: (const std::string&) str;
+
+//- (std::string) toStdString;
+
 @end

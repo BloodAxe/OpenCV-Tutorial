@@ -10,15 +10,25 @@
 #import "GLESImageView.h"
 #import "VideoSource.h"
 #import "SampleBase.h"
+#import "GLESImageView.h"
 
 @interface VideoViewController : UIViewController<VideoSourceDelegate>
 
-@property (weak, nonatomic) IBOutlet GLESImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *toggleCameraButton;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *toggleCameraButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *options;
+
+@property (nonatomic, strong) GLESImageView *imageView;
+@property (nonatomic, strong) UITableView * optionsView;
+@property (nonatomic, strong) UIPopoverController * optionsPopover;
+@property (nonatomic, strong) UIViewController * optionsViewController;
 
 - (void) setSample:(SampleBase*) sample;
+
 - (IBAction)toggleCameraPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *fpsLabel;
+- (IBAction)showOptions:(id)sender;
+- (IBAction)saveProcessingResult:(id)sender;
+
 
 @end
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A00096F15AD6DF9001EA42D /* OptionCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A00096E15AD6DF9001EA42D /* OptionCell.mm */; };
+		8A00097315AE0F0A001EA42D /* OptionsTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A00097215AE0F09001EA42D /* OptionsTableView.mm */; };
 		8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4388681595BC4F00027D3C /* UIKit.framework */; };
 		8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886A1595BC4F00027D3C /* Foundation.framework */; };
 		8A43889C1595DE5800027D3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A43886C1595BC4F00027D3C /* CoreGraphics.framework */; };
@@ -36,11 +38,23 @@
 		8A723FD01599B6FC008C72DB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FCE1599B6FC008C72DB /* CoreMedia.framework */; };
 		8A723FD21599B700008C72DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FD11599B700008C72DB /* QuartzCore.framework */; };
 		8A723FD41599B70B008C72DB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FD31599B70B008C72DB /* CoreVideo.framework */; };
-		8A723FD71599B738008C72DB /* SampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FD61599B738008C72DB /* SampleViewController.mm */; };
 		8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDA1599BB74008C72DB /* VideoViewController.mm */; };
 		8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDD1599BB95008C72DB /* GLESImageView.mm */; };
 		8A723FE01599ECF3008C72DB /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A723FDF1599ECF3008C72DB /* refresh.png */; };
+		8A79349315A9A3F70043BE99 /* ImageFiltersSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A79349215A9A3F70043BE99 /* ImageFiltersSample.cpp */; };
+		8A79349F15A9ADA20043BE99 /* BooleanTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A79349E15A9ADA20043BE99 /* BooleanTableViewCell.mm */; };
+		8A7934A815AB47070043BE99 /* SampleOptionsTableViewDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */; };
+		8A7934AB15AB48C80043BE99 /* NSString+StdString.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934AA15AB48C80043BE99 /* NSString+StdString.mm */; };
+		8A7934AE15AB4B750043BE99 /* SampleOptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934AD15AB4B750043BE99 /* SampleOptions.cpp */; };
+		8A7934BD15AB5C5A0043BE99 /* BooleanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7934BC15AB5C5A0043BE99 /* BooleanTableViewCell.xib */; };
+		8A7934BF15AB5CB20043BE99 /* FloatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7934BE15AB5CB20043BE99 /* FloatTableViewCell.xib */; };
+		8A7934C115AB5D490043BE99 /* Int32TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7934C015AB5D490043BE99 /* Int32TableViewCell.xib */; };
+		8A7934C315AB5D560043BE99 /* EnumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7934C215AB5D560043BE99 /* EnumTableViewCell.xib */; };
+		8A7934C715AB5E2F0043BE99 /* Int32TableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934C615AB5E2F0043BE99 /* Int32TableViewCell.mm */; };
+		8A7934CA15AB5E3A0043BE99 /* FloatTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */; };
+		8A7934CD15AB5E440043BE99 /* EnumTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */; };
 		8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7F85015A462400052C95A /* FPSCalculator.mm */; };
+		8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6D01515B02A030029641C /* DummyVideoSource.mm */; };
 		8AB993B815A3548A00D6AB1D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993B715A3548A00D6AB1D /* Default.png */; };
 		8AB993BA15A3549200D6AB1D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993B915A3549200D6AB1D /* Default@2x.png */; };
 		8AB993BC15A3549F00D6AB1D /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */; };
@@ -52,6 +66,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A00096D15AD6DF8001EA42D /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
+		8A00096E15AD6DF9001EA42D /* OptionCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptionCell.mm; sourceTree = "<group>"; };
+		8A00097115AE0F08001EA42D /* OptionsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableView.h; sourceTree = "<group>"; };
+		8A00097215AE0F09001EA42D /* OptionsTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptionsTableView.mm; sourceTree = "<group>"; };
 		8A4388681595BC4F00027D3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8A43886A1595BC4F00027D3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A43886C1595BC4F00027D3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,15 +112,34 @@
 		8A723FCE1599B6FC008C72DB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		8A723FD11599B700008C72DB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8A723FD31599B70B008C72DB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		8A723FD51599B738008C72DB /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
-		8A723FD61599B738008C72DB /* SampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleViewController.mm; sourceTree = "<group>"; };
 		8A723FD91599BB74008C72DB /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		8A723FDA1599BB74008C72DB /* VideoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoViewController.mm; sourceTree = "<group>"; };
 		8A723FDC1599BB95008C72DB /* GLESImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESImageView.h; sourceTree = "<group>"; };
 		8A723FDD1599BB95008C72DB /* GLESImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESImageView.mm; sourceTree = "<group>"; };
 		8A723FDF1599ECF3008C72DB /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		8A79349015A9A3EA0043BE99 /* ImageFiltersSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFiltersSample.h; sourceTree = "<group>"; };
+		8A79349215A9A3F70043BE99 /* ImageFiltersSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageFiltersSample.cpp; sourceTree = "<group>"; };
+		8A79349D15A9ADA20043BE99 /* BooleanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanTableViewCell.h; sourceTree = "<group>"; };
+		8A79349E15A9ADA20043BE99 /* BooleanTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BooleanTableViewCell.mm; sourceTree = "<group>"; };
+		8A7934A615AB47060043BE99 /* SampleOptionsTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleOptionsTableViewDelegate.h; sourceTree = "<group>"; };
+		8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleOptionsTableViewDelegate.mm; sourceTree = "<group>"; };
+		8A7934A915AB48C80043BE99 /* NSString+StdString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StdString.h"; sourceTree = "<group>"; };
+		8A7934AA15AB48C80043BE99 /* NSString+StdString.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSString+StdString.mm"; sourceTree = "<group>"; };
+		8A7934AC15AB4A9C0043BE99 /* SampleOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleOptions.h; sourceTree = "<group>"; };
+		8A7934AD15AB4B750043BE99 /* SampleOptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleOptions.cpp; sourceTree = "<group>"; };
+		8A7934BC15AB5C5A0043BE99 /* BooleanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BooleanTableViewCell.xib; sourceTree = "<group>"; };
+		8A7934BE15AB5CB20043BE99 /* FloatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatTableViewCell.xib; sourceTree = "<group>"; };
+		8A7934C015AB5D490043BE99 /* Int32TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Int32TableViewCell.xib; sourceTree = "<group>"; };
+		8A7934C215AB5D560043BE99 /* EnumTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnumTableViewCell.xib; sourceTree = "<group>"; };
+		8A7934C515AB5E2F0043BE99 /* Int32TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Int32TableViewCell.h; sourceTree = "<group>"; };
+		8A7934C615AB5E2F0043BE99 /* Int32TableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Int32TableViewCell.mm; sourceTree = "<group>"; };
+		8A7934C815AB5E390043BE99 /* FloatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatTableViewCell.h; sourceTree = "<group>"; };
+		8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FloatTableViewCell.mm; sourceTree = "<group>"; };
+		8A7934CB15AB5E440043BE99 /* EnumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumTableViewCell.h; sourceTree = "<group>"; };
+		8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EnumTableViewCell.mm; sourceTree = "<group>"; };
 		8AA7F84F15A462400052C95A /* FPSCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSCalculator.h; sourceTree = "<group>"; };
 		8AA7F85015A462400052C95A /* FPSCalculator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FPSCalculator.mm; sourceTree = "<group>"; };
+		8AB6D01515B02A030029641C /* DummyVideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DummyVideoSource.mm; sourceTree = "<group>"; };
 		8AB993B715A3548A00D6AB1D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		8AB993B915A3549200D6AB1D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -200,6 +237,8 @@
 				8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */,
 				8AA7F84F15A462400052C95A /* FPSCalculator.h */,
 				8AA7F85015A462400052C95A /* FPSCalculator.mm */,
+				8A7934A915AB48C80043BE99 /* NSString+StdString.h */,
+				8A7934AA15AB48C80043BE99 /* NSString+StdString.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -209,6 +248,7 @@
 			children = (
 				8A723FBF1599AC42008C72DB /* VideoSource.h */,
 				8A723FC01599AC42008C72DB /* VideoSource.mm */,
+				8AB6D01515B02A030029641C /* DummyVideoSource.mm */,
 			);
 			name = VideoSource;
 			sourceTree = "<group>";
@@ -216,10 +256,10 @@
 		8A43888A1595C1DF00027D3C /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				8A7934BB15AB5BD40043BE99 /* SampleBase */,
+				8A79349415A9A3FB0043BE99 /* Image Filters */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
 				8A4388DF15971FE000027D3C /* Edge Detection */,
-				8A4388891595BCC400027D3C /* SampleBase.h */,
-				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -266,6 +306,51 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		8A79349415A9A3FB0043BE99 /* Image Filters */ = {
+			isa = PBXGroup;
+			children = (
+				8A79349015A9A3EA0043BE99 /* ImageFiltersSample.h */,
+				8A79349215A9A3F70043BE99 /* ImageFiltersSample.cpp */,
+			);
+			name = "Image Filters";
+			sourceTree = "<group>";
+		};
+		8A7934BB15AB5BD40043BE99 /* SampleBase */ = {
+			isa = PBXGroup;
+			children = (
+				8A4388891595BCC400027D3C /* SampleBase.h */,
+				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
+				8A7934AC15AB4A9C0043BE99 /* SampleOptions.h */,
+				8A7934AD15AB4B750043BE99 /* SampleOptions.cpp */,
+			);
+			name = SampleBase;
+			sourceTree = "<group>";
+		};
+		8A7934C415AB5DB30043BE99 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				8A7934A615AB47060043BE99 /* SampleOptionsTableViewDelegate.h */,
+				8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */,
+				8A79349D15A9ADA20043BE99 /* BooleanTableViewCell.h */,
+				8A79349E15A9ADA20043BE99 /* BooleanTableViewCell.mm */,
+				8A7934BC15AB5C5A0043BE99 /* BooleanTableViewCell.xib */,
+				8A7934C515AB5E2F0043BE99 /* Int32TableViewCell.h */,
+				8A7934C615AB5E2F0043BE99 /* Int32TableViewCell.mm */,
+				8A7934C015AB5D490043BE99 /* Int32TableViewCell.xib */,
+				8A7934C815AB5E390043BE99 /* FloatTableViewCell.h */,
+				8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */,
+				8A7934BE15AB5CB20043BE99 /* FloatTableViewCell.xib */,
+				8A7934CB15AB5E440043BE99 /* EnumTableViewCell.h */,
+				8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */,
+				8A7934C215AB5D560043BE99 /* EnumTableViewCell.xib */,
+				8A00096D15AD6DF8001EA42D /* OptionCell.h */,
+				8A00096E15AD6DF9001EA42D /* OptionCell.mm */,
+				8A00097115AE0F08001EA42D /* OptionsTableView.h */,
+				8A00097215AE0F09001EA42D /* OptionsTableView.mm */,
+			);
+			name = Options;
+			sourceTree = "<group>";
+		};
 		8AA7F84D15A4620A0052C95A /* Button Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,12 +362,11 @@
 		8AA7F84E15A462250052C95A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8A7934C415AB5DB30043BE99 /* Options */,
 				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
 				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
 				8A4388B21595DE5800027D3C /* DetailViewController.h */,
 				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
-				8A723FD51599B738008C72DB /* SampleViewController.h */,
-				8A723FD61599B738008C72DB /* SampleViewController.mm */,
 				8A723FD91599BB74008C72DB /* VideoViewController.h */,
 				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
 				8AE69C0415A3A47F00DAA115 /* ImageViewController.h */,
@@ -373,6 +457,10 @@
 				8AB993BE15A354B100D6AB1D /* Default-Portrait@2x~ipad.png in Resources */,
 				8AB993C015A354BA00D6AB1D /* Default-Landscape@2x~ipad.png in Resources */,
 				8AB993C215A354BF00D6AB1D /* Default-Landscape~ipad.png in Resources */,
+				8A7934BD15AB5C5A0043BE99 /* BooleanTableViewCell.xib in Resources */,
+				8A7934BF15AB5CB20043BE99 /* FloatTableViewCell.xib in Resources */,
+				8A7934C115AB5D490043BE99 /* Int32TableViewCell.xib in Resources */,
+				8A7934C315AB5D560043BE99 /* EnumTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,11 +480,21 @@
 				8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */,
 				8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */,
 				8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */,
-				8A723FD71599B738008C72DB /* SampleViewController.mm in Sources */,
 				8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */,
 				8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */,
 				8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */,
 				8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */,
+				8A79349315A9A3F70043BE99 /* ImageFiltersSample.cpp in Sources */,
+				8A79349F15A9ADA20043BE99 /* BooleanTableViewCell.mm in Sources */,
+				8A7934A815AB47070043BE99 /* SampleOptionsTableViewDelegate.mm in Sources */,
+				8A7934AB15AB48C80043BE99 /* NSString+StdString.mm in Sources */,
+				8A7934AE15AB4B750043BE99 /* SampleOptions.cpp in Sources */,
+				8A7934C715AB5E2F0043BE99 /* Int32TableViewCell.mm in Sources */,
+				8A7934CA15AB5E3A0043BE99 /* FloatTableViewCell.mm in Sources */,
+				8A7934CD15AB5E440043BE99 /* EnumTableViewCell.mm in Sources */,
+				8A00096F15AD6DF9001EA42D /* OptionCell.mm in Sources */,
+				8A00097315AE0F0A001EA42D /* OptionsTableView.mm in Sources */,
+				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

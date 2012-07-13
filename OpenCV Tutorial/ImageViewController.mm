@@ -8,9 +8,12 @@
 
 #import "ImageViewController.h"
 #import "UIImage2OpenCV.h"
+#import "SampleOptionsTableViewDelegate.h"
 
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
+
+#define kTransitionDuration	0.75
 
 @interface ImageViewController ()
 {
@@ -27,10 +30,17 @@
 @end
 
 @implementation ImageViewController
+@synthesize containerView;
+@synthesize optionsBarButton;
 @synthesize imageView;
 @synthesize imagePickerPopoverController;
 @synthesize imagePickerController;
+@synthesize optionsView;
+@synthesize takePhotoButton;
+@synthesize optionsPopover;
+@synthesize optionsViewController;
 
+#pragma mark - View Lifecycle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,11 +54,6 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view.
-  self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:
-                                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveProcessingResult:)],
-                                             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(tookPicture:)],
-                                             nil];
   
   self.imagePickerController = [[UIImagePickerController alloc] init];
   self.imagePickerController.delegate = self;
@@ -58,20 +63,40 @@
   {
     self.imagePickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.imagePickerController];
   }
+  
+  
+  // create the initial image view
+	self.imageView = [[UIImageView alloc] initWithFrame:self.containerView.bounds];
+  [self.imageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+  
+	[self.containerView addSubview:self.imageView];
 }
 
 - (void)viewDidUnload
 {
   [self setImageView:nil];
+  [self setContainerView:nil];
+  [self setTakePhotoButton:nil];
+  [self setOptionsBarButton:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  NSLog(@"Container view dimensions before appear: %f x %f", self.containerView.frame.size.width, self.containerView.frame.size.height);
+  
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+  {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  } else {
+  }
+  else 
+  {
     return YES;
   }
 }
@@ -81,6 +106,21 @@
 - (void) setSample:(SampleBase*) sample
 {
   currentSample = sample;
+  
+  self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame style:UITableViewStyleGrouped sample:sample notificationsDelegate:self];
+  //self.optionsView.
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+  {
+    UIViewController * viewController = [[UIViewController alloc] init];
+    viewController.view = self.optionsView;
+    viewController.title = @"Algorithm options";
+    
+    self.optionsViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    self.optionsPopover = [[UIPopoverController alloc] initWithContentViewController:self.optionsViewController];
+  }
+  
   [self configureView];
 }
 
@@ -113,12 +153,16 @@
   }
 }
 
-- (void) tookPicture:(id) sender
+#pragma mark - Handling user interaction
+
+- (IBAction) tookPicture:(id) sender
 {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
   {
-    UIBarButtonItem * btn = [self.navigationItem.rightBarButtonItems objectAtIndex:0];
-    [self.imagePickerPopoverController presentPopoverFromBarButtonItem:btn permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.optionsPopover dismissPopoverAnimated:YES];
+    [self.imagePickerPopoverController presentPopoverFromBarButtonItem:takePhotoButton 
+                                              permittedArrowDirections:UIPopoverArrowDirectionAny 
+                                                              animated:YES];
   }
   else
   {
@@ -126,26 +170,50 @@
   }
 }
 
-#pragma mark - Image saving
-
-- (void) saveProcessingResult:(id) sender
+- (IBAction)presentOptionsView:(id)sender 
 {
-  UIImage * image = self.imageView.image;
-  UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error 
-  contextInfo:(void *)contextInfo
-{
-  // Was there an error?
-  if (error != NULL)
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
   {
-    // Show error message...
-    
+    if ([self.optionsView superview])
+    {
+      [UIView transitionFromView:self.optionsView 
+                          toView:imageView 
+                        duration:kTransitionDuration 
+                         options:UIViewAnimationOptionTransitionFlipFromLeft 
+                      completion:^(BOOL)
+       {
+       }];
+    }
+    else
+    {
+      [self.optionsView setFrame:self.containerView.frame];
+      [self.optionsView setNeedsLayout];
+      
+      [UIView transitionFromView:self.imageView 
+                          toView:optionsView 
+                        duration:kTransitionDuration 
+                         options:UIViewAnimationOptionTransitionFlipFromLeft 
+                      completion:^(BOOL)
+       {
+         
+         [self.optionsView reloadData];
+         
+         NSLog(@"Visible cells count %d" , [[self.optionsView visibleCells] count]);
+         NSLog(@"Options view size %fx%f" , self.optionsView.bounds.size.width, self.optionsView.bounds.size.height);
+       }];
+    }
   }
-  else  // No errors
+  else
   {
-    // Show message image successfully saved
+    if ([self.optionsPopover isPopoverVisible])
+      [self.optionsPopover dismissPopoverAnimated:YES];
+    else
+    {
+      [self.imagePickerPopoverController dismissPopoverAnimated:YES];
+      [self.optionsPopover presentPopoverFromBarButtonItem:optionsBarButton 
+                                  permittedArrowDirections:UIPopoverArrowDirectionAny 
+                                                  animated:YES];
+    }
   }
 }
 
@@ -218,4 +286,29 @@
     [self.imagePickerPopoverController dismissPopoverAnimated:YES];
   }
 }
+
+#pragma mark - Image saving
+
+- (IBAction) saveProcessingResult:(id) sender
+{
+  UIImage * image = self.imageView.image;
+  UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error 
+  contextInfo:(void *)contextInfo
+{
+  if (error != NULL)
+  {
+    NSLog(@"Error during saving image: %@", error);    
+  }
+}
+
+#pragma mark - OptionCellDelegate implementation
+
+- (void) optionDidChanged:(SampleOption*) option
+{
+  [self updateImageView];
+}
+
 @end

@@ -7,9 +7,9 @@
 //
 
 #import "DetailViewController.h"
-#import "SampleViewController.h"
 #import "VideoViewController.h"
 #import "ImageViewController.h"
+#import "NSString+StdString.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -45,20 +45,13 @@
   // Update the user interface for the detail item.
   
   if (currentSample)
-  {
-    std::string name = currentSample->getName();
-    std::string desc = currentSample->getDescription();
-    
-    NSString * nameStr = [NSString stringWithCString:name.c_str() encoding:NSASCIIStringEncoding];
-    NSString * descStr = [NSString stringWithCString:desc.c_str() encoding:NSASCIIStringEncoding];
-    
-    self.sampleDescriptionTextView.text = descStr;
-    self.title = nameStr;     
+  {    
+    self.sampleDescriptionTextView.text = [NSString stringWithStdString:currentSample->getDescription()];
+    self.title = [NSString stringWithStdString:currentSample->getName()];     
     
     if (currentSample->hasIcon())
     {
-      std::string icon = currentSample->getSampleIcon();
-      NSString * iconStr = [NSString stringWithCString:icon.c_str() encoding:NSASCIIStringEncoding];
+      NSString * iconStr = [NSString stringWithStdString:currentSample->getSampleIcon()];
       self.sampleIconView.image = [UIImage imageNamed:iconStr];
     }
     else
@@ -66,11 +59,6 @@
       self.sampleIconView.image = nil;
     }
   }
-  
-  // Hide a "run on video" button because simulator does not support camera capture
-#if TARGET_IPHONE_SIMULATOR
-  self.runOnVideoButton.hidden = true;
-#endif  
 }
 
 - (void)viewDidLoad
@@ -123,6 +111,8 @@
   {
     VideoViewController * sampleController = [segue destinationViewController];
     [sampleController setSample:currentSample];
+    
+    
   }
   else if ([[segue identifier] isEqualToString:@"processImage"])
   {

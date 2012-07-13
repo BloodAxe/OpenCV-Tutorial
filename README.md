@@ -3,18 +3,14 @@ OpenCV Tutorial
 
 This repository contains source code of OpenCV Tutorial application.
 
-Samples list
+Samples list (done)
 ==========================
-* Edge detection
-* Contour detection
-* KLT Tracking (To be added in the near future)
-* Face detection (To be added in the near future)
-* Image filters: cartoon, night vision, old movie effect (To be added in the near future)
+* Edge detection (Canny, Sobel, Schaar, Harris)
 
-When all is done
-* Object detection using feature descriptors
-* Stiching
-* Inpaint
+Samples list (plans)
+==========================
+* Video tracking (KLT, Template Matching, BRIEF, ORB, FREAK)
+* PTAM
 
 Step by step tutorials
 ==========================
@@ -23,6 +19,9 @@ Step by step tutorials
 * http://computer-vision-talks.com/2012/07/opencv-tutorial-part-3/
 * http://computer-vision-talks.com/2012/07/opencv-tutorial-part-4/
 
+Roadmap
+==========================
+http://computer-vision-talks.com/opencv-tutorial-roadmap/
 
 Copyright
 ==========================

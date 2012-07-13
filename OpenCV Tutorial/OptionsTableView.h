@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SampleBase.h"
+#import "OptionCell.h"
 
 @interface OptionsTableView : UITableView
+
+- (id) initWithFrame:(CGRect)frame 
+               style:(UITableViewStyle)style 
+              sample:(SampleBase*) sample 
+notificationsDelegate:(id<OptionCellDelegate>) delegate;
 
 @end

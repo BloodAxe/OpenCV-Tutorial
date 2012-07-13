@@ -7,8 +7,13 @@
 //
 
 #import "FloatTableViewCell.h"
+#import "NSString+StdString.h"
 
 @implementation FloatTableViewCell
+@synthesize label;
+@synthesize currentValue;
+@synthesize sliderValue;
+@synthesize option;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,4 +31,28 @@
     // Configure the view for the selected state
 }
 
+- (void) configureWithOption: (FloatOption*) opt
+{
+  self.option = opt;
+  
+  label.text = [NSString stringWithStdString: option->getName()];
+  
+  sliderValue.maximumValue = self.option->getMaxValue();
+  sliderValue.minimumValue = self.option->getMinValue();
+  sliderValue.value =        self.option->getValue();
+  
+  [self sliderValueChanged:self];
+}
+
+- (IBAction)sliderValueChanged:(id)sender 
+{
+  currentValue.text = [NSString stringWithFormat:@"%f", sliderValue.value];
+  
+  bool changed = option->setValue(sliderValue.value);
+  if (changed && self.delegate)
+  {
+    [self.delegate optionDidChanged:option];
+  }
+
+}
 @end

@@ -9,6 +9,8 @@
 #import "OptionCell.h"
 
 @implementation OptionCell
+@synthesize delegate;
+@synthesize cellHeight = _cellHeight;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -25,5 +27,12 @@
 
     // Configure the view for the selected state
 }
+
+- (void) awakeFromNib
+{
+  [super awakeFromNib];
+  _cellHeight = self.bounds.size.height;
+}
+
 
 @end
