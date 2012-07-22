@@ -10,6 +10,11 @@
 #include "TargetConditionals.h"
 #include <iostream>
 
+std::string SampleBase::getUserFriendlyName() const
+{
+  return getName();
+}
+
 std::string SampleBase::getSampleIcon() const
 {
   return "";
@@ -42,6 +47,8 @@ void SampleBase::registerOption(std::string name, std::string section, std::stri
 {
   SampleOption * opt = new StringEnumOption(name, section, value, stringEnums, defaultValue);
   m_optionsWithSections[section].push_back(opt);  
+  
+  *value = stringEnums[defaultValue]; // Assign default value just in case
 }
 
 
@@ -110,7 +117,7 @@ void SampleBase::getGray(const cv::Mat& input, cv::Mat& gray)
 #endif
     
   }
-  else if (numChannes == 2)
+  else if (numChannes == 3)
   {
     cv::cvtColor(input, gray, CV_BGR2GRAY);
   }
