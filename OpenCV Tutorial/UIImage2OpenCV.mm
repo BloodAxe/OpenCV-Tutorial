@@ -16,37 +16,42 @@
   
   const int srcWidth        = CGImageGetWidth(imageRef);
   const int srcHeight       = CGImageGetHeight(imageRef);
-  const int stride          = CGImageGetBytesPerRow(imageRef);
-  const int bitPerPixel     = CGImageGetBitsPerPixel(imageRef);
-  const int bitPerComponent = CGImageGetBitsPerComponent(imageRef);
-  const int numPixels       = bitPerPixel / bitPerComponent;
+  //const int stride          = CGImageGetBytesPerRow(imageRef);
+  //const int bitPerPixel     = CGImageGetBitsPerPixel(imageRef);
+  //const int bitPerComponent = CGImageGetBitsPerComponent(imageRef);
+  //const int numPixels       = bitPerPixel / bitPerComponent;
   
   CGDataProviderRef dataProvider = CGImageGetDataProvider(imageRef);
   CFDataRef rawData = CGDataProviderCopyData(dataProvider);
   
-  unsigned char * dataPtr = const_cast<unsigned char*>(CFDataGetBytePtr(rawData));
+  //unsigned char * dataPtr = const_cast<unsigned char*>(CFDataGetBytePtr(rawData));
+
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
   
-  cv::Mat view;
-  if (numPixels == 4 && bitPerComponent == 8)
-  {
-    cv::Mat(srcHeight, srcWidth, CV_8UC4, dataPtr, stride).copyTo(view);
-  }
-  else if(numPixels == 3 && bitPerComponent == 8)
-  {
-    cv::Mat(srcHeight, srcWidth, CV_8UC3, dataPtr, stride).copyTo(view);
-  }
-  else if(numPixels == 1 && bitPerComponent == 8) // Assume gray pixel
-  {
-    cv::Mat(srcHeight, srcWidth, CV_8UC1, dataPtr, stride).copyTo(view);
-  }
-  else
-  {
-    NSLog(@"Unsupported format of the input UIImage (neither BGRA, BGR or GRAY)");
-  }
-    
+  cv::Mat rgbaContainer(srcHeight, srcWidth, CV_8UC4);
+  CGContextRef context = CGBitmapContextCreate(rgbaContainer.data,
+                                               srcWidth,
+                                               srcHeight,
+                                               8,
+                                               4 * srcWidth, 
+                                               colorSpace,
+                                               kCGImageAlphaNoneSkipLast | kCGBitmapByteOrder32Big);
+
+  CGContextDrawImage(context, CGRectMake(0, 0, srcWidth, srcHeight), imageRef);
+  CGContextRelease(context);
+  CGColorSpaceRelease(colorSpace);
+      
   CFRelease(rawData);
   
-  return view;
+  cv::Mat t;
+  cv::cvtColor(rgbaContainer, t, CV_RGBA2BGRA);
+
+  //cv::Vec4b a = rgbaContainer.at<cv::Vec4b>(0,0);
+  //cv::Vec4b b = t.at<cv::Vec4b>(0,0);
+  //std::cout << std::hex << (int)a[0] << " "<< (int)a[1] << " " << (int)a[2] << " "  << (int)a[3] << std::endl; 
+  //std::cout << std::hex << (int)b[0] << " "<< (int)b[1] << " " << (int)b[2] << " "  << (int)b[3] << std::endl; 
+
+  return t;
 }
 
 +(UIImage*) imageWithMat:(const cv::Mat&) image andDeviceOrientation: (UIDeviceOrientation) orientation
@@ -73,25 +78,29 @@
 }
 
 +(UIImage*) imageWithMat:(const cv::Mat&) image andImageOrientation: (UIImageOrientation) orientation;
-{  
-  NSData *data = [NSData dataWithBytes:image.data length:image.elemSize()*image.total()];
+{
+  cv::Mat rgbaView;
   
-  CGColorSpaceRef colorSpace;
-  
-  if (image.elemSize() == 1)
+  if (image.channels() == 3)
   {
-    colorSpace = CGColorSpaceCreateDeviceGray();
+    cv::cvtColor(image, rgbaView, CV_BGR2RGBA);
   }
-  else
+  else if (image.channels() == 4)
   {
-    colorSpace = CGColorSpaceCreateDeviceRGB();
+    cv::cvtColor(image, rgbaView, CV_BGRA2RGBA);
+  }
+  else if (image.channels() == 1)
+  {
+    cv::cvtColor(image, rgbaView, CV_GRAY2RGBA);
   }
   
-  bool hasAlpha = image.channels() == 4;
+  NSData *data = [NSData dataWithBytes:rgbaView.data length:rgbaView.elemSize() * rgbaView.total()];
+  
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
   
   CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
   
-  CGBitmapInfo bmInfo = (hasAlpha ? kCGImageAlphaLast : kCGImageAlphaNone) | kCGBitmapByteOrderDefault;
+  CGBitmapInfo bmInfo = kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big;
   
   // Creating CGImage from cv::Mat
   CGImageRef imageRef = CGImageCreate(image.cols,                                 //width

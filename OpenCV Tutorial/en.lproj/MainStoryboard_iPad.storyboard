@@ -19,7 +19,7 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="116" y="-334"/>
+            <point key="canvasLocation" x="312" y="-2666"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="16">
@@ -85,7 +85,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1000" y="816"/>
+            <point key="canvasLocation" x="1196" y="-1516"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="U9Y-ka-Ay8">
@@ -105,19 +105,13 @@
                                 <rect key="frame" x="0.0" y="660" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="save" id="2lS-ez-Icc">
-                                        <connections>
-                                            <action selector="saveProcessingResult:" destination="K8a-OQ-WeD" id="23M-CZ-Onc"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LAp-Zd-cn2"/>
-                                    <barButtonItem title="Toggle camera" id="n3D-dJ-ydc">
+                                    <barButtonItem image="switchCamera.png" style="plain" id="n3D-dJ-ydc" userLabel="switchCameraButton">
                                         <connections>
                                             <action selector="toggleCameraPressed:" destination="K8a-OQ-WeD" id="ggC-hE-2aK"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Yh1-vR-nOF"/>
-                                    <barButtonItem title="Options" id="ZgH-2B-QIm">
+                                    <barButtonItem image="cog_01.png" style="plain" id="ZgH-2B-QIm" userLabel="showOptionsButton">
                                         <connections>
                                             <action selector="showOptions:" destination="K8a-OQ-WeD" id="Rxc-VP-j1K"/>
                                         </connections>
@@ -131,15 +125,21 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6P7-oN-iGf">
                         <barButtonItem key="backBarButtonItem" title="Back" id="455-K3-mhP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="p92-gf-OY7" userLabel="navigationActionSheetButton">
+                            <connections>
+                                <action selector="showActionSheet:" destination="K8a-OQ-WeD" id="aAb-Im-wc9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionSheetButton" destination="p92-gf-OY7" id="LCM-0O-r2h"/>
                         <outlet property="containerView" destination="abh-x4-lYu" id="Qt5-DY-d5V"/>
                         <outlet property="options" destination="ZgH-2B-QIm" id="cn3-HU-r2P"/>
                         <outlet property="toggleCameraButton" destination="n3D-dJ-ydc" id="cui-FS-res"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2026" y="350"/>
+            <point key="canvasLocation" x="2222" y="-1982"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="klf-5s-c6E">
@@ -159,18 +159,13 @@
                                 <rect key="frame" x="0.0" y="660" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="save" id="Gix-gr-io1">
+                                    <barButtonItem image="photos_polaroid.png" style="plain" id="Gix-gr-io1" userLabel="selectImageButton">
                                         <connections>
-                                            <action selector="saveProcessingResult:" destination="GEe-jv-9gt" id="PDp-y2-TXL"/>
+                                            <action selector="selectPictureForProcessing:" destination="GEe-jv-9gt" id="dHa-oB-1RZ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zVg-TH-cRh"/>
-                                    <barButtonItem systemItem="camera" id="1hO-Bb-N8y">
-                                        <connections>
-                                            <action selector="tookPicture:" destination="GEe-jv-9gt" id="8xq-u0-6Za"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="refresh" id="uAq-NZ-JiZ">
+                                    <barButtonItem image="cog_01.png" style="plain" id="uAq-NZ-JiZ" userLabel="showOptionsButton">
                                         <connections>
                                             <action selector="presentOptionsView:" destination="GEe-jv-9gt" id="D1f-JN-2s3"/>
                                         </connections>
@@ -183,15 +178,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="5ZY-wh-3qX">
                         <barButtonItem key="backBarButtonItem" title="Back" id="RlH-7K-SzI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="IcF-8h-gu6" userLabel="navigationActionSheetButton">
+                            <connections>
+                                <action selector="selectAction:" destination="GEe-jv-9gt" id="OcV-T9-2mj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionButton" destination="IcF-8h-gu6" id="ezO-nG-hhM"/>
                         <outlet property="containerView" destination="ABs-1R-HuO" id="95h-YA-OeR"/>
-                        <outlet property="optionsBarButton" destination="uAq-NZ-JiZ" id="pDW-7F-jPy"/>
-                        <outlet property="takePhotoButton" destination="1hO-Bb-N8y" id="o9Y-aF-dUp"/>
+                        <outlet property="optionsBarButton" destination="uAq-NZ-JiZ" id="B0e-Bi-HJ9"/>
+                        <outlet property="takePhotoButton" destination="Gix-gr-io1" id="vef-2s-oAM"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2026" y="1248"/>
+            <point key="canvasLocation" x="2222" y="-1084"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="18">
@@ -207,7 +208,7 @@
                     </connections>
                 </splitViewController>
             </objects>
-            <point key="canvasLocation" x="-1279" y="263"/>
+            <point key="canvasLocation" x="-1083" y="-2069"/>
         </scene>
         <!--Master View Controller - All samples-->
         <scene sceneID="24">
@@ -249,7 +250,7 @@
                     <navigationItem key="navigationItem" title="All samples" id="40"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1000" y="-334"/>
+            <point key="canvasLocation" x="1196" y="-2666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
@@ -264,9 +265,14 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="116" y="816"/>
+            <point key="canvasLocation" x="312" y="-1516"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cog_01.png" width="26" height="26"/>
+        <image name="photos_polaroid.png" width="26" height="26"/>
+        <image name="switchCamera.png" width="43" height="26"/>
+    </resources>
     <classes>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
@@ -282,7 +288,10 @@
             <relationships>
                 <relationship kind="action" name="presentOptionsView:"/>
                 <relationship kind="action" name="saveProcessingResult:"/>
+                <relationship kind="action" name="selectAction:"/>
+                <relationship kind="action" name="selectPictureForProcessing:"/>
                 <relationship kind="action" name="tookPicture:"/>
+                <relationship kind="outlet" name="actionButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="optionsBarButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="takePhotoButton" candidateClass="UIBarButtonItem"/>
@@ -297,6 +306,7 @@
                 <relationship kind="action" name="saveProcessingResult:"/>
                 <relationship kind="action" name="showOptions:"/>
                 <relationship kind="action" name="toggleCameraPressed:"/>
+                <relationship kind="outlet" name="actionSheetButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="options" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toggleCameraButton" candidateClass="UIBarButtonItem"/>

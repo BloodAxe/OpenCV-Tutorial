@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SampleBase.h"
+
+typedef void (^TweetImageCompletionHandler)(); 
+typedef void (^SaveImageCompletionHandler)(); 
+
+#define kSaveImageActionTitle  @"Save image"
+#define kComposeTweetWithImage @"Tweet image"
+
 @interface BaseSampleViewController : UIViewController
+
+@property (readonly) SampleBase * currentSample;
+
+- (void) configureView;
+- (void) setSample:(SampleBase*) sample;
+- (void) tweetImage:(UIImage*) image withCompletionHandler: (TweetImageCompletionHandler) handler;
+- (void) saveImage:(UIImage*) image  withCompletionHandler: (SaveImageCompletionHandler) handler;
 
 @end

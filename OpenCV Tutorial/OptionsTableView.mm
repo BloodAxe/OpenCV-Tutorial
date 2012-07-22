@@ -29,7 +29,6 @@ notificationsDelegate:(id<OptionCellDelegate>) delegate
     [self registerNib:[UINib nibWithNibName:@"EnumTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"EnumTableViewCell"];
 
     [self setAutoresizingMask: (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight) ];
-    
     self.optionsFacade = [[SampleOptionsTableViewDelegate alloc] initWithSample:sample notificationsDelegate:delegate];
     self.delegate = self.optionsFacade;
     self.dataSource = self.optionsFacade;
