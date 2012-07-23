@@ -10,6 +10,7 @@
 #import "ContourDetectionSample.h"
 #import "EdgeDetectionSample.h"
 #import "ImageFiltersSample.h"
+#import "ROFSample.h"
 
 @implementation AppDelegate
 
@@ -21,6 +22,7 @@
   //allSamples.push_back( new ContourDetectionSample() );
   allSamples.push_back( new EdgeDetectionSample());
   //allSamples.push_back( new ImageFiltersSample());
+    allSamples.push_back( new ROFSample() );
 
   
     // Override point for customization after application launch.

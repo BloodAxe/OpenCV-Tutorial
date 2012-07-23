@@ -63,6 +63,7 @@
 		8AB993C215A354BF00D6AB1D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */; };
 		8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */; };
 		8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */; };
+		E11367EF15B9E93B000051A1 /* ROFSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E11367EE15B9E93B000051A1 /* ROFSample.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,8 @@
 		8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8AE69C0415A3A47F00DAA115 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageViewController.mm; sourceTree = "<group>"; };
+		E11367EC15B9E92C000051A1 /* ROFSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ROFSample.h; sourceTree = "<group>"; };
+		E11367EE15B9E93B000051A1 /* ROFSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ROFSample.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +263,7 @@
 				8A79349415A9A3FB0043BE99 /* Image Filters */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
 				8A4388DF15971FE000027D3C /* Edge Detection */,
+				E11367F015B9E944000051A1 /* Rudin-Osher-Fatemi */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -390,6 +394,15 @@
 			name = "Startup Images";
 			sourceTree = "<group>";
 		};
+		E11367F015B9E944000051A1 /* Rudin-Osher-Fatemi */ = {
+			isa = PBXGroup;
+			children = (
+				E11367EC15B9E92C000051A1 /* ROFSample.h */,
+				E11367EE15B9E93B000051A1 /* ROFSample.cpp */,
+			);
+			name = "Rudin-Osher-Fatemi";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -495,6 +508,7 @@
 				8A00096F15AD6DF9001EA42D /* OptionCell.mm in Sources */,
 				8A00097315AE0F0A001EA42D /* OptionsTableView.mm in Sources */,
 				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
+				E11367EF15B9E93B000051A1 /* ROFSample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
