@@ -22,9 +22,6 @@ ImageFiltersSample::ImageFiltersSample()
   m_alpha = 1;
   m_bias = 0;
   
-  sp = 15;
-  sr = 50;
-
   std::vector<std::string> effects;
   effects.push_back("Sepia");
   effects.push_back("Negative");
@@ -32,8 +29,8 @@ ImageFiltersSample::ImageFiltersSample()
   
   registerOption("Effect", "", &m_currentEffect, effects, 1);
   
-  registerOption("Contrast", "Adjustmens", &m_alpha, 0, 2);
-  registerOption("Bias", "Adjustmens", &m_bias, -128, 128);  
+  registerOption("Contrast", "Adjustmens",   &m_alpha, 0, 2);
+  registerOption("Brightness", "Adjustmens", &m_bias, -128, 128);  
 }
 
 std::string ImageFiltersSample::getName() const
@@ -68,7 +65,7 @@ bool ImageFiltersSample::processFrame(const cv::Mat& inputFrame, cv::Mat& output
   {
     negative(inputFrame, outputFrame);
   }
-  else if (m_currentEffect == "Levels")
+  else if (m_currentEffect == "Adjustments")
   {
     contrastAndBrightnessAdjust(inputFrame, outputFrame);
   }
@@ -83,14 +80,14 @@ void ImageFiltersSample::sepia(const cv::Mat& inputFrame, cv::Mat& outputFrame)
 
 void ImageFiltersSample::negative(const cv::Mat& inputFrame, cv::Mat& outputFrame)
 {
-  cv::Vec4b min(255,255,255,255);
-  cv::Vec4b max(0,0,0,255);
+  cv::Vec4b min(255,255,255, 0);
+  cv::Vec4b max(  0,  0,  0, 255);
     
   for (int row  = 0; row < inputFrame.rows; row++)
   {
     for (int col = 0; col < inputFrame.cols; col++)
     {
-      cv::Vec4b src = inputFrame.at<cv::Vec4b>(row, col);
+      const cv::Vec4b& src = inputFrame.at<cv::Vec4b>(row, col);
 
       min[0] = std::min(min[0], src[0]);
       min[1] = std::min(min[1], src[1]);
@@ -108,7 +105,9 @@ void ImageFiltersSample::negative(const cv::Mat& inputFrame, cv::Mat& outputFram
   {
     for (int col = 0; col < inputFrame.cols; col++)
     {
-      outputFrame.at<cv::Vec4b>(row, col) = max - inputFrame.at<cv::Vec4b>(row, col) + min;
+      cv::Vec4b result = (max - inputFrame.at<cv::Vec4b>(row, col)) + min;
+      result[3] = 0xFF;
+      outputFrame.at<cv::Vec4b>(row, col) = result;
     }
   }
 }
@@ -119,7 +118,7 @@ void ImageFiltersSample::contrastAndBrightnessAdjust(const cv::Mat& inputFrame, 
   
   cv::transform(inputFrame, outputFrame, m_contrastKernel);
   
-  //outputFrame += cv::Scalar(m_bias,m_bias, m_bias, 0);
+  outputFrame += cv::Scalar(m_bias,m_bias, m_bias, 0);
 }
 
 
