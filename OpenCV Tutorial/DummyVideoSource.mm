@@ -90,7 +90,7 @@ cv::Mat_<cv::Vec4b> rotate(cv::Mat_<cv::Vec4b> in)
 
 - (void) startRunning
 {
-  self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+  self.timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
 }
 
 - (void) stopRunning

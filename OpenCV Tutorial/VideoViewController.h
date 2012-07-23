@@ -11,8 +11,9 @@
 #import "VideoSource.h"
 #import "SampleBase.h"
 #import "GLESImageView.h"
+#import "BaseSampleViewController.h"
 
-@interface VideoViewController : UIViewController<VideoSourceDelegate>
+@interface VideoViewController : BaseSampleViewController<VideoSourceDelegate,UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toggleCameraButton;
@@ -23,12 +24,14 @@
 @property (nonatomic, strong) UIPopoverController * optionsPopover;
 @property (nonatomic, strong) UIViewController * optionsViewController;
 
-- (void) setSample:(SampleBase*) sample;
+@property (nonatomic, strong) UIActionSheet * actionSheet;
 
 - (IBAction)toggleCameraPressed:(id)sender;
 - (IBAction)showOptions:(id)sender;
-- (IBAction)saveProcessingResult:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionSheetButton;
+
+- (IBAction)showActionSheet:(id)sender;
 
 @end
 

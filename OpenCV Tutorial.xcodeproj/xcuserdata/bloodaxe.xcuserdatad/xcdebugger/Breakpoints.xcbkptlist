@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OpenCV Tutorial/VideoViewController.mm"
-         timestampString = "363867285.231264"
+         timestampString = "364486666.738137"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,12 +164,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OpenCV Tutorial/ImageViewController.mm"
-         timestampString = "363864627.015876"
+         timestampString = "364486666.738137"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
-         landmarkName = "-tookPicture:"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
+         landmarkName = "-selectPictureForProcessing:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OpenCV Tutorial/SampleBase.cpp"
-         timestampString = "363549309.330359"
+         timestampString = "364484791.886904"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "92"
-         endingLineNumber = "92"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
          landmarkName = "cvtBgra2Gray(const cv::Mat&amp; input, cv::Mat&amp; gray)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OpenCV Tutorial/SampleBase.cpp"
-         timestampString = "363549309.330359"
+         timestampString = "364484791.886904"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "91"
-         endingLineNumber = "91"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "cvtBgra2Gray(const cv::Mat&amp; input, cv::Mat&amp; gray)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -268,11 +268,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OpenCV Tutorial/ImageViewController.mm"
-         timestampString = "363864627.015876"
+         timestampString = "364486666.738137"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -508,6 +508,56 @@
          startingLineNumber = "117"
          endingLineNumber = "117"
          landmarkName = "-createFramebuffer"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "opencv/include/opencv2/core/core.hpp"
+         timestampString = "364399086.353505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "638"
+         endingLineNumber = "638">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "-[ImageViewController updateImageView]"
+               urlString = "file://localhost/core.hpp"
+               timestampString = "364399086.445691"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "703"
+               endingLineNumber = "703">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "ImageFiltersSample::ImageFiltersSample()"
+               urlString = "file://localhost/core.hpp"
+               timestampString = "364399086.446113"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "703"
+               endingLineNumber = "703">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OpenCV Tutorial/ImageFiltersSample.cpp"
+         timestampString = "364484791.886904"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
+         landmarkName = "ImageFiltersSample::processFrame(const cv::Mat&amp; inputFrame, cv::Mat&amp; outputFrame)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -19,7 +19,6 @@
 #else
   VideoSource * videoSource;
 #endif  
-  SampleBase  * currentSample;
   
   cv::Mat outputFrame;
 }
@@ -27,6 +26,7 @@
 @end
 
 @implementation VideoViewController
+@synthesize actionSheetButton;
 @synthesize options;
 @synthesize imageView;
 @synthesize toggleCameraButton;
@@ -34,6 +34,7 @@
 @synthesize optionsPopover;
 @synthesize optionsView;
 @synthesize optionsViewController;
+@synthesize actionSheet;
 
 - (void)viewDidLoad
 {
@@ -52,6 +53,13 @@
 #endif
   
   videoSource.delegate = self;
+  
+  self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions" 
+                                                 delegate:self 
+                                        cancelButtonTitle:@"Cancel" 
+                                   destructiveButtonTitle:nil 
+                                        otherButtonTitles:kSaveImageActionTitle, kComposeTweetWithImage, nil];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -69,13 +77,13 @@
   [videoSource stopRunning];
 }
 
-- (void) setSample:(SampleBase*) sample
+- (void) configureView
 {
-  currentSample = sample;
+  [super configureView];
   
   self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame 
                                                        style:UITableViewStyleGrouped 
-                                                      sample:sample 
+                                                      sample:self.currentSample 
                                        notificationsDelegate:nil];
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -95,27 +103,20 @@
   [videoSource toggleCamera];
 }
 
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (IBAction)showActionSheet:(id)sender
 {
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-  {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  }
+  if ([self.actionSheet isVisible])
+    [self.actionSheet dismissWithClickedButtonIndex:-1 animated:YES];
   else
-  {
-    return YES;
-  }
+    [self.actionSheet showFromBarButtonItem:self.actionSheetButton animated:YES];
 }
-
-
 
 - (void)viewDidUnload
 {
   [self setToggleCameraButton:nil];
   [self setContainerView:nil];
   [self setOptions:nil];
+  [self setActionSheetButton:nil];
   [super viewDidUnload];
 }
 
@@ -144,11 +145,7 @@
                          options:UIViewAnimationOptionTransitionFlipFromLeft 
                       completion:^(BOOL)
        {
-         
          [self.optionsView reloadData];
-         
-         NSLog(@"Visible cells count %d" , [[self.optionsView visibleCells] count]);
-         NSLog(@"Options view size %fx%f" , self.optionsView.bounds.size.width, self.optionsView.bounds.size.height);
        }];
     }
   }
@@ -161,50 +158,59 @@
   }
 }
 
-#pragma mark - Image saving
-
-- (IBAction) saveProcessingResult:(id) sender
-{
-  UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
-  UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error 
-  contextInfo:(void *)contextInfo
-{
-  if (error != NULL)
-  {
-    NSLog(@"Error during saving image: %@", error);    
-  }
-}
-
 #pragma mark - VideoSourceDelegate
 
 - (void) frameCaptured:(cv::Mat) frame
 {
+  SampleBase * sample = self.currentSample;
+  if (!sample)
+     return;
+  
   bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
   
   if (isMainQueue)
   {
-    if (currentSample)
-    {
-      currentSample->processFrame(frame, outputFrame);
+      sample->processFrame(frame, outputFrame);
       [imageView drawFrame:outputFrame];
-    }
   }
   else
   {
     dispatch_sync( dispatch_get_main_queue(), 
                   ^{ 
-                    if (currentSample)
-                    {
-                      currentSample->processFrame(frame, outputFrame);
+                      sample->processFrame(frame, outputFrame);
                       [imageView drawFrame:outputFrame];
                     }
-                  });
+                  );
   }
-  
-
 }
+
+#pragma mark UIActionSheetDelegate implementation
+
+- (void)actionSheet:(UIActionSheet *)senderSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  NSString * title = [senderSheet buttonTitleAtIndex:buttonIndex];
+  
+  if (title == kSaveImageActionTitle)
+  {
+    UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
+    [self saveImage:image withCompletionHandler: ^{ [videoSource startRunning]; }];
+  }
+  else if (title == kComposeTweetWithImage)
+  {
+    UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
+    [self tweetImage:image withCompletionHandler:^{ [videoSource startRunning]; }];
+  }
+  else
+  {
+    [videoSource startRunning];
+  }
+}
+
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet;  // before animation and showing view
+{
+  [videoSource stopRunning];
+}
+
+
 
 @end

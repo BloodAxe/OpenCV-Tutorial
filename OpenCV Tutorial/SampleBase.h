@@ -17,6 +17,9 @@ class SampleBase
 public:
   //! Gets a sample name
   virtual std::string getName() const = 0;
+
+  //! Returns a user-friendly name for displaying as description
+  virtual std::string getUserFriendlyName() const;
   
   //! Returns a detailed sample description
   virtual std::string getDescription() const = 0;

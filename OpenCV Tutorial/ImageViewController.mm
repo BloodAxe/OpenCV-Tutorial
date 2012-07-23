@@ -9,15 +9,18 @@
 #import "ImageViewController.h"
 #import "UIImage2OpenCV.h"
 #import "SampleOptionsTableViewDelegate.h"
+#import "NSString+StdString.h"
 
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
 
 #define kTransitionDuration	0.75
 
+#define kSaveImageActionTitle  @"Save image"
+#define kComposeTweetWithImage @"Tweet image"
+
 @interface ImageViewController ()
 {
-  SampleBase  * currentSample;
   UIImage     * currentImage;
 }
 
@@ -30,6 +33,7 @@
 @end
 
 @implementation ImageViewController
+@synthesize actionButton;
 @synthesize containerView;
 @synthesize optionsBarButton;
 @synthesize imageView;
@@ -40,16 +44,9 @@
 @synthesize optionsPopover;
 @synthesize optionsViewController;
 
+@synthesize actionSheet;
+
 #pragma mark - View Lifecycle
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self)
-  {
-    
-  }
-  return self;
-}
 
 - (void)viewDidLoad
 {
@@ -57,19 +54,25 @@
   
   self.imagePickerController = [[UIImagePickerController alloc] init];
   self.imagePickerController.delegate = self;
-  self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+  self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
   {
     self.imagePickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.imagePickerController];
   }
-  
-  
+
   // create the initial image view
 	self.imageView = [[UIImageView alloc] initWithFrame:self.containerView.bounds];
   [self.imageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
   
 	[self.containerView addSubview:self.imageView];
+  
+  self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions" 
+                                                 delegate:self 
+                                        cancelButtonTitle:@"Cancel" 
+                                   destructiveButtonTitle:nil 
+                                        otherButtonTitles:kSaveImageActionTitle, kComposeTweetWithImage, nil];
+
 }
 
 - (void)viewDidUnload
@@ -78,6 +81,7 @@
   [self setContainerView:nil];
   [self setTakePhotoButton:nil];
   [self setOptionsBarButton:nil];
+  [self setActionButton:nil];
   [super viewDidUnload];
   // Release any retained subviews of the main view.
 }
@@ -89,40 +93,9 @@
   
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-  {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  }
-  else 
-  {
-    return YES;
-  }
-}
+
 
 #pragma mark - Sample management
-
-- (void) setSample:(SampleBase*) sample
-{
-  currentSample = sample;
-  
-  self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame style:UITableViewStyleGrouped sample:sample notificationsDelegate:self];
-  //self.optionsView.
-  
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-  {
-    UIViewController * viewController = [[UIViewController alloc] init];
-    viewController.view = self.optionsView;
-    viewController.title = @"Algorithm options";
-    
-    self.optionsViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    self.optionsPopover = [[UIPopoverController alloc] initWithContentViewController:self.optionsViewController];
-  }
-  
-  [self configureView];
-}
 
 - (void) setImage:(UIImage*) image
 {
@@ -132,21 +105,38 @@
 
 - (void) configureView
 {
-  if (currentSample)
+  [super configureView];
+  
+  self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame 
+                                                       style:UITableViewStyleGrouped 
+                                                      sample:self.currentSample 
+                                       notificationsDelegate:self];
+  
+  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
   {
-    self.title = [NSString stringWithCString:currentSample->getName().c_str() encoding:NSASCIIStringEncoding];
-    [self updateImageView];
+    UIViewController * viewController = [[UIViewController alloc] init];
+    viewController.view = self.optionsView;
+    viewController.title = @"Algorithm options";
+    
+    self.optionsViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    // Limit options popover dimensions. Todo make a popover automaticaly resize depending on number of registered properties
+    [viewController setContentSizeForViewInPopover:CGSizeMake(320, 500)];
+    
+    self.optionsPopover = [[UIPopoverController alloc] initWithContentViewController:self.optionsViewController];
   }
+
+  [self updateImageView];
 }
 
 - (void) updateImageView
 {
-  if (currentSample && currentImage)
+  if (self.currentSample && currentImage)
   {
     cv::Mat inputImage = [currentImage toMat];
     cv::Mat outputImage;
     
-    currentSample->processFrame(inputImage, outputImage);
+    self.currentSample->processFrame(inputImage, outputImage);
     UIImage * result = [UIImage imageWithMat:outputImage andImageOrientation:[currentImage imageOrientation]];
     
     self.imageView.image = result;
@@ -155,7 +145,7 @@
 
 #pragma mark - Handling user interaction
 
-- (IBAction) tookPicture:(id) sender
+- (IBAction) selectPictureForProcessing:(id)sender
 {
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
   {
@@ -215,6 +205,14 @@
                                                   animated:YES];
     }
   }
+}
+
+- (IBAction)selectAction:(id)sender 
+{
+  if ([self.actionSheet isVisible])
+    [self.actionSheet dismissWithClickedButtonIndex:-1 animated:YES];
+  else
+    [self.actionSheet showFromBarButtonItem:self.actionButton animated:YES];
 }
 
 #pragma mark - UIImagePickerControllerDelegate implementation
@@ -287,28 +285,27 @@
   }
 }
 
-#pragma mark - Image saving
-
-- (IBAction) saveProcessingResult:(id) sender
-{
-  UIImage * image = self.imageView.image;
-  UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error 
-  contextInfo:(void *)contextInfo
-{
-  if (error != NULL)
-  {
-    NSLog(@"Error during saving image: %@", error);    
-  }
-}
-
 #pragma mark - OptionCellDelegate implementation
 
 - (void) optionDidChanged:(SampleOption*) option
 {
   [self updateImageView];
+}
+
+#pragma mark UIActionSheetDelegate implementation
+
+- (void)actionSheet:(UIActionSheet *)senderSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  NSString * title = [senderSheet buttonTitleAtIndex:buttonIndex];
+  
+  if (title == kSaveImageActionTitle)
+  {
+    [self saveImage:self.imageView.image withCompletionHandler:nil];
+  }
+  else if (title == kComposeTweetWithImage)
+  {
+    [self tweetImage:self.imageView.image withCompletionHandler:nil];
+  }
 }
 
 @end
