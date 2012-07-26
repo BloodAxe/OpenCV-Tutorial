@@ -51,15 +51,15 @@
 
 namespace cv
 {
-    
+
 CV_EXPORTS bool initModule_features2d();
 
 /*!
  The Keypoint Class
- 
+
  The class instance stores a keypoint, i.e. a point feature found by one of many available keypoint detectors, such as
  Harris corner detector, cv::FAST, cv::StarDetector, cv::SURF, cv::SIFT, cv::LDetector etc.
- 
+
  The keypoint is characterized by the 2D position, scale
  (proportional to the diameter of the neighborhood that needs to be taken into account),
  orientation and some other parameters. The keypoint neighborhood is then analyzed by another algorithm that builds a descriptor
@@ -81,9 +81,9 @@ public:
             float _response=0, int _octave=0, int _class_id=-1)
             : pt(x, y), size(_size), angle(_angle),
             response(_response), octave(_octave), class_id(_class_id) {}
-    
+
     size_t hash() const;
-    
+
     //! converts vector of keypoints to vector of points
     static void convert(const vector<KeyPoint>& keypoints,
                         CV_OUT vector<Point2f>& points2f,
@@ -100,21 +100,23 @@ public:
 
     CV_PROP_RW Point2f pt; //!< coordinates of the keypoints
     CV_PROP_RW float size; //!< diameter of the meaningful keypoint neighborhood
-    CV_PROP_RW float angle; //!< computed orientation of the keypoint (-1 if not applicable)
+    CV_PROP_RW float angle; //!< computed orientation of the keypoint (-1 if not applicable);
+							//!< it's in [0,360) degrees and measured relative to 
+							//!< image coordinate system, ie in clockwise. 
     CV_PROP_RW float response; //!< the response by which the most strong keypoints have been selected. Can be used for the further sorting or subsampling
     CV_PROP_RW int octave; //!< octave (pyramid layer) from which the keypoint has been extracted
-    CV_PROP_RW int class_id; //!< object class (if the keypoints need to be clustered by an object they belong to) 
+    CV_PROP_RW int class_id; //!< object class (if the keypoints need to be clustered by an object they belong to)
 };
-    
+
 //! writes vector of keypoints to the file storage
 CV_EXPORTS void write(FileStorage& fs, const string& name, const vector<KeyPoint>& keypoints);
 //! reads vector of keypoints from the specified file storage node
-CV_EXPORTS void read(const FileNode& node, CV_OUT vector<KeyPoint>& keypoints);    
+CV_EXPORTS void read(const FileNode& node, CV_OUT vector<KeyPoint>& keypoints);
 
 /*
  * A class filters a vector of keypoints.
  * Because now it is difficult to provide a convenient interface for all usage scenarios of the keypoints filter class,
- * it has only 4 needed by now static methods.
+ * it has only several needed by now static methods.
  */
 class CV_EXPORTS KeyPointsFilter
 {
@@ -138,14 +140,14 @@ public:
      * Remove duplicated keypoints.
      */
     static void removeDuplicated( vector<KeyPoint>& keypoints );
-    
+
     /*
      * Retain the specified number of the best keypoints (according to the response)
      */
-    static void retainBest(vector<KeyPoint>& keypoints, int npoints);
+    static void retainBest( vector<KeyPoint>& keypoints, int npoints );
 };
 
-    
+
 /************************************ Base Classes ************************************/
 
 /*
@@ -155,7 +157,7 @@ class CV_EXPORTS_W FeatureDetector : public virtual Algorithm
 {
 public:
     virtual ~FeatureDetector();
-    
+
     /*
      * Detect keypoints in an image.
      * image        The image.
@@ -164,7 +166,7 @@ public:
      *              matrix with non-zero values in the region of interest.
      */
     CV_WRAP void detect( const Mat& image, CV_OUT vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
-    
+
     /*
      * Detect keypoints in an image set.
      * images       Image collection.
@@ -172,16 +174,16 @@ public:
      * masks        Masks for image set. masks[i] is a mask for images[i].
      */
     void detect( const vector<Mat>& images, vector<vector<KeyPoint> >& keypoints, const vector<Mat>& masks=vector<Mat>() ) const;
-    
+
     // Return true if detector object is empty
     CV_WRAP virtual bool empty() const;
-    
+
     // Create feature detector by detector name.
     CV_WRAP static Ptr<FeatureDetector> create( const string& detectorType );
-    
+
 protected:
     virtual void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const = 0;
-    
+
     /*
      * Remove keypoints that are not in the mask.
      * Helper function, useful when wrapping a library call for keypoint detection that
@@ -189,8 +191,8 @@ protected:
      */
     static void removeInvalidPoints( const Mat& mask, vector<KeyPoint>& keypoints );
 };
-    
-    
+
+
 /*
  * Abstract base class for computing descriptors for image keypoints.
  *
@@ -204,7 +206,7 @@ class CV_EXPORTS_W DescriptorExtractor : public virtual Algorithm
 {
 public:
     virtual ~DescriptorExtractor();
-    
+
     /*
      * Compute the descriptors for a set of keypoints in an image.
      * image        The image.
@@ -212,7 +214,7 @@ public:
      * descriptors  Copmputed descriptors. Row i is the descriptor for keypoint i.
      */
     CV_WRAP void compute( const Mat& image, CV_OUT CV_IN_OUT vector<KeyPoint>& keypoints, CV_OUT Mat& descriptors ) const;
-    
+
     /*
      * Compute the descriptors for a keypoints collection detected in image collection.
      * images       Image collection.
@@ -221,26 +223,26 @@ public:
      * descriptors  Descriptor collection. descriptors[i] are descriptors computed for set keypoints[i].
      */
     void compute( const vector<Mat>& images, vector<vector<KeyPoint> >& keypoints, vector<Mat>& descriptors ) const;
-    
+
     CV_WRAP virtual int descriptorSize() const = 0;
     CV_WRAP virtual int descriptorType() const = 0;
-    
+
     CV_WRAP virtual bool empty() const;
-    
+
     CV_WRAP static Ptr<DescriptorExtractor> create( const string& descriptorExtractorType );
-    
+
 protected:
     virtual void computeImpl( const Mat& image, vector<KeyPoint>& keypoints, Mat& descriptors ) const = 0;
-    
+
     /*
      * Remove keypoints within borderPixels of an image edge.
      */
     static void removeBorderKeypoints( vector<KeyPoint>& keypoints,
                                       Size imageSize, int borderSize );
 };
-    
-    
-    
+
+
+
 /*
  * Abstract base class for simultaneous 2D feature detection descriptor extraction.
  */
@@ -254,29 +256,29 @@ public:
      * mask         Mask specifying where to look for keypoints (optional). Must be a char
      *              matrix with non-zero values in the region of interest.
      * useProvidedKeypoints If true, the method will skip the detection phase and will compute
-     *                      descriptors for the provided keypoints 
+     *                      descriptors for the provided keypoints
      */
     CV_WRAP_AS(detectAndCompute) virtual void operator()( InputArray image, InputArray mask,
                                      CV_OUT vector<KeyPoint>& keypoints,
                                      OutputArray descriptors,
                                      bool useProvidedKeypoints=false ) const = 0;
-    
+
     // Create feature detector and descriptor extractor by name.
     static Ptr<Feature2D> create( const string& name );
 };
-    
-    
+
+
 /*!
  ORB implementation.
 */
-class CV_EXPORTS ORB : public Feature2D
+class CV_EXPORTS_W ORB : public Feature2D
 {
 public:
     // the size of the signature in bytes
     enum { kBytes = 32, HARRIS_SCORE=0, FAST_SCORE=1 };
 
-    explicit ORB(int nfeatures = 500, float scaleFactor = 1.2f, int nlevels = 8, int edgeThreshold = 31,
-                 int firstLevel = 0, int WTA_K=2, int scoreType=0, int patchSize=31 );
+    CV_WRAP explicit ORB(int nfeatures = 500, float scaleFactor = 1.2f, int nlevels = 8, int edgeThreshold = 31,
+        int firstLevel = 0, int WTA_K=2, int scoreType=ORB::HARRIS_SCORE, int patchSize=31 );
 
     // returns the descriptor size in bytes
     int descriptorSize() const;
@@ -289,14 +291,14 @@ public:
     // Compute the ORB features and descriptors on an image
     void operator()( InputArray image, InputArray mask, vector<KeyPoint>& keypoints,
                      OutputArray descriptors, bool useProvidedKeypoints=false ) const;
-  
+
     AlgorithmInfo* info() const;
-    
+
 protected:
 
     void computeImpl( const Mat& image, vector<KeyPoint>& keypoints, Mat& descriptors ) const;
     void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
-    
+
     CV_PROP_RW int nfeatures;
     CV_PROP_RW double scaleFactor;
     CV_PROP_RW int nlevels;
@@ -306,37 +308,126 @@ protected:
     CV_PROP_RW int scoreType;
     CV_PROP_RW int patchSize;
 };
-    
+
 typedef ORB OrbFeatureDetector;
 typedef ORB OrbDescriptorExtractor;
+
+/*!
+  FREAK implementation
+*/
+class CV_EXPORTS FREAK : public DescriptorExtractor
+{
+public:
+    /** Constructor
+         * @param orientationNormalized enable orientation normalization
+         * @param scaleNormalized enable scale normalization
+         * @param patternScale scaling of the description pattern
+         * @param nbOctave number of octaves covered by the detected keypoints
+         * @param selectedPairs (optional) user defined selected pairs
+    */
+    explicit FREAK( bool orientationNormalized = true,
+           bool scaleNormalized = true,
+           float patternScale = 22.0f,
+           int nOctaves = 4,
+           const vector<int>& selectedPairs = vector<int>());
+    FREAK( const FREAK& rhs );
+    FREAK& operator=( const FREAK& );
+
+    virtual ~FREAK();
+
+    /** returns the descriptor length in bytes */
+    virtual int descriptorSize() const;
+
+    /** returns the descriptor type */
+    virtual int descriptorType() const;
+
+    /** select the 512 "best description pairs"
+         * @param images grayscale images set
+         * @param keypoints set of detected keypoints
+         * @param corrThresh correlation threshold
+         * @param verbose print construction information
+         * @return list of best pair indexes
+    */
+    vector<int> selectPairs( const vector<Mat>& images, vector<vector<KeyPoint> >& keypoints,
+                      const double corrThresh = 0.7, bool verbose = true );
+
+    AlgorithmInfo* info() const;
+
+    enum
+    {
+        NB_SCALES = 64, NB_PAIRS = 512, NB_ORIENPAIRS = 45
+    };
+
+protected:
+    virtual void computeImpl( const Mat& image, vector<KeyPoint>& keypoints, Mat& descriptors ) const;
+    void buildPattern();
+    uchar meanIntensity( const Mat& image, const Mat& integral, const float kp_x, const float kp_y,
+                         const unsigned int scale, const unsigned int rot, const unsigned int point ) const;
+
+    bool orientationNormalized; //true if the orientation is normalized, false otherwise
+    bool scaleNormalized; //true if the scale is normalized, false otherwise
+    double patternScale; //scaling of the pattern
+    int nOctaves; //number of octaves
+    bool extAll; // true if all pairs need to be extracted for pairs selection
+
+    double patternScale0;
+    int nOctaves0;
+    vector<int> selectedPairs0;
+
+    struct PatternPoint
+    {
+        float x; // x coordinate relative to center
+        float y; // x coordinate relative to center
+        float sigma; // Gaussian smoothing sigma
+    };
+
+    struct DescriptionPair
+    {
+        uchar i; // index of the first point
+        uchar j; // index of the second point
+    };
+
+    struct OrientationPair
+    {
+        uchar i; // index of the first point
+        uchar j; // index of the second point
+        int weight_dx; // dx/(norm_sq))*4096
+        int weight_dy; // dy/(norm_sq))*4096
+    };
+
+    vector<PatternPoint> patternLookup; // look-up table for the pattern points (position+sigma of all points at all scales and orientation)
+    int patternSizes[NB_SCALES]; // size of the pattern at a specific scale (used to check if a point is within image boundaries)
+    DescriptionPair descriptionPairs[NB_PAIRS];
+    OrientationPair orientationPairs[NB_ORIENPAIRS];
+};
 
 
 /*!
  Maximal Stable Extremal Regions class.
- 
+
  The class implements MSER algorithm introduced by J. Matas.
  Unlike SIFT, SURF and many other detectors in OpenCV, this is salient region detector,
  not the salient point detector.
- 
+
  It returns the regions, each of those is encoded as a contour.
 */
 class CV_EXPORTS_W MSER : public FeatureDetector
 {
 public:
     //! the full constructor
-    explicit MSER( int _delta=5, int _min_area=60, int _max_area=14400,
+    CV_WRAP explicit MSER( int _delta=5, int _min_area=60, int _max_area=14400,
           double _max_variation=0.25, double _min_diversity=.2,
           int _max_evolution=200, double _area_threshold=1.01,
           double _min_margin=0.003, int _edge_blur_size=5 );
-    
+
     //! the operator that extracts the MSERs from the image or the specific part of it
-    CV_WRAP_AS(detect) void operator()( const Mat& image, vector<vector<Point> >& msers,
-                                        const Mat& mask=Mat() ) const; 
+    CV_WRAP_AS(detect) void operator()( const Mat& image, CV_OUT vector<vector<Point> >& msers,
+                                        const Mat& mask=Mat() ) const;
     AlgorithmInfo* info() const;
-    
+
 protected:
     void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
-    
+
     int delta;
     int minArea;
     int maxArea;
@@ -347,12 +438,12 @@ protected:
     double minMargin;
     int edgeBlurSize;
 };
-    
+
 typedef MSER MserFeatureDetector;
 
 /*!
  The "Star" Detector.
- 
+
  The class implements the keypoint detector introduced by K. Konolige.
 */
 class CV_EXPORTS_W StarDetector : public FeatureDetector
@@ -363,16 +454,16 @@ public:
                  int _lineThresholdProjected=10,
                  int _lineThresholdBinarized=8,
                  int _suppressNonmaxSize=5);
-    
+
     //! finds the keypoints in the image
     CV_WRAP_AS(detect) void operator()(const Mat& image,
                 CV_OUT vector<KeyPoint>& keypoints) const;
-    
+
     AlgorithmInfo* info() const;
-    
+
 protected:
     void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
-    
+
     int maxSize;
     int responseThreshold;
     int lineThresholdProjected;
@@ -389,7 +480,7 @@ class CV_EXPORTS_W FastFeatureDetector : public FeatureDetector
 public:
     CV_WRAP FastFeatureDetector( int threshold=10, bool nonmaxSuppression=true );
     AlgorithmInfo* info() const;
-    
+
 protected:
     virtual void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
 
@@ -464,12 +555,12 @@ protected:
   };
 
   virtual void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
-  virtual void findBlobs(const cv::Mat &image, const cv::Mat &binaryImage, std::vector<Center> &centers) const;
+  virtual void findBlobs(const Mat &image, const Mat &binaryImage, vector<Center> &centers) const;
 
   Params params;
 };
 
-    
+
 class CV_EXPORTS DenseFeatureDetector : public FeatureDetector
 {
 public:
@@ -486,10 +577,10 @@ protected:
     double initFeatureScale;
     int featureScaleLevels;
     double featureScaleMul;
-    
+
     int initXyStep;
     int initImgBound;
-    
+
     bool varyXyStepWithScale;
     bool varyImgBoundWithScale;
 };
@@ -508,12 +599,14 @@ public:
      * gridRows            Grid rows count.
      * gridCols            Grid column count.
      */
-    CV_WRAP GridAdaptedFeatureDetector( const Ptr<FeatureDetector>& detector,
+    CV_WRAP GridAdaptedFeatureDetector( const Ptr<FeatureDetector>& detector=0,
                                         int maxTotalKeypoints=1000,
                                         int gridRows=4, int gridCols=4 );
-    
+
     // TODO implement read/write
     virtual bool empty() const;
+
+    AlgorithmInfo* info() const;
 
 protected:
     virtual void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
@@ -533,7 +626,7 @@ class CV_EXPORTS_W PyramidAdaptedFeatureDetector : public FeatureDetector
 public:
     // maxLevel - The 0-based index of the last pyramid layer
     CV_WRAP PyramidAdaptedFeatureDetector( const Ptr<FeatureDetector>& detector, int maxLevel=2 );
-    
+
     // TODO implement read/write
     virtual bool empty() const;
 
@@ -549,9 +642,9 @@ protected:
  */
 class CV_EXPORTS AdjusterAdapter: public FeatureDetector
 {
-public:   
-	/** pure virtual interface
-	 */
+public:
+    /** pure virtual interface
+     */
     virtual ~AdjusterAdapter() {}
     /** too few features were detected so, adjust the detector params accordingly
      * \param min the minimum number of desired features
@@ -588,13 +681,13 @@ class CV_EXPORTS DynamicAdaptedFeatureDetector: public FeatureDetector
 {
 public:
 
-    /** \param adjaster an AdjusterAdapter that will do the detection and parameter adjustment
+    /** \param adjuster an AdjusterAdapter that will do the detection and parameter adjustment
      *  \param max_features the maximum desired number of features
      *  \param max_iters the maximum number of times to try to adjust the feature detector params
-     * 			for the FastAdjuster this can be high, but with Star or Surf this can get time consuming
+     *          for the FastAdjuster this can be high, but with Star or Surf this can get time consuming
      *  \param min_features the minimum desired features
      */
-    DynamicAdaptedFeatureDetector( const Ptr<AdjusterAdapter>& adjaster, int min_features=400, int max_features=500, int max_iters=5 );
+    DynamicAdaptedFeatureDetector( const Ptr<AdjusterAdapter>& adjuster, int min_features=400, int max_features=500, int max_iters=5 );
 
     virtual bool empty() const;
 
@@ -602,8 +695,8 @@ protected:
     virtual void detectImpl( const Mat& image, vector<KeyPoint>& keypoints, const Mat& mask=Mat() ) const;
 
 private:
-	DynamicAdaptedFeatureDetector& operator=(const DynamicAdaptedFeatureDetector&);
-	DynamicAdaptedFeatureDetector(const DynamicAdaptedFeatureDetector&);
+    DynamicAdaptedFeatureDetector& operator=(const DynamicAdaptedFeatureDetector&);
+    DynamicAdaptedFeatureDetector(const DynamicAdaptedFeatureDetector&);
 
     int escape_iters_;
     int min_features_, max_features_;
@@ -701,7 +794,7 @@ public:
     virtual bool empty() const;
 
 protected:
-	virtual void computeImpl( const Mat& image, vector<KeyPoint>& keypoints, Mat& descriptors ) const;
+    virtual void computeImpl( const Mat& image, vector<KeyPoint>& keypoints, Mat& descriptors ) const;
 
     Ptr<DescriptorExtractor> descriptorExtractor;
 };
@@ -737,9 +830,11 @@ protected:
     PixelTestFn test_fn_;
 };
 
+
 /****************************************************************************************\
-*                                          Distance                                      *
+*                                      Distance                                          *
 \****************************************************************************************/
+
 template<typename T>
 struct CV_EXPORTS Accumulator
 {
@@ -757,6 +852,7 @@ template<> struct Accumulator<short>  { typedef float Type; };
 template<class T>
 struct CV_EXPORTS SL2
 {
+    enum { normType = NORM_L2SQR };
     typedef T ValueType;
     typedef typename Accumulator<T>::Type ResultType;
 
@@ -772,6 +868,7 @@ struct CV_EXPORTS SL2
 template<class T>
 struct CV_EXPORTS L2
 {
+    enum { normType = NORM_L2 };
     typedef T ValueType;
     typedef typename Accumulator<T>::Type ResultType;
 
@@ -787,6 +884,7 @@ struct CV_EXPORTS L2
 template<class T>
 struct CV_EXPORTS L1
 {
+    enum { normType = NORM_L1 };
     typedef T ValueType;
     typedef typename Accumulator<T>::Type ResultType;
 
@@ -802,6 +900,7 @@ struct CV_EXPORTS L1
  */
 struct CV_EXPORTS Hamming
 {
+    enum { normType = NORM_HAMMING };
     typedef unsigned char ValueType;
     typedef int ResultType;
 
@@ -817,15 +916,16 @@ typedef Hamming HammingLUT;
 
 template<int cellsize> struct CV_EXPORTS HammingMultilevel
 {
+    enum { normType = NORM_HAMMING + (cellsize>1) };
     typedef unsigned char ValueType;
     typedef int ResultType;
-    
+
     ResultType operator()( const unsigned char* a, const unsigned char* b, int size ) const
     {
         return normHamming(a, b, size, cellsize);
     }
 };
-    
+
 /****************************************************************************************\
 *                                      DMatch                                            *
 \****************************************************************************************/
@@ -864,7 +964,7 @@ class CV_EXPORTS_W DescriptorMatcher : public Algorithm
 public:
     virtual ~DescriptorMatcher();
 
-	/*
+    /*
      * Add descriptors to train descriptor collection.
      * descriptors      Descriptors to add. Each descriptors[i] is a descriptors set from one image.
      */
@@ -980,7 +1080,7 @@ protected:
     static bool isMaskedOut( const vector<Mat>& masks, int queryIdx );
 
     static Mat clone_op( Mat m ) { return m.clone(); }
-	void checkMasks( const vector<Mat>& masks, int queryDescriptorsCount ) const;
+    void checkMasks( const vector<Mat>& masks, int queryDescriptorsCount ) const;
 
     // Collection of descriptors from train images.
     vector<Mat> trainDescCollection;
@@ -995,10 +1095,10 @@ protected:
  * For efficiency, BruteForceMatcher is templated on the distance metric.
  * For float descriptors, a common choice would be cv::L2<float>.
  */
-class CV_EXPORTS BFMatcher : public DescriptorMatcher
+class CV_EXPORTS_W BFMatcher : public DescriptorMatcher
 {
 public:
-    BFMatcher( int normType, bool crossCheck=false );
+    CV_WRAP BFMatcher( int normType, bool crossCheck=false );
     virtual ~BFMatcher() {}
 
     virtual bool isMaskSupported() const { return true; }
@@ -1035,7 +1135,7 @@ public:
 
     virtual void train();
     virtual bool isMaskSupported() const;
-	
+
     virtual Ptr<DescriptorMatcher> clone( bool emptyTrainData=false ) const;
 
 protected:
@@ -1151,9 +1251,9 @@ public:
                       const vector<Mat>& masks=vector<Mat>(), bool compactResult=false );
 
     // Reads matcher object from a file node
-    virtual void read( const FileNode& );
+    virtual void read( const FileNode& fn );
     // Writes matcher object to a file storage
-    virtual void write( FileStorage& ) const;
+    virtual void write( FileStorage& fs ) const;
 
     // Return true if matching object is empty (e.g. feature detector or descriptor matcher are empty)
     virtual bool empty() const;
@@ -1278,7 +1378,7 @@ struct CV_EXPORTS DrawMatchesFlags
 };
 
 // Draw keypoints.
-CV_EXPORTS void drawKeypoints( const Mat& image, const vector<KeyPoint>& keypoints, Mat& outImage,
+CV_EXPORTS_W void drawKeypoints( const Mat& image, const vector<KeyPoint>& keypoints, CV_OUT Mat& outImage,
                                const Scalar& color=Scalar::all(-1), int flags=DrawMatchesFlags::DEFAULT );
 
 // Draws matches of keypints from two images on output image.

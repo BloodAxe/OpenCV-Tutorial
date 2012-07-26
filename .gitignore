@@ -1,5 +1,22 @@
+*.DS_Store
 
-.DS_Store
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
 
+# Generated files
+*.o
+*.pyc
+*.hi
+
+# Backup files
+*~.nib
+\#*#
+.#*
 
 OpenCV Tutorial.xcodeproj/xcuserdata/bloodaxe.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363DA0BC15C0976B00347AB2 /* FeatureDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 363DA0BB15C0976B00347AB2 /* FeatureDetectionSampleIcon.png */; };
+		363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */; };
+		363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */; };
 		8A00096F15AD6DF9001EA42D /* OptionCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A00096E15AD6DF9001EA42D /* OptionCell.mm */; };
 		8A00097315AE0F0A001EA42D /* OptionsTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A00097215AE0F09001EA42D /* OptionsTableView.mm */; };
 		8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4388681595BC4F00027D3C /* UIKit.framework */; };
@@ -84,6 +87,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363DA0BB15C0976B00347AB2 /* FeatureDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FeatureDetectionSampleIcon.png; sourceTree = "<group>"; };
+		363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionSample.h; sourceTree = "<group>"; };
+		363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionSample.cpp; sourceTree = "<group>"; };
+		363DA0C015C0982D00347AB2 /* FeatureDetectionClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionClass.h; sourceTree = "<group>"; };
+		363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionClass.cpp; sourceTree = "<group>"; };
 		8A00096D15AD6DF8001EA42D /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
 		8A00096E15AD6DF9001EA42D /* OptionCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptionCell.mm; sourceTree = "<group>"; };
 		8A00097115AE0F08001EA42D /* OptionsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableView.h; sourceTree = "<group>"; };
@@ -212,6 +220,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363DA0B615C0970200347AB2 /* FeatureDetection */ = {
+			isa = PBXGroup;
+			children = (
+				363DA0C015C0982D00347AB2 /* FeatureDetectionClass.h */,
+				363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */,
+				363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */,
+				363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */,
+				363DA0BB15C0976B00347AB2 /* FeatureDetectionSampleIcon.png */,
+			);
+			name = FeatureDetection;
+			sourceTree = "<group>";
+		};
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +318,7 @@
 			children = (
 				8A7934BB15AB5BD40043BE99 /* SampleBase */,
 				8A4388DF15971FE000027D3C /* Edge Detection */,
+				363DA0B615C0970200347AB2 /* FeatureDetection */,
 				8A79349415A9A3FB0043BE99 /* Image Filters */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
 				8AB6D04015B856010029641C /* CartoonFilter */,
@@ -543,6 +564,7 @@
 				8AB6D03B15B5556D0029641C /* switchCamera@2x.png in Resources */,
 				8AB6D03D15B5585D0029641C /* photos_polaroid.png in Resources */,
 				8AB6D03F15B5588E0029641C /* photos_polaroid@2x.png in Resources */,
+				363DA0BC15C0976B00347AB2 /* FeatureDetectionSampleIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +601,8 @@
 				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
 				8AB6D04315B856850029641C /* CartoonFilter.cpp in Sources */,
 				8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */,
+				363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */,
+				363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,11 +642,13 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -634,19 +660,22 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = "";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = "$(SRCROOT)/opencv/lib/Debug";
 				OTHER_LDFLAGS = (
 					"-lopencv_calib3d",
 					"-lzlib",
 					"-lopencv_contrib",
 					"-lopencv_legacy",
 					"-lopencv_features2d",
+					"-lopencv_nonfree",
 					"-lopencv_imgproc",
 					"-lopencv_video",
 					"-lopencv_core",
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -656,15 +685,18 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = "$(SRCROOT)/opencv/lib/Release";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lopencv_calib3d",
@@ -672,13 +704,14 @@
 					"-lopencv_contrib",
 					"-lopencv_legacy",
 					"-lopencv_features2d",
+					"-lopencv_nonfree",
 					"-lopencv_imgproc",
 					"-lopencv_video",
 					"-lopencv_core",
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -690,9 +723,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/debug\"";
+				LIBRARY_SEARCH_PATHS = "";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = "$(SRCROOT)/opencv/lib/Debug";
 				OTHER_CFLAGS = "-mfpu=neon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -706,9 +740,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/release\"";
+				LIBRARY_SEARCH_PATHS = "";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = "$(SRCROOT)/opencv/lib/Release";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-mfpu=neon",

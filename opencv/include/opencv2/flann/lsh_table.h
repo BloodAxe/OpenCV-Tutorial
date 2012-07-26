@@ -40,6 +40,11 @@
 #include <iomanip>
 #include <limits.h>
 // TODO as soon as we use C++0x, use the code in USE_UNORDERED_MAP
+#ifdef __GXX_EXPERIMENTAL_CXX0X__
+#  define USE_UNORDERED_MAP 1
+#else
+#  define USE_UNORDERED_MAP 0
+#endif
 #if USE_UNORDERED_MAP
 #include <unordered_map>
 #else
@@ -188,7 +193,7 @@ public:
     void add(Matrix<ElementType> dataset)
     {
 #if USE_UNORDERED_MAP
-        if (!use_speed_) buckets_space_.rehash((buckets_space_.size() + dataset.rows) * 1.2);
+        buckets_space_.rehash((buckets_space_.size() + dataset.rows) * 1.2);
 #endif
         // Add the features to the table
         for (unsigned int i = 0; i < dataset.rows; ++i) add(i, dataset[i]);
