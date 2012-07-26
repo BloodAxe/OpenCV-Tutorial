@@ -9,13 +9,10 @@
 #include <iostream>
 #include "FeatureDetectionClass.h"
 #include "FeatureDetectionSample.h"
+#include "Globals.h"
 
 inline float Min(float a, float b) { return a < b ? a : b; }
 inline float Max(float a, float b) { return a > b ? a : b; }
-
-// control flags
-bool computeObject = false;
-bool detectObject = false;
 
 FeatureDetectionSample::FeatureDetectionSample()
 : m_fdAlgorithmName("ORB")
