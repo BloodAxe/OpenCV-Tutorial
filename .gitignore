@@ -9,6 +9,10 @@
 project.xcworkspace/
 xcuserdata/
 
+# libs
+opencv/
+opencv.*/
+
 # Generated files
 *.o
 *.pyc

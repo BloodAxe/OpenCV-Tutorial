@@ -13,6 +13,7 @@
 #import "CartoonFilter.h"
 #import "FeatureDetectionSample.h"
 #import "ObjectTrackingSample.h"
+#import "DetectTrackSample.h"
 
 @implementation AppDelegate
 
@@ -24,6 +25,7 @@
     //allSamples.push_back( new ContourDetectionSample() );
     allSamples.push_back( new EdgeDetectionSample());
     allSamples.push_back( new FeatureDetectionSample() );
+    allSamples.push_back( new DetectTrackSample() );
     allSamples.push_back( new ObjectTrackingSample() );  
     allSamples.push_back( new ImageFiltersSample());
     allSamples.push_back( new CartoonFilter() );

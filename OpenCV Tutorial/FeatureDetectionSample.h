@@ -52,9 +52,6 @@ private:
     // Minimum number of features nesessary to compute homography
     int m_minMatches;
     
-    // Minimum number of features to track using optical flow before considering the object requires re-detection
-    int m_minTrackedFeatures;
-    
     // draw epipolar lines option
     bool m_drawEpipolarLines;
     

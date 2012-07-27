@@ -11,16 +11,12 @@
 #include "FeatureDetectionSample.h"
 #include "Globals.h"
 
-inline float Min(float a, float b) { return a < b ? a : b; }
-inline float Max(float a, float b) { return a > b ? a : b; }
-
 FeatureDetectionSample::FeatureDetectionSample()
 : m_fdAlgorithmName("ORB")
-, m_feAlgorithmName("FREAK")
+, m_feAlgorithmName("ORB")
 , m_hessianThreshold(400)
 , m_nFeatures(500)
 , m_minMatches(4)
-, m_minTrackedFeatures(4)
 , m_drawEpipolarLines(false)
 , m_drawMatches(true)
 , m_drawPerspective(true)
@@ -35,7 +31,7 @@ FeatureDetectionSample::FeatureDetectionSample()
     // feature extraction options
     feAlgos.push_back("ORB");
     feAlgos.push_back("SURF");
-    feAlgos.push_back("FREAK");
+    //feAlgos.push_back("FREAK");
     registerOption("Extractor",       "", &m_feAlgorithmName, feAlgos);
     
     // SURF feature detector options
@@ -149,11 +145,11 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         } else if (m_feAlgorithmName == "FREAK")
         {
             // prepare feature extractor
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
-            fd.setDescriptorExtractor(extractor);
+            //cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
+            //fd.setDescriptorExtractor(extractor);
             // prepare the appropriate matcher for FREAK
-            cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
-            fd.setDescriptorMatcher(matcher);
+            //cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
+            //fd.setDescriptorMatcher(matcher);
         }
         else {
             std::cerr << "Unsupported algorithm:" << m_feAlgorithmName << std::endl;
@@ -170,7 +166,7 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
                                           objectKeypoints2f, // output object keypoints (Point2f)
                                           sceneKeypoints2f); // output scene keypoints (Point2f)
         
-        if ( sceneKeypoints2f.size() >= m_minMatches ) {
+        if ( matches.size() >= m_minMatches ) {
             
             // draw perspetcive lines (box object in the frame)
             if (m_drawPerspective)
@@ -234,9 +230,9 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         }
         else if ( m_feAlgorithmName == "FREAK" )
         {
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
+            //cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
             // Compute object feature descriptors
-            extractor->compute(objectImage,objectKeypoints,objectDescriptors);
+            //extractor->compute(objectImage,objectKeypoints,objectDescriptors);
         }
         else {
             std::cerr << "Unsupported algorithm:" << m_feAlgorithmName << std::endl;

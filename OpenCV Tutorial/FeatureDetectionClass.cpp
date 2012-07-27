@@ -79,7 +79,7 @@ void FeatureDetectionClass::drawMatches(cv::Mat& image, // output image
                                         std::vector<cv::Point2f>& points) // keypoints
 {
     for (size_t it= 0; it < matches.size(); ++it) {
-        cv::circle( image, points[it], 3, cv::Scalar(0,255,255), -1, 8);
+        cv::circle( image, points[it], 3, cv::Scalar(0,0,255), -1, 8);
     }
 
 }
@@ -105,10 +105,10 @@ void FeatureDetectionClass::drawPerspective(cv::Mat& image, // output image
         cv::perspectiveTransform( obj_corners, scene_corners, H);
         
         // draw lines between the corners (the mapped object in the scene)
-        cv::line( image, scene_corners[0], scene_corners[1], cv::Scalar( 255, 0, 255 ), 4 );
-        cv::line( image, scene_corners[1], scene_corners[2], cv::Scalar( 255, 0, 255 ), 4 );
-        cv::line( image, scene_corners[2], scene_corners[3], cv::Scalar( 255, 0, 255 ), 4 );
-        cv::line( image, scene_corners[3], scene_corners[0], cv::Scalar( 255, 0, 255 ), 4 );
+        cv::line( image, scene_corners[0], scene_corners[1], cv::Scalar( 0, 0, 255 ), 4 );
+        cv::line( image, scene_corners[1], scene_corners[2], cv::Scalar( 0, 0, 255 ), 4 );
+        cv::line( image, scene_corners[2], scene_corners[3], cv::Scalar( 0, 0, 255 ), 4 );
+        cv::line( image, scene_corners[3], scene_corners[0], cv::Scalar( 0, 0, 255 ), 4 );
     }
 }
 

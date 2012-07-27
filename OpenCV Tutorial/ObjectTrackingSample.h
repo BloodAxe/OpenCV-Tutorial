@@ -37,7 +37,7 @@ public:
     virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame);
     
 private:
-    cv::Mat imageNext, imagePrev, imageObject;
+    cv::Mat imageNext, imagePrev;
     
     std::vector<uchar> status;
     

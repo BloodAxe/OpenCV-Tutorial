@@ -26,7 +26,7 @@ private:
     
 public:
     ObjectTrackingClass()
-    : maxCorners(500)
+    : maxCorners(200)
     , qualityLevel(0.01)
     , minDistance(10)
     , blockSize(3)
@@ -39,24 +39,25 @@ public:
     , minEigThreshold(0.001)
     
     {
-        // empty
+        //  nothing to do for now
     }
     
     // set maxcorners
     void setMaxCorners(int maxCorners);
     
     // initialise tracker
-    void init(cv::Mat& image,
-              std::vector<cv::Point2f>& points1);
+    void init(cv::Mat& image, // output image
+              cv::Mat& image1, // source image
+              std::vector<cv::Point2f>& points1); // points array
     
     // track optical flow
-    void track(cv::Mat& image,
-               cv::Mat& image1,
-               cv::Mat& image2,
-               std::vector<cv::Point2f>& points1,
-               std::vector<cv::Point2f>& points2,
-               cv::vector<uchar>& status,
-               cv::vector<float>& err);
+    void track(cv::Mat& image, // output image
+               cv::Mat& image1, // input image 1
+               cv::Mat& image2, // input image 2
+               std::vector<cv::Point2f>& points1, // points array 1
+               std::vector<cv::Point2f>& points2, // points array 2
+               cv::vector<uchar>& status, // status array
+               cv::vector<float>& err); // error array
 };
 
 #endif

@@ -13,14 +13,14 @@
 
 ObjectTrackingSample::ObjectTrackingSample()
 : m_algorithmName("LKT")
-, m_maxCorners(1000)
+, m_maxCorners(200)
 {
     std::vector<std::string> algos;
     algos.push_back("LKT");
     registerOption("Algorithm",       "", &m_algorithmName, algos);
     
     // object tracking options
-    registerOption("m_maxCorners", "Tracking", &m_maxCorners, 0, 5000);
+    registerOption("m_maxCorners", "Tracking", &m_maxCorners, 0, 1000);
 }
 
 //! Gets a sample name
@@ -49,7 +49,7 @@ bool ObjectTrackingSample::isReferenceFrameRequired() const
 //! Sets the reference frame for latter processing
 void ObjectTrackingSample::setReferenceFrame(const cv::Mat& reference)
 {
-    getGray(reference, imageObject);
+    getGray(reference, imagePrev);
     computeObject = true;
 }
 
@@ -68,10 +68,6 @@ bool ObjectTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outp
     
     // convert input frame to gray scale
     getGray(inputFrame, imageNext);
-    
-    // init previous frame
-    if (!imagePrev.data)
-        imageNext.copyTo(imagePrev);
     
     // prepare the tracking class
     ObjectTrackingClass ot;
@@ -94,18 +90,16 @@ bool ObjectTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outp
        
     // store the reference frame as the object to track
     if ( computeObject ) {
-        ot.init(imageObject, pointsPrev);
+        ot.init(outputFrame, imagePrev, pointsNext);
         trackObject = true;
         computeObject = false;
     }
     
-    // save previous frame
+    // backup previous frame
     imageNext.copyTo(imagePrev);
     
-    // save points array
+    // backup points array
     std::swap(pointsNext, pointsPrev);
     
     return true;
 }
-
-
