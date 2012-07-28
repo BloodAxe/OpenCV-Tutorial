@@ -13,7 +13,7 @@
 
 FeatureDetectionSample::FeatureDetectionSample()
 : m_fdAlgorithmName("ORB")
-, m_feAlgorithmName("ORB")
+, m_feAlgorithmName("FREAK")
 , m_hessianThreshold(400)
 , m_nFeatures(500)
 , m_minMatches(4)
@@ -31,7 +31,7 @@ FeatureDetectionSample::FeatureDetectionSample()
     // feature extraction options
     feAlgos.push_back("ORB");
     feAlgos.push_back("SURF");
-    //feAlgos.push_back("FREAK");
+    feAlgos.push_back("FREAK");
     registerOption("Extractor",       "", &m_feAlgorithmName, feAlgos);
     
     // SURF feature detector options
@@ -99,23 +99,23 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         getGray(inputFrame, grayImage);
         
         // prepare the robust matcher and set paremeters
-        FeatureDetectionClass fd;
-        fd.setConfidenceLevel(0.98);
-        fd.setMinDistanceToEpipolar(1.0);
-        fd.setRatio(0.65f);
+        FeatureDetectionClass rmatcher;
+        rmatcher.setConfidenceLevel(0.98);
+        rmatcher.setMinDistanceToEpipolar(1.0);
+        rmatcher.setRatio(0.65f);
         
         // feature detector setup
         if (m_fdAlgorithmName == "SURF")
         {
             // prepare keypoints detector
             cv::Ptr<cv::FeatureDetector> detector = new cv::SurfFeatureDetector(m_hessianThreshold);
-            fd.setFeatureDetector(detector);
+            rmatcher.setFeatureDetector(detector);
         }
         else if (m_fdAlgorithmName == "ORB")
         {
             // prepare feature detector and detect the object keypoints
             cv::Ptr<cv::FeatureDetector> detector = new cv::OrbFeatureDetector(m_nFeatures);
-            fd.setFeatureDetector(detector);
+            rmatcher.setFeatureDetector(detector);
         }
         else
         {
@@ -128,19 +128,19 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         {
             // prepare feature extractor
             cv::Ptr<cv::DescriptorExtractor> extractor = new cv::SurfDescriptorExtractor;
-            fd.setDescriptorExtractor(extractor);
+            rmatcher.setDescriptorExtractor(extractor);
             // prepare the appropriate matcher for SURF 
             cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_L2, false);
-            fd.setDescriptorMatcher(matcher);
+            rmatcher.setDescriptorMatcher(matcher);
             
         } else if (m_feAlgorithmName == "ORB")
         {
             // prepare feature extractor
             cv::Ptr<cv::DescriptorExtractor> extractor = new cv::OrbDescriptorExtractor;
-            fd.setDescriptorExtractor(extractor);
+            rmatcher.setDescriptorExtractor(extractor);
             // prepare the appropriate matcher for ORB
             cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
-            fd.setDescriptorMatcher(matcher);
+            rmatcher.setDescriptorMatcher(matcher);
             
         } else if (m_feAlgorithmName == "FREAK")
         {
@@ -159,35 +159,35 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         // call the RobustMatcher to match the object keypoints with the scene keypoints
         cv::vector<cv::Point2f> objectKeypoints2f, sceneKeypoints2f;
         std::vector<cv::DMatch> matches;
-        cv::Mat fundamentalMat = fd.match(grayImage, // input scene image
-                                          objectKeypoints, // input computed object image keypoints
-                                          objectDescriptors, // input computed object image descriptors
-                                          matches, // output matches
-                                          objectKeypoints2f, // output object keypoints (Point2f)
-                                          sceneKeypoints2f); // output scene keypoints (Point2f)
+        cv::Mat fundamentalMat = rmatcher.match(grayImage, // input scene image
+                                                objectKeypoints, // input computed object image keypoints
+                                                objectDescriptors, // input computed object image descriptors
+                                                matches, // output matches
+                                                objectKeypoints2f, // output object keypoints (Point2f)
+                                                sceneKeypoints2f); // output scene keypoints (Point2f)
         
         if ( matches.size() >= m_minMatches ) {
             
             // draw perspetcive lines (box object in the frame)
             if (m_drawPerspective)
-                fd.drawPerspective(outputFrame,
-                                   objectImage,
-                                   objectKeypoints2f,
-                                   sceneKeypoints2f);
+                rmatcher.drawPerspective(outputFrame,
+                                        objectImage,
+                                         objectKeypoints2f,
+                                         sceneKeypoints2f);
             
             // draw keypoint matches as yellow points on the output frame
             if (m_drawMatches)
-                fd.drawMatches(outputFrame, 
-                               matches,
-                               sceneKeypoints2f);
+                rmatcher.drawMatches(outputFrame, 
+                                     matches,
+                                     sceneKeypoints2f);
             
             // draw epipolar lines
             if (m_drawEpipolarLines)
-                fd.drawEpipolarLines(outputFrame,
-                                     objectImage,
-                                     grayImage,
-                                     objectKeypoints2f,
-                                     sceneKeypoints2f, 1);
+                rmatcher.drawEpipolarLines(outputFrame,
+                                           objectImage,
+                                           grayImage,
+                                           objectKeypoints2f,
+                                           sceneKeypoints2f, 1);
         }
     }
     

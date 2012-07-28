@@ -8,10 +8,7 @@
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
-
-# libs
-opencv/
-opencv.*/
+Breakpoints.xcbkptlist
 
 # Generated files
 *.o
@@ -22,5 +19,3 @@ opencv.*/
 *~.nib
 \#*#
 .#*
-
-OpenCV Tutorial.xcodeproj/xcuserdata/bloodaxe.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
