@@ -25,7 +25,7 @@ FeatureDetectionSample::FeatureDetectionSample()
     std::vector<std::string> fdAlgos, feAlgos;
     // feature detection options
     fdAlgos.push_back("ORB");
-    fdAlgos.push_back("SURF");
+    fdAlgos.push_back("ORB");
     registerOption("Detector",       "", &m_fdAlgorithmName, fdAlgos);
     
     // feature extraction options
@@ -145,11 +145,11 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         } else if (m_feAlgorithmName == "FREAK")
         {
             // prepare feature extractor
-            //cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
-            //fd.setDescriptorExtractor(extractor);
+            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
+            rmatcher.setDescriptorExtractor(extractor);
             // prepare the appropriate matcher for FREAK
-            //cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
-            //fd.setDescriptorMatcher(matcher);
+            cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
+            rmatcher.setDescriptorMatcher(matcher);
         }
         else {
             std::cerr << "Unsupported algorithm:" << m_feAlgorithmName << std::endl;
@@ -230,9 +230,9 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         }
         else if ( m_feAlgorithmName == "FREAK" )
         {
-            //cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
+            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
             // Compute object feature descriptors
-            //extractor->compute(objectImage,objectKeypoints,objectDescriptors);
+            extractor->compute(objectImage,objectKeypoints,objectDescriptors);
         }
         else {
             std::cerr << "Unsupported algorithm:" << m_feAlgorithmName << std::endl;

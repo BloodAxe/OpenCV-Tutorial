@@ -25,11 +25,10 @@
     //allSamples.push_back( new ContourDetectionSample() );
     allSamples.push_back( new EdgeDetectionSample());
     allSamples.push_back( new FeatureDetectionSample() );
+    allSamples.push_back( new ObjectTrackingSample() );
     allSamples.push_back( new DetectTrackSample() );
-    allSamples.push_back( new ObjectTrackingSample() );  
     allSamples.push_back( new ImageFiltersSample());
     allSamples.push_back( new CartoonFilter() );
-    
     
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
