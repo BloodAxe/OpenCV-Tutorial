@@ -138,3 +138,9 @@ void SampleBase::setReferenceFrame(const cv::Mat& reference)
 {
   // Does nothing. Override this method if you need to
 }
+
+// Resets the reference frame
+void SampleBase::resetReferenceFrame() const
+{
+    // Does nothing. Override this method if you need to
+}

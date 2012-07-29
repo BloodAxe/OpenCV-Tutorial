@@ -211,6 +211,52 @@
   [videoSource stopRunning];
 }
 
+#pragma mark - Capture reference frame
 
+- (IBAction) captureReferenceFrame:(id) sender
+{
+    SampleBase * sample = self.currentSample;
+    if (!sample)
+        return;
+    
+    bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
+    
+    if (isMainQueue)
+    {
+        sample->setReferenceFrame(outputFrame);
+    }
+    else
+    {
+        dispatch_sync( dispatch_get_main_queue(), 
+                      ^{ 
+                          sample->setReferenceFrame(outputFrame);
+                      }
+                      );
+    }
+}
+
+#pragma mark - Clear reference frame
+
+- (IBAction) clearReferenceFrame:(id) sender
+{
+    SampleBase * sample = self.currentSample;
+    if (!sample)
+        return;
+    
+    bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
+    
+    if (isMainQueue)
+    {
+        sample->resetReferenceFrame();
+    }
+    else
+    {
+        dispatch_sync( dispatch_get_main_queue(), 
+                      ^{ 
+                          sample->resetReferenceFrame();
+                      }
+                      );
+    }
+}
 
 @end

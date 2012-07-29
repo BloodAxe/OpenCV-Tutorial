@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */; };
+		363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */; };
+		3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */; };
+		3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3641572015C2880E00F80FFB /* DetectTrackSample.cpp */; };
+		3669948015C46274002477A4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3669947F15C46274002477A4 /* opencv2.framework */; };
+		369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */; };
+		369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2715C1A3EF0032BD08 /* ObjectTrackingSample.cpp */; };
+		369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 369F2C2915C1A4950032BD08 /* ObjectTrackingSampleIcon.png */; };
+		369F2C2C15C1A5290032BD08 /* FeatureDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 369F2C2B15C1A5290032BD08 /* FeatureDetectionSampleIcon.png */; };
+		369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2E15C1AEE50032BD08 /* Globals.cpp */; };
 		8A00096F15AD6DF9001EA42D /* OptionCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A00096E15AD6DF9001EA42D /* OptionCell.mm */; };
 		8A00097315AE0F0A001EA42D /* OptionsTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A00097215AE0F09001EA42D /* OptionsTableView.mm */; };
 		8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4388681595BC4F00027D3C /* UIKit.framework */; };
@@ -84,6 +94,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionSample.h; sourceTree = "<group>"; };
+		363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionSample.cpp; sourceTree = "<group>"; };
+		363DA0C015C0982D00347AB2 /* FeatureDetectionClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionClass.h; sourceTree = "<group>"; };
+		363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionClass.cpp; sourceTree = "<group>"; };
+		3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DetectTrackSampleIcon.png; sourceTree = "<group>"; };
+		3641571F15C2880600F80FFB /* DetectTrackSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectTrackSample.h; sourceTree = "<group>"; };
+		3641572015C2880E00F80FFB /* DetectTrackSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetectTrackSample.cpp; sourceTree = "<group>"; };
+		3669947F15C46274002477A4 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTrackingClass.cpp; sourceTree = "<group>"; };
+		369F2C2515C1A3D40032BD08 /* ObjectTrackingClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectTrackingClass.h; sourceTree = "<group>"; };
+		369F2C2615C1A3E20032BD08 /* ObjectTrackingSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectTrackingSample.h; sourceTree = "<group>"; };
+		369F2C2715C1A3EF0032BD08 /* ObjectTrackingSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTrackingSample.cpp; sourceTree = "<group>"; };
+		369F2C2915C1A4950032BD08 /* ObjectTrackingSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ObjectTrackingSampleIcon.png; sourceTree = "<group>"; };
+		369F2C2B15C1A5290032BD08 /* FeatureDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FeatureDetectionSampleIcon.png; sourceTree = "<group>"; };
+		369F2C2D15C1AEDD0032BD08 /* Globals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		369F2C2E15C1AEE50032BD08 /* Globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Globals.cpp; sourceTree = "<group>"; };
 		8A00096D15AD6DF8001EA42D /* OptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionCell.h; sourceTree = "<group>"; };
 		8A00096E15AD6DF9001EA42D /* OptionCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OptionCell.mm; sourceTree = "<group>"; };
 		8A00097115AE0F08001EA42D /* OptionsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsTableView.h; sourceTree = "<group>"; };
@@ -206,17 +232,50 @@
 				8A723FC81599B6EE008C72DB /* AVFoundation.framework in Frameworks */,
 				8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */,
 				8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */,
+				3669948015C46274002477A4 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363DA0B615C0970200347AB2 /* FeatureDetection */ = {
+			isa = PBXGroup;
+			children = (
+				363DA0C015C0982D00347AB2 /* FeatureDetectionClass.h */,
+				363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */,
+				363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */,
+				363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */,
+				369F2C2B15C1A5290032BD08 /* FeatureDetectionSampleIcon.png */,
+			);
+			name = FeatureDetection;
+			sourceTree = "<group>";
+		};
+		3641571B15C286A800F80FFB /* DetectTrackSample */ = {
+			isa = PBXGroup;
+			children = (
+				3641571F15C2880600F80FFB /* DetectTrackSample.h */,
+				3641572015C2880E00F80FFB /* DetectTrackSample.cpp */,
+				3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */,
+			);
+			name = DetectTrackSample;
+			sourceTree = "<group>";
+		};
+		369F2C2215C1A2AD0032BD08 /* ObjectTracking */ = {
+			isa = PBXGroup;
+			children = (
+				369F2C2515C1A3D40032BD08 /* ObjectTrackingClass.h */,
+				369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */,
+				369F2C2615C1A3E20032BD08 /* ObjectTrackingSample.h */,
+				369F2C2715C1A3EF0032BD08 /* ObjectTrackingSample.cpp */,
+				369F2C2915C1A4950032BD08 /* ObjectTrackingSampleIcon.png */,
+			);
+			name = ObjectTracking;
+			sourceTree = "<group>";
+		};
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
-				8AB6D04415B9969C0029641C /* Twitter.framework */,
-				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
@@ -235,6 +294,9 @@
 		8A4388671595BC4F00027D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3669947F15C46274002477A4 /* opencv2.framework */,
+				8AB6D04415B9969C0029641C /* Twitter.framework */,
+				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
 				8A723FD11599B700008C72DB /* QuartzCore.framework */,
 				8A723FCD1599B6FC008C72DB /* CoreImage.framework */,
@@ -298,6 +360,9 @@
 			children = (
 				8A7934BB15AB5BD40043BE99 /* SampleBase */,
 				8A4388DF15971FE000027D3C /* Edge Detection */,
+				363DA0B615C0970200347AB2 /* FeatureDetection */,
+				369F2C2215C1A2AD0032BD08 /* ObjectTracking */,
+				3641571B15C286A800F80FFB /* DetectTrackSample */,
 				8A79349415A9A3FB0043BE99 /* Image Filters */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
 				8AB6D04015B856010029641C /* CartoonFilter */,
@@ -375,6 +440,8 @@
 		8A7934BB15AB5BD40043BE99 /* SampleBase */ = {
 			isa = PBXGroup;
 			children = (
+				369F2C2D15C1AEDD0032BD08 /* Globals.h */,
+				369F2C2E15C1AEE50032BD08 /* Globals.cpp */,
 				8A4388891595BCC400027D3C /* SampleBase.h */,
 				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
 				8A7934AC15AB4A9C0043BE99 /* SampleOptions.h */,
@@ -543,6 +610,9 @@
 				8AB6D03B15B5556D0029641C /* switchCamera@2x.png in Resources */,
 				8AB6D03D15B5585D0029641C /* photos_polaroid.png in Resources */,
 				8AB6D03F15B5588E0029641C /* photos_polaroid@2x.png in Resources */,
+				369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */,
+				369F2C2C15C1A5290032BD08 /* FeatureDetectionSampleIcon.png in Resources */,
+				3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +649,12 @@
 				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
 				8AB6D04315B856850029641C /* CartoonFilter.cpp in Sources */,
 				8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */,
+				363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */,
+				363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */,
+				369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */,
+				369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */,
+				369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */,
+				3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,11 +694,17 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -632,21 +714,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_LDFLAGS = (
-					"-lopencv_calib3d",
-					"-lzlib",
-					"-lopencv_contrib",
-					"-lopencv_legacy",
-					"-lopencv_features2d",
-					"-lopencv_imgproc",
-					"-lopencv_video",
-					"-lopencv_core",
-				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -656,29 +732,27 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/opencv/include";
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = (
-					"-lopencv_calib3d",
-					"-lzlib",
-					"-lopencv_contrib",
-					"-lopencv_legacy",
-					"-lopencv_features2d",
-					"-lopencv_imgproc",
-					"-lopencv_video",
-					"-lopencv_core",
-				);
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -688,12 +762,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/debug\"";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-mfpu=neon";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -704,15 +783,20 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/opencv/include\"";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/release\"";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-mfpu=neon",
 				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

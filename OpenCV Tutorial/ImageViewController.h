@@ -32,5 +32,4 @@
 - (IBAction) selectPictureForProcessing:(id) sender;
 - (IBAction) selectAction:(id)sender;
 
-
 @end
