@@ -5,12 +5,13 @@ This repository contains source code of OpenCV Tutorial application.
 
 Samples list (done)
 ==========================
-* Edge detection (Canny, Sobel, Schaar, Harris)
+* Edge detection (Canny, Sobel, Schaar)
+* Image transformations (Sepia, negative, contrast and brightness adjustments)
 * Feature Detection (SURF, ORB, FREAK)
+* Video tracking (KLT, BRIEF, ORB)
 
 Samples list (plans)
 ==========================
-* Video tracking (KLT, Template Matching, BRIEF, ORB, FREAK)
 * PTAM  
 
 Step by step tutorials
@@ -19,6 +20,8 @@ Step by step tutorials
 * http://computer-vision-talks.com/2012/07/opencv-tutorial-part-2/
 * http://computer-vision-talks.com/2012/07/opencv-tutorial-part-3/
 * http://computer-vision-talks.com/2012/07/opencv-tutorial-part-4/
+* http://computer-vision-talks.com/2012/07/opencv-tutorial-part-5/
+* http://computer-vision-talks.com/2012/07/opencv-tutorial-part-6/
 
 Roadmap
 ==========================
