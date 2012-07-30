@@ -8,17 +8,34 @@
 
 #import "VideoSource.h"
 
+struct Particle
+{
+  cv::Point2f center;
+  cv::Point2f speed;
+  cv::Scalar  color;
+  int         radius;
+ 
+  Particle()
+  : center(-1000,-100)
+  , speed(0,0)
+  , radius(1)
+  {
+  }
+  cv::Rect boundingRect()
+  {
+    return cv::Rect(center - cv::Point2f(radius,radius), center + cv::Point2f(radius, radius));
+  }
+};
+
 @interface DummyVideoSource ()
 {
   int     m_frameWidth;
   int     m_frameHeight;
-  cv::Mat m_frame;
-  
-  float xstart;
-  float ystart;
-  float xscale;
-  float yscale;
+  cv::Mat m_frame;  
+  cv::Rect  m_frameRect;
+  std::vector<Particle> particles;
 }
+
 @property (strong, nonatomic)   NSTimer * timer;
 
 @end
@@ -34,24 +51,12 @@
     m_frameWidth = frameSize.width;
     m_frameHeight = frameSize.height;
     m_frame.create(m_frameHeight, m_frameWidth, CV_8UC4);
-
   }
   
+  particles.resize(10);
+  m_frameRect = cv::Rect(0, 0, m_frameWidth, m_frameHeight);
+  
   return self;
-}
-
-cv::Mat_<cv::Vec4b> rotate(cv::Mat_<cv::Vec4b> in)
-{
-  cv::Mat out;
-  in.copyTo(out);
-  for (int i=0;i<in.rows;i++)
-  {
-    for (int j=0;j<in.cols;j++)
-    {
-      out.at<cv::Vec4b>(i,j)=in.at<cv::Vec4b>(in.cols-j-1,i);
-    }
-  }
-  return out;
 }
 
 -(void) timerTick:(id) sender
@@ -60,14 +65,23 @@ cv::Mat_<cv::Vec4b> rotate(cv::Mat_<cv::Vec4b> in)
   {
     cv::rectangle(m_frame, cv::Point(0,0), cv::Point(m_frameWidth, m_frameHeight), CV_RGB(0,0,0), CV_FILLED);
     
-    for (int i=0; i<10; i++)
+    for (int i = 0; i < particles.size(); i++)
     {
-      cv::circle(m_frame, 
-                 cv::Point(rand() % m_frameWidth , rand() % m_frameHeight), 
-                 rand() % (std::min(m_frameHeight, m_frameWidth) / 5), 
-                 CV_RGB(rand() % 256, rand() % 256, rand() % 256), 
-                 CV_FILLED, 
-                 CV_AA);
+      Particle& p = particles[i];
+      
+      cv::Rect r = p.boundingRect() & m_frameRect;
+      bool visible = r.area() > 0;
+      
+      if (!visible)
+      {
+        p.radius = rand() % (std::min(m_frameHeight, m_frameWidth) / 5);
+        p.speed  = cv::Point2f(rand() % 10 + 0.5, 0);
+        p.center = cv::Point2f(0, rand() % m_frameHeight);
+        p.color  = CV_RGB( rand() % 0xFF, rand() % 0xFF, rand() % 0xFF );
+      }
+    
+      p.center += p.speed;
+      cv::circle(m_frame, p.center, p.radius, p.color, CV_FILLED);
     }
     
     [self.delegate frameCaptured:m_frame];
@@ -90,7 +104,7 @@ cv::Mat_<cv::Vec4b> rotate(cv::Mat_<cv::Vec4b> in)
 
 - (void) startRunning
 {
-  self.timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+  self.timer = [NSTimer scheduledTimerWithTimeInterval:0.025 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
 }
 
 - (void) stopRunning
