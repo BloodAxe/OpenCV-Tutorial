@@ -6,11 +6,12 @@ This repository contains source code of OpenCV Tutorial application.
 Samples list (done)
 ==========================
 * Edge detection (Canny, Sobel, Schaar, Harris)
+* Feature Detection (SURF, ORB, FREAK)
 
 Samples list (plans)
 ==========================
 * Video tracking (KLT, Template Matching, BRIEF, ORB, FREAK)
-* PTAM
+* PTAM  
 
 Step by step tutorials
 ==========================
