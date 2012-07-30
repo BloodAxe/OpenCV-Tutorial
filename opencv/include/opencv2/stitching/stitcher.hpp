@@ -45,13 +45,13 @@
 
 #include "opencv2/core/core.hpp"
 #include "opencv2/features2d/features2d.hpp"
-#include "warpers.hpp"
-#include "detail/matchers.hpp"
-#include "detail/motion_estimators.hpp"
-#include "detail/exposure_compensate.hpp"
-#include "detail/seam_finders.hpp"
-#include "detail/blenders.hpp"
-#include "detail/camera.hpp"
+#include "opencv2/stitching/warpers.hpp"
+#include "opencv2/stitching/detail/matchers.hpp"
+#include "opencv2/stitching/detail/motion_estimators.hpp"
+#include "opencv2/stitching/detail/exposure_compensate.hpp"
+#include "opencv2/stitching/detail/seam_finders.hpp"
+#include "opencv2/stitching/detail/blenders.hpp"
+#include "opencv2/stitching/detail/camera.hpp"
 
 namespace cv {
 
@@ -103,9 +103,9 @@ public:
 
     const cv::Mat& matchingMask() const { return matching_mask_; }
     void setMatchingMask(const cv::Mat &mask)
-    { 
+    {
         CV_Assert(mask.type() == CV_8U && mask.cols == mask.rows);
-        matching_mask_ = mask.clone(); 
+        matching_mask_ = mask.clone();
     }
 
     Ptr<detail::BundleAdjusterBase> bundleAdjuster() { return bundle_adjuster_; }
@@ -115,7 +115,7 @@ public:
 
     Ptr<WarperCreator> warper() { return warper_; }
     const Ptr<WarperCreator> warper() const { return warper_; }
-    void setWarper(Ptr<WarperCreator> warper) { warper_ = warper; }
+    void setWarper(Ptr<WarperCreator> creator) { warper_ = creator; }
 
     Ptr<detail::ExposureCompensator> exposureCompensator() { return exposure_comp_; }
     const Ptr<detail::ExposureCompensator> exposureCompensator() const { return exposure_comp_; }
@@ -128,7 +128,7 @@ public:
 
     Ptr<detail::Blender> blender() { return blender_; }
     const Ptr<detail::Blender> blender() const { return blender_; }
-    void setBlender(Ptr<detail::Blender> blender) { blender_ = blender; }
+    void setBlender(Ptr<detail::Blender> b) { blender_ = b; }
 
 private:
     Stitcher() {}

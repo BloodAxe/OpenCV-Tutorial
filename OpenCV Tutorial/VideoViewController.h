@@ -28,6 +28,8 @@
 
 - (IBAction)toggleCameraPressed:(id)sender;
 - (IBAction)showOptions:(id)sender;
+- (IBAction)captureReferenceFrame:(id)sender;
+- (IBAction)clearReferenceFrame:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionSheetButton;
 
