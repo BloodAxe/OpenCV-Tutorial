@@ -73,6 +73,7 @@
 		8AB6D04315B856850029641C /* CartoonFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6D04215B856850029641C /* CartoonFilter.cpp */; };
 		8AB6D04515B9969D0029641C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB6D04415B9969C0029641C /* Twitter.framework */; };
 		8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6D04715B99B5A0029641C /* BaseSampleViewController.mm */; };
+		8AB6D05015BDEB2F0029641C /* VideoTracking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6D04F15BDEB2F0029641C /* VideoTracking.cpp */; };
 		8AB993B815A3548A00D6AB1D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993B715A3548A00D6AB1D /* Default.png */; };
 		8AB993BA15A3549200D6AB1D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993B915A3549200D6AB1D /* Default@2x.png */; };
 		8AB993BC15A3549F00D6AB1D /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */; };
@@ -178,6 +179,8 @@
 		8AB6D04415B9969C0029641C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		8AB6D04615B99B590029641C /* BaseSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSampleViewController.h; sourceTree = "<group>"; };
 		8AB6D04715B99B5A0029641C /* BaseSampleViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseSampleViewController.mm; sourceTree = "<group>"; };
+		8AB6D04D15BDEB220029641C /* VideoTracking.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VideoTracking.hpp; sourceTree = "<group>"; };
+		8AB6D04F15BDEB2F0029641C /* VideoTracking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoTracking.cpp; sourceTree = "<group>"; };
 		8AB993B715A3548A00D6AB1D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		8AB993B915A3549200D6AB1D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -301,6 +304,7 @@
 				8A79349415A9A3FB0043BE99 /* Image Filters */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
 				8AB6D04015B856010029641C /* CartoonFilter */,
+				8AB6D05115BDEB320029641C /* Video Tracking */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -444,6 +448,15 @@
 			name = CartoonFilter;
 			sourceTree = "<group>";
 		};
+		8AB6D05115BDEB320029641C /* Video Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				8AB6D04D15BDEB220029641C /* VideoTracking.hpp */,
+				8AB6D04F15BDEB2F0029641C /* VideoTracking.cpp */,
+			);
+			name = "Video Tracking";
+			sourceTree = "<group>";
+		};
 		8AB993C315A354F900D6AB1D /* Startup Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +592,7 @@
 				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
 				8AB6D04315B856850029641C /* CartoonFilter.cpp in Sources */,
 				8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */,
+				8AB6D05015BDEB2F0029641C /* VideoTracking.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +708,19 @@
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
 				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/opencv/lib/debug\"";
 				OTHER_CFLAGS = "-mfpu=neon";
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lzlib",
+					"-lopencv_contrib",
+					"-lopencv_legacy",
+					"-lopencv_features2d",
+					"-lopencv_imgproc",
+					"-lopencv_video",
+					"-lopencv_core",
+					"-lopencv_flann",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -713,7 +739,19 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-mfpu=neon",
 				);
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lzlib",
+					"-lopencv_contrib",
+					"-lopencv_legacy",
+					"-lopencv_features2d",
+					"-lopencv_imgproc",
+					"-lopencv_video",
+					"-lopencv_core",
+					"-lopencv_flann",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

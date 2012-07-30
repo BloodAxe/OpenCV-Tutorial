@@ -11,6 +11,7 @@
 #import "EdgeDetectionSample.h"
 #import "ImageFiltersSample.h"
 #import "CartoonFilter.h"
+#import "VideoTracking.hpp"
 
 @implementation AppDelegate
 
@@ -19,10 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
-  //allSamples.push_back( new ContourDetectionSample() );
   allSamples.push_back( new EdgeDetectionSample());
   allSamples.push_back( new ImageFiltersSample());
+  allSamples.push_back( new ContourDetectionSample() );
   allSamples.push_back( new CartoonFilter() );
+  allSamples.push_back( new VideoTrackingSample() );
 
   
     // Override point for customization after application launch.
