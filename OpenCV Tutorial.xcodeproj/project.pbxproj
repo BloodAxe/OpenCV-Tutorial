@@ -218,8 +218,6 @@
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
-				8AB6D04415B9969C0029641C /* Twitter.framework */,
-				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
@@ -238,6 +236,8 @@
 		8A4388671595BC4F00027D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AB6D04415B9969C0029641C /* Twitter.framework */,
+				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
 				8A723FD11599B700008C72DB /* QuartzCore.framework */,
 				8A723FCD1599B6FC008C72DB /* CoreImage.framework */,
