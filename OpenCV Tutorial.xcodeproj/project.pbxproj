@@ -11,7 +11,6 @@
 		363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */; };
 		3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */; };
 		3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3641572015C2880E00F80FFB /* DetectTrackSample.cpp */; };
-		3669948015C46274002477A4 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3669947F15C46274002477A4 /* opencv2.framework */; };
 		369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */; };
 		369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2715C1A3EF0032BD08 /* ObjectTrackingSample.cpp */; };
 		369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 369F2C2915C1A4950032BD08 /* ObjectTrackingSampleIcon.png */; };
@@ -102,7 +101,6 @@
 		3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DetectTrackSampleIcon.png; sourceTree = "<group>"; };
 		3641571F15C2880600F80FFB /* DetectTrackSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectTrackSample.h; sourceTree = "<group>"; };
 		3641572015C2880E00F80FFB /* DetectTrackSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetectTrackSample.cpp; sourceTree = "<group>"; };
-		3669947F15C46274002477A4 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTrackingClass.cpp; sourceTree = "<group>"; };
 		369F2C2515C1A3D40032BD08 /* ObjectTrackingClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectTrackingClass.h; sourceTree = "<group>"; };
 		369F2C2615C1A3E20032BD08 /* ObjectTrackingSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectTrackingSample.h; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				8A723FC81599B6EE008C72DB /* AVFoundation.framework in Frameworks */,
 				8A43889A1595DE5800027D3C /* UIKit.framework in Frameworks */,
 				8A43889B1595DE5800027D3C /* Foundation.framework in Frameworks */,
-				3669948015C46274002477A4 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +294,6 @@
 		8A4388671595BC4F00027D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3669947F15C46274002477A4 /* opencv2.framework */,
 				8AB6D04415B9969C0029641C /* Twitter.framework */,
 				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
@@ -662,16 +658,13 @@
 				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
 				8AB6D04315B856850029641C /* CartoonFilter.cpp in Sources */,
 				8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */,
-<<<<<<< HEAD
 				8AB6D05015BDEB2F0029641C /* VideoTracking.cpp in Sources */,
-=======
 				363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */,
 				363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */,
 				369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */,
 				369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */,
 				369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */,
 				3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */,
->>>>>>> 982e9b8984ca5271e715913ea03bc3d42caa0c95
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,11 +778,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/include";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/lib/Debug";
 				OTHER_CFLAGS = "-mfpu=neon";
-<<<<<<< HEAD
 				OTHER_LDFLAGS = (
 					"-lopencv_calib3d",
 					"-lzlib",
@@ -800,10 +792,8 @@
 					"-lopencv_video",
 					"-lopencv_core",
 					"-lopencv_flann",
+					"-lopencv_nonfree",
 				);
-=======
-				OTHER_LDFLAGS = "";
->>>>>>> 982e9b8984ca5271e715913ea03bc3d42caa0c95
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
@@ -821,14 +811,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/include";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/lib/Release";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-mfpu=neon",
 				);
-<<<<<<< HEAD
 				OTHER_LDFLAGS = (
 					"-lopencv_calib3d",
 					"-lzlib",
@@ -839,10 +828,8 @@
 					"-lopencv_video",
 					"-lopencv_core",
 					"-lopencv_flann",
+					"-lopencv_nonfree",
 				);
-=======
-				OTHER_LDFLAGS = "";
->>>>>>> 982e9b8984ca5271e715913ea03bc3d42caa0c95
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
