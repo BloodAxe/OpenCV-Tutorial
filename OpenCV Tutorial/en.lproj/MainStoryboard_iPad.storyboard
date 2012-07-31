@@ -110,6 +110,18 @@
                                             <action selector="toggleCameraPressed:" destination="K8a-OQ-WeD" id="ggC-hE-2aK"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9xd-hx-Ajn"/>
+                                    <barButtonItem image="photos_polaroid.png" style="plain" id="23d-4k-fUX">
+                                        <connections>
+                                            <action selector="captureReferenceFrame:" destination="K8a-OQ-WeD" id="bY0-H1-LKr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="5z9-2U-tKS"/>
+                                    <barButtonItem image="refresh_straight_arrows.png" style="plain" id="BxJ-sk-12z">
+                                        <connections>
+                                            <action selector="clearReferenceFrame:" destination="K8a-OQ-WeD" id="E5Q-Mo-AeM"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Yh1-vR-nOF"/>
                                     <barButtonItem image="cog_01.png" style="plain" id="ZgH-2B-QIm" userLabel="showOptionsButton">
                                         <connections>
@@ -271,48 +283,9 @@
     <resources>
         <image name="cog_01.png" width="26" height="26"/>
         <image name="photos_polaroid.png" width="26" height="26"/>
+        <image name="refresh_straight_arrows.png" width="26" height="26"/>
         <image name="switchCamera.png" width="43" height="26"/>
     </resources>
-    <classes>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="runOnImageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="runOnVideoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sampleDescriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="sampleIconView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ImageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="presentOptionsView:"/>
-                <relationship kind="action" name="saveProcessingResult:"/>
-                <relationship kind="action" name="selectAction:"/>
-                <relationship kind="action" name="selectPictureForProcessing:"/>
-                <relationship kind="action" name="tookPicture:"/>
-                <relationship kind="outlet" name="actionButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="optionsBarButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="takePhotoButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="VideoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="saveProcessingResult:"/>
-                <relationship kind="action" name="showOptions:"/>
-                <relationship kind="action" name="toggleCameraPressed:"/>
-                <relationship kind="outlet" name="actionSheetButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="options" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toggleCameraButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

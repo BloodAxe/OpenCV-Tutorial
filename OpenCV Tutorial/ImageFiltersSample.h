@@ -42,9 +42,6 @@ private:
   float m_alpha;
   int   m_bias;
   cv::Mat_<float> m_contrastKernel;
-  
-  float sp;
-  float sr;
 };
 
 #endif
