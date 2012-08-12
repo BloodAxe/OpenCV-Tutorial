@@ -108,6 +108,36 @@ bool FloatOption::setValue(float v)
 float FloatOption::getMaxValue() const { return m_max; }
 float FloatOption::getMinValue() const { return m_min; }
 
+DoubleOption::DoubleOption(const std::string& name, const std::string& section, double* value, double min, double max)
+: SampleOption(name, section)
+, m_value(value)
+, m_min(min)
+, m_max(max)
+, m_default(*value)
+{
+  
+}
+
+OptionKind DoubleOption::getKind()
+{
+  return OptionKindDouble;
+}
+
+double DoubleOption::getValue() const 
+{
+  return *m_value; 
+}
+
+bool DoubleOption::setValue(double v) 
+{
+  v = std::max(m_min, std::min(v, m_max));
+  bool changed = *m_value != v;
+  *m_value = v; 
+  return changed;
+}
+
+double DoubleOption::getMaxValue() const { return m_max; }
+double DoubleOption::getMinValue() const { return m_min; }
 
 
 StringEnumOption::StringEnumOption(const std::string& name, const std::string& section, std::string* value, std::vector<std::string> stringEnums, int defaultValue)

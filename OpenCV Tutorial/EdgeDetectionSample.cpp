@@ -30,9 +30,9 @@ EdgeDetectionSample::EdgeDetectionSample()
   registerOption("Show only edges", "", &m_showOnlyEdges);
   
   // Canny detector options
-  registerOption("Threshold 1", "Canny", &m_cannyLoThreshold, 0, 100); 
-  registerOption("Threshold 2", "Canny", &m_cannyHiThreshold, 0, 200); 
-  
+  registerOption("Threshold 1", "Canny", &m_cannyLoThreshold, 0, 256);
+  registerOption("Threshold 2", "Canny", &m_cannyHiThreshold, 0, 256);
+  registerOption("Aperture",    "Canny", &m_cannyAperture, 1, 5);
   // Sobel detector options
   
   // Harris detector options
@@ -66,7 +66,7 @@ bool EdgeDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
   
   if (m_algorithmName == "Canny")
   {
-    cv::Canny(grayImage, edges, m_cannyLoThreshold, m_cannyHiThreshold);
+    cv::Canny(grayImage, edges, m_cannyLoThreshold, m_cannyHiThreshold, m_cannyAperture * 2 + 1);
   }
   else if (m_algorithmName == "Sobel")
   {

@@ -44,11 +44,12 @@ private:
   // Canny detector options:
   int m_cannyLoThreshold;
   int m_cannyHiThreshold;
+  int m_cannyAperture;
     
   // Harris detector options:
   int m_harrisBlockSize;
   int m_harrisapertureSize;
-  float m_harrisK;
+  double m_harrisK;
   int m_harrisThreshold;
 };
 

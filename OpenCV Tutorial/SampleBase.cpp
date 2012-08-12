@@ -43,6 +43,12 @@ void SampleBase::registerOption(std::string name, std::string section, float *  
   m_optionsWithSections[section].push_back(opt);
 }
 
+void SampleBase::registerOption(std::string name, std::string section, double *  value, double min, double max)
+{
+  SampleOption * opt = new DoubleOption(name, section, value, min, max);
+  m_optionsWithSections[section].push_back(opt);
+}
+
 void SampleBase::registerOption(std::string name, std::string section, std::string* value, std::vector<std::string> stringEnums, int defaultValue)
 {
   SampleOption * opt = new StringEnumOption(name, section, value, stringEnums, defaultValue);

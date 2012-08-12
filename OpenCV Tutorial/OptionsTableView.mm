@@ -27,6 +27,7 @@ notificationsDelegate:(id<OptionCellDelegate>) delegate
     [self registerNib:[UINib nibWithNibName:@"Int32TableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Int32TableViewCell"];
     [self registerNib:[UINib nibWithNibName:@"FloatTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"FloatTableViewCell"];
     [self registerNib:[UINib nibWithNibName:@"EnumTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"EnumTableViewCell"];
+    [self registerNib:[UINib nibWithNibName:@"DoubleTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"DoubleTableViewCell"];
 
     [self setAutoresizingMask: (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight) ];
     self.optionsFacade = [[SampleOptionsTableViewDelegate alloc] initWithSample:sample notificationsDelegate:delegate];

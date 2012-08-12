@@ -12,6 +12,7 @@
 #import "Int32TableViewCell.h"
 #import "FloatTableViewCell.h"
 #import "EnumTableViewCell.h"
+#import "DoubleTableViewCell.h"
 
 @interface SampleOptionsTableViewDelegate ()
 {
@@ -69,6 +70,13 @@
     {
       FloatTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"FloatTableViewCell"];
       [cell configureWithOption:dynamic_cast<FloatOption*>(option)];      
+      cell.delegate = self.delegate;
+      return cell;
+    }
+    case OptionKindDouble:
+    {
+      DoubleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"DoubleTableViewCell"];
+      [cell configureWithOption:dynamic_cast<DoubleOption*>(option)];      
       cell.delegate = self.delegate;
       return cell;
     }

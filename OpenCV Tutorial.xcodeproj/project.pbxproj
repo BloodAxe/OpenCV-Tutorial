@@ -91,6 +91,8 @@
 		8AB993C215A354BF00D6AB1D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */; };
 		8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */; };
 		8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */; };
+		8AFE53CA15D7E3B200E7ADEB /* DoubleTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE53C815D7E3B200E7ADEB /* DoubleTableViewCell.mm */; };
+		8AFE53CB15D7E3B200E7ADEB /* DoubleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AFE53C915D7E3B200E7ADEB /* DoubleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +216,9 @@
 		8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8AE69C0415A3A47F00DAA115 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageViewController.mm; sourceTree = "<group>"; };
+		8AFE53C715D7E3B200E7ADEB /* DoubleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleTableViewCell.h; sourceTree = "<group>"; };
+		8AFE53C815D7E3B200E7ADEB /* DoubleTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DoubleTableViewCell.mm; sourceTree = "<group>"; };
+		8AFE53C915D7E3B200E7ADEB /* DoubleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoubleTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,6 +458,9 @@
 		8A7934C415AB5DB30043BE99 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				8AFE53C715D7E3B200E7ADEB /* DoubleTableViewCell.h */,
+				8AFE53C815D7E3B200E7ADEB /* DoubleTableViewCell.mm */,
+				8AFE53C915D7E3B200E7ADEB /* DoubleTableViewCell.xib */,
 				8A7934A615AB47060043BE99 /* SampleOptionsTableViewDelegate.h */,
 				8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */,
 				8A79349D15A9ADA20043BE99 /* BooleanTableViewCell.h */,
@@ -622,6 +630,7 @@
 				369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */,
 				369F2C2C15C1A5290032BD08 /* FeatureDetectionSampleIcon.png in Resources */,
 				3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */,
+				8AFE53CB15D7E3B200E7ADEB /* DoubleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +674,7 @@
 				369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */,
 				369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */,
 				3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */,
+				8AFE53CA15D7E3B200E7ADEB /* DoubleTableViewCell.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

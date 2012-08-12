@@ -11,7 +11,7 @@
 
 #include <string>
 
-typedef enum { OptionKindBoolean, OptionKindInt32, OptionKindFloat, OptionKindStringEnum } OptionKind;
+typedef enum { OptionKindBoolean, OptionKindInt32, OptionKindFloat, OptionKindDouble, OptionKindStringEnum } OptionKind;
 
 class SampleOption
 {
@@ -65,6 +65,26 @@ private:
   float   m_min;
   float   m_max;  
   float   m_default;
+};
+
+class DoubleOption : public SampleOption
+{
+public:
+  DoubleOption(const std::string& name, const std::string& section, double* value, double min, double max);
+  
+  virtual OptionKind getKind();
+  
+  double getValue() const; 
+  bool setValue(double v); 
+  
+  double getMaxValue() const;
+  double getMinValue() const; 
+  
+private:
+  double * m_value;
+  double   m_min;
+  double   m_max;  
+  double   m_default;
 };
 
 class BooleanOption : public SampleOption

@@ -66,7 +66,7 @@
                      [NSString stringWithStdString: self.currentSample->getUserFriendlyName()]];
   
   [twitter addImage:image];
-  [twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://computer-vision-talks.com/"]]];
+  [twitter addURL:[NSURL URLWithString:@"http://computer-vision-talks.com/"]];
   [twitter setInitialText:text];
   
   // Show the controller

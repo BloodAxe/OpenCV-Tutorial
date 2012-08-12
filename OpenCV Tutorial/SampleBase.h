@@ -50,6 +50,7 @@ protected:
     void registerOption(std::string name, std::string section, bool  * value);
     void registerOption(std::string name, std::string section, int   *  value, int min, int max);
     void registerOption(std::string name, std::string section, float *  value, float min, float max);
+    void registerOption(std::string name, std::string section, double *  value, double min, double max);
     void registerOption(std::string name, std::string section, std::string* value, std::vector<std::string> stringEnums, int defaultValue = 0);
     
     static void getGray(const cv::Mat& input, cv::Mat& gray);
