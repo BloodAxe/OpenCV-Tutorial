@@ -33,4 +33,9 @@ Idea and development by Eugene Khvedchenya <ekhvedchenya@gmail.com>
 
 http://computer-vision-talks.com
 
-Licensed via GPL
+This application is provided via BSD licence, it is free for both academic and commercial use.
+
+This application is provided as-is, with no warranty expressed or implied.  Use this application at your own risk.
+The author assumes no liability for any loss associated with the use of this application.
+If you do not agree with the terms of this license, do not install this application.
+
