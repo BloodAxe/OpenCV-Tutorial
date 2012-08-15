@@ -32,6 +32,8 @@
 - (IBAction)clearReferenceFrame:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionSheetButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *captureReferenceFrameButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *clearReferenceFrameButton;
 
 - (IBAction)showActionSheet:(id)sender;
 

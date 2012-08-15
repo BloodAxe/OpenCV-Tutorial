@@ -12,8 +12,9 @@
 EdgeDetectionSample::EdgeDetectionSample()
 : m_showOnlyEdges(true)
 , m_algorithmName("Canny")
-, m_cannyLoThreshold(50)
-, m_cannyHiThreshold(150)
+, m_cannyLoThreshold(250)
+, m_cannyHiThreshold(250)
+, m_cannyAperture(1)
 , m_harrisBlockSize(2)
 , m_harrisapertureSize(3)
 , m_harrisK(0.04f)
@@ -26,13 +27,14 @@ EdgeDetectionSample::EdgeDetectionSample()
   algos.push_back("Schaar");
   //algos.push_back("Harris"); Harris detector temporary disabled
   
-  registerOption("Algorithm",       "", &m_algorithmName, algos);  
+  registerOption("Algorithm",       "", &m_algorithmName, algos,1);
   registerOption("Show only edges", "", &m_showOnlyEdges);
   
   // Canny detector options
   registerOption("Threshold 1", "Canny", &m_cannyLoThreshold, 0, 256);
   registerOption("Threshold 2", "Canny", &m_cannyHiThreshold, 0, 256);
-  registerOption("Aperture",    "Canny", &m_cannyAperture, 1, 5);
+  registerOption("Aperture",    "Canny", &m_cannyAperture, 1, 3);
+    
   // Sobel detector options
   
   // Harris detector options
@@ -48,10 +50,12 @@ std::string EdgeDetectionSample::getName() const
   return "Edge detection";
 }
 
+/*
 std::string EdgeDetectionSample::getSampleIcon() const
 {
   return "EdgeDetectionSampleIcon.png";
 }
+*/
 
 //! Returns a detailed sample description
 std::string EdgeDetectionSample::getDescription() const

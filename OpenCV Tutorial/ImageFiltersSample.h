@@ -38,10 +38,15 @@ private:
   std::string m_currentEffect;
   
   cv::Mat_<float> m_sepiaKernel;
+  cv::Mat_<float> m_sepiaKernelT;
   
   float m_alpha;
   int   m_bias;
+  
   cv::Mat_<float> m_contrastKernel;
+  cv::Mat_<float> m_contrastKernelT;
+  
+  bool useNeonOptimized;
 };
 
 #endif

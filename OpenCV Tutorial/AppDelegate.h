@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SampleBase.h"
+#import "SampleFacade.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
 @public
-  std::vector<SampleBase*> allSamples;
+  std::vector<SampleFacade*> allSamples;
 }
 @property (strong, nonatomic) UIWindow *window;
 

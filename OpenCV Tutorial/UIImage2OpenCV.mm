@@ -125,4 +125,39 @@
   return finalImage;
 }
 
+
+- (UIImage *)thumbnailWithSize:(int)thumbSize
+{
+	// Create a thumbnail version of the image for the event object.
+	CGSize croppedSize;
+	CGFloat ratio = thumbSize;
+	CGFloat offsetX = 0.0;
+	CGFloat offsetY = 0.0;
+    
+	// check the size of the image, we want to make it
+	// a square with sides the size of the smallest dimension
+	if (self.size.width > self.size.height) {
+		offsetX = (self.size.height - self.size.width) / 2;
+		croppedSize = CGSizeMake(self.size.height, self.size.height);
+	} else {
+		offsetY = (self.size.width - self.size.height) / 2;
+		croppedSize = CGSizeMake(self.size.width, self.size.width);
+	}
+    
+	// Crop the image before resize
+	CGRect clippedRect = CGRectMake(offsetX * -1, offsetY * -1, croppedSize.width, croppedSize.height);
+	CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], clippedRect);
+	// Done cropping
+    
+	// Resize the image
+	CGRect rect = CGRectMake(0.0, 0.0, ratio, ratio);
+    
+	UIGraphicsBeginImageContext(rect.size);
+	[[UIImage imageWithCGImage:imageRef] drawInRect:rect];
+	UIImage *thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	// Done Resizing
+    
+	return thumbnail;
+}
 @end

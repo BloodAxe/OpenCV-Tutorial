@@ -8,8 +8,10 @@
 
 #include <iostream>
 #include "ImageFiltersSample.h"
+#include "cvneon.h"
 
 ImageFiltersSample::ImageFiltersSample()
+: useNeonOptimized(false)
 {
   m_sepiaKernel.create(4, 4);
 
@@ -17,6 +19,8 @@ ImageFiltersSample::ImageFiltersSample()
   m_sepiaKernel(1,0) = 0.349; m_sepiaKernel(1,1) = 0.686; m_sepiaKernel(1,2) = 0.168; m_sepiaKernel(1,3) = 0;
   m_sepiaKernel(2,0) = 0.393; m_sepiaKernel(2,1) = 0.769; m_sepiaKernel(2,2) = 0.189; m_sepiaKernel(2,3) = 0;
   m_sepiaKernel(3,0) = 0;     m_sepiaKernel(3,1) = 0;     m_sepiaKernel(3,2) = 0;     m_sepiaKernel(3,3) = 1;
+  
+  cv::transpose(m_sepiaKernel, m_sepiaKernelT);
   
   m_contrastKernel = cv::Mat_<float>::eye(4,4);
   m_alpha = 1;
@@ -27,10 +31,13 @@ ImageFiltersSample::ImageFiltersSample()
   effects.push_back("Negative");
   effects.push_back("Adjustments");
   
-  registerOption("Effect", "", &m_currentEffect, effects, 1);
-  
+  registerOption("Effect", "", &m_currentEffect, effects, 0);
   registerOption("Contrast", "Adjustmens",   &m_alpha, 0, 2);
   registerOption("Brightness", "Adjustmens", &m_bias, -128, 128);  
+
+#if (!TARGET_IPHONE_SIMULATOR)
+  registerOption("Use NEON" ,"Performance", &useNeonOptimized);
+#endif
 }
 
 std::string ImageFiltersSample::getName() const
@@ -75,7 +82,21 @@ bool ImageFiltersSample::processFrame(const cv::Mat& inputFrame, cv::Mat& output
 
 void ImageFiltersSample::sepia(const cv::Mat& inputFrame, cv::Mat& outputFrame)
 {
+#if (!TARGET_IPHONE_SIMULATOR)
+  if (useNeonOptimized)
+  {
+    cv::neon_transform_bgra(inputFrame, outputFrame, m_sepiaKernelT);
+  }
+  else
+  {
+    cv::transform(inputFrame, outputFrame, m_sepiaKernel);
+  }
+
+  //cv::Vec4b src = outputFrame.at<cv::Vec4b>(10,10);
+  //std::cout << (int)src[0] << "," << (int)src[1] << "," << (int)src[2] << "," << (int)src[3] << std::endl;
+#else
   cv::transform(inputFrame, outputFrame, m_sepiaKernel);
+#endif
 }
 
 void ImageFiltersSample::negative(const cv::Mat& inputFrame, cv::Mat& outputFrame)
@@ -116,8 +137,19 @@ void ImageFiltersSample::contrastAndBrightnessAdjust(const cv::Mat& inputFrame, 
 {
   m_contrastKernel(0,0) = m_contrastKernel(1,1) = m_contrastKernel(2,2) = m_alpha;
   
-  cv::transform(inputFrame, outputFrame, m_contrastKernel);
-  
+#if (!TARGET_IPHONE_SIMULATOR)
+    if (useNeonOptimized)
+    {
+        cv::neon_transform_bgra(inputFrame, outputFrame, m_contrastKernel);
+    }
+    else
+    {
+        cv::transform(inputFrame, outputFrame, m_contrastKernel);
+    }
+#else
+    cv::transform(inputFrame, outputFrame, m_contrastKernel);
+#endif
+    
   outputFrame += cv::Scalar(m_bias,m_bias, m_bias, 0);
 }
 

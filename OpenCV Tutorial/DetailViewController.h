@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SampleBase.h"
+#import "SampleFacade.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
 {
-  SampleBase* currentSample;
+  SampleFacade* currentSample;
   UIImagePickerController * imagePicker;
 }
 
@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *runOnImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *runOnVideoButton;
 
-- (void) setDetailItem:(SampleBase*) sample;
+- (void) setDetailItem:(SampleFacade*) sample;
 - (void) configureView;
 
 @end

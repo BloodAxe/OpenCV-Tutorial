@@ -219,6 +219,7 @@
   self.fpsLabel.text = [self.fpsCalculator getFPSAsText];
   
   glPixelStorei(GL_PACK_ALIGNMENT, 1);
+  //glPixelStorei(GL_PACK_ROW_LENGTH, (size_t)bgraFrame.step);
   glBindTexture(GL_TEXTURE_2D, backgroundTextureId);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bgraFrame.cols, bgraFrame.rows, 0, GL_BGRA, GL_UNSIGNED_BYTE, bgraFrame.data);
   

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "SampleBase.h"
+#import "SampleFacade.h"
 
 typedef void (^TweetImageCompletionHandler)(); 
 typedef void (^SaveImageCompletionHandler)(); 
@@ -18,10 +19,10 @@ typedef void (^SaveImageCompletionHandler)();
 
 @interface BaseSampleViewController : UIViewController
 
-@property (readonly) SampleBase * currentSample;
+@property (readonly) SampleFacade * currentSample;
 
 - (void) configureView;
-- (void) setSample:(SampleBase*) sample;
+- (void) setSample:(SampleFacade*) sample;
 - (void) tweetImage:(UIImage*) image withCompletionHandler: (TweetImageCompletionHandler) handler;
 - (void) saveImage:(UIImage*) image  withCompletionHandler: (SaveImageCompletionHandler) handler;
 

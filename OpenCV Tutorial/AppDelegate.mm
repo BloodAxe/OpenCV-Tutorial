@@ -16,21 +16,22 @@
 #import "ObjectTrackingSample.h"
 #import "DetectTrackSample.h"
 
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  allSamples.push_back( new EdgeDetectionSample());
-  allSamples.push_back( new ImageFiltersSample());
-  allSamples.push_back( new ContourDetectionSample() );
-  allSamples.push_back( new CartoonFilter() );
-  allSamples.push_back( new VideoTrackingSample() );
-
-    allSamples.push_back( new FeatureDetectionSample() );
-    allSamples.push_back( new ObjectTrackingSample() );
-    allSamples.push_back( new DetectTrackSample() );
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new EdgeDetectionSample()]);
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new ImageFiltersSample()]);
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new ContourDetectionSample()]);
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new CartoonFilter()]);
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new VideoTrackingSample()]);
+    
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new FeatureDetectionSample()]);
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new ObjectTrackingSample()]);
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new DetectTrackSample()]);
     
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -50,7 +51,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

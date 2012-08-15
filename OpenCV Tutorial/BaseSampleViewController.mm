@@ -8,6 +8,7 @@
 
 #import "BaseSampleViewController.h"
 #import "NSString+StdString.h"
+#import "UIImage2OpenCV.h"
 
 #import <Twitter/Twitter.h>
 
@@ -40,7 +41,7 @@
     // Release any retained subviews of the main view.
 }
 
-- (void) setSample:(SampleBase*) sample
+- (void) setSample:(SampleFacade*) sample
 {
   _currentSample = sample;
   
@@ -51,7 +52,7 @@
 {
   if (self.currentSample)
   {
-    self.title = [NSString stringWithCString:self.currentSample->getName().c_str() encoding:NSASCIIStringEncoding]; 
+      self.title = [self.currentSample title];
   }
 }
 
@@ -63,7 +64,7 @@
   TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
   
   NSString * text = [NSString stringWithFormat:@"%@ with OpenCV Tutorial made by @cvtalks", 
-                     [NSString stringWithStdString: self.currentSample->getUserFriendlyName()]];
+                     [self.currentSample friendlyName]];
   
   [twitter addImage:image];
   [twitter addURL:[NSURL URLWithString:@"http://computer-vision-talks.com/"]];
@@ -124,5 +125,6 @@
     return YES;
   }
 }
+
 
 @end

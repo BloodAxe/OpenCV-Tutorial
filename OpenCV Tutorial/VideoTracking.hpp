@@ -28,6 +28,7 @@ public:
   //! Processes a frame and returns output image 
   virtual bool processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame);
   
+    virtual std::string getSampleIcon() const;
 private:
   int m_maxNumberOfPoints;
   

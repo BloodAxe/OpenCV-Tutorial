@@ -109,7 +109,7 @@
   
   self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame 
                                                        style:UITableViewStyleGrouped 
-                                                      sample:self.currentSample 
+                                                      sample:self.currentSample.sample
                                        notificationsDelegate:self];
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
@@ -132,14 +132,8 @@
 - (void) updateImageView
 {
   if (self.currentSample && currentImage)
-  {
-    cv::Mat inputImage = [currentImage toMat];
-    cv::Mat outputImage;
-    
-    self.currentSample->processFrame(inputImage, outputImage);
-    UIImage * result = [UIImage imageWithMat:outputImage andImageOrientation:[currentImage imageOrientation]];
-    
-    self.imageView.image = result;
+  {    
+    self.imageView.image = [self.currentSample processFrame:currentImage];
   }
 }
 

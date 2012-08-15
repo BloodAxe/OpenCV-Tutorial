@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -155,9 +153,21 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ons-ZI-Sxi"/>
+                                    <barButtonItem image="photos_polaroid.png" style="plain" id="cES-kV-lCw" userLabel="CaptureReferenceFrameButton">
+                                        <connections>
+                                            <action selector="captureReferenceFrame:" destination="Wac-Dj-mok" id="cFv-RZ-McA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ZuT-Br-fqp"/>
                                     <barButtonItem image="cog_01.png" style="plain" id="I1T-i5-mh3" userLabel="showOptionsButton">
                                         <connections>
                                             <action selector="showOptions:" destination="Wac-Dj-mok" id="fbp-Bn-Jb3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="bZe-Td-agE"/>
+                                    <barButtonItem image="refresh_straight_arrows.png" style="plain" id="BX1-5o-4NW" userLabel="ClearReferenceFrameButton">
+                                        <connections>
+                                            <action selector="clearReferenceFrame:" destination="Wac-Dj-mok" id="WFO-yf-zsS"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Hen-Cv-Aze"/>
@@ -174,6 +184,8 @@
                     <navigationItem key="navigationItem" id="Jkl-70-nt7"/>
                     <connections>
                         <outlet property="actionSheetButton" destination="Gsh-6h-STO" id="8h5-m8-d60"/>
+                        <outlet property="captureReferenceFrameButton" destination="cES-kV-lCw" id="DwK-sh-bBn"/>
+                        <outlet property="clearReferenceFrameButton" destination="BX1-5o-4NW" id="Lfw-KU-JzG"/>
                         <outlet property="containerView" destination="xqr-A0-xhC" id="LRi-lx-hs1"/>
                         <outlet property="options" destination="I1T-i5-mh3" id="4dp-c7-27H"/>
                         <outlet property="toggleCameraButton" destination="0cH-Fc-y0H" id="os1-i3-lp3"/>
@@ -239,9 +251,13 @@
     <resources>
         <image name="cog_01.png" width="26" height="26"/>
         <image name="photos_polaroid.png" width="26" height="26"/>
+        <image name="refresh_straight_arrows.png" width="26" height="26"/>
         <image name="switchCamera.png" width="43" height="26"/>
     </resources>
     <classes>
+        <class className="BaseSampleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseSampleViewController.h"/>
+        </class>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
@@ -251,11 +267,10 @@
                 <relationship kind="outlet" name="sampleIconView" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="ImageViewController" superclassName="UIViewController">
+        <class className="ImageViewController" superclassName="BaseSampleViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
             <relationships>
                 <relationship kind="action" name="presentOptionsView:"/>
-                <relationship kind="action" name="saveProcessingResult:"/>
                 <relationship kind="action" name="selectAction:"/>
                 <relationship kind="action" name="selectPictureForProcessing:"/>
                 <relationship kind="outlet" name="actionButton" candidateClass="UIBarButtonItem"/>
@@ -267,14 +282,16 @@
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
         </class>
-        <class className="VideoViewController" superclassName="UIViewController">
+        <class className="VideoViewController" superclassName="BaseSampleViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoViewController.h"/>
             <relationships>
-                <relationship kind="action" name="saveProcessingResult:"/>
+                <relationship kind="action" name="captureReferenceFrame:"/>
+                <relationship kind="action" name="clearReferenceFrame:"/>
                 <relationship kind="action" name="showActionSheet:"/>
                 <relationship kind="action" name="showOptions:"/>
                 <relationship kind="action" name="toggleCameraPressed:"/>
                 <relationship kind="outlet" name="actionSheetButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="captureReferenceFrameButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="options" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toggleCameraButton" candidateClass="UIBarButtonItem"/>
