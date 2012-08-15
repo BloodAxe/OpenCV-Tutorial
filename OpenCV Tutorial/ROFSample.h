@@ -33,6 +33,8 @@ private:
     // Diffusion options
     float m_lambda;
     int m_iterations;
+    int m_lambdaExponent;
+    bool m_processColor;
 };
 
 #endif

@@ -92,6 +92,8 @@
 		8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */; };
 		8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */; };
 		E11367EF15B9E93B000051A1 /* ROFSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E11367EE15B9E93B000051A1 /* ROFSample.cpp */; };
+		E11504AB15C9528000A03BCC /* totalvariation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E11504AA15C9528000A03BCC /* totalvariation.cpp */; };
+		E16592A715D6A6BC0091A819 /* ROFSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E16592A615D6A6BC0091A819 /* ROFSampleIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +219,9 @@
 		8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageViewController.mm; sourceTree = "<group>"; };
 		E11367EC15B9E92C000051A1 /* ROFSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ROFSample.h; sourceTree = "<group>"; };
 		E11367EE15B9E93B000051A1 /* ROFSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ROFSample.cpp; sourceTree = "<group>"; };
+		E11504A815C9527200A03BCC /* totalvariation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = totalvariation.h; sourceTree = "<group>"; };
+		E11504AA15C9528000A03BCC /* totalvariation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = totalvariation.cpp; sourceTree = "<group>"; };
+		E16592A615D6A6BC0091A819 /* ROFSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ROFSampleIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -541,8 +546,11 @@
 		E11367F015B9E944000051A1 /* Rudin-Osher-Fatemi */ = {
 			isa = PBXGroup;
 			children = (
+				E16592A615D6A6BC0091A819 /* ROFSampleIcon.png */,
 				E11367EC15B9E92C000051A1 /* ROFSample.h */,
 				E11367EE15B9E93B000051A1 /* ROFSample.cpp */,
+				E11504A815C9527200A03BCC /* totalvariation.h */,
+				E11504AA15C9528000A03BCC /* totalvariation.cpp */,
 			);
 			name = "Rudin-Osher-Fatemi";
 			sourceTree = "<group>";
@@ -636,6 +644,7 @@
 				369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */,
 				369F2C2C15C1A5290032BD08 /* FeatureDetectionSampleIcon.png in Resources */,
 				3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */,
+				E16592A715D6A6BC0091A819 /* ROFSampleIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +689,7 @@
 				369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */,
 				369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */,
 				3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */,
+				E11504AB15C9528000A03BCC /* totalvariation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
