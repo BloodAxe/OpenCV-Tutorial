@@ -10,6 +10,7 @@
 #import "ContourDetectionSample.h"
 #import "EdgeDetectionSample.h"
 #import "ImageFiltersSample.h"
+#import "ROFSample.h"
 #import "CartoonFilter.h"
 #import "VideoTracking.hpp"
 #import "FeatureDetectionSample.h"
@@ -32,7 +33,9 @@
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new FeatureDetectionSample()]);
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new ObjectTrackingSample()]);
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new DetectTrackSample()]);
-    
+
+    allSamples.push_back([[SampleFacade alloc] initWithSample:  new ROFSample()]);
+
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {

@@ -171,8 +171,6 @@ namespace cv
         dst[3] = cv::saturate_cast<unsigned char>(out[3]);
       }
     }
-    
-    //result = input.clone();
   }
   
 #endif
