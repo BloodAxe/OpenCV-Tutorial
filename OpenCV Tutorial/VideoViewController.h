@@ -10,7 +10,6 @@
 #import "GLESImageView.h"
 #import "VideoSource.h"
 #import "SampleBase.h"
-#import "GLESImageView.h"
 #import "BaseSampleViewController.h"
 
 @interface VideoViewController : BaseSampleViewController<VideoSourceDelegate,UIActionSheetDelegate>
