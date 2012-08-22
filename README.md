@@ -39,6 +39,7 @@ This application is provided as-is, with no warranty expressed or implied.  Use 
 The author assumes no liability for any loss associated with the use of this application.
 If you do not agree with the terms of this license, do not install this application.
 
-Hall of fame
+Contributors
 ==========================
-Many thanks to Anton Belodedenko <anton.belodedenko@gmail.com> for writing object detection samples and implementation of reference frames in the UI.
+ * Anton Belodedenko <anton.belodedenko@gmail.com> 
+ * Emmanuel d'Angelo <http://www.computersdontsee.net>
