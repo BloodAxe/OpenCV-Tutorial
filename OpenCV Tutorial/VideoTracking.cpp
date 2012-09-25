@@ -120,13 +120,13 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
         
         if (m_prevKeypoints.size() > 0)
         {
-            std::vector<cv::DMatch> matches;
-            m_orbMatcher.match(m_nextDescriptors, m_prevDescriptors, matches);
+            std::vector< std::vector<cv::DMatch> > matches;
+            m_orbMatcher.radiusMatch(m_nextDescriptors, m_prevDescriptors, matches, 10);
             
             for (size_t i=0; i<matches.size(); i++)
             {
-                cv::Point prevPt = m_prevKeypoints[matches[i].trainIdx].pt;
-                cv::Point nextPt = m_nextKeypoints[matches[i].queryIdx].pt;
+                cv::Point prevPt = m_prevKeypoints[matches[i][0].trainIdx].pt;
+                cv::Point nextPt = m_nextKeypoints[matches[i][0].queryIdx].pt;
                 
                 cv::circle(outputFrame, prevPt, 5, cv::Scalar(250,0,250), CV_FILLED);
                 cv::line(outputFrame, prevPt, nextPt, CV_RGB(0,250,0));
@@ -144,13 +144,13 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
         
         if (m_prevKeypoints.size() > 0)
         {
-            std::vector<cv::DMatch> matches;
-            m_briefMatcher.match(m_nextDescriptors, m_prevDescriptors, matches);
+            std::vector< std::vector<cv::DMatch> > matches;
+            m_orbMatcher.radiusMatch(m_nextDescriptors, m_prevDescriptors, matches, 10);
             
             for (size_t i=0; i<matches.size(); i++)
             {
-                cv::Point prevPt = m_prevKeypoints[matches[i].trainIdx].pt;
-                cv::Point nextPt = m_nextKeypoints[matches[i].queryIdx].pt;
+                cv::Point prevPt = m_prevKeypoints[matches[i][0].trainIdx].pt;
+                cv::Point nextPt = m_nextKeypoints[matches[i][0].queryIdx].pt;
                 
                 cv::circle(outputFrame, prevPt, 5, cv::Scalar(250,0,250), CV_FILLED);
                 cv::line(outputFrame, prevPt, nextPt, CV_RGB(0,250,0));

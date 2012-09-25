@@ -16,7 +16,7 @@
 #import "FeatureDetectionSample.h"
 #import "ObjectTrackingSample.h"
 #import "DetectTrackSample.h"
-
+#import "DrawingCanvas.h"
 
 @implementation AppDelegate
 
@@ -35,7 +35,8 @@
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new DetectTrackSample()]);
 
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new ROFSample()]);
-
+    allSamples.push_back([[SampleFacade alloc] initWithSample:new DrawingCanvasSample()]);
+    
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {

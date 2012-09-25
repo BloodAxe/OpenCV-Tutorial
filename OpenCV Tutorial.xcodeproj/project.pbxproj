@@ -39,6 +39,7 @@
 		8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */; };
 		8A4388EB1597BD9D00027D3C /* ContourDetectionSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */; };
 		8A4388EC1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */; };
+		8A4A123D15F68B680096D272 /* DrawingCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A123C15F68B680096D272 /* DrawingCanvas.cpp */; };
 		8A4C5D7515E2CAEA008887F0 /* ROFSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C5D7015E2CAEA008887F0 /* ROFSample.cpp */; };
 		8A4C5D7615E2CAEA008887F0 /* ROFSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C5D7215E2CAEA008887F0 /* ROFSampleIcon.png */; };
 		8A4C5D7715E2CAEA008887F0 /* totalvariation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C5D7315E2CAEA008887F0 /* totalvariation.cpp */; };
@@ -156,6 +157,8 @@
 		8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContourDetectionSampleIcon.png; sourceTree = "<group>"; };
 		8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ContourDetectionSampleIcon@2x.png"; sourceTree = "<group>"; };
 		8A4388F01597C49B00027D3C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		8A4A123B15F68B5F0096D272 /* DrawingCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingCanvas.h; sourceTree = "<group>"; };
+		8A4A123C15F68B680096D272 /* DrawingCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingCanvas.cpp; sourceTree = "<group>"; };
 		8A4C5D7015E2CAEA008887F0 /* ROFSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ROFSample.cpp; sourceTree = "<group>"; };
 		8A4C5D7115E2CAEA008887F0 /* ROFSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROFSample.h; sourceTree = "<group>"; };
 		8A4C5D7215E2CAEA008887F0 /* ROFSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ROFSampleIcon.png; sourceTree = "<group>"; };
@@ -383,6 +386,7 @@
 		8A43888A1595C1DF00027D3C /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				8A4A123915F68B460096D272 /* DrawingCanvas */,
 				8AB6D04015B856010029641C /* CartoonFilter */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
 				3641571B15C286A800F80FFB /* DetectTrackSample */,
@@ -444,6 +448,15 @@
 				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
 			);
 			name = "Contour Detection";
+			sourceTree = "<group>";
+		};
+		8A4A123915F68B460096D272 /* DrawingCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				8A4A123B15F68B5F0096D272 /* DrawingCanvas.h */,
+				8A4A123C15F68B680096D272 /* DrawingCanvas.cpp */,
+			);
+			name = DrawingCanvas;
 			sourceTree = "<group>";
 		};
 		8A4C5D7915E2CAF1008887F0 /* ROFSample */ = {
@@ -731,6 +744,7 @@
 				8A66F71215DA535C00EF1959 /* SampleFacade.mm in Sources */,
 				8A4C5D7515E2CAEA008887F0 /* ROFSample.cpp in Sources */,
 				8A4C5D7715E2CAEA008887F0 /* totalvariation.cpp in Sources */,
+				8A4A123D15F68B680096D272 /* DrawingCanvas.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
