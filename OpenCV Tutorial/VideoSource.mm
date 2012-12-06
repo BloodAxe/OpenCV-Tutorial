@@ -157,7 +157,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   */
   [delegate frameCaptured:frame];
   
-	/*We unlock the  image buffer*/
+    /*We unlock the  image buffer*/
 	CVPixelBufferUnlockBaseAddress(imageBuffer,0);
 } 
 @end

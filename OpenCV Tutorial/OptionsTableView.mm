@@ -18,7 +18,7 @@
 
 - (id) initWithFrame:(CGRect)frame 
                style:(UITableViewStyle)style 
-              sample:(SampleBase*) sample 
+              sample:(SampleFacade*) sample
 notificationsDelegate:(id<OptionCellDelegate>) delegate
 {
   if (self = [super initWithFrame:frame style:style])

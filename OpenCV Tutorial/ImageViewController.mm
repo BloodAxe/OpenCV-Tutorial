@@ -109,7 +109,7 @@
   
   self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame 
                                                        style:UITableViewStyleGrouped 
-                                                      sample:self.currentSample.sample
+                                                      sample:self.currentSample
                                        notificationsDelegate:self];
   
   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)

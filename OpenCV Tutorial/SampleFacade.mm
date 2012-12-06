@@ -16,13 +16,15 @@
     NSString * m_description;
     UIImage  * m_smallIcon;
     UIImage  * m_largeIcon;
+    
+    SampleBase * _sample;
 }
 
 @end
 
 
 @implementation SampleFacade
-@synthesize sample = _sample;
+//@synthesize sample = _sample;
 
 - (id) initWithSample:(SampleBase*) s
 {
@@ -40,7 +42,7 @@
 {
     if (!m_title)
     {
-        m_title = [NSString stringWithCString:self.sample->getName().c_str() encoding:NSASCIIStringEncoding];
+        m_title = [NSString stringWithCString:_sample->getName().c_str() encoding:NSASCIIStringEncoding];
     }
     
     return m_title;
@@ -50,7 +52,7 @@
 {
     if (!m_description)
     {
-        m_description = [NSString stringWithCString:self.sample->getDescription().c_str() encoding:NSASCIIStringEncoding];
+        m_description = [NSString stringWithCString:_sample->getDescription().c_str() encoding:NSASCIIStringEncoding];
     }
     
     return m_description;
@@ -61,9 +63,9 @@
 {
     if (!m_smallIcon)
     {
-        if (self.sample->hasIcon())
+        if (_sample->hasIcon())
         {
-            NSString * iconStr = [NSString stringWithStdString:self.sample->getSampleIcon()];
+            NSString * iconStr = [NSString stringWithStdString:_sample->getSampleIcon()];
             m_smallIcon = [[UIImage imageNamed:iconStr] thumbnailWithSize:80];
         }
         else
@@ -80,9 +82,9 @@
 {
     if (!m_largeIcon)
     {
-        if (self.sample->hasIcon())
+        if (_sample->hasIcon())
         {
-            NSString * iconStr = [NSString stringWithStdString:self.sample->getSampleIcon()];
+            NSString * iconStr = [NSString stringWithStdString:_sample->getSampleIcon()];
             m_largeIcon = [UIImage imageNamed:iconStr];
         }
         else
@@ -99,7 +101,7 @@
 
 - (bool) processFrame:(const cv::Mat&) inputFrame into:(cv::Mat&) outputFrame
 {
-    return self.sample->processFrame(inputFrame, outputFrame);
+    return _sample->processFrame(inputFrame, outputFrame);
 }
 
 - (UIImage*) processFrame:(UIImage*) source
@@ -107,15 +109,35 @@
     cv::Mat inputImage = [source toMat];
     cv::Mat outputImage;
     
-    self.sample->processFrame(inputImage, outputImage);
+    _sample->processFrame(inputImage, outputImage);
     UIImage * result = [UIImage imageWithMat:outputImage andImageOrientation:[source imageOrientation]];
     return result;
 }
 
 - (NSString *) friendlyName
 {
-    return [NSString stringWithCString:self.sample->getUserFriendlyName().c_str() encoding:NSASCIIStringEncoding];
+    return [NSString stringWithCString:_sample->getUserFriendlyName().c_str() encoding:NSASCIIStringEncoding];
 }
 
+- (bool) getIsReferenceFrameRequired
+{
+    return _sample->isReferenceFrameRequired();
+}
+
+- (void) setReferenceFrame:(cv::Mat&) referenceFrame
+{
+    _sample->setReferenceFrame(referenceFrame);
+    
+}
+
+- (void) resetReferenceFrame
+{
+    _sample->resetReferenceFrame();
+}
+
+- (OptionsMap) getOptions
+{
+    return _sample->getOptions();
+}
 
 @end

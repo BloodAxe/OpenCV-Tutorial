@@ -7,20 +7,26 @@
 //
 
 #include <iostream>
-#include "FeatureDetectionClass.h"
 #include "FeatureDetectionSample.h"
-#include "Globals.h"
+
+#define kDetectorORB  "ORB"
+#define kDetectorSURF "SURF"
+#define kDetectorFAST "FAST"
 
 FeatureDetectionSample::FeatureDetectionSample()
-: m_maxFeatures(100)
+    : m_maxFeatures(100)
+    , m_fastThreshold(10)
 {
     // feature extraction options
-    m_alorithms.push_back( m_orbDetector.name() );
-    m_alorithms.push_back( m_surfDetector.name() );
-    m_alorithms.push_back( m_fastDetector.name() );
+    m_alorithms.push_back( kDetectorORB );
+    m_alorithms.push_back( kDetectorFAST );
+    m_alorithms.push_back( kDetectorSURF );
     
     registerOption("Detection algorithm", "", &m_detectorName, m_alorithms);
-    registerOption("Max features", "", &m_maxFeatures, 1, 100);
+    registerOption("Max features",        "", &m_maxFeatures, 1, 100);
+    
+    
+    registerOption("Threshold", "FAST", &m_fastThreshold, 1, 100);
 }
 
 //! Gets a sample name
@@ -51,20 +57,22 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
     // convert input frame to gray scale
     getGray(inputFrame, grayImage);
 
-    // display the frame
-    //inputFrame.copyTo(outputFrame);
     
-    if (m_detectorName == m_orbDetector.name())
+    if (m_detectorName == kDetectorORB)
     {
-        m_orbDetector.detect(grayImage, objectKeypoints);
+        cv::OrbFeatureDetector detector(m_maxFeatures);
+        detector.detect(grayImage, objectKeypoints);
     }
-    else if (m_detectorName == m_surfDetector.name())
+    else if (m_detectorName == kDetectorFAST)
     {
-        m_surfDetector.detect(grayImage, objectKeypoints);
+        cv::FastFeatureDetector detector(m_fastThreshold);
+        detector.detect(grayImage, objectKeypoints);
+        
     }
-    else if (m_detectorName == m_fastDetector.name())
+    else if (m_detectorName == kDetectorSURF)
     {
-        m_fastDetector.detect(grayImage, objectKeypoints);
+        cv::SurfFeatureDetector detector;
+        detector.detect(grayImage, objectKeypoints);
     }
     
     if (objectKeypoints.size() > m_maxFeatures)

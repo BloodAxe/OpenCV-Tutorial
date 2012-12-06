@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */; };
-		363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */; };
 		3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */; };
 		3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3641572015C2880E00F80FFB /* DetectTrackSample.cpp */; };
 		369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */; };
@@ -47,6 +46,7 @@
 		8A66F70B15DA3E2600EF1959 /* DefaultSampleIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A66F70915DA3E2600EF1959 /* DefaultSampleIcon~ipad.png */; };
 		8A66F71215DA535C00EF1959 /* SampleFacade.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A66F71115DA535C00EF1959 /* SampleFacade.mm */; };
 		8A66F71515DA85BA00EF1959 /* VideoTrackingSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A66F71415DA85BA00EF1959 /* VideoTrackingSampleIcon.png */; };
+		8A6E0BD81614946100C1D644 /* FeatureDetectionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E0BD61614946100C1D644 /* FeatureDetectionClass.cpp */; };
 		8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FC01599AC42008C72DB /* VideoSource.mm */; };
 		8A723FC81599B6EE008C72DB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FC71599B6EE008C72DB /* AVFoundation.framework */; };
 		8A723FCB1599B6F2008C72DB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FC91599B6F2008C72DB /* GLKit.framework */; };
@@ -97,6 +97,7 @@
 		8AB993BE15A354B100D6AB1D /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BD15A354B100D6AB1D /* Default-Portrait@2x~ipad.png */; };
 		8AB993C015A354BA00D6AB1D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993BF15A354BA00D6AB1D /* Default-Landscape@2x~ipad.png */; };
 		8AB993C215A354BF00D6AB1D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */; };
+		8AD96331165B90BC00772BCD /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD96330165B90BC00772BCD /* opencv2.framework */; };
 		8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */; };
 		8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */; };
 		8AFE53CA15D7E3B200E7ADEB /* DoubleTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE53C815D7E3B200E7ADEB /* DoubleTableViewCell.mm */; };
@@ -107,8 +108,6 @@
 /* Begin PBXFileReference section */
 		363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionSample.h; sourceTree = "<group>"; };
 		363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionSample.cpp; sourceTree = "<group>"; };
-		363DA0C015C0982D00347AB2 /* FeatureDetectionClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionClass.h; sourceTree = "<group>"; };
-		363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionClass.cpp; sourceTree = "<group>"; };
 		3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DetectTrackSampleIcon.png; sourceTree = "<group>"; };
 		3641571F15C2880600F80FFB /* DetectTrackSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectTrackSample.h; sourceTree = "<group>"; };
 		3641572015C2880E00F80FFB /* DetectTrackSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetectTrackSample.cpp; sourceTree = "<group>"; };
@@ -169,6 +168,8 @@
 		8A66F71015DA535C00EF1959 /* SampleFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleFacade.h; sourceTree = "<group>"; };
 		8A66F71115DA535C00EF1959 /* SampleFacade.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleFacade.mm; sourceTree = "<group>"; };
 		8A66F71415DA85BA00EF1959 /* VideoTrackingSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoTrackingSampleIcon.png; sourceTree = "<group>"; };
+		8A6E0BD61614946100C1D644 /* FeatureDetectionClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionClass.cpp; sourceTree = "<group>"; };
+		8A6E0BD71614946100C1D644 /* FeatureDetectionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionClass.h; sourceTree = "<group>"; };
 		8A723FBF1599AC42008C72DB /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
 		8A723FC01599AC42008C72DB /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
 		8A723FC71599B6EE008C72DB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -234,6 +235,7 @@
 		8AB993BD15A354B100D6AB1D /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		8AB993BF15A354BA00D6AB1D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		8AD96330165B90BC00772BCD /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8AE69C0415A3A47F00DAA115 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageViewController.mm; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD96331165B90BC00772BCD /* opencv2.framework in Frameworks */,
 				8AB6D04515B9969D0029641C /* Twitter.framework in Frameworks */,
 				8AE69C0315A3A40000DAA115 /* AssetsLibrary.framework in Frameworks */,
 				8A723FD41599B70B008C72DB /* CoreVideo.framework in Frameworks */,
@@ -270,8 +273,8 @@
 		363DA0B615C0970200347AB2 /* FeatureDetection */ = {
 			isa = PBXGroup;
 			children = (
-				363DA0C015C0982D00347AB2 /* FeatureDetectionClass.h */,
-				363DA0C115C0983E00347AB2 /* FeatureDetectionClass.cpp */,
+				8A6E0BD61614946100C1D644 /* FeatureDetectionClass.cpp */,
+				8A6E0BD71614946100C1D644 /* FeatureDetectionClass.h */,
 				363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */,
 				363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */,
 				369F2C2B15C1A5290032BD08 /* FeatureDetectionSampleIcon.png */,
@@ -322,6 +325,7 @@
 		8A4388671595BC4F00027D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AD96330165B90BC00772BCD /* opencv2.framework */,
 				8AB6D04415B9969C0029641C /* Twitter.framework */,
 				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
 				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
@@ -734,7 +738,6 @@
 				8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */,
 				8AB6D05015BDEB2F0029641C /* VideoTracking.cpp in Sources */,
 				363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */,
-				363DA0C215C0983E00347AB2 /* FeatureDetectionClass.cpp in Sources */,
 				369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */,
 				369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */,
 				369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */,
@@ -745,6 +748,7 @@
 				8A4C5D7515E2CAEA008887F0 /* ROFSample.cpp in Sources */,
 				8A4C5D7715E2CAEA008887F0 /* totalvariation.cpp in Sources */,
 				8A4A123D15F68B680096D272 /* DrawingCanvas.cpp in Sources */,
+				8A6E0BD81614946100C1D644 /* FeatureDetectionClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,7 +788,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -810,6 +814,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -822,7 +827,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -840,6 +845,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -851,33 +857,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/include";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/lib/Debug";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-mfpu=neon";
 				OTHER_CPLUSPLUSFLAGS = "-mfpu=neon";
-				OTHER_LDFLAGS = (
-					"-lopencv_calib3d",
-					"-lzlib",
-					"-lopencv_contrib",
-					"-lopencv_legacy",
-					"-lopencv_features2d",
-					"-lopencv_imgproc",
-					"-lopencv_video",
-					"-lopencv_core",
-					"-lopencv_flann",
-					"-lopencv_nonfree",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = armv7;
 				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -887,17 +885,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/include";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"/opencv/lib/Release";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-mfpu=neon",
@@ -906,20 +906,10 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-mfpu=neon",
 				);
-				OTHER_LDFLAGS = (
-					"-lopencv_calib3d",
-					"-lzlib",
-					"-lopencv_contrib",
-					"-lopencv_legacy",
-					"-lopencv_features2d",
-					"-lopencv_imgproc",
-					"-lopencv_video",
-					"-lopencv_core",
-					"-lopencv_flann",
-					"-lopencv_nonfree",
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = armv7;
 				WARNING_LDFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};

@@ -71,8 +71,8 @@
     [videoSource startRunning];
     
     toggleCameraButton.enabled = [videoSource hasMultipleCameras];
-    captureReferenceFrameButton.enabled = self.currentSample.sample->isReferenceFrameRequired();
-    clearReferenceFrameButton.enabled   = self.currentSample.sample->isReferenceFrameRequired();
+    captureReferenceFrameButton.enabled = self.currentSample.isReferenceFrameRequired;
+    clearReferenceFrameButton.enabled   = self.currentSample.isReferenceFrameRequired;
     
 }
 
@@ -88,7 +88,7 @@
     
     self.optionsView = [[OptionsTableView alloc] initWithFrame:containerView.frame
                                                          style:UITableViewStyleGrouped
-                                                        sample:self.currentSample.sample
+                                                        sample:self.currentSample
                                          notificationsDelegate:nil];
     
     
@@ -170,22 +170,18 @@
 
 - (void) frameCaptured:(cv::Mat) frame
 {
-    SampleBase * sample = self.currentSample.sample;
-    if (!sample)
-        return;
-    
     bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
     
     if (isMainQueue)
     {
-        sample->processFrame(frame, outputFrame);
+        [self.currentSample processFrame:frame into:outputFrame];
         [imageView drawFrame:outputFrame];
     }
     else
     {
         dispatch_sync( dispatch_get_main_queue(),
                       ^{
-                          sample->processFrame(frame, outputFrame);
+                          [self.currentSample processFrame:frame into:outputFrame];
                           [imageView drawFrame:outputFrame];
                       }
                       );
@@ -222,22 +218,18 @@
 #pragma mark - Capture reference frame
 
 - (IBAction) captureReferenceFrame:(id) sender
-{
-    SampleBase * sample = self.currentSample.sample;
-    if (!sample)
-        return;
-    
+{    
     bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
     
     if (isMainQueue)
     {
-        sample->setReferenceFrame(outputFrame);
+        [self.currentSample setReferenceFrame:outputFrame];
     }
     else
     {
         dispatch_sync( dispatch_get_main_queue(),
                       ^{
-                          sample->setReferenceFrame(outputFrame);
+                          [self.currentSample setReferenceFrame:outputFrame];
                       }
                       );
     }
@@ -247,21 +239,17 @@
 
 - (IBAction) clearReferenceFrame:(id) sender
 {
-    SampleBase * sample = self.currentSample.sample;
-    if (!sample)
-        return;
-    
     bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
     
     if (isMainQueue)
     {
-        sample->resetReferenceFrame();
+        [self.currentSample resetReferenceFrame];
     }
     else
     {
         dispatch_sync( dispatch_get_main_queue(), 
                       ^{ 
-                          sample->resetReferenceFrame();
+                          [self.currentSample resetReferenceFrame];
                       }
                       );
     }

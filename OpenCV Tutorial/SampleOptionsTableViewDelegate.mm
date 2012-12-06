@@ -13,6 +13,7 @@
 #import "FloatTableViewCell.h"
 #import "EnumTableViewCell.h"
 #import "DoubleTableViewCell.h"
+#import "SampleBase.h"
 
 @interface SampleOptionsTableViewDelegate ()
 {
@@ -25,16 +26,16 @@
 @synthesize sample = _sample;
 @synthesize delegate = _delegate;
 
-- (id) initWithSample:(SampleBase*) targetSample notificationsDelegate:(id<OptionCellDelegate>) targetDelegate
+- (id) initWithSample:(SampleFacade*) targetSample notificationsDelegate:(id<OptionCellDelegate>) targetDelegate
 {
   if (self == [super init])
   {
     _sample = targetSample;
     _delegate = targetDelegate;
     
-    const SampleBase::OptionsMap& options = self.sample->getOptions();
+    const OptionsMap& options = [_sample getOptions];
     
-    for (SampleBase::OptionsMap::const_iterator i = options.begin(); i != options.end(); ++i)
+    for (OptionsMap::const_iterator i = options.begin(); i != options.end(); ++i)
     {
       sections.push_back(i->second);
       sectionLabels.push_back(i->first);

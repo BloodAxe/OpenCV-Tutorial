@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import "SampleBase.h"
+#import "SampleFacade.h"
 #import "OptionCell.h"
 
 @interface SampleOptionsTableViewDelegate : NSObject<UITableViewDelegate, UITableViewDataSource>
 
-@property (readonly) SampleBase * sample;
+@property (readonly) SampleFacade * sample;
 @property (readonly) id<OptionCellDelegate> delegate;
 
-- (id) initWithSample:(SampleBase*) sample notificationsDelegate:(id<OptionCellDelegate>) delegate;
+- (id) initWithSample:(SampleFacade*) sample notificationsDelegate:(id<OptionCellDelegate>) delegate;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;

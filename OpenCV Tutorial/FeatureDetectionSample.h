@@ -34,12 +34,9 @@ private:
     
     std::string m_detectorName;
     std::vector<std::string> m_alorithms;
-    int m_maxFeatures;
     
-    cv::OrbFeatureDetector  m_orbDetector;
-    cv::SurfFeatureDetector m_surfDetector;
-    cv::FastFeatureDetector m_fastDetector;
-
+    int m_maxFeatures;
+    int m_fastThreshold;
 };
 
 #endif

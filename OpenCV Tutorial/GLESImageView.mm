@@ -278,7 +278,6 @@
     +1, +1
   };
   
-
   
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
