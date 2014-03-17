@@ -14,8 +14,8 @@
 {
   CGImageRef imageRef = self.CGImage;
   
-  const int srcWidth        = CGImageGetWidth(imageRef);
-  const int srcHeight       = CGImageGetHeight(imageRef);
+  const int srcWidth        = (int)CGImageGetWidth(imageRef);
+  const int srcHeight       = (int)CGImageGetHeight(imageRef);
   //const int stride          = CGImageGetBytesPerRow(imageRef);
   //const int bitPerPixel     = CGImageGetBitsPerPixel(imageRef);
   //const int bitPerComponent = CGImageGetBitsPerComponent(imageRef);
