@@ -103,11 +103,11 @@
   CGBitmapInfo bmInfo = kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big;
   
   // Creating CGImage from cv::Mat
-  CGImageRef imageRef = CGImageCreate(image.cols,                                 //width
-                                      image.rows,                                 //height
+  CGImageRef imageRef = CGImageCreate(rgbaView.cols,                              //width
+                                      rgbaView.rows,                              //height
                                       8,                                          //bits per component
-                                      8 * image.elemSize(),                       //bits per pixel
-                                      image.step.p[0],                            //bytesPerRow
+                                      8 * rgbaView.elemSize(),                    //bits per pixel
+                                      rgbaView.step.p[0],                         //bytesPerRow
                                       colorSpace,                                 //colorspace
                                       bmInfo,// bitmap info
                                       provider,                                   //CGDataProviderRef
