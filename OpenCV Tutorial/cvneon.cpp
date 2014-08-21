@@ -7,7 +7,8 @@
 //
 
 #include "cvneon.h"
-
+#include <cassert>
+#include <arm_neon.h>
 
 namespace cv
 {

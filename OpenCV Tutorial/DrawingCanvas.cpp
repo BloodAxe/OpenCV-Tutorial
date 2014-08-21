@@ -56,7 +56,7 @@ bool DrawingCanvasSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
 {
     cv::cvtColor(inputFrame,
                  m_grayImage,
-                 CV_BGRA2GRAY);
+                 cv::COLOR_BGRA2GRAY);
     
     cv::bilateralFilter(m_grayImage,
                         m_filtered,
@@ -68,7 +68,7 @@ bool DrawingCanvasSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
     cv::Mat a[] = { m_filtered, m_filtered, m_filtered };
     cv::merge(a, 3, grayImage3channes);
     
-    cv::adaptiveThreshold(m_grayImage, bgMask, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C , CV_THRESH_BINARY, 1 + 2*m_thresholdBlockSize, m_thresholdC);
+    cv::adaptiveThreshold(m_grayImage, bgMask, 255, cv::ADAPTIVE_THRESH_GAUSSIAN_C , cv::THRESH_BINARY, 1 + 2*m_thresholdBlockSize, m_thresholdC);
     
     cv::Mat fgMask(bgMask.size(), bgMask.type());
     fgMask = cv::Scalar(255);
@@ -80,28 +80,28 @@ bool DrawingCanvasSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
     cv::Mat c[] = { fgMask, fgMask, fgMask};
     cv::merge(c, 3, fgMask3channels);
     
-    cv::Scalar backgroundColor = CV_RGB(56, 138, 239);
-    cv::Scalar foregroundColor = CV_RGB(255,255,255);
+    cv::Scalar backgroundColor = cv::Scalar(56, 138, 239);
+    cv::Scalar foregroundColor = cv::Scalar(255,255,255);
     
     cv::multiply(grayImage3channes, backgroundColor, bgColor, 1.0f / 255.f);
     cv::multiply(grayImage3channes, foregroundColor, fgColor, 100.0f / 255.0f);
     
     if (m_currentView == kStageGrayscale)
     {
-        cv::cvtColor(m_grayImage, outputFrame, CV_GRAY2BGRA);        
+        cv::cvtColor(m_grayImage, outputFrame, cv::COLOR_GRAY2BGRA);        
     }
     else if (m_currentView == kStageBilateralFilter)
     {
-        cv::cvtColor(m_filtered, outputFrame, CV_GRAY2BGRA);        
+        cv::cvtColor(m_filtered, outputFrame, cv::COLOR_GRAY2BGRA);        
     }
     else if (m_currentView == kStageThreshold)
     {
-        cv::cvtColor(bgMask, outputFrame, CV_GRAY2BGRA);
+        cv::cvtColor(bgMask, outputFrame, cv::COLOR_GRAY2BGRA);
     }
     else
     {
         cv::Mat resul = (bgColor & bgMask3channels) + (fgColor & fgMask3channels);
-        cv::cvtColor(resul, outputFrame, CV_BGR2BGRA);
+        cv::cvtColor(resul, outputFrame, cv::COLOR_BGR2BGRA);
     }
     
     return true;

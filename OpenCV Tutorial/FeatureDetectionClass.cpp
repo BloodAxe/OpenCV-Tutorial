@@ -50,7 +50,7 @@ void FeatureDetectionClass::drawEpipolarLines(cv::Mat& image_out, // output imag
     // Compute F matrix from 7 matches
     cv::Mat F = cv::findFundamentalMat(cv::Mat(points1), // points in object image
                                    cv::Mat(points2), // points in scene image
-                                   CV_FM_7POINT); // 7-point method
+                                   cv::FM_7POINT); // 7-point method
     
     std::vector<cv::Vec3f> lines1;
     
@@ -61,7 +61,7 @@ void FeatureDetectionClass::drawEpipolarLines(cv::Mat& image_out, // output imag
                                   lines1); // vector of epipolar lines
     
     // for all epipolar lines
-    for (cv::vector<cv::Vec3f>::const_iterator it = lines1.begin(); it!=lines1.end(); ++it)
+    for (std::vector<cv::Vec3f>::const_iterator it = lines1.begin(); it!=lines1.end(); ++it)
     {
         // Draw the line between first and last column
         cv::line(image_out,
@@ -90,16 +90,16 @@ void FeatureDetectionClass::drawPerspective(cv::Mat& image, // output image
                                             std::vector<cv::Point2f>& points1, // keypoints 1
                                             std::vector<cv::Point2f>& points2) // keypoints 2
 {
-    cv::Mat H = cv::findHomography( points1, points2, CV_RANSAC );
+    cv::Mat H = cv::findHomography( points1, points2, cv::RANSAC );
     if( !H.empty() ) 
     {
         // get the corners from the object image
         std::vector<cv::Point2f> obj_corners(4), scene_corners(4);
         
-        obj_corners[0] = cvPoint(0,0);
-        obj_corners[1] = cvPoint( image1.cols, 0 );
-        obj_corners[2] = cvPoint( image1.cols, image1.rows );
-        obj_corners[3] = cvPoint( 0, image1.rows );
+        obj_corners[0] = cv::Point2f(0,0);
+        obj_corners[1] = cv::Point2f( image1.cols, 0 );
+        obj_corners[2] = cv::Point2f( image1.cols, image1.rows );
+        obj_corners[3] = cv::Point2f( 0, image1.rows );
         
         // calculate perspective transformation of object corners within scene
         cv::perspectiveTransform( obj_corners, scene_corners, H);
@@ -202,7 +202,7 @@ cv::Mat FeatureDetectionClass::ransacTest(const std::vector<cv::DMatch>& matches
     if (points1.size()>0&&points2.size()>0){
         cv::Mat fundamental= cv::findFundamentalMat(cv::Mat(points1),cv::Mat(points2), // matching points
                                                     inliers,       // match status (inlier or outlier)
-                                                    CV_FM_RANSAC, // RANSAC method
+                                                    cv::FM_RANSAC, // RANSAC method
                                                     distance,      // distance to epipolar line
                                                     confidence); // confidence probability
         // extract the surviving (inliers) matches
@@ -238,7 +238,7 @@ cv::Mat FeatureDetectionClass::ransacTest(const std::vector<cv::DMatch>& matches
             // Compute 8-point F from all accepted matches
             if (points1.size()>0&&points2.size()>0){
                 fundamental= cv::findFundamentalMat(cv::Mat(points1),cv::Mat(points2), // matches
-                                                    CV_FM_8POINT); // 8-point method
+                                                    cv::FM_8POINT); // 8-point method
             }
         }
     }

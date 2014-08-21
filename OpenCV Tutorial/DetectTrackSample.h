@@ -45,7 +45,7 @@ private:
     
     std::string m_fdAlgorithmName, m_feAlgorithmName;
     
-    cv::vector<cv::Point2f> pointsPrev, pointsNext;
+    std::vector<cv::Point2f> pointsPrev, pointsNext;
     
     std::vector<cv::KeyPoint> objectKeypoints;
     

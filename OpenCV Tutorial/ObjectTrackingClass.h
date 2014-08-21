@@ -33,7 +33,7 @@ public:
     , useHarrisDetector(false)
     , subPixWinSize(10,10)
     , winSize(31,31)
-    , termcrit(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS,20,0.03)
+    , termcrit(cv::TermCriteria::MAX_ITER | cv::TermCriteria::EPS,20,0.03)
     , maxLevel(3)
     , flags(0)
     , minEigThreshold(0.001)
@@ -56,8 +56,8 @@ public:
                cv::Mat& image2, // input image 2
                std::vector<cv::Point2f>& points1, // points array 1
                std::vector<cv::Point2f>& points2, // points array 2
-               cv::vector<uchar>& status, // status array
-               cv::vector<float>& err); // error array
+               std::vector<uchar>& status, // status array
+               std::vector<float>& err); // error array
 };
 
 #endif

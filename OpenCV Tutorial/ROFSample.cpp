@@ -66,7 +66,7 @@ bool ROFSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputFrame)
         outChannels[3] = inChannels[3];
         cv::merge(outChannels, outputFrame);
     }
-    else cv::cvtColor(outChannels[0], outputFrame, CV_GRAY2BGRA);
+    else cv::cvtColor(outChannels[0], outputFrame, cv::COLOR_GRAY2BGRA);
     
     return true;
 }

@@ -56,7 +56,6 @@
 		8A723FD21599B700008C72DB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FD11599B700008C72DB /* QuartzCore.framework */; };
 		8A723FD41599B70B008C72DB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FD31599B70B008C72DB /* CoreVideo.framework */; };
 		8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDA1599BB74008C72DB /* VideoViewController.mm */; };
-		8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FDD1599BB95008C72DB /* GLESImageView.mm */; };
 		8A79349315A9A3F70043BE99 /* ImageFiltersSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A79349215A9A3F70043BE99 /* ImageFiltersSample.cpp */; };
 		8A79349F15A9ADA20043BE99 /* BooleanTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A79349E15A9ADA20043BE99 /* BooleanTableViewCell.mm */; };
 		8A7934A815AB47070043BE99 /* SampleOptionsTableViewDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */; };
@@ -69,6 +68,7 @@
 		8A7934C715AB5E2F0043BE99 /* Int32TableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934C615AB5E2F0043BE99 /* Int32TableViewCell.mm */; };
 		8A7934CA15AB5E3A0043BE99 /* FloatTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */; };
 		8A7934CD15AB5E440043BE99 /* EnumTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */; };
+		8A9ED49E19A6A56400D22EA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A9ED49D19A6A56400D22EA9 /* Default-568h@2x.png */; };
 		8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7F85015A462400052C95A /* FPSCalculator.mm */; };
 		8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6D01515B02A030029641C /* DummyVideoSource.mm */; };
 		8AB6D02015B54D450029641C /* cog_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB6D01E15B54D450029641C /* cog_01.png */; };
@@ -181,8 +181,6 @@
 		8A723FD31599B70B008C72DB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		8A723FD91599BB74008C72DB /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		8A723FDA1599BB74008C72DB /* VideoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoViewController.mm; sourceTree = "<group>"; };
-		8A723FDC1599BB95008C72DB /* GLESImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESImageView.h; sourceTree = "<group>"; };
-		8A723FDD1599BB95008C72DB /* GLESImageView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLESImageView.mm; sourceTree = "<group>"; };
 		8A79349015A9A3EA0043BE99 /* ImageFiltersSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFiltersSample.h; sourceTree = "<group>"; };
 		8A79349215A9A3F70043BE99 /* ImageFiltersSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageFiltersSample.cpp; sourceTree = "<group>"; };
 		8A79349D15A9ADA20043BE99 /* BooleanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanTableViewCell.h; sourceTree = "<group>"; };
@@ -203,6 +201,7 @@
 		8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FloatTableViewCell.mm; sourceTree = "<group>"; };
 		8A7934CB15AB5E440043BE99 /* EnumTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumTableViewCell.h; sourceTree = "<group>"; };
 		8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EnumTableViewCell.mm; sourceTree = "<group>"; };
+		8A9ED49D19A6A56400D22EA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8AA7F84F15A462400052C95A /* FPSCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSCalculator.h; sourceTree = "<group>"; };
 		8AA7F85015A462400052C95A /* FPSCalculator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FPSCalculator.mm; sourceTree = "<group>"; };
 		8AB6D01515B02A030029641C /* DummyVideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DummyVideoSource.mm; sourceTree = "<group>"; };
@@ -307,6 +306,7 @@
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
+				8A9ED49D19A6A56400D22EA9 /* Default-568h@2x.png */,
 				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
 				8A4388651595BC4F00027D3C /* Products */,
@@ -557,8 +557,6 @@
 				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
 				8AE69C0415A3A47F00DAA115 /* ImageViewController.h */,
 				8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */,
-				8A723FDC1599BB95008C72DB /* GLESImageView.h */,
-				8A723FDD1599BB95008C72DB /* GLESImageView.mm */,
 				8AB6D04615B99B590029641C /* BaseSampleViewController.h */,
 				8AB6D04715B99B5A0029641C /* BaseSampleViewController.mm */,
 			);
@@ -632,7 +630,12 @@
 		8A43885B1595BC4E00027D3C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0600;
+				TargetAttributes = {
+					8A4388971595DE5800027D3C = {
+						DevelopmentTeam = N3HW7B2HTK;
+					};
+				};
 			};
 			buildConfigurationList = 8A43885E1595BC4E00027D3C /* Build configuration list for PBXProject "OpenCV Tutorial" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -694,6 +697,7 @@
 				8AB6D03F15B5588E0029641C /* photos_polaroid@2x.png in Resources */,
 				369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */,
 				369F2C2C15C1A5290032BD08 /* FeatureDetectionSampleIcon.png in Resources */,
+				8A9ED49E19A6A56400D22EA9 /* Default-568h@2x.png in Resources */,
 				3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */,
 				8AFE53CB15D7E3B200E7ADEB /* DoubleTableViewCell.xib in Resources */,
 				8A66F70A15DA3E2600EF1959 /* DefaultSampleIcon.png in Resources */,
@@ -720,7 +724,6 @@
 				8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */,
 				8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */,
 				8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */,
-				8A723FDE1599BB95008C72DB /* GLESImageView.mm in Sources */,
 				8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */,
 				8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */,
 				8A79349315A9A3F70043BE99 /* ImageFiltersSample.cpp in Sources */,
@@ -786,11 +789,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -805,12 +815,16 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
@@ -825,11 +839,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -837,11 +858,14 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
@@ -869,6 +893,7 @@
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "-mfpu=neon";
 				OTHER_CPLUSPLUSFLAGS = "-mfpu=neon";
@@ -897,6 +922,7 @@
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",

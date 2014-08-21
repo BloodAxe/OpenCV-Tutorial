@@ -16,7 +16,7 @@ static const char * TrackingAlgorithmORB           = "ORB";
 VideoTrackingSample::VideoTrackingSample()
 : m_orbMatcher(cv::NORM_HAMMING, true)
 , m_briefMatcher(cv::NORM_HAMMING, true)
-, m_fastDetector(cv::Ptr<cv::FeatureDetector>(new cv::FastFeatureDetector()), 500)
+, m_fastDetector(new cv::FastFeatureDetector())
 {
     m_maxNumberOfPoints = 50;
     
@@ -84,9 +84,9 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
             {
                 trackedPts.push_back(m_nextPts[i]);
                 
-                cv::circle(m_mask, m_prevPts[i], 15, cv::Scalar(0), CV_FILLED);
-                cv::line(outputFrame, m_prevPts[i], m_nextPts[i], CV_RGB(0,250,0));
-                cv::circle(outputFrame, m_nextPts[i], 3, CV_RGB(0,250,0), CV_FILLED);
+                cv::circle(m_mask, m_prevPts[i], 15, cv::Scalar(0), -1);
+                cv::line(outputFrame, m_prevPts[i], m_nextPts[i], cv::Scalar(0,250,0));
+                cv::circle(outputFrame, m_nextPts[i], 3, cv::Scalar(0,250,0), -1);
             }
         }
         
@@ -128,9 +128,9 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
                 cv::Point prevPt = m_prevKeypoints[matches[i][0].trainIdx].pt;
                 cv::Point nextPt = m_nextKeypoints[matches[i][0].queryIdx].pt;
                 
-                cv::circle(outputFrame, prevPt, 5, cv::Scalar(250,0,250), CV_FILLED);
-                cv::line(outputFrame, prevPt, nextPt, CV_RGB(0,250,0));
-                cv::circle(outputFrame, nextPt, 3, CV_RGB(0,250,0), CV_FILLED);
+                cv::circle(outputFrame, prevPt, 5, cv::Scalar(250,0,250), -1);
+                cv::line(outputFrame, prevPt, nextPt, cv::Scalar(0,250,0));
+                cv::circle(outputFrame, nextPt, 3, cv::Scalar(0,250,0), -1);
             }
         }
         
@@ -139,8 +139,8 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
     }
     else if(m_activeTrackingAlgorithm == TrackingAlgorithmBRIEF)
     {
-        m_fastDetector.detect(m_nextImg, m_nextKeypoints);
-        m_briefExtractor.compute(m_nextImg, m_nextKeypoints, m_nextDescriptors);
+        m_fastDetector->detect(m_nextImg, m_nextKeypoints);
+        m_briefExtractor->compute(m_nextImg, m_nextKeypoints, m_nextDescriptors);
         
         if (m_prevKeypoints.size() > 0)
         {
@@ -152,9 +152,9 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
                 cv::Point prevPt = m_prevKeypoints[matches[i][0].trainIdx].pt;
                 cv::Point nextPt = m_nextKeypoints[matches[i][0].queryIdx].pt;
                 
-                cv::circle(outputFrame, prevPt, 5, cv::Scalar(250,0,250), CV_FILLED);
-                cv::line(outputFrame, prevPt, nextPt, CV_RGB(0,250,0));
-                cv::circle(outputFrame, nextPt, 3, CV_RGB(0,250,0), CV_FILLED);
+                cv::circle(outputFrame, prevPt, 5, cv::Scalar(250,0,250), -1);
+                cv::line(outputFrame, prevPt, nextPt, cv::Scalar(0,250,0));
+                cv::circle(outputFrame, nextPt, 3, cv::Scalar(0,250,0), -1);
             }
         }
         

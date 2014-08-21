@@ -45,7 +45,7 @@ private:
     
     std::string m_algorithmName;
     
-    cv::vector<cv::Point2f> pointsPrev, pointsNext;
+    std::vector<cv::Point2f> pointsPrev, pointsNext;
     
     // optical flow options
     int m_maxCorners;

@@ -7,18 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLESImageView.h"
 #import "VideoSource.h"
 #import "SampleBase.h"
 #import "BaseSampleViewController.h"
 
-@interface VideoViewController : BaseSampleViewController<VideoSourceDelegate,UIActionSheetDelegate>
+@interface VideoViewController : BaseSampleViewController<UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toggleCameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *options;
 
-@property (nonatomic, strong) GLESImageView *imageView;
 @property (nonatomic, strong) UITableView * optionsView;
 @property (nonatomic, strong) UIPopoverController * optionsPopover;
 @property (nonatomic, strong) UIViewController * optionsViewController;

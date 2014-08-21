@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <cassert>
+
 #include "DetectTrackSample.h"
 #include "ObjectTrackingClass.h"
 #include "FeatureDetectionClass.h"
@@ -26,17 +28,12 @@ DetectTrackSample::DetectTrackSample()
     std::vector<std::string> fdAlgos, feAlgos, otAlgos;
     // feature detection options
     fdAlgos.push_back("ORB");
-    fdAlgos.push_back("SURF");
     registerOption("Detector",       "", &m_fdAlgorithmName, fdAlgos);
     
     // feature extraction options
     feAlgos.push_back("ORB");
     feAlgos.push_back("SURF");
-    feAlgos.push_back("FREAK");
     registerOption("Extractor",       "", &m_feAlgorithmName, feAlgos);
-
-    // SURF feature detector options
-    registerOption("hessianThreshold", "SURF", &m_hessianThreshold, 300, 500);
     
     // ORB feature detector options
     registerOption("nFeatures", "ORB", &m_nFeatures, 0, 1500);
@@ -132,16 +129,10 @@ bool DetectTrackSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputF
         rmatcher.setRatio(0.65f);
         
         // feature detector setup
-        if (m_fdAlgorithmName == "SURF")
-        {
-            // prepare keypoints detector
-            cv::Ptr<cv::FeatureDetector> detector = new cv::SurfFeatureDetector(m_hessianThreshold);
-            rmatcher.setFeatureDetector(detector);
-        }
-        else if (m_fdAlgorithmName == "ORB")
+        if (m_fdAlgorithmName == "ORB")
         {
             // prepare feature detector and detect the object keypoints
-            cv::Ptr<cv::FeatureDetector> detector = new cv::OrbFeatureDetector(m_nFeatures);
+            cv::Ptr<cv::FeatureDetector> detector(new cv::OrbFeatureDetector(m_nFeatures));
             rmatcher.setFeatureDetector(detector);
         }
         else
@@ -151,31 +142,23 @@ bool DetectTrackSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputF
         }
         
         // feature extractor and matcher setup
-        if (m_feAlgorithmName == "SURF")
+        if (m_feAlgorithmName == "ORB")
         {
             // prepare feature extractor
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::SurfDescriptorExtractor;
-            rmatcher.setDescriptorExtractor(extractor);
-            // prepare the appropriate matcher for SURF 
-            cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_L2, false);
-            rmatcher.setDescriptorMatcher(matcher);
-            
-        } else if (m_feAlgorithmName == "ORB")
-        {
-            // prepare feature extractor
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::OrbDescriptorExtractor;
+            cv::Ptr<cv::DescriptorExtractor> extractor(new cv::OrbDescriptorExtractor);
             rmatcher.setDescriptorExtractor(extractor);
             // prepare the appropriate matcher for ORB
-            cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
+            cv::Ptr<cv::DescriptorMatcher> matcher(new cv::BFMatcher(cv::NORM_HAMMING, false));
             rmatcher.setDescriptorMatcher(matcher);
             
-        } else if (m_feAlgorithmName == "FREAK")
+        }
+        else if (m_feAlgorithmName == "FREAK")
         {
             // prepare feature extractor
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
+            cv::Ptr<cv::DescriptorExtractor> extractor(new cv::BRISK);
             rmatcher.setDescriptorExtractor(extractor);
             // prepare the appropriate matcher for FREAK
-            cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BFMatcher(cv::NORM_HAMMING, false);
+            cv::Ptr<cv::DescriptorMatcher> matcher(new cv::BFMatcher(cv::NORM_HAMMING, false));
             rmatcher.setDescriptorMatcher(matcher);
         }
         else {
@@ -184,7 +167,7 @@ bool DetectTrackSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputF
         }
         
         // call the RobustMatcher to match the object keypoints with the scene keypoints
-        cv::vector<cv::Point2f> objectKeypoints2f, sceneKeypoints2f;
+        std::vector<cv::Point2f> objectKeypoints2f, sceneKeypoints2f;
         std::vector<cv::DMatch> matches;
         cv::Mat fundamentalMat = rmatcher.match(imageNext, // input scene image
                                                 objectKeypoints, // input computed object image keypoints
@@ -221,18 +204,10 @@ bool DetectTrackSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputF
     if (computeObject) {
         
         // select feature detection mechanism
-        if ( m_fdAlgorithmName == "SURF" )
-        {
-            // prepare keypoints detector
-            cv::Ptr<cv::FeatureDetector> detector = new cv::SurfFeatureDetector(m_hessianThreshold);
-            // Compute object keypoints
-            detector->detect(objectImage,objectKeypoints);
-            
-        }
-        else if ( m_fdAlgorithmName == "ORB" )
+        if ( m_fdAlgorithmName == "ORB" )
         {
             // prepare feature detector and detect the object keypoints
-            cv::Ptr<cv::FeatureDetector> detector = new cv::OrbFeatureDetector(m_nFeatures);
+            cv::Ptr<cv::FeatureDetector> detector(new cv::OrbFeatureDetector(m_nFeatures));
             // Compute object keypoints
             detector->detect(objectImage,objectKeypoints);
         }
@@ -242,21 +217,15 @@ bool DetectTrackSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outputF
         }
         
         // select feature extraction mechanism
-        if ( m_feAlgorithmName == "SURF" )
+        if ( m_feAlgorithmName == "ORB" )
         {
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::SurfDescriptorExtractor;
-            // Compute object feature descriptors
-            extractor->compute(objectImage,objectKeypoints,objectDescriptors);
-        }
-        else if ( m_feAlgorithmName == "ORB" )
-        {
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::OrbDescriptorExtractor;
+            cv::Ptr<cv::DescriptorExtractor> extractor(new cv::OrbDescriptorExtractor);
             // Compute object feature descriptors
             extractor->compute(objectImage,objectKeypoints,objectDescriptors);
         }
         else if ( m_feAlgorithmName == "FREAK" )
         {
-            cv::Ptr<cv::DescriptorExtractor> extractor = new cv::FREAK;
+            cv::Ptr<cv::DescriptorExtractor> extractor(new cv::BRISK);
             // Compute object feature descriptors
             extractor->compute(objectImage,objectKeypoints,objectDescriptors);
         }

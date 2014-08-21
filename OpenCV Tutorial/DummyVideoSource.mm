@@ -63,7 +63,7 @@ struct Particle
 {
   if (delegate)
   {
-    cv::rectangle(m_frame, cv::Point(0,0), cv::Point(m_frameWidth, m_frameHeight), CV_RGB(0,0,0), CV_FILLED);
+      cv::rectangle(m_frame, cv::Point(0,0), cv::Point(m_frameWidth, m_frameHeight), cv::Scalar(0,0,0), -1);
     
     for (int i = 0; i < particles.size(); i++)
     {
@@ -77,11 +77,11 @@ struct Particle
         p.radius = rand() % (std::min(m_frameHeight, m_frameWidth) / 5);
         p.speed  = cv::Point2f(rand() % 10 + 0.5, 0);
         p.center = cv::Point2f(0, rand() % m_frameHeight);
-        p.color  = CV_RGB( rand() % 0xFF, rand() % 0xFF, rand() % 0xFF );
+        p.color  = cv::Scalar( rand() % 0xFF, rand() % 0xFF, rand() % 0xFF );
       }
     
       p.center += p.speed;
-      cv::circle(m_frame, p.center, p.radius, p.color, CV_FILLED);
+      cv::circle(m_frame, p.center, p.radius, p.color, -1);
     }
     
     [self.delegate frameCaptured:m_frame];

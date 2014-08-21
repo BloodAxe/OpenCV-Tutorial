@@ -10,27 +10,25 @@
 #import "UIImage2OpenCV.h"
 #import "OptionsTableView.h"
 
+#import <opencv2/videoio/cap_ios.h>
+
 #define kTransitionDuration	0.75
 
-@interface VideoViewController ()
+@interface VideoViewController ()<CvVideoCameraDelegate>
 {
-#if TARGET_IPHONE_SIMULATOR
-    DummyVideoSource * videoSource;
-#else
-    VideoSource * videoSource;
-#endif
-    
+    CvVideoCamera* videoSource;
     cv::Mat outputFrame;
 }
+@property (nonatomic, retain) CvVideoCamera* videoSource;
 
 @end
 
 @implementation VideoViewController
+@synthesize videoSource;
 @synthesize actionSheetButton;
 @synthesize captureReferenceFrameButton;
 @synthesize clearReferenceFrameButton;
 @synthesize options;
-@synthesize imageView;
 @synthesize toggleCameraButton;
 @synthesize containerView;
 @synthesize optionsPopover;
@@ -42,19 +40,12 @@
 {
     [super viewDidLoad];
     
-    // Init the default view (video view layer)
-    self.imageView = [[GLESImageView alloc] initWithFrame:self.containerView.bounds];
-    [self.imageView setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-    [self.containerView addSubview:self.imageView];
-    
-    // Init video source:
-#if TARGET_IPHONE_SIMULATOR
-    videoSource = [[DummyVideoSource alloc] initWithFrameSize:CGSizeMake(640, 480)];
-#else
-    videoSource = [[VideoSource alloc] init];
-#endif
-    
-    videoSource.delegate = self;
+    self.videoSource = [[CvVideoCamera alloc] initWithParentView:self.containerView];
+    self.videoSource.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
+    self.videoSource.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
+    self.videoSource.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+    self.videoSource.defaultFPS = 120;
+    self.videoSource.grayscaleMode = YES;
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
                                                    delegate:self
@@ -68,9 +59,9 @@
 {
     [super viewWillAppear:animated];
     
-    [videoSource startRunning];
+    [self.videoSource start];
     
-    toggleCameraButton.enabled = [videoSource hasMultipleCameras];
+    toggleCameraButton.enabled = true;
     captureReferenceFrameButton.enabled = self.currentSample.isReferenceFrameRequired;
     clearReferenceFrameButton.enabled   = self.currentSample.isReferenceFrameRequired;
     
@@ -79,7 +70,7 @@
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [videoSource stopRunning];
+    [videoSource stop];
 }
 
 - (void) configureView
@@ -106,7 +97,7 @@
 
 - (IBAction)toggleCameraPressed:(id)sender
 {
-    [videoSource toggleCamera];
+    [self.videoSource switchCameras];
 }
 
 - (IBAction)showActionSheet:(id)sender
@@ -135,7 +126,7 @@
         if ([self.optionsView superview])
         {
             [UIView transitionFromView:self.optionsView
-                                toView:imageView
+                                toView:self.containerView
                               duration:kTransitionDuration
                                options:UIViewAnimationOptionTransitionFlipFromLeft
                             completion:^(BOOL)
@@ -147,8 +138,8 @@
             [self.optionsView setFrame:self.containerView.frame];
             [self.optionsView setNeedsLayout];
             
-            [UIView transitionFromView:self.imageView
-                                toView:optionsView
+            [UIView transitionFromView:self.containerView
+                                toView:self.optionsView
                               duration:kTransitionDuration
                                options:UIViewAnimationOptionTransitionFlipFromLeft
                             completion:^(BOOL)
@@ -166,27 +157,15 @@
     }
 }
 
-#pragma mark - VideoSourceDelegate
+#pragma mark - Protocol CvVideoCameraDelegate
 
-- (void) frameCaptured:(cv::Mat) frame
+- (void)processImage:(cv::Mat&)image
 {
-    bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
-    
-    if (isMainQueue)
-    {
-        [self.currentSample processFrame:frame into:outputFrame];
-        [imageView drawFrame:outputFrame];
-    }
-    else
-    {
-        dispatch_sync( dispatch_get_main_queue(),
-                      ^{
-                          [self.currentSample processFrame:frame into:outputFrame];
-                          [imageView drawFrame:outputFrame];
-                      }
-                      );
-    }
+    // Do some OpenCV stuff with the image
+    [self.currentSample processFrame:image into:outputFrame];
+    outputFrame.copyTo(image);
 }
+
 
 #pragma mark UIActionSheetDelegate implementation
 
@@ -194,25 +173,25 @@
 {
     NSString * title = [senderSheet buttonTitleAtIndex:buttonIndex];
     
-    if (title == kSaveImageActionTitle)
+    if ([title  isEqual: kSaveImageActionTitle])
     {
         UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
-        [self saveImage:image withCompletionHandler: ^{ [videoSource startRunning]; }];
+        [self saveImage:image withCompletionHandler: ^{ [self.videoSource start]; }];
     }
-    else if (title == kComposeTweetWithImage)
+    else if ([title  isEqual: kComposeTweetWithImage])
     {
         UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
-        [self tweetImage:image withCompletionHandler:^{ [videoSource startRunning]; }];
+        [self tweetImage:image withCompletionHandler:^{ [self.videoSource start]; }];
     }
     else
     {
-        [videoSource startRunning];
+        [self.videoSource start];
     }
 }
 
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet;  // before animation and showing view
 {
-    [videoSource stopRunning];
+    [self.videoSource stop];
 }
 
 #pragma mark - Capture reference frame

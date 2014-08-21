@@ -78,7 +78,7 @@ void SampleBase::getGray(const cv::Mat& input, cv::Mat& gray)
   if (numChannes == 4)
   {
 #if TARGET_IPHONE_SIMULATOR
-    cv::cvtColor(input, gray, CV_BGRA2GRAY);    
+    cv::cvtColor(input, gray, cv::COLOR_BGRA2GRAY);    
 #else
     cv::neon_cvtColorBGRA2GRAY(input, gray);
 #endif
@@ -86,7 +86,7 @@ void SampleBase::getGray(const cv::Mat& input, cv::Mat& gray)
   }
   else if (numChannes == 3)
   {
-    cv::cvtColor(input, gray, CV_BGR2GRAY);
+      cv::cvtColor(input, gray, cv::COLOR_BGR2GRAY);
   }
   else if (numChannes == 1)
   {

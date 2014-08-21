@@ -7,11 +7,12 @@
 //  copy or use the software.
 //
 //
-//                           License Agreement
+//                          License Agreement
 //                For Open Source Computer Vision Library
 //
 // Copyright (C) 2000-2008, Intel Corporation, all rights reserved.
 // Copyright (C) 2009, Willow Garage Inc., all rights reserved.
+// Copyright (C) 2013, OpenCV Foundation, all rights reserved.
 // Third party copyrights are property of their respective owners.
 //
 // Redistribution and use in source and binary forms, with or without modification,
@@ -45,6 +46,20 @@
 #define __OPENCV_CORE_C_H__
 
 #include "opencv2/core/types_c.h"
+
+#ifdef __cplusplus
+#  ifdef _MSC_VER
+/* disable warning C4190: 'function' has C-linkage specified, but returns UDT 'typename'
+                          which is incompatible with C
+
+   It is OK to disable it because we only extend few plain structures with
+   C++ construrtors for simpler interoperability with C++ API of the library
+*/
+#    pragma warning(disable:4190)
+#  elif defined __clang__ && __clang_major__ >= 3
+#    pragma GCC diagnostic ignored "-Wreturn-type-c-linkage"
+#  endif
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -105,7 +120,7 @@ CVAPI(void)  cvResetImageROI( IplImage* image );
 /* Retrieves image ROI */
 CVAPI(CvRect) cvGetImageROI( const IplImage* image );
 
-/* Allocates and initalizes CvMat header */
+/* Allocates and initializes CvMat header */
 CVAPI(CvMat*)  cvCreateMatHeader( int rows, int cols, int type );
 
 #define CV_AUTOSTEP  0x7fffffff
@@ -1107,7 +1122,7 @@ CV_INLINE  CvSetElem* cvSetNew( CvSet* set_header )
         set_header->active_count++;
     }
     else
-        cvSetAdd( set_header, NULL, (CvSetElem**)&elem );
+        cvSetAdd( set_header, NULL, &elem );
     return elem;
 }
 
@@ -1129,7 +1144,7 @@ CVAPI(void)   cvSetRemove( CvSet* set_header, int index );
    NULL is returned */
 CV_INLINE CvSetElem* cvGetSetElem( const CvSet* set_header, int idx )
 {
-    CvSetElem* elem = (CvSetElem*)cvGetSeqElem( (CvSeq*)set_header, idx );
+    CvSetElem* elem = (CvSetElem*)(void *)cvGetSeqElem( (CvSeq*)set_header, idx );
     return elem && CV_IS_SET_ELEM( elem ) ? elem : 0;
 }
 
@@ -1247,192 +1262,6 @@ CVAPI(int)  cvNextGraphItem( CvGraphScanner* scanner );
 /* Creates a copy of graph */
 CVAPI(CvGraph*) cvCloneGraph( const CvGraph* graph, CvMemStorage* storage );
 
-/****************************************************************************************\
-*                                     Drawing                                            *
-\****************************************************************************************/
-
-/****************************************************************************************\
-*       Drawing functions work with images/matrices of arbitrary type.                   *
-*       For color images the channel order is BGR[A]                                     *
-*       Antialiasing is supported only for 8-bit image now.                              *
-*       All the functions include parameter color that means rgb value (that may be      *
-*       constructed with CV_RGB macro) for color images and brightness                   *
-*       for grayscale images.                                                            *
-*       If a drawn figure is partially or completely outside of the image, it is clipped.*
-\****************************************************************************************/
-
-#define CV_RGB( r, g, b )  cvScalar( (b), (g), (r), 0 )
-#define CV_FILLED -1
-
-#define CV_AA 16
-
-/* Draws 4-connected, 8-connected or antialiased line segment connecting two points */
-CVAPI(void)  cvLine( CvArr* img, CvPoint pt1, CvPoint pt2,
-                     CvScalar color, int thickness CV_DEFAULT(1),
-                     int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0) );
-
-/* Draws a rectangle given two opposite corners of the rectangle (pt1 & pt2),
-   if thickness<0 (e.g. thickness == CV_FILLED), the filled box is drawn */
-CVAPI(void)  cvRectangle( CvArr* img, CvPoint pt1, CvPoint pt2,
-                          CvScalar color, int thickness CV_DEFAULT(1),
-                          int line_type CV_DEFAULT(8),
-                          int shift CV_DEFAULT(0));
-
-/* Draws a rectangle specified by a CvRect structure */
-CVAPI(void)  cvRectangleR( CvArr* img, CvRect r,
-                           CvScalar color, int thickness CV_DEFAULT(1),
-                           int line_type CV_DEFAULT(8),
-                           int shift CV_DEFAULT(0));
-
-
-/* Draws a circle with specified center and radius.
-   Thickness works in the same way as with cvRectangle */
-CVAPI(void)  cvCircle( CvArr* img, CvPoint center, int radius,
-                       CvScalar color, int thickness CV_DEFAULT(1),
-                       int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0));
-
-/* Draws ellipse outline, filled ellipse, elliptic arc or filled elliptic sector,
-   depending on <thickness>, <start_angle> and <end_angle> parameters. The resultant figure
-   is rotated by <angle>. All the angles are in degrees */
-CVAPI(void)  cvEllipse( CvArr* img, CvPoint center, CvSize axes,
-                        double angle, double start_angle, double end_angle,
-                        CvScalar color, int thickness CV_DEFAULT(1),
-                        int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0));
-
-CV_INLINE  void  cvEllipseBox( CvArr* img, CvBox2D box, CvScalar color,
-                               int thickness CV_DEFAULT(1),
-                               int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0) )
-{
-    CvSize axes;
-    axes.width = cvRound(box.size.width*0.5);
-    axes.height = cvRound(box.size.height*0.5);
-
-    cvEllipse( img, cvPointFrom32f( box.center ), axes, box.angle,
-               0, 360, color, thickness, line_type, shift );
-}
-
-/* Fills convex or monotonous polygon. */
-CVAPI(void)  cvFillConvexPoly( CvArr* img, const CvPoint* pts, int npts, CvScalar color,
-                               int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0));
-
-/* Fills an area bounded by one or more arbitrary polygons */
-CVAPI(void)  cvFillPoly( CvArr* img, CvPoint** pts, const int* npts,
-                         int contours, CvScalar color,
-                         int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0) );
-
-/* Draws one or more polygonal curves */
-CVAPI(void)  cvPolyLine( CvArr* img, CvPoint** pts, const int* npts, int contours,
-                         int is_closed, CvScalar color, int thickness CV_DEFAULT(1),
-                         int line_type CV_DEFAULT(8), int shift CV_DEFAULT(0) );
-
-#define cvDrawRect cvRectangle
-#define cvDrawLine cvLine
-#define cvDrawCircle cvCircle
-#define cvDrawEllipse cvEllipse
-#define cvDrawPolyLine cvPolyLine
-
-/* Clips the line segment connecting *pt1 and *pt2
-   by the rectangular window
-   (0<=x<img_size.width, 0<=y<img_size.height). */
-CVAPI(int) cvClipLine( CvSize img_size, CvPoint* pt1, CvPoint* pt2 );
-
-/* Initializes line iterator. Initially, line_iterator->ptr will point
-   to pt1 (or pt2, see left_to_right description) location in the image.
-   Returns the number of pixels on the line between the ending points. */
-CVAPI(int)  cvInitLineIterator( const CvArr* image, CvPoint pt1, CvPoint pt2,
-                                CvLineIterator* line_iterator,
-                                int connectivity CV_DEFAULT(8),
-                                int left_to_right CV_DEFAULT(0));
-
-/* Moves iterator to the next line point */
-#define CV_NEXT_LINE_POINT( line_iterator )                     \
-{                                                               \
-    int _line_iterator_mask = (line_iterator).err < 0 ? -1 : 0; \
-    (line_iterator).err += (line_iterator).minus_delta +        \
-        ((line_iterator).plus_delta & _line_iterator_mask);     \
-    (line_iterator).ptr += (line_iterator).minus_step +         \
-        ((line_iterator).plus_step & _line_iterator_mask);      \
-}
-
-
-/* basic font types */
-#define CV_FONT_HERSHEY_SIMPLEX         0
-#define CV_FONT_HERSHEY_PLAIN           1
-#define CV_FONT_HERSHEY_DUPLEX          2
-#define CV_FONT_HERSHEY_COMPLEX         3
-#define CV_FONT_HERSHEY_TRIPLEX         4
-#define CV_FONT_HERSHEY_COMPLEX_SMALL   5
-#define CV_FONT_HERSHEY_SCRIPT_SIMPLEX  6
-#define CV_FONT_HERSHEY_SCRIPT_COMPLEX  7
-
-/* font flags */
-#define CV_FONT_ITALIC                 16
-
-#define CV_FONT_VECTOR0    CV_FONT_HERSHEY_SIMPLEX
-
-
-/* Font structure */
-typedef struct CvFont
-{
-  const char* nameFont;   //Qt:nameFont
-  CvScalar color;       //Qt:ColorFont -> cvScalar(blue_component, green_component, red\_component[, alpha_component])
-    int         font_face;    //Qt: bool italic         /* =CV_FONT_* */
-    const int*  ascii;      /* font data and metrics */
-    const int*  greek;
-    const int*  cyrillic;
-    float       hscale, vscale;
-    float       shear;      /* slope coefficient: 0 - normal, >0 - italic */
-    int         thickness;    //Qt: weight               /* letters thickness */
-    float       dx;       /* horizontal interval between letters */
-    int         line_type;    //Qt: PointSize
-}
-CvFont;
-
-/* Initializes font structure used further in cvPutText */
-CVAPI(void)  cvInitFont( CvFont* font, int font_face,
-                         double hscale, double vscale,
-                         double shear CV_DEFAULT(0),
-                         int thickness CV_DEFAULT(1),
-                         int line_type CV_DEFAULT(8));
-
-CV_INLINE CvFont cvFont( double scale, int thickness CV_DEFAULT(1) )
-{
-    CvFont font;
-    cvInitFont( &font, CV_FONT_HERSHEY_PLAIN, scale, scale, 0, thickness, CV_AA );
-    return font;
-}
-
-/* Renders text stroke with specified font and color at specified location.
-   CvFont should be initialized with cvInitFont */
-CVAPI(void)  cvPutText( CvArr* img, const char* text, CvPoint org,
-                        const CvFont* font, CvScalar color );
-
-/* Calculates bounding box of text stroke (useful for alignment) */
-CVAPI(void)  cvGetTextSize( const char* text_string, const CvFont* font,
-                            CvSize* text_size, int* baseline );
-
-
-
-/* Unpacks color value, if arrtype is CV_8UC?, <color> is treated as
-   packed color value, otherwise the first channels (depending on arrtype)
-   of destination scalar are set to the same value = <color> */
-CVAPI(CvScalar)  cvColorToScalar( double packed_color, int arrtype );
-
-/* Returns the polygon points which make up the given ellipse.  The ellipse is define by
-   the box of size 'axes' rotated 'angle' around the 'center'.  A partial sweep
-   of the ellipse arc can be done by spcifying arc_start and arc_end to be something
-   other than 0 and 360, respectively.  The input array 'pts' must be large enough to
-   hold the result.  The total number of points stored into 'pts' is returned by this
-   function. */
-CVAPI(int) cvEllipse2Poly( CvPoint center, CvSize axes,
-                 int angle, int arc_start, int arc_end, CvPoint * pts, int delta );
-
-/* Draws contour outlines or filled interiors on the image */
-CVAPI(void)  cvDrawContours( CvArr *img, CvSeq* contour,
-                             CvScalar external_color, CvScalar hole_color,
-                             int max_level, int thickness CV_DEFAULT(1),
-                             int line_type CV_DEFAULT(8),
-                             CvPoint offset CV_DEFAULT(cvPoint(0,0)));
 
 /* Does look-up transformation. Elements of the source array
    (that should be 8uC1 or 8sC1) are used as indexes in lutarr 256-element table */
@@ -1478,26 +1307,8 @@ CVAPI(int) cvKMeans2( const CvArr* samples, int cluster_count, CvArr* labels,
 *                                    System functions                                    *
 \****************************************************************************************/
 
-/* Add the function pointers table with associated information to the IPP primitives list */
-CVAPI(int)  cvRegisterModule( const CvModuleInfo* module_info );
-
 /* Loads optimized functions from IPP, MKL etc. or switches back to pure C code */
 CVAPI(int)  cvUseOptimized( int on_off );
-
-/* Retrieves information about the registered modules and loaded optimized plugins */
-CVAPI(void)  cvGetModuleInfo( const char* module_name,
-                              const char** version,
-                              const char** loaded_addon_plugins );
-
-typedef void* (CV_CDECL *CvAllocFunc)(size_t size, void* userdata);
-typedef int (CV_CDECL *CvFreeFunc)(void* pptr, void* userdata);
-
-/* Set user-defined memory managment functions (substitutors for malloc and free) that
-   will be called by cvAlloc, cvFree and higher-level functions (e.g. cvCreateImage) */
-CVAPI(void) cvSetMemoryManager( CvAllocFunc alloc_func CV_DEFAULT(NULL),
-                               CvFreeFunc free_func CV_DEFAULT(NULL),
-                               void* userdata CV_DEFAULT(NULL));
-
 
 typedef IplImage* (CV_STDCALL* Cv_iplCreateImageHeader)
                             (int,int,int,char*,char*,int,int,int,int,int,
@@ -1696,18 +1507,6 @@ CVAPI(double) cvGetTickFrequency( void );
 
 /*********************************** CPU capabilities ***********************************/
 
-#define CV_CPU_NONE    0
-#define CV_CPU_MMX     1
-#define CV_CPU_SSE     2
-#define CV_CPU_SSE2    3
-#define CV_CPU_SSE3    4
-#define CV_CPU_SSSE3   5
-#define CV_CPU_SSE4_1  6
-#define CV_CPU_SSE4_2  7
-#define CV_CPU_POPCNT  8
-#define CV_CPU_AVX    10
-#define CV_HARDWARE_MAX_FEATURE 255
-
 CVAPI(int) cvCheckHardwareSupport(int feature);
 
 /*********************************** Multi-Threading ************************************/
@@ -1779,15 +1578,9 @@ CVAPI(int) cvGuiBoxReport( int status, const char* func_name, const char* err_ms
 #define OPENCV_ERROR(status,func,context)                           \
 cvError((status),(func),(context),__FILE__,__LINE__)
 
-#define OPENCV_ERRCHK(func,context)                                 \
-{if (cvGetErrStatus() >= 0)                         \
-{OPENCV_ERROR(CV_StsBackTrace,(func),(context));}}
-
 #define OPENCV_ASSERT(expr,func,context)                            \
 {if (! (expr))                                      \
 {OPENCV_ERROR(CV_StsInternal,(func),(context));}}
-
-#define OPENCV_RSTERR() (cvSetErrStatus(CV_StsOk))
 
 #define OPENCV_CALL( Func )                                         \
 {                                                                   \
@@ -1814,10 +1607,6 @@ static char cvFuncName[] = Name
     cvError( (Code), cvFuncName, Msg, __FILE__, __LINE__ );        \
     __CV_EXIT__;                                                   \
 }
-
-/* Simplified form of CV_ERROR */
-#define CV_ERROR_FROM_CODE( code )   \
-    CV_ERROR( code, "" )
 
 /*
  CV_CHECK macro checks error status after CV (or IPL)
@@ -1855,19 +1644,11 @@ static char cvFuncName[] = Name
 #define __CV_EXIT__        goto exit
 
 #ifdef __cplusplus
-}
+} // extern "C"
+#endif
 
-// classes for automatic module/RTTI data registration/unregistration
-struct CV_EXPORTS CvModule
-{
-    CvModule( CvModuleInfo* _info );
-    ~CvModule();
-    CvModuleInfo* info;
-
-    static CvModuleInfo* first;
-    static CvModuleInfo* last;
-};
-
+#ifdef __cplusplus
+// class for automatic module/RTTI data registration/unregistration
 struct CV_EXPORTS CvType
 {
     CvType( const char* type_name,
@@ -1879,6 +1660,396 @@ struct CV_EXPORTS CvType
     static CvTypeInfo* first;
     static CvTypeInfo* last;
 };
+
+#include "opencv2/core/utility.hpp"
+
+namespace cv
+{
+
+/////////////////////////////////////////// glue ///////////////////////////////////////////
+
+//! converts array (CvMat or IplImage) to cv::Mat
+CV_EXPORTS Mat cvarrToMat(const CvArr* arr, bool copyData=false,
+                          bool allowND=true, int coiMode=0,
+                          AutoBuffer<double>* buf=0);
+
+static inline Mat cvarrToMatND(const CvArr* arr, bool copyData=false, int coiMode=0)
+{
+    return cvarrToMat(arr, copyData, true, coiMode);
+}
+
+
+//! extracts Channel of Interest from CvMat or IplImage and makes cv::Mat out of it.
+CV_EXPORTS void extractImageCOI(const CvArr* arr, OutputArray coiimg, int coi=-1);
+//! inserts single-channel cv::Mat into a multi-channel CvMat or IplImage
+CV_EXPORTS void insertImageCOI(InputArray coiimg, CvArr* arr, int coi=-1);
+
+
+
+////// specialized implementations of DefaultDeleter::operator() for classic OpenCV types //////
+
+template<> CV_EXPORTS void DefaultDeleter<CvMat>::operator ()(CvMat* obj) const;
+template<> CV_EXPORTS void DefaultDeleter<IplImage>::operator ()(IplImage* obj) const;
+template<> CV_EXPORTS void DefaultDeleter<CvMatND>::operator ()(CvMatND* obj) const;
+template<> CV_EXPORTS void DefaultDeleter<CvSparseMat>::operator ()(CvSparseMat* obj) const;
+template<> CV_EXPORTS void DefaultDeleter<CvMemStorage>::operator ()(CvMemStorage* obj) const;
+
+////////////// convenient wrappers for operating old-style dynamic structures //////////////
+
+template<typename _Tp> class SeqIterator;
+
+typedef Ptr<CvMemStorage> MemStorage;
+
+/*!
+ Template Sequence Class derived from CvSeq
+
+ The class provides more convenient access to sequence elements,
+ STL-style operations and iterators.
+
+ \note The class is targeted for simple data types,
+    i.e. no constructors or destructors
+    are called for the sequence elements.
+*/
+template<typename _Tp> class Seq
+{
+public:
+    typedef SeqIterator<_Tp> iterator;
+    typedef SeqIterator<_Tp> const_iterator;
+
+    //! the default constructor
+    Seq();
+    //! the constructor for wrapping CvSeq structure. The real element type in CvSeq should match _Tp.
+    Seq(const CvSeq* seq);
+    //! creates the empty sequence that resides in the specified storage
+    Seq(MemStorage& storage, int headerSize = sizeof(CvSeq));
+    //! returns read-write reference to the specified element
+    _Tp& operator [](int idx);
+    //! returns read-only reference to the specified element
+    const _Tp& operator[](int idx) const;
+    //! returns iterator pointing to the beginning of the sequence
+    SeqIterator<_Tp> begin() const;
+    //! returns iterator pointing to the element following the last sequence element
+    SeqIterator<_Tp> end() const;
+    //! returns the number of elements in the sequence
+    size_t size() const;
+    //! returns the type of sequence elements (CV_8UC1 ... CV_64FC(CV_CN_MAX) ...)
+    int type() const;
+    //! returns the depth of sequence elements (CV_8U ... CV_64F)
+    int depth() const;
+    //! returns the number of channels in each sequence element
+    int channels() const;
+    //! returns the size of each sequence element
+    size_t elemSize() const;
+    //! returns index of the specified sequence element
+    size_t index(const _Tp& elem) const;
+    //! appends the specified element to the end of the sequence
+    void push_back(const _Tp& elem);
+    //! appends the specified element to the front of the sequence
+    void push_front(const _Tp& elem);
+    //! appends zero or more elements to the end of the sequence
+    void push_back(const _Tp* elems, size_t count);
+    //! appends zero or more elements to the front of the sequence
+    void push_front(const _Tp* elems, size_t count);
+    //! inserts the specified element to the specified position
+    void insert(int idx, const _Tp& elem);
+    //! inserts zero or more elements to the specified position
+    void insert(int idx, const _Tp* elems, size_t count);
+    //! removes element at the specified position
+    void remove(int idx);
+    //! removes the specified subsequence
+    void remove(const Range& r);
+
+    //! returns reference to the first sequence element
+    _Tp& front();
+    //! returns read-only reference to the first sequence element
+    const _Tp& front() const;
+    //! returns reference to the last sequence element
+    _Tp& back();
+    //! returns read-only reference to the last sequence element
+    const _Tp& back() const;
+    //! returns true iff the sequence contains no elements
+    bool empty() const;
+
+    //! removes all the elements from the sequence
+    void clear();
+    //! removes the first element from the sequence
+    void pop_front();
+    //! removes the last element from the sequence
+    void pop_back();
+    //! removes zero or more elements from the beginning of the sequence
+    void pop_front(_Tp* elems, size_t count);
+    //! removes zero or more elements from the end of the sequence
+    void pop_back(_Tp* elems, size_t count);
+
+    //! copies the whole sequence or the sequence slice to the specified vector
+    void copyTo(std::vector<_Tp>& vec, const Range& range=Range::all()) const;
+    //! returns the vector containing all the sequence elements
+    operator std::vector<_Tp>() const;
+
+    CvSeq* seq;
+};
+
+
+/*!
+ STL-style Sequence Iterator inherited from the CvSeqReader structure
+*/
+template<typename _Tp> class SeqIterator : public CvSeqReader
+{
+public:
+    //! the default constructor
+    SeqIterator();
+    //! the constructor setting the iterator to the beginning or to the end of the sequence
+    SeqIterator(const Seq<_Tp>& seq, bool seekEnd=false);
+    //! positions the iterator within the sequence
+    void seek(size_t pos);
+    //! reports the current iterator position
+    size_t tell() const;
+    //! returns reference to the current sequence element
+    _Tp& operator *();
+    //! returns read-only reference to the current sequence element
+    const _Tp& operator *() const;
+    //! moves iterator to the next sequence element
+    SeqIterator& operator ++();
+    //! moves iterator to the next sequence element
+    SeqIterator operator ++(int) const;
+    //! moves iterator to the previous sequence element
+    SeqIterator& operator --();
+    //! moves iterator to the previous sequence element
+    SeqIterator operator --(int) const;
+
+    //! moves iterator forward by the specified offset (possibly negative)
+    SeqIterator& operator +=(int);
+    //! moves iterator backward by the specified offset (possibly negative)
+    SeqIterator& operator -=(int);
+
+    // this is index of the current element module seq->total*2
+    // (to distinguish between 0 and seq->total)
+    int index;
+};
+
+
+
+// bridge C++ => C Seq API
+CV_EXPORTS schar*  seqPush( CvSeq* seq, const void* element=0);
+CV_EXPORTS schar*  seqPushFront( CvSeq* seq, const void* element=0);
+CV_EXPORTS void  seqPop( CvSeq* seq, void* element=0);
+CV_EXPORTS void  seqPopFront( CvSeq* seq, void* element=0);
+CV_EXPORTS void  seqPopMulti( CvSeq* seq, void* elements,
+                              int count, int in_front=0 );
+CV_EXPORTS void  seqRemove( CvSeq* seq, int index );
+CV_EXPORTS void  clearSeq( CvSeq* seq );
+CV_EXPORTS schar*  getSeqElem( const CvSeq* seq, int index );
+CV_EXPORTS void  seqRemoveSlice( CvSeq* seq, CvSlice slice );
+CV_EXPORTS void  seqInsertSlice( CvSeq* seq, int before_index, const CvArr* from_arr );
+
+template<typename _Tp> inline Seq<_Tp>::Seq() : seq(0) {}
+template<typename _Tp> inline Seq<_Tp>::Seq( const CvSeq* _seq ) : seq((CvSeq*)_seq)
+{
+    CV_Assert(!_seq || _seq->elem_size == sizeof(_Tp));
+}
+
+template<typename _Tp> inline Seq<_Tp>::Seq( MemStorage& storage,
+                                             int headerSize )
+{
+    CV_Assert(headerSize >= (int)sizeof(CvSeq));
+    seq = cvCreateSeq(DataType<_Tp>::type, headerSize, sizeof(_Tp), storage);
+}
+
+template<typename _Tp> inline _Tp& Seq<_Tp>::operator [](int idx)
+{ return *(_Tp*)getSeqElem(seq, idx); }
+
+template<typename _Tp> inline const _Tp& Seq<_Tp>::operator [](int idx) const
+{ return *(_Tp*)getSeqElem(seq, idx); }
+
+template<typename _Tp> inline SeqIterator<_Tp> Seq<_Tp>::begin() const
+{ return SeqIterator<_Tp>(*this); }
+
+template<typename _Tp> inline SeqIterator<_Tp> Seq<_Tp>::end() const
+{ return SeqIterator<_Tp>(*this, true); }
+
+template<typename _Tp> inline size_t Seq<_Tp>::size() const
+{ return seq ? seq->total : 0; }
+
+template<typename _Tp> inline int Seq<_Tp>::type() const
+{ return seq ? CV_MAT_TYPE(seq->flags) : 0; }
+
+template<typename _Tp> inline int Seq<_Tp>::depth() const
+{ return seq ? CV_MAT_DEPTH(seq->flags) : 0; }
+
+template<typename _Tp> inline int Seq<_Tp>::channels() const
+{ return seq ? CV_MAT_CN(seq->flags) : 0; }
+
+template<typename _Tp> inline size_t Seq<_Tp>::elemSize() const
+{ return seq ? seq->elem_size : 0; }
+
+template<typename _Tp> inline size_t Seq<_Tp>::index(const _Tp& elem) const
+{ return cvSeqElemIdx(seq, &elem); }
+
+template<typename _Tp> inline void Seq<_Tp>::push_back(const _Tp& elem)
+{ cvSeqPush(seq, &elem); }
+
+template<typename _Tp> inline void Seq<_Tp>::push_front(const _Tp& elem)
+{ cvSeqPushFront(seq, &elem); }
+
+template<typename _Tp> inline void Seq<_Tp>::push_back(const _Tp* elem, size_t count)
+{ cvSeqPushMulti(seq, elem, (int)count, 0); }
+
+template<typename _Tp> inline void Seq<_Tp>::push_front(const _Tp* elem, size_t count)
+{ cvSeqPushMulti(seq, elem, (int)count, 1); }
+
+template<typename _Tp> inline _Tp& Seq<_Tp>::back()
+{ return *(_Tp*)getSeqElem(seq, -1); }
+
+template<typename _Tp> inline const _Tp& Seq<_Tp>::back() const
+{ return *(const _Tp*)getSeqElem(seq, -1); }
+
+template<typename _Tp> inline _Tp& Seq<_Tp>::front()
+{ return *(_Tp*)getSeqElem(seq, 0); }
+
+template<typename _Tp> inline const _Tp& Seq<_Tp>::front() const
+{ return *(const _Tp*)getSeqElem(seq, 0); }
+
+template<typename _Tp> inline bool Seq<_Tp>::empty() const
+{ return !seq || seq->total == 0; }
+
+template<typename _Tp> inline void Seq<_Tp>::clear()
+{ if(seq) clearSeq(seq); }
+
+template<typename _Tp> inline void Seq<_Tp>::pop_back()
+{ seqPop(seq); }
+
+template<typename _Tp> inline void Seq<_Tp>::pop_front()
+{ seqPopFront(seq); }
+
+template<typename _Tp> inline void Seq<_Tp>::pop_back(_Tp* elem, size_t count)
+{ seqPopMulti(seq, elem, (int)count, 0); }
+
+template<typename _Tp> inline void Seq<_Tp>::pop_front(_Tp* elem, size_t count)
+{ seqPopMulti(seq, elem, (int)count, 1); }
+
+template<typename _Tp> inline void Seq<_Tp>::insert(int idx, const _Tp& elem)
+{ seqInsert(seq, idx, &elem); }
+
+template<typename _Tp> inline void Seq<_Tp>::insert(int idx, const _Tp* elems, size_t count)
+{
+    CvMat m = cvMat(1, count, DataType<_Tp>::type, elems);
+    seqInsertSlice(seq, idx, &m);
+}
+
+template<typename _Tp> inline void Seq<_Tp>::remove(int idx)
+{ seqRemove(seq, idx); }
+
+template<typename _Tp> inline void Seq<_Tp>::remove(const Range& r)
+{ seqRemoveSlice(seq, cvSlice(r.start, r.end)); }
+
+template<typename _Tp> inline void Seq<_Tp>::copyTo(std::vector<_Tp>& vec, const Range& range) const
+{
+    size_t len = !seq ? 0 : range == Range::all() ? seq->total : range.end - range.start;
+    vec.resize(len);
+    if( seq && len )
+        cvCvtSeqToArray(seq, &vec[0], range);
+}
+
+template<typename _Tp> inline Seq<_Tp>::operator std::vector<_Tp>() const
+{
+    std::vector<_Tp> vec;
+    copyTo(vec);
+    return vec;
+}
+
+template<typename _Tp> inline SeqIterator<_Tp>::SeqIterator()
+{ memset(this, 0, sizeof(*this)); }
+
+template<typename _Tp> inline SeqIterator<_Tp>::SeqIterator(const Seq<_Tp>& _seq, bool seekEnd)
+{
+    cvStartReadSeq(_seq.seq, this);
+    index = seekEnd ? _seq.seq->total : 0;
+}
+
+template<typename _Tp> inline void SeqIterator<_Tp>::seek(size_t pos)
+{
+    cvSetSeqReaderPos(this, (int)pos, false);
+    index = pos;
+}
+
+template<typename _Tp> inline size_t SeqIterator<_Tp>::tell() const
+{ return index; }
+
+template<typename _Tp> inline _Tp& SeqIterator<_Tp>::operator *()
+{ return *(_Tp*)ptr; }
+
+template<typename _Tp> inline const _Tp& SeqIterator<_Tp>::operator *() const
+{ return *(const _Tp*)ptr; }
+
+template<typename _Tp> inline SeqIterator<_Tp>& SeqIterator<_Tp>::operator ++()
+{
+    CV_NEXT_SEQ_ELEM(sizeof(_Tp), *this);
+    if( ++index >= seq->total*2 )
+        index = 0;
+    return *this;
+}
+
+template<typename _Tp> inline SeqIterator<_Tp> SeqIterator<_Tp>::operator ++(int) const
+{
+    SeqIterator<_Tp> it = *this;
+    ++*this;
+    return it;
+}
+
+template<typename _Tp> inline SeqIterator<_Tp>& SeqIterator<_Tp>::operator --()
+{
+    CV_PREV_SEQ_ELEM(sizeof(_Tp), *this);
+    if( --index < 0 )
+        index = seq->total*2-1;
+    return *this;
+}
+
+template<typename _Tp> inline SeqIterator<_Tp> SeqIterator<_Tp>::operator --(int) const
+{
+    SeqIterator<_Tp> it = *this;
+    --*this;
+    return it;
+}
+
+template<typename _Tp> inline SeqIterator<_Tp>& SeqIterator<_Tp>::operator +=(int delta)
+{
+    cvSetSeqReaderPos(this, delta, 1);
+    index += delta;
+    int n = seq->total*2;
+    if( index < 0 )
+        index += n;
+    if( index >= n )
+        index -= n;
+    return *this;
+}
+
+template<typename _Tp> inline SeqIterator<_Tp>& SeqIterator<_Tp>::operator -=(int delta)
+{
+    return (*this += -delta);
+}
+
+template<typename _Tp> inline ptrdiff_t operator - (const SeqIterator<_Tp>& a,
+                                                    const SeqIterator<_Tp>& b)
+{
+    ptrdiff_t delta = a.index - b.index, n = a.seq->total;
+    if( delta > n || delta < -n )
+        delta += delta < 0 ? n : -n;
+    return delta;
+}
+
+template<typename _Tp> inline bool operator == (const SeqIterator<_Tp>& a,
+                                                const SeqIterator<_Tp>& b)
+{
+    return a.seq == b.seq && a.index == b.index;
+}
+
+template<typename _Tp> inline bool operator != (const SeqIterator<_Tp>& a,
+                                                const SeqIterator<_Tp>& b)
+{
+    return !(a == b);
+}
+
+} // cv
 
 #endif
 

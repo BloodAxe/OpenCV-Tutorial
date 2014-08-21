@@ -10,6 +10,8 @@
 #define OpenCV_Tutorial_SampleBase_h
 
 #include "SampleOptions.h"
+#include <vector>
+#include <map>
 
 //! Base class for all samples
 class SampleBase

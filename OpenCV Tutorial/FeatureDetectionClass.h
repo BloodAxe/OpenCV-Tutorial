@@ -28,10 +28,10 @@ private:
 public:
     FeatureDetectionClass(): ratio(0.65f), refineF(true), confidence(0.99), distance(3.0) {
         // SURF is the default feature detector and extractor
-        detector= new cv::SurfFeatureDetector(400);
-        extractor= new cv::SurfDescriptorExtractor();
+        detector.reset(new cv::KAZE());
+        extractor.reset(new cv::KAZE());
         // BruteForce matcher is the default matcher
-        matcher= new cv::BFMatcher(cv::NORM_L1, false);   
+        matcher.reset(new cv::BFMatcher());
     }
 
     // Set the feature detector

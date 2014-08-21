@@ -52,8 +52,8 @@ void ObjectTrackingClass::track(cv::Mat& image, // output image
                                 cv::Mat& image2, // next frame
                                 std::vector<cv::Point2f>& points1, // previous points 
                                 std::vector<cv::Point2f>& points2, // next points
-                                cv::vector<uchar>& status, // status array
-                                cv::vector<float>& err) // error array
+                                std::vector<uchar>& status, // status array
+                                std::vector<float>& err) // error array
 {
     // tracking code
     cv::calcOpticalFlowPyrLK(image1,

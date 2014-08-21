@@ -28,8 +28,9 @@
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new ImageFiltersSample()]);
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new ContourDetectionSample()]);
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new CartoonFilter()]);
+#if ! defined(TARGET_IPHONE_SIMULATOR)
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new VideoTrackingSample()]);
-    
+#endif
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new FeatureDetectionSample()]);
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new ObjectTrackingSample()]);
     allSamples.push_back([[SampleFacade alloc] initWithSample:  new DetectTrackSample()]);

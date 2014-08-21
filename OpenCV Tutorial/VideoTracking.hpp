@@ -51,8 +51,8 @@ private:
   cv::ORB       m_orbFeatureEngine;
   cv::BFMatcher m_orbMatcher;
   
-  cv::GridAdaptedFeatureDetector m_fastDetector;
-  cv::BriefDescriptorExtractor m_briefExtractor;
+  cv::Ptr<cv::FeatureDetector> m_fastDetector;
+  cv::Ptr<cv::DescriptorExtractor> m_briefExtractor;
   cv::BFMatcher                m_briefMatcher;
   
   cv::Ptr<cv::FeatureDetector> m_detector;

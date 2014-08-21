@@ -10,7 +10,7 @@
 #include "FeatureDetectionSample.h"
 
 #define kDetectorORB  "ORB"
-#define kDetectorSURF "SURF"
+#define kDetectorKAZE "KAZE"
 #define kDetectorFAST "FAST"
 
 FeatureDetectionSample::FeatureDetectionSample()
@@ -20,7 +20,7 @@ FeatureDetectionSample::FeatureDetectionSample()
     // feature extraction options
     m_alorithms.push_back( kDetectorORB );
     m_alorithms.push_back( kDetectorFAST );
-    m_alorithms.push_back( kDetectorSURF );
+    m_alorithms.push_back( kDetectorKAZE );
     
     registerOption("Detection algorithm", "", &m_detectorName, m_alorithms);
     registerOption("Max features",        "", &m_maxFeatures, 1, 100);
@@ -69,9 +69,9 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
         detector.detect(grayImage, objectKeypoints);
         
     }
-    else if (m_detectorName == kDetectorSURF)
+    else if (m_detectorName == kDetectorKAZE)
     {
-        cv::SurfFeatureDetector detector;
+        cv::KAZE detector;
         detector.detect(grayImage, objectKeypoints);
     }
     
@@ -82,9 +82,9 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
     }
     
     cv::Mat t;
-    cv::cvtColor(inputFrame, t, CV_BGRA2BGR);
+    cv::cvtColor(inputFrame, t, cv::COLOR_BGRA2BGR);
     cv::drawKeypoints(t, objectKeypoints, t, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
     
-    cv::cvtColor(t, outputFrame, CV_BGR2BGRA);
+    cv::cvtColor(t, outputFrame, cv::COLOR_BGR2BGRA);
     return true;
 }

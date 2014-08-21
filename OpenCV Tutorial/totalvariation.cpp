@@ -115,7 +115,7 @@ void threshold(cv::Mat &X, float xmin, float xmax)
         float *p_x = X.ptr<float>(y);
         
         for (int x = 0; x < X.cols; ++x)
-            *p_x++ = MAX(MIN(1.0, *p_x), 0.0);
+            p_x[x] = MAX(MIN(1.0, p_x[x]), 0.0);
 
     });
 }

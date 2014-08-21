@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <cassert>
+
 #include "EdgeDetectionSample.h"
 
 EdgeDetectionSample::EdgeDetectionSample()
@@ -117,7 +119,7 @@ bool EdgeDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
     
     //edges = dst_norm_scaled;
     /// Drawing a circle around corners
-    cv::threshold(dst_norm_scaled, edges, m_harrisThreshold, 255, CV_THRESH_BINARY);
+    cv::threshold(dst_norm_scaled, edges, m_harrisThreshold, 255, cv::THRESH_BINARY);
     /*
     for( int j = 0; j < dst_norm.rows ; j++ )
     { 
@@ -131,7 +133,7 @@ bool EdgeDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
     }*/
     
     //edges = dst_norm_scaled;
-    //cv::cvtColor(dst_norm_scaled, outputFrame, CV_GRAY2BGRA);
+    //cv::cvtColor(dst_norm_scaled, outputFrame, cv::COLOR_GRAY2BGRA);
   }
   else
   {
@@ -141,11 +143,11 @@ bool EdgeDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
   
   if (m_showOnlyEdges)
   {
-    cv::cvtColor(edges, outputFrame, CV_GRAY2BGRA);
+      cv::cvtColor(edges, outputFrame, cv::COLOR_GRAY2BGRA);
   }
   else 
   {
-    cv::cvtColor(grayImage * 0.25 +  0.75 * edges, outputFrame, CV_GRAY2BGRA);
+    cv::cvtColor(grayImage * 0.25 +  0.75 * edges, outputFrame, cv::COLOR_GRAY2BGRA);
   }
   return true;
 }
