@@ -13,7 +13,7 @@
 
 @interface VideoViewController : BaseSampleViewController<UIActionSheetDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIImageView *containerView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toggleCameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *options;
 

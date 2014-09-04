@@ -19,7 +19,7 @@
     CvVideoCamera* videoSource;
     cv::Mat outputFrame;
 }
-@property (nonatomic, retain) CvVideoCamera* videoSource;
+@property (nonatomic, strong) CvVideoCamera* videoSource;
 
 @end
 
@@ -41,11 +41,12 @@
     [super viewDidLoad];
     
     self.videoSource = [[CvVideoCamera alloc] initWithParentView:self.containerView];
-    self.videoSource.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
-    self.videoSource.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
-    self.videoSource.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    self.videoSource.defaultFPS = 120;
-    self.videoSource.grayscaleMode = YES;
+    self.videoSource.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
+    //self.videoSource.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
+    //self.videoSource.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+    //self.videoSource.defaultFPS = 120;
+    //self.videoSource.grayscaleMode = YES;
+    self.videoSource.delegate = self;
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
                                                    delegate:self
@@ -60,6 +61,8 @@
     [super viewWillAppear:animated];
     
     [self.videoSource start];
+    [self.videoSource adjustLayoutToInterfaceOrientation:self.interfaceOrientation];
+    NSLog(@"capture session loaded: %d", [self.videoSource captureSessionLoaded]);
     
     toggleCameraButton.enabled = true;
     captureReferenceFrameButton.enabled = self.currentSample.isReferenceFrameRequired;
@@ -116,6 +119,7 @@
     [self setActionSheetButton:nil];
     [self setCaptureReferenceFrameButton:nil];
     [self setClearReferenceFrameButton:nil];
+    
     [super viewDidUnload];
 }
 
@@ -192,6 +196,12 @@
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet;  // before animation and showing view
 {
     [self.videoSource stop];
+}
+
+- (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
+    [self.videoSource adjustLayoutToInterfaceOrientation:self.interfaceOrientation];
 }
 
 #pragma mark - Capture reference frame

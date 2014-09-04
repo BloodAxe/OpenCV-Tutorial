@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <development version="5000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="11">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <navigationController id="3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4">
                         <autoresizingMask key="autoresizingMask"/>
@@ -16,27 +18,27 @@
                         <segue destination="12" kind="relationship" relationship="rootViewController" id="19"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-277" y="-188"/>
         </scene>
-        <!--Master View Controller - Samples-->
+        <!--Samples-->
         <scene sceneID="18">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
-                <tableViewController storyboardIdentifier="" title="Samples" id="12" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                <tableViewController title="Samples" id="12" customClass="MasterViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" style="IBUITableViewCellStyleDefault" id="lJ0-d7-vTF">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lJ0-d7-vTF" id="78r-s9-vzZ">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="phq-AM-6qj">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" id="phq-AM-6qj">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -44,8 +46,7 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                                </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
@@ -62,60 +63,50 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="m1u-EC-Yzi"/>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="183" y="-188"/>
         </scene>
-        <!--Detail View Controller - Detail-->
+        <!--Detail-->
         <scene sceneID="24">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="21" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZDM-KC-btO"/>
+                        <viewControllerLayoutGuide type="bottom" id="ASl-Za-GfK"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="d71-R8-SeW">
-                                <rect key="frame" x="20" y="128" width="280" height="268"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d71-R8-SeW">
+                                <rect key="frame" x="20" y="206" width="280" height="254"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="57o-4l-EB2">
-                                <rect key="frame" x="20" y="20" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zNO-71-ALR">
-                                <rect key="frame" x="149" y="20" width="151" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNO-71-ALR">
+                                <rect key="frame" x="149" y="161" width="151" height="37"/>
                                 <state key="normal" title="Run on image">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="22w-9U-Oct" kind="push" identifier="processImage" id="Ni8-n1-Itx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="STE-bC-t3a">
-                                <rect key="frame" x="149" y="65" width="151" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STE-bC-t3a">
+                                <rect key="frame" x="149" y="98" width="151" height="37"/>
                                 <state key="normal" title="Run on video">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Wac-Dj-mok" kind="push" identifier="processVideo" id="rQG-3k-mPe"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="57o-4l-EB2">
+                                <rect key="frame" x="20" y="98" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -126,26 +117,31 @@
                         <outlet property="sampleIconView" destination="57o-4l-EB2" id="TGT-x2-iuh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="644" y="-182"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="b2s-8I-Qbe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RhH-cl-n91" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Wac-Dj-mok" customClass="VideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Off-50-wW6"/>
+                        <viewControllerLayoutGuide type="bottom" id="dJ4-4B-QcR"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fyS-Oc-Y7R">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="xqr-A0-xhC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-A0-xhC" customClass="UIImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
+                                </accessibility>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="mev-vc-lCS">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mev-vc-lCS">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <items>
                                     <barButtonItem image="switchCamera.png" style="plain" id="0cH-Fc-y0H" userLabel="switchCameraButton">
                                         <connections>
@@ -180,6 +176,21 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="leading" secondItem="Off-50-wW6" secondAttribute="leading" id="6h9-ri-ice"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leadingMargin" constant="-16" id="8Zh-8A-GCH"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="fyS-Oc-Y7R" secondAttribute="topMargin" id="9iC-7l-NGx"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="bottom" secondItem="mev-vc-lCS" secondAttribute="top" id="BRm-5g-h8a"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="trailing" secondItem="dJ4-4B-QcR" secondAttribute="trailing" id="Fnz-MC-Tbb"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="trailing" secondItem="Off-50-wW6" secondAttribute="trailing" id="Ixq-Oe-pOv"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="dJ4-4B-QcR" secondAttribute="leading" id="J8Y-sY-qdN"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="fyS-Oc-Y7R" secondAttribute="top" id="U9J-HE-Bk3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mev-vc-lCS" secondAttribute="trailing" constant="-16" id="YQK-z2-ea6"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="top" secondItem="xqr-A0-xhC" secondAttribute="bottom" id="goK-k0-DNp"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leadingMargin" constant="-16" id="iTj-Hl-5HM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xqr-A0-xhC" secondAttribute="trailing" constant="-16" id="oGX-yj-Lcd"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="bottom" secondItem="dJ4-4B-QcR" secondAttribute="top" id="xKz-e9-d1r"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-70-nt7"/>
                     <connections>
@@ -191,26 +202,28 @@
                         <outlet property="toggleCameraButton" destination="0cH-Fc-y0H" id="os1-i3-lp3"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhH-cl-n91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="-482"/>
+            <point key="canvasLocation" x="1249" y="-498"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="kug-rQ-vLf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="THp-Oo-sRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="22w-9U-Oct" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K4G-ZG-4cx"/>
+                        <viewControllerLayoutGuide type="bottom" id="E4U-4Q-Mdm"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T0z-Tc-TaG">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="ShL-ye-fdZ">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShL-ye-fdZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g27-f9-DXb">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g27-f9-DXb">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <items>
                                     <barButtonItem image="photos_polaroid.png" style="plain" id="pLF-ra-4dQ" userLabel="selectImageButton">
                                         <connections>
@@ -244,6 +257,7 @@
                         <outlet property="takePhotoButton" destination="pLF-ra-4dQ" id="Cka-m4-SXO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THp-Oo-sRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1249" y="118"/>
         </scene>
@@ -254,53 +268,12 @@
         <image name="refresh_straight_arrows.png" width="26" height="26"/>
         <image name="switchCamera.png" width="43" height="26"/>
     </resources>
-    <classes>
-        <class className="BaseSampleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseSampleViewController.h"/>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="runOnImageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="runOnVideoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sampleDescriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="sampleIconView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="ImageViewController" superclassName="BaseSampleViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="presentOptionsView:"/>
-                <relationship kind="action" name="selectAction:"/>
-                <relationship kind="action" name="selectPictureForProcessing:"/>
-                <relationship kind="outlet" name="actionButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="optionsBarButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="takePhotoButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="VideoViewController" superclassName="BaseSampleViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="captureReferenceFrame:"/>
-                <relationship kind="action" name="clearReferenceFrame:"/>
-                <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="action" name="showOptions:"/>
-                <relationship kind="action" name="toggleCameraPressed:"/>
-                <relationship kind="outlet" name="actionSheetButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="captureReferenceFrameButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="options" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toggleCameraButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination">
+            <size key="portraitSize" width="320" height="480"/>
+            <size key="landscapeSize" width="480" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
 </document>
