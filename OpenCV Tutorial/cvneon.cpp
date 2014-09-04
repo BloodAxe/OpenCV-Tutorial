@@ -8,7 +8,10 @@
 
 #include "cvneon.h"
 #include <cassert>
+
+#if (!TARGET_IPHONE_SIMULATOR)
 #include <arm_neon.h>
+#endif
 
 namespace cv
 {
@@ -52,65 +55,34 @@ namespace cv
   
   static void neon_asm_mat4_vec4_mul(const float* __restrict m, const int* __restrict v, int* __restrict output)
   {
-    asm volatile
-    (
-     // Store m & v - avoiding q4-q7 which need to be preserved - q0 = result
-     "vldmia %1, { q8-q11 } \n\t"   // q8-q11 = m
-     "vldmia %2, { q1 }     \n\t"   // q1     = v
-     
-     // Convert v to floats
-     "vcvt.f32.s32 q1, q1 \n\t"
-     
-     // result = first column of A x V.x
-     "vmul.f32 q0, q8, d2[0] \n\t"
-     
-     // result += second column of A x V.y
-     "vmla.f32 q0, q9, d2[1] \n\t"
-     
-     // result += third column of A x V.z
-     "vmla.f32 q0, q10, d3[0] \n\t"
-     
-     // result += last column of A x V.w
-     "vmla.f32 q0, q11, d3[1] \n\t"
-     
-     // convert to integer
-     "vcvt.s32.f32 q0, q0 \n\t"
-     
-     // output = result registers
-     "vstmia %0, { q0 }  \n\t"
-     
-     : // no output
-     : "r" (output), "r" (m), "r" (v)      // input - note *value* of pointer doesn't change
-     : "memory", "q0", "q1", "q2", "q3", "q8", "q9", "q10", "q11" //clobber
-     );
+      float32x4x4_t _m = vld4q_f32(m);
+      float32x4_t   _v = vcvtq_f32_s32(vld1q_s32(v));
+      
+      float32x4_t    r = vmulq_n_f32(_m.val[0], _v[0]);
+      r = vmlaq_n_f32(r, _m.val[1], _v[1]);
+      r = vmlaq_n_f32(r, _m.val[2], _v[2]);
+      r = vmlaq_n_f32(r, _m.val[3], _v[3]);
+      
+      int32x4_t result = vcvtq_s32_f32(r);
+      vst1q_s32(output, result);
   }
   
   static void neon_asm_convert(uint8_t * __restrict dest, uint8_t * __restrict src, int numPixels)
   {
-    __asm__ volatile("lsr          %2, %2, #3      \n"
-                     "# build the three constants: \n"
-                     "mov         r4, #28          \n" // Blue channel multiplier
-                     "mov         r5, #151         \n" // Green channel multiplier
-                     "mov         r6, #77          \n" // Red channel multiplier
-                     "vdup.8      d4, r4           \n"
-                     "vdup.8      d5, r5           \n"
-                     "vdup.8      d6, r6           \n"
-                     "0:						   \n"
-                     "# load 8 pixels:             \n"
-                     "vld4.8      {d0-d3}, [%1]!   \n"
-                     "# do the weight average:     \n"
-                     "vmull.u8    q7, d0, d4       \n"
-                     "vmlal.u8    q7, d1, d5       \n"
-                     "vmlal.u8    q7, d2, d6       \n"
-                     "# shift and store:           \n"
-                     "vshrn.u16   d7, q7, #8       \n" // Divide q3 by 256 and store in the d7
-                     "vst1.8      {d7}, [%0]!      \n"
-                     "subs        %2, %2, #1       \n" // Decrement iteration count
-                     "bne         0b            \n" // Repeat unil iteration count is not zero
-                     :
-                     : "r"(dest), "r"(src), "r"(numPixels)
-                     : "r4", "r5", "r6"
-                     );
+      uint8x8_t r = vdup_n_u8(28);
+      uint8x8_t g = vdup_n_u8(151);
+      uint8x8_t b = vdup_n_u8(77);
+      
+      for (int i = 0; i < numPixels; i += 8, src += 32, dest += 8)
+      {
+          uint8x8x4_t _src = vld4_u8(src);
+          int16x8_t gray = vmull_u8(r, _src.val[0]);
+          gray = vmlal_u8(gray, _src.val[1], g);
+          gray = vmlal_u8(gray, _src.val[2], b);
+          uint8x8_t res = vshrn_n_s16(gray, 8);
+          vst1_u8(dest, res);
+      }
+      
   }
   
   void neon_cvtColorBGRA2GRAY(const cv::Mat& input, cv::Mat& gray)
