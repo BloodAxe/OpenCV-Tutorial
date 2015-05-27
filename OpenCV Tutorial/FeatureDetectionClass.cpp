@@ -3,26 +3,11 @@
 //  OpenCV Tutorial
 //
 //  Created by Anton Belodedenko on 25/07/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 computer-vision-talks.com. All rights reserved.
 //
 
 #include <iostream>
 #include "FeatureDetectionClass.h"
-
-// Set the feature detector
-void FeatureDetectionClass::setFeatureDetector(cv::Ptr<cv::FeatureDetector>& detect) {
-    detector= detect;
-}
-
-// Set the descriptor extractor
-void FeatureDetectionClass::setDescriptorExtractor(cv::Ptr<cv::DescriptorExtractor>& desc) {
-    extractor= desc;
-}
-
-// Set the matcher
-void FeatureDetectionClass::setDescriptorMatcher(cv::Ptr<cv::DescriptorMatcher>& match) {
-    matcher= match;
-}
 
 // Set confidence level
 void FeatureDetectionClass::setConfidenceLevel(double conf) {
@@ -259,7 +244,7 @@ cv::Mat FeatureDetectionClass::match(cv::Mat& image2, // input scene image
     detector->detect(image2,keypoints2);
     // 1b. Extraction of the descriptors
     cv::Mat descriptors2;
-    extractor->compute(image2,keypoints2,descriptors2);
+    detector->compute(image2,keypoints2,descriptors2);
     // 2. Match the two image descriptors
     // from object image to scene image
     // based on k nearest neighbours (with k=2)

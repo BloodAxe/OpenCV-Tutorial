@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		363DA0BF15C097AC00347AB2 /* FeatureDetectionSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */; };
-		3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */; };
-		3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3641572015C2880E00F80FFB /* DetectTrackSample.cpp */; };
 		369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */; };
 		369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 369F2C2715C1A3EF0032BD08 /* ObjectTrackingSample.cpp */; };
 		369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 369F2C2915C1A4950032BD08 /* ObjectTrackingSampleIcon.png */; };
@@ -42,12 +40,13 @@
 		8A4C5D7515E2CAEA008887F0 /* ROFSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C5D7015E2CAEA008887F0 /* ROFSample.cpp */; };
 		8A4C5D7615E2CAEA008887F0 /* ROFSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4C5D7215E2CAEA008887F0 /* ROFSampleIcon.png */; };
 		8A4C5D7715E2CAEA008887F0 /* totalvariation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C5D7315E2CAEA008887F0 /* totalvariation.cpp */; };
+		8A64E5951A7A711200319DCB /* CameraCalibrationSample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A64E5931A7A711200319DCB /* CameraCalibrationSample.cpp */; };
+		8A64E5DA1A7A867400319DCB /* CameraCalibrationAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A64E5D81A7A867400319DCB /* CameraCalibrationAlgorithm.cpp */; };
 		8A66F70A15DA3E2600EF1959 /* DefaultSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A66F70815DA3E2600EF1959 /* DefaultSampleIcon.png */; };
 		8A66F70B15DA3E2600EF1959 /* DefaultSampleIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A66F70915DA3E2600EF1959 /* DefaultSampleIcon~ipad.png */; };
 		8A66F71215DA535C00EF1959 /* SampleFacade.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A66F71115DA535C00EF1959 /* SampleFacade.mm */; };
 		8A66F71515DA85BA00EF1959 /* VideoTrackingSampleIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A66F71415DA85BA00EF1959 /* VideoTrackingSampleIcon.png */; };
 		8A6E0BD81614946100C1D644 /* FeatureDetectionClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E0BD61614946100C1D644 /* FeatureDetectionClass.cpp */; };
-		8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A723FC01599AC42008C72DB /* VideoSource.mm */; };
 		8A723FC81599B6EE008C72DB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FC71599B6EE008C72DB /* AVFoundation.framework */; };
 		8A723FCB1599B6F2008C72DB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FC91599B6F2008C72DB /* GLKit.framework */; };
 		8A723FCC1599B6F2008C72DB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A723FCA1599B6F2008C72DB /* OpenGLES.framework */; };
@@ -70,7 +69,6 @@
 		8A7934CD15AB5E440043BE99 /* EnumTableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */; };
 		8A9ED49E19A6A56400D22EA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A9ED49D19A6A56400D22EA9 /* Default-568h@2x.png */; };
 		8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7F85015A462400052C95A /* FPSCalculator.mm */; };
-		8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AB6D01515B02A030029641C /* DummyVideoSource.mm */; };
 		8AB6D02015B54D450029641C /* cog_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB6D01E15B54D450029641C /* cog_01.png */; };
 		8AB6D02115B54D450029641C /* cog_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB6D01F15B54D450029641C /* cog_02.png */; };
 		8AB6D02415B54D540029641C /* cog_01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AB6D02215B54D540029641C /* cog_01@2x.png */; };
@@ -108,9 +106,6 @@
 /* Begin PBXFileReference section */
 		363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionSample.h; sourceTree = "<group>"; };
 		363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionSample.cpp; sourceTree = "<group>"; };
-		3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DetectTrackSampleIcon.png; sourceTree = "<group>"; };
-		3641571F15C2880600F80FFB /* DetectTrackSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectTrackSample.h; sourceTree = "<group>"; };
-		3641572015C2880E00F80FFB /* DetectTrackSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DetectTrackSample.cpp; sourceTree = "<group>"; };
 		369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectTrackingClass.cpp; sourceTree = "<group>"; };
 		369F2C2515C1A3D40032BD08 /* ObjectTrackingClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectTrackingClass.h; sourceTree = "<group>"; };
 		369F2C2615C1A3E20032BD08 /* ObjectTrackingSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectTrackingSample.h; sourceTree = "<group>"; };
@@ -163,6 +158,10 @@
 		8A4C5D7215E2CAEA008887F0 /* ROFSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ROFSampleIcon.png; sourceTree = "<group>"; };
 		8A4C5D7315E2CAEA008887F0 /* totalvariation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = totalvariation.cpp; sourceTree = "<group>"; };
 		8A4C5D7415E2CAEA008887F0 /* totalvariation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = totalvariation.h; sourceTree = "<group>"; };
+		8A64E5931A7A711200319DCB /* CameraCalibrationSample.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraCalibrationSample.cpp; sourceTree = "<group>"; };
+		8A64E5941A7A711200319DCB /* CameraCalibrationSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraCalibrationSample.h; sourceTree = "<group>"; };
+		8A64E5D81A7A867400319DCB /* CameraCalibrationAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraCalibrationAlgorithm.cpp; sourceTree = "<group>"; };
+		8A64E5D91A7A867400319DCB /* CameraCalibrationAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraCalibrationAlgorithm.h; sourceTree = "<group>"; };
 		8A66F70815DA3E2600EF1959 /* DefaultSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultSampleIcon.png; sourceTree = "<group>"; };
 		8A66F70915DA3E2600EF1959 /* DefaultSampleIcon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DefaultSampleIcon~ipad.png"; sourceTree = "<group>"; };
 		8A66F71015DA535C00EF1959 /* SampleFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleFacade.h; sourceTree = "<group>"; };
@@ -170,8 +169,6 @@
 		8A66F71415DA85BA00EF1959 /* VideoTrackingSampleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VideoTrackingSampleIcon.png; sourceTree = "<group>"; };
 		8A6E0BD61614946100C1D644 /* FeatureDetectionClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FeatureDetectionClass.cpp; sourceTree = "<group>"; };
 		8A6E0BD71614946100C1D644 /* FeatureDetectionClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionClass.h; sourceTree = "<group>"; };
-		8A723FBF1599AC42008C72DB /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
-		8A723FC01599AC42008C72DB /* VideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoSource.mm; sourceTree = "<group>"; };
 		8A723FC71599B6EE008C72DB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8A723FC91599B6F2008C72DB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		8A723FCA1599B6F2008C72DB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -204,7 +201,6 @@
 		8A9ED49D19A6A56400D22EA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		8AA7F84F15A462400052C95A /* FPSCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSCalculator.h; sourceTree = "<group>"; };
 		8AA7F85015A462400052C95A /* FPSCalculator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FPSCalculator.mm; sourceTree = "<group>"; };
-		8AB6D01515B02A030029641C /* DummyVideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DummyVideoSource.mm; sourceTree = "<group>"; };
 		8AB6D01E15B54D450029641C /* cog_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog_01.png; sourceTree = "<group>"; };
 		8AB6D01F15B54D450029641C /* cog_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog_02.png; sourceTree = "<group>"; };
 		8AB6D02215B54D540029641C /* cog_01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog_01@2x.png"; sourceTree = "<group>"; };
@@ -281,16 +277,6 @@
 			name = FeatureDetection;
 			sourceTree = "<group>";
 		};
-		3641571B15C286A800F80FFB /* DetectTrackSample */ = {
-			isa = PBXGroup;
-			children = (
-				3641571F15C2880600F80FFB /* DetectTrackSample.h */,
-				3641572015C2880E00F80FFB /* DetectTrackSample.cpp */,
-				3641571C15C287AA00F80FFB /* DetectTrackSampleIcon.png */,
-			);
-			name = DetectTrackSample;
-			sourceTree = "<group>";
-		};
 		369F2C2215C1A2AD0032BD08 /* ObjectTracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +334,6 @@
 				8AA7F84E15A462250052C95A /* View Controllers */,
 				8A723FD81599B751008C72DB /* Storyboards */,
 				8A43888A1595C1DF00027D3C /* Samples */,
-				8A4388881595BCB000027D3C /* VideoSource */,
 				8A43886F1595BC4F00027D3C /* Supporting Files */,
 			);
 			path = "OpenCV Tutorial";
@@ -376,23 +361,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8A4388881595BCB000027D3C /* VideoSource */ = {
-			isa = PBXGroup;
-			children = (
-				8A723FBF1599AC42008C72DB /* VideoSource.h */,
-				8A723FC01599AC42008C72DB /* VideoSource.mm */,
-				8AB6D01515B02A030029641C /* DummyVideoSource.mm */,
-			);
-			name = VideoSource;
-			sourceTree = "<group>";
-		};
 		8A43888A1595C1DF00027D3C /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				8A64E5921A7A70F500319DCB /* Camera Calibration */,
 				8A4A123915F68B460096D272 /* DrawingCanvas */,
 				8AB6D04015B856010029641C /* CartoonFilter */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
-				3641571B15C286A800F80FFB /* DetectTrackSample */,
 				8A4388DF15971FE000027D3C /* Edge Detection */,
 				363DA0B615C0970200347AB2 /* FeatureDetection */,
 				8A79349415A9A3FB0043BE99 /* Image Filters */,
@@ -472,6 +447,17 @@
 				8A4C5D7415E2CAEA008887F0 /* totalvariation.h */,
 			);
 			name = ROFSample;
+			sourceTree = "<group>";
+		};
+		8A64E5921A7A70F500319DCB /* Camera Calibration */ = {
+			isa = PBXGroup;
+			children = (
+				8A64E5931A7A711200319DCB /* CameraCalibrationSample.cpp */,
+				8A64E5941A7A711200319DCB /* CameraCalibrationSample.h */,
+				8A64E5D81A7A867400319DCB /* CameraCalibrationAlgorithm.cpp */,
+				8A64E5D91A7A867400319DCB /* CameraCalibrationAlgorithm.h */,
+			);
+			name = "Camera Calibration";
 			sourceTree = "<group>";
 		};
 		8A723FD81599B751008C72DB /* Storyboards */ = {
@@ -698,7 +684,6 @@
 				369F2C2A15C1A4950032BD08 /* ObjectTrackingSampleIcon.png in Resources */,
 				369F2C2C15C1A5290032BD08 /* FeatureDetectionSampleIcon.png in Resources */,
 				8A9ED49E19A6A56400D22EA9 /* Default-568h@2x.png in Resources */,
-				3641571D15C287AA00F80FFB /* DetectTrackSampleIcon.png in Resources */,
 				8AFE53CB15D7E3B200E7ADEB /* DoubleTableViewCell.xib in Resources */,
 				8A66F70A15DA3E2600EF1959 /* DefaultSampleIcon.png in Resources */,
 				8A66F70B15DA3E2600EF1959 /* DefaultSampleIcon~ipad.png in Resources */,
@@ -714,6 +699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A64E5951A7A711200319DCB /* CameraCalibrationSample.cpp in Sources */,
 				8A4388A81595DE5800027D3C /* AppDelegate.mm in Sources */,
 				8A4388B11595DE5800027D3C /* MasterViewController.mm in Sources */,
 				8A4388B41595DE5800027D3C /* DetailViewController.mm in Sources */,
@@ -722,7 +708,7 @@
 				8A4388DD159718B100027D3C /* SampleBase.cpp in Sources */,
 				8A4388DE159718B100027D3C /* ContourDetectionSample.cpp in Sources */,
 				8A4388E81597B7BB00027D3C /* UIImage2OpenCV.mm in Sources */,
-				8A723FC11599AC42008C72DB /* VideoSource.mm in Sources */,
+				8A64E5DA1A7A867400319DCB /* CameraCalibrationAlgorithm.cpp in Sources */,
 				8A723FDB1599BB74008C72DB /* VideoViewController.mm in Sources */,
 				8AE69C0615A3A47F00DAA115 /* ImageViewController.mm in Sources */,
 				8AA7F85115A462400052C95A /* FPSCalculator.mm in Sources */,
@@ -736,7 +722,6 @@
 				8A7934CD15AB5E440043BE99 /* EnumTableViewCell.mm in Sources */,
 				8A00096F15AD6DF9001EA42D /* OptionCell.mm in Sources */,
 				8A00097315AE0F0A001EA42D /* OptionsTableView.mm in Sources */,
-				8AB6D01615B02A030029641C /* DummyVideoSource.mm in Sources */,
 				8AB6D04315B856850029641C /* CartoonFilter.cpp in Sources */,
 				8AB6D04815B99B5B0029641C /* BaseSampleViewController.mm in Sources */,
 				8AB6D05015BDEB2F0029641C /* VideoTracking.cpp in Sources */,
@@ -744,7 +729,6 @@
 				369F2C2415C1A3C70032BD08 /* ObjectTrackingClass.cpp in Sources */,
 				369F2C2815C1A3F00032BD08 /* ObjectTrackingSample.cpp in Sources */,
 				369F2C2F15C1AEE50032BD08 /* Globals.cpp in Sources */,
-				3641572115C2880E00F80FFB /* DetectTrackSample.cpp in Sources */,
 				8AFE53CA15D7E3B200E7ADEB /* DoubleTableViewCell.mm in Sources */,
 				8AFE53CF15D7F18E00E7ADEB /* cvneon.cpp in Sources */,
 				8A66F71215DA535C00EF1959 /* SampleFacade.mm in Sources */,

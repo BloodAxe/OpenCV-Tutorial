@@ -3,7 +3,7 @@
 //  OpenCV Tutorial
 //
 //  Created by Anton Belodedenko on 25/07/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 computer-vision-talks.com. All rights reserved.
 //
 
 #ifndef OpenCV_Tutorial_FeatureDetectionClass_h
@@ -15,11 +15,12 @@ class FeatureDetectionClass
 {
 private:
     // pointer to the feature point detector object
-    cv::Ptr<cv::FeatureDetector> detector;
     // pointer to the feature descriptor extractor object
-    cv::Ptr<cv::DescriptorExtractor> extractor;
+    cv::Ptr<cv::AKAZE> detector;
+    
     // pointer to the matcher object
     cv::Ptr<cv::DescriptorMatcher > matcher;
+    
     float ratio; // max ratio between 1st and 2nd NN
     bool refineF; // if true will refine the F matrix
     double distance; // min distance to epipolar
@@ -28,21 +29,11 @@ private:
 public:
     FeatureDetectionClass(): ratio(0.65f), refineF(true), confidence(0.99), distance(3.0) {
         // SURF is the default feature detector and extractor
-        detector.reset(new cv::KAZE());
-        extractor.reset(new cv::KAZE());
+        detector = cv::AKAZE::create();
         // BruteForce matcher is the default matcher
-        matcher.reset(new cv::BFMatcher());
+        matcher.reset(new cv::BFMatcher(detector->defaultNorm()));
     }
-
-    // Set the feature detector
-    void setFeatureDetector(cv::Ptr<cv::FeatureDetector>& detect);
-    
-    // Set the descriptor extractor
-    void setDescriptorExtractor(cv::Ptr<cv::DescriptorExtractor>& desc);
-    
-    // Set the matcher
-    void setDescriptorMatcher(cv::Ptr<cv::DescriptorMatcher>& match);
-    
+        
     // Set confidence level
     void setConfidenceLevel(double conf);
     
@@ -96,9 +87,9 @@ public:
                            int whichImage); // image to compute epipolar lines in
     
     void drawPerspective(cv::Mat& image, // output image
-                        cv::Mat& image1, // input (object) image
-                        std::vector<cv::Point2f>& points1, // keypoints 1
-                        std::vector<cv::Point2f>& points2); // keypoints 2
+                         cv::Mat& image1, // input (object) image
+                         std::vector<cv::Point2f>& points1, // keypoints 1
+                         std::vector<cv::Point2f>& points2); // keypoints 2
 };
 
 #endif

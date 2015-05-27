@@ -3,7 +3,7 @@
 //  OpenCV Tutorial
 //
 //  Created by BloodAxe on 6/26/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 computer-vision-talks.com. All rights reserved.
 //
 
 #import "VideoViewController.h"
@@ -16,7 +16,6 @@
 
 @interface VideoViewController ()<CvVideoCameraDelegate>
 {
-    CvVideoCamera* videoSource;
     cv::Mat outputFrame;
 }
 @property (nonatomic, strong) CvVideoCamera* videoSource;
@@ -24,6 +23,7 @@
 @end
 
 @implementation VideoViewController
+
 @synthesize videoSource;
 @synthesize actionSheetButton;
 @synthesize captureReferenceFrameButton;
@@ -42,11 +42,13 @@
     
     self.videoSource = [[CvVideoCamera alloc] initWithParentView:self.containerView];
     self.videoSource.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
-    //self.videoSource.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
-    //self.videoSource.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    //self.videoSource.defaultFPS = 120;
-    //self.videoSource.grayscaleMode = YES;
+    self.videoSource.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
+    self.videoSource.defaultFPS = 30;
+    //self.videoSource.imageWidth = 1280;
+    //self.videoSource.imageHeight = 720;
     self.videoSource.delegate = self;
+    self.videoSource.recordVideo = NO;
+    self.videoSource.grayscaleMode = NO;
     
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
                                                    delegate:self
@@ -60,20 +62,27 @@
 {
     [super viewWillAppear:animated];
     
-    [self.videoSource start];
-    [self.videoSource adjustLayoutToInterfaceOrientation:self.interfaceOrientation];
     NSLog(@"capture session loaded: %d", [self.videoSource captureSessionLoaded]);
     
     toggleCameraButton.enabled = true;
     captureReferenceFrameButton.enabled = self.currentSample.isReferenceFrameRequired;
     clearReferenceFrameButton.enabled   = self.currentSample.isReferenceFrameRequired;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.videoSource start];
+    
+    //[self.videoSource adjustLayoutToInterfaceOrientation:self.interfaceOrientation];
     
 }
 
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [videoSource stop];
+    [self.videoSource stop];
 }
 
 - (void) configureView
@@ -163,12 +172,15 @@
 
 #pragma mark - Protocol CvVideoCameraDelegate
 
-- (void)processImage:(cv::Mat&)image
+#ifdef __cplusplus
+- (void) processImage:(cv::Mat&)image
 {
     // Do some OpenCV stuff with the image
     [self.currentSample processFrame:image into:outputFrame];
-    outputFrame.copyTo(image);
+    
+    //outputFrame.copyTo(image);
 }
+#endif
 
 
 #pragma mark UIActionSheetDelegate implementation
@@ -207,41 +219,21 @@
 #pragma mark - Capture reference frame
 
 - (IBAction) captureReferenceFrame:(id) sender
-{    
-    bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
-    
-    if (isMainQueue)
-    {
-        [self.currentSample setReferenceFrame:outputFrame];
-    }
-    else
-    {
-        dispatch_sync( dispatch_get_main_queue(),
-                      ^{
-                          [self.currentSample setReferenceFrame:outputFrame];
-                      }
-                      );
-    }
+{
+    dispatch_async( dispatch_get_main_queue(),
+                   ^{
+                       [self.currentSample setReferenceFrame:outputFrame];
+                   });
 }
 
 #pragma mark - Clear reference frame
 
 - (IBAction) clearReferenceFrame:(id) sender
 {
-    bool isMainQueue = dispatch_get_current_queue() == dispatch_get_main_queue();
-    
-    if (isMainQueue)
-    {
-        [self.currentSample resetReferenceFrame];
-    }
-    else
-    {
-        dispatch_sync( dispatch_get_main_queue(), 
-                      ^{ 
-                          [self.currentSample resetReferenceFrame];
-                      }
-                      );
-    }
+    dispatch_async(dispatch_get_main_queue(),
+                   ^{
+                       [self.currentSample resetReferenceFrame];
+                   });
 }
 
 @end

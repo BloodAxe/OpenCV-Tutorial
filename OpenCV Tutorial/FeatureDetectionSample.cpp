@@ -3,15 +3,15 @@
 //  OpenCV Tutorial
 //
 //  Created by Anton Belodedenko on 25/07/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 computer-vision-talks.com. All rights reserved.
 //
 
 #include <iostream>
 #include "FeatureDetectionSample.h"
 
-#define kDetectorORB  "ORB"
-#define kDetectorKAZE "KAZE"
-#define kDetectorFAST "FAST"
+#define kDetectorORB   "ORB"
+#define kDetectorAKAZE "AKAZE"
+#define kDetectorFAST  "FAST"
 
 FeatureDetectionSample::FeatureDetectionSample()
     : m_maxFeatures(100)
@@ -20,7 +20,11 @@ FeatureDetectionSample::FeatureDetectionSample()
     // feature extraction options
     m_alorithms.push_back( kDetectorORB );
     m_alorithms.push_back( kDetectorFAST );
-    m_alorithms.push_back( kDetectorKAZE );
+    m_alorithms.push_back( kDetectorAKAZE );
+    
+    m_ORB = cv::ORB::create();
+    m_FAST = cv::FastFeatureDetector::create();
+    m_AKAZE = cv::AKAZE::create();
     
     registerOption("Detection algorithm", "", &m_detectorName, m_alorithms);
     registerOption("Max features",        "", &m_maxFeatures, 1, 100);
@@ -60,20 +64,18 @@ bool FeatureDetectionSample::processFrame(const cv::Mat& inputFrame, cv::Mat& ou
     
     if (m_detectorName == kDetectorORB)
     {
-        cv::OrbFeatureDetector detector(m_maxFeatures);
-        detector.detect(grayImage, objectKeypoints);
+        m_ORB->detect(grayImage, objectKeypoints);
     }
     else if (m_detectorName == kDetectorFAST)
     {
-        cv::FastFeatureDetector detector(m_fastThreshold);
-        detector.detect(grayImage, objectKeypoints);
-        
+        m_FAST->detect(grayImage, objectKeypoints);        
     }
-    else if (m_detectorName == kDetectorKAZE)
+    else if (m_detectorName == kDetectorAKAZE)
     {
-        cv::KAZE detector;
-        detector.detect(grayImage, objectKeypoints);
+        m_AKAZE->detect(grayImage, objectKeypoints);
     }
+    
+    cv::KeyPointsFilter::retainBest(objectKeypoints, m_maxFeatures);
     
     if (objectKeypoints.size() > m_maxFeatures)
     {

@@ -3,7 +3,7 @@
 //  OpenCV Tutorial
 //
 //  Created by Anton Belodedenko on 25/07/2012.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 computer-vision-talks.com. All rights reserved.
 //
 
 #ifndef OpenCV_Tutorial_FeatureDetection_h
@@ -34,6 +34,10 @@ private:
     
     std::string m_detectorName;
     std::vector<std::string> m_alorithms;
+    
+    cv::Ptr<cv::ORB>  m_ORB;
+    cv::Ptr<cv::AKAZE> m_AKAZE;
+    cv::Ptr<cv::FastFeatureDetector> m_FAST;
     
     int m_maxFeatures;
     int m_fastThreshold;

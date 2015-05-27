@@ -3,7 +3,7 @@
 //  OpenCV Tutorial
 //
 //  Created by BloodAxe on 7/23/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 computer-vision-talks.com. All rights reserved.
 //
 
 #include <iostream>
@@ -16,11 +16,10 @@ static const char * TrackingAlgorithmORB           = "ORB";
 VideoTrackingSample::VideoTrackingSample()
 : m_orbMatcher(cv::NORM_HAMMING, true)
 , m_briefMatcher(cv::NORM_HAMMING, true)
-, m_fastDetector(new cv::FastFeatureDetector())
 {
     m_maxNumberOfPoints = 50;
     
-    m_detector = cv::FeatureDetector::create("GridFAST");
+    m_fastDetector = cv::FastFeatureDetector::create();
     
     std::vector<std::string> trackingAlgorithms;
     
@@ -93,7 +92,7 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
         bool needDetectAdditionalPoints = trackedPts.size() < m_maxNumberOfPoints;
         if (needDetectAdditionalPoints)
         {
-            m_detector->detect(m_nextImg, m_nextKeypoints, m_mask);
+            m_fastDetector->detect(m_nextImg, m_nextKeypoints, m_mask);
             int pointsToDetect = m_maxNumberOfPoints -  trackedPts.size();
             
             if (m_nextKeypoints.size() > pointsToDetect)
@@ -116,7 +115,7 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
     }
     if (m_activeTrackingAlgorithm == TrackingAlgorithmORB)
     {
-        m_orbFeatureEngine(m_nextImg, cv::Mat(), m_nextKeypoints, m_nextDescriptors);
+        m_orbFeatureEngine->detectAndCompute(m_nextImg, cv::Mat(), m_nextKeypoints, m_nextDescriptors);
         
         if (m_prevKeypoints.size() > 0)
         {

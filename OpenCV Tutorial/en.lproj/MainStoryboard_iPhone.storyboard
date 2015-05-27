@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -154,13 +153,13 @@
                                             <action selector="captureReferenceFrame:" destination="Wac-Dj-mok" id="cFv-RZ-McA"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="ZuT-Br-fqp"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7lu-za-bzv"/>
                                     <barButtonItem image="cog_01.png" style="plain" id="I1T-i5-mh3" userLabel="showOptionsButton">
                                         <connections>
                                             <action selector="showOptions:" destination="Wac-Dj-mok" id="fbp-Bn-Jb3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="bZe-Td-agE"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7kO-tb-bsC"/>
                                     <barButtonItem image="refresh_straight_arrows.png" style="plain" id="BX1-5o-4NW" userLabel="ClearReferenceFrameButton">
                                         <connections>
                                             <action selector="clearReferenceFrame:" destination="Wac-Dj-mok" id="WFO-yf-zsS"/>
@@ -177,19 +176,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="leading" secondItem="Off-50-wW6" secondAttribute="leading" id="6h9-ri-ice"/>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leadingMargin" constant="-16" id="8Zh-8A-GCH"/>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="fyS-Oc-Y7R" secondAttribute="topMargin" id="9iC-7l-NGx"/>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="bottom" secondItem="mev-vc-lCS" secondAttribute="top" id="BRm-5g-h8a"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="trailing" secondItem="dJ4-4B-QcR" secondAttribute="trailing" id="Fnz-MC-Tbb"/>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="trailing" secondItem="Off-50-wW6" secondAttribute="trailing" id="Ixq-Oe-pOv"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="dJ4-4B-QcR" secondAttribute="leading" id="J8Y-sY-qdN"/>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="fyS-Oc-Y7R" secondAttribute="top" id="U9J-HE-Bk3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mev-vc-lCS" secondAttribute="trailing" constant="-16" id="YQK-z2-ea6"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="top" secondItem="xqr-A0-xhC" secondAttribute="bottom" id="goK-k0-DNp"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leadingMargin" constant="-16" id="iTj-Hl-5HM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xqr-A0-xhC" secondAttribute="trailing" constant="-16" id="oGX-yj-Lcd"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="bottom" secondItem="dJ4-4B-QcR" secondAttribute="top" id="xKz-e9-d1r"/>
+                            <constraint firstAttribute="trailing" secondItem="xqr-A0-xhC" secondAttribute="trailing" id="CyU-yc-z8F"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="bottom" secondItem="dJ4-4B-QcR" secondAttribute="top" id="QwG-q7-fKR"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="xqr-A0-xhC" secondAttribute="leading" id="VmG-0c-UmP"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="trailing" secondItem="xqr-A0-xhC" secondAttribute="trailing" id="hEc-sM-13F"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="fyS-Oc-Y7R" secondAttribute="top" id="k82-sZ-MEP"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="top" secondItem="xqr-A0-xhC" secondAttribute="bottom" id="qXL-1b-5b8"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leading" id="x6T-w5-eSn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-70-nt7"/>
@@ -271,9 +264,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination">
-            <size key="portraitSize" width="320" height="480"/>
-            <size key="landscapeSize" width="480" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
