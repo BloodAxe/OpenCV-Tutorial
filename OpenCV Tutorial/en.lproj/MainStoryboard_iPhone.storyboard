@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A262e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3">
     <dependencies>
-        <deployment identifier="iOS"/>
         <development version="5000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -27,7 +27,7 @@
             <objects>
                 <tableViewController title="Samples" id="12" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,15 +36,15 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lJ0-d7-vTF" id="78r-s9-vzZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" id="phq-AM-6qj">
-                                            <rect key="frame" x="15" y="0.0" width="270" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
@@ -66,10 +66,11 @@
                     <navigationItem key="navigationItem" title="OpenCV Samples" id="36">
                         <barButtonItem key="backBarButtonItem" title="Back" id="m1u-EC-Yzi"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="-188"/>
+            <point key="canvasLocation" x="183" y="-182"/>
         </scene>
         <!--Detail-->
         <scene sceneID="24">
@@ -80,30 +81,24 @@
                         <viewControllerLayoutGuide type="bottom" id="ASl-Za-GfK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="22">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d71-R8-SeW">
-                                <rect key="frame" x="20" y="206" width="280" height="254"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d71-R8-SeW">
+                                <rect key="frame" x="10" y="168" width="300" height="240"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNO-71-ALR">
-                                <rect key="frame" x="149" y="161" width="151" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STE-bC-t3a">
+                                <rect key="frame" x="168" y="10" width="142" height="37"/>
                                 <animations/>
-                                <state key="normal" title="Run on image">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="22w-9U-Oct" kind="push" identifier="processImage" id="Ni8-n1-Itx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STE-bC-t3a">
-                                <rect key="frame" x="149" y="98" width="151" height="37"/>
-                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="ObM-DT-Mfm"/>
+                                    <constraint firstAttribute="width" constant="142" id="bAa-zz-QwS"/>
+                                </constraints>
                                 <state key="normal" title="Run on video">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -111,15 +106,44 @@
                                     <segue destination="Wac-Dj-mok" kind="push" identifier="processVideo" id="rQG-3k-mPe"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="57o-4l-EB2">
-                                <rect key="frame" x="20" y="98" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="57o-4l-EB2">
+                                <rect key="frame" x="10" y="10" width="150" height="150"/>
                                 <animations/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNO-71-ALR">
+                                <rect key="frame" x="168" y="55" width="142" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="zlO-EB-Iau"/>
+                                </constraints>
+                                <state key="normal" title="Run on image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="22w-9U-Oct" kind="push" identifier="processImage" id="Ni8-n1-Itx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ASl-Za-GfK" firstAttribute="top" secondItem="d71-R8-SeW" secondAttribute="bottom" constant="8" symbolic="YES" id="BgN-Nb-7bw"/>
+                            <constraint firstItem="zNO-71-ALR" firstAttribute="top" secondItem="STE-bC-t3a" secondAttribute="bottom" constant="8" symbolic="YES" id="JTy-oi-VXY"/>
+                            <constraint firstItem="zNO-71-ALR" firstAttribute="leading" secondItem="STE-bC-t3a" secondAttribute="leading" id="QFT-gr-xLq"/>
+                            <constraint firstItem="STE-bC-t3a" firstAttribute="trailing" secondItem="zNO-71-ALR" secondAttribute="trailing" id="SsD-U5-Isd"/>
+                            <constraint firstItem="STE-bC-t3a" firstAttribute="leading" secondItem="57o-4l-EB2" secondAttribute="trailing" constant="8" symbolic="YES" id="VAV-oo-hoN"/>
+                            <constraint firstItem="d71-R8-SeW" firstAttribute="centerX" secondItem="22" secondAttribute="centerX" id="Viy-b4-afe"/>
+                            <constraint firstItem="57o-4l-EB2" firstAttribute="top" secondItem="STE-bC-t3a" secondAttribute="top" id="YMX-Qr-WR4"/>
+                            <constraint firstItem="57o-4l-EB2" firstAttribute="leading" secondItem="d71-R8-SeW" secondAttribute="leading" id="ZVQ-wA-HRw"/>
+                            <constraint firstItem="d71-R8-SeW" firstAttribute="top" secondItem="zNO-71-ALR" secondAttribute="bottom" constant="76" id="bGM-sR-e7o"/>
+                            <constraint firstItem="57o-4l-EB2" firstAttribute="leading" secondItem="22" secondAttribute="leadingMargin" constant="-6" id="hcx-S9-5pQ"/>
+                            <constraint firstItem="d71-R8-SeW" firstAttribute="trailing" secondItem="zNO-71-ALR" secondAttribute="trailing" id="skb-aD-2JR"/>
+                            <constraint firstItem="57o-4l-EB2" firstAttribute="top" secondItem="ZDM-KC-btO" secondAttribute="bottom" constant="10" id="tQj-Zm-VoY"/>
+                            <constraint firstItem="d71-R8-SeW" firstAttribute="top" secondItem="57o-4l-EB2" secondAttribute="bottom" constant="8" symbolic="YES" id="wcO-ZN-bji"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="runOnVideoButton" destination="STE-bC-t3a" id="wMy-RE-IGg"/>
                         <outlet property="sampleDescriptionTextView" destination="d71-R8-SeW" id="Uul-a2-YyV"/>
@@ -139,11 +163,11 @@
                         <viewControllerLayoutGuide type="bottom" id="dJ4-4B-QcR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fyS-Oc-Y7R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mev-vc-lCS">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="371" width="320" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem image="switchCamera.png" style="plain" id="0cH-Fc-y0H" userLabel="switchCameraButton">
@@ -178,27 +202,28 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-A0-xhC" customClass="UIImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="371"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" updatesFrequently="YES"/>
+                                    <accessibilityTraits key="traits" none="YES" updatesFrequently="YES"/>
                                 </accessibility>
                             </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xqr-A0-xhC" secondAttribute="trailing" id="CyU-yc-z8F"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="bottom" secondItem="dJ4-4B-QcR" secondAttribute="top" id="QwG-q7-fKR"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="xqr-A0-xhC" secondAttribute="leading" id="VmG-0c-UmP"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="trailing" secondItem="xqr-A0-xhC" secondAttribute="trailing" id="hEc-sM-13F"/>
-                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="fyS-Oc-Y7R" secondAttribute="top" id="k82-sZ-MEP"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="top" secondItem="xqr-A0-xhC" secondAttribute="bottom" id="qXL-1b-5b8"/>
-                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leading" id="x6T-w5-eSn"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="xqr-A0-xhC" secondAttribute="leading" id="5LO-5f-VEr"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="trailing" secondItem="mev-vc-lCS" secondAttribute="trailing" id="A67-SG-8Zc"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="bottom" secondItem="dJ4-4B-QcR" secondAttribute="top" constant="-1" id="H5T-OX-ggz"/>
+                            <constraint firstItem="mev-vc-lCS" firstAttribute="leading" secondItem="fyS-Oc-Y7R" secondAttribute="leading" id="Lqc-yR-NtJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="xqr-A0-xhC" secondAttribute="bottom" constant="45" id="XZq-iR-f8M"/>
+                            <constraint firstItem="xqr-A0-xhC" firstAttribute="top" secondItem="Off-50-wW6" secondAttribute="bottom" id="mpQ-BM-8qr"/>
+                            <constraint firstAttribute="trailing" secondItem="mev-vc-lCS" secondAttribute="trailing" id="uub-g4-iiR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-70-nt7"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="actionSheetButton" destination="Gsh-6h-STO" id="8h5-m8-d60"/>
                         <outlet property="captureReferenceFrameButton" destination="cES-kV-lCw" id="DwK-sh-bBn"/>
@@ -221,16 +246,11 @@
                         <viewControllerLayoutGuide type="bottom" id="E4U-4Q-Mdm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T0z-Tc-TaG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShL-ye-fdZ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g27-f9-DXb">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g27-f9-DXb">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem image="photos_polaroid.png" style="plain" id="pLF-ra-4dQ" userLabel="selectImageButton">
@@ -252,13 +272,28 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShL-ye-fdZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ShL-ye-fdZ" firstAttribute="top" secondItem="K4G-ZG-4cx" secondAttribute="bottom" id="EGI-ww-PbC"/>
+                            <constraint firstItem="g27-f9-DXb" firstAttribute="trailing" secondItem="ShL-ye-fdZ" secondAttribute="trailing" id="GeG-gG-QHt"/>
+                            <constraint firstItem="g27-f9-DXb" firstAttribute="leading" secondItem="ShL-ye-fdZ" secondAttribute="leading" id="cjd-5U-pVA"/>
+                            <constraint firstAttribute="trailing" secondItem="g27-f9-DXb" secondAttribute="trailing" id="f7J-Fe-6bY"/>
+                            <constraint firstItem="g27-f9-DXb" firstAttribute="bottom" secondItem="E4U-4Q-Mdm" secondAttribute="top" id="m6y-EZ-S9Q"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ShL-ye-fdZ" secondAttribute="bottom" constant="44" id="wgp-aF-S4b"/>
+                            <constraint firstItem="g27-f9-DXb" firstAttribute="leading" secondItem="T0z-Tc-TaG" secondAttribute="leading" id="ykg-EH-h3J"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ijU-yh-CES">
                         <barButtonItem key="backBarButtonItem" title="Back" id="gIM-NE-YES"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="actionButton" destination="iAJ-T9-8Bg" id="GPY-W2-hve"/>
                         <outlet property="containerView" destination="ShL-ye-fdZ" id="sJQ-BF-Y0A"/>
