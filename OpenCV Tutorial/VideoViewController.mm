@@ -50,12 +50,24 @@
     self.videoSource.recordVideo = NO;
     self.videoSource.grayscaleMode = NO;
     
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                     destructiveButtonTitle:nil
-                                          otherButtonTitles:kSaveImageActionTitle, kComposeTweetWithImage, nil];
-    
+  self.actionSheet = [UIAlertController alertControllerWithTitle:@"Actions"
+                                                         message:nil
+                                                  preferredStyle:UIAlertControllerStyleActionSheet];
+  UIAlertAction *firstAction = [UIAlertAction actionWithTitle:kSaveImageActionTitle
+                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                          [self.videoSource stop];
+                                                          UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
+                                                          [self saveImage:image withCompletionHandler: ^{ [self.videoSource start]; }];
+                                                        }];
+  UIAlertAction *secondAction = [UIAlertAction actionWithTitle:kComposeTweetWithImage
+                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                           [self.videoSource stop];
+                                                           UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
+                                                           [self tweetImage:image withCompletionHandler:^{ [self.videoSource start]; }];
+                                                         }];
+
+  [self.actionSheet addAction:firstAction];
+  [self.actionSheet addAction:secondAction];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -114,10 +126,7 @@
 
 - (IBAction)showActionSheet:(id)sender
 {
-    if ([self.actionSheet isVisible])
-        [self.actionSheet dismissWithClickedButtonIndex:-1 animated:YES];
-    else
-        [self.actionSheet showFromBarButtonItem:self.actionSheetButton animated:YES];
+  [self presentViewController:self.actionSheet animated:YES completion:nil];
 }
 
 - (void)viewDidUnload
@@ -181,34 +190,6 @@
     //outputFrame.copyTo(image);
 }
 #endif
-
-
-#pragma mark UIActionSheetDelegate implementation
-
-- (void)actionSheet:(UIActionSheet *)senderSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString * title = [senderSheet buttonTitleAtIndex:buttonIndex];
-    
-    if ([title  isEqual: kSaveImageActionTitle])
-    {
-        UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
-        [self saveImage:image withCompletionHandler: ^{ [self.videoSource start]; }];
-    }
-    else if ([title  isEqual: kComposeTweetWithImage])
-    {
-        UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
-        [self tweetImage:image withCompletionHandler:^{ [self.videoSource start]; }];
-    }
-    else
-    {
-        [self.videoSource start];
-    }
-}
-
-- (void)willPresentActionSheet:(UIActionSheet *)actionSheet;  // before animation and showing view
-{
-    [self.videoSource stop];
-}
 
 - (void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {

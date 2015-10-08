@@ -67,12 +67,20 @@
     
     [self.containerView addSubview:self.imageView];
     
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Actions"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                     destructiveButtonTitle:nil
-                                          otherButtonTitles:kSaveImageActionTitle, kComposeTweetWithImage, nil];
-    
+  self.actionSheet = [UIAlertController alertControllerWithTitle:@"Actions"
+                                                         message:nil
+                                                  preferredStyle:UIAlertControllerStyleActionSheet];
+  UIAlertAction *firstAction = [UIAlertAction actionWithTitle:kSaveImageActionTitle
+                                                        style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                          [self saveImage:self.imageView.image withCompletionHandler:nil];
+                                                        }];
+  UIAlertAction *secondAction = [UIAlertAction actionWithTitle:kComposeTweetWithImage
+                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                           [self tweetImage:self.imageView.image withCompletionHandler:nil];
+                                                         }];
+
+  [self.actionSheet addAction:firstAction];
+  [self.actionSheet addAction:secondAction];
 }
 
 - (void)viewDidUnload
@@ -203,10 +211,7 @@
 
 - (IBAction)selectAction:(id)sender
 {
-    if ([self.actionSheet isVisible])
-        [self.actionSheet dismissWithClickedButtonIndex:-1 animated:YES];
-    else
-        [self.actionSheet showFromBarButtonItem:self.actionButton animated:YES];
+  [self presentViewController:self.actionSheet animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate implementation
@@ -284,22 +289,6 @@
 - (void) optionDidChanged:(SampleOption*) option
 {
     [self updateImageView];
-}
-
-#pragma mark UIActionSheetDelegate implementation
-
-- (void)actionSheet:(UIActionSheet *)senderSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString * title = [senderSheet buttonTitleAtIndex:buttonIndex];
-    
-    if ([title  isEqual: kSaveImageActionTitle])
-    {
-        [self saveImage:self.imageView.image withCompletionHandler:nil];
-    }
-    else if ([title  isEqual: kComposeTweetWithImage])
-    {
-        [self tweetImage:self.imageView.image withCompletionHandler:nil];
-    }
 }
 
 @end
