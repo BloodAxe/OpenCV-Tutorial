@@ -44,3 +44,4 @@ Contributors
 ==========================
  * Anton Belodedenko <anton.belodedenko@gmail.com> 
  * Emmanuel d'Angelo <http://www.computersdontsee.net>
+ * Daniel J. Pinter <mailTo:datazombies@gmail.com>
