@@ -7,6 +7,7 @@
 //
 
 #include "CameraCalibrationSample.h"
+#include <iostream>
 
 CameraCalibrationSample::CameraCalibrationSample()
 : mAlg(cv::Size(4, 11), ACIRCLES_GRID)

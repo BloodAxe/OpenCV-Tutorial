@@ -32,7 +32,7 @@ class Int32Option : public SampleOption
 public:
   Int32Option(const std::string& name, const std::string& section, int* value, int min, int max);
   
-  virtual OptionKind getKind();
+  virtual OptionKind getKind() override;
 
   int getValue() const; 
   bool setValue(int v); 
@@ -52,7 +52,7 @@ class FloatOption : public SampleOption
 public:
   FloatOption(const std::string& name, const std::string& section, float* value, float min, float max);
   
-  virtual OptionKind getKind();
+  virtual OptionKind getKind() override;
   
   float getValue() const; 
   bool setValue(float v); 
@@ -72,7 +72,7 @@ class DoubleOption : public SampleOption
 public:
   DoubleOption(const std::string& name, const std::string& section, double* value, double min, double max);
   
-  virtual OptionKind getKind();
+  virtual OptionKind getKind() override;
   
   double getValue() const; 
   bool setValue(double v); 
@@ -92,7 +92,7 @@ class BooleanOption : public SampleOption
 public:
   BooleanOption(const std::string& name, const std::string& section, bool* value);
   
-  virtual OptionKind getKind();
+  virtual OptionKind getKind() override;
   
   bool getValue() const;
   bool setValue(bool value);
@@ -109,22 +109,22 @@ public:
                    const std::string& section, 
                    std::string* value, 
                    std::vector<std::string> stringEnums,
-                   int defaultValue = 0);
+                   size_t defaultValue = 0);
   
-  virtual OptionKind getKind();
+  virtual OptionKind getKind() override;
   
-  int getValueIndex() const;
+  size_t getValueIndex() const;
   std::string getValue() const;
-  bool setValue(int newIndex);
+  bool setValue(size_t newIndex);
   
   const std::vector<std::string>& getEnums() const { return m_stringEnums; }
   
 private:
-  int m_index;
+  size_t m_index;
   
   std::string* m_value;
   std::vector<std::string> m_stringEnums;
-  int m_defaultValue;
+  size_t m_defaultValue;
   
 };
 

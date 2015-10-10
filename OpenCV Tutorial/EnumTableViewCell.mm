@@ -39,7 +39,7 @@
 
   [self.segmentedControl removeAllSegments];
   
-  int numberOfItems = self.option->getEnums().size();
+  size_t numberOfItems = self.option->getEnums().size();
 
   for (size_t i=0; i < numberOfItems; i++)
   {

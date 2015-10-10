@@ -93,7 +93,7 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
         if (needDetectAdditionalPoints)
         {
             m_fastDetector->detect(m_nextImg, m_nextKeypoints, m_mask);
-            int pointsToDetect = m_maxNumberOfPoints -  trackedPts.size();
+            size_t pointsToDetect = m_maxNumberOfPoints -  trackedPts.size();
             
             if (m_nextKeypoints.size() > pointsToDetect)
             {
@@ -113,6 +113,7 @@ bool VideoTrackingSample::processFrame(const cv::Mat& inputFrame, cv::Mat& outpu
         m_prevPts = trackedPts;
         m_nextImg.copyTo(m_prevImg);
     }
+    
     if (m_activeTrackingAlgorithm == TrackingAlgorithmORB)
     {
         m_orbFeatureEngine->detectAndCompute(m_nextImg, cv::Mat(), m_nextKeypoints, m_nextDescriptors);

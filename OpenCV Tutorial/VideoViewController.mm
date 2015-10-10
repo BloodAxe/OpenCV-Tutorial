@@ -59,15 +59,8 @@
                                                           UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
                                                           [self saveImage:image withCompletionHandler: ^{ [self.videoSource start]; }];
                                                         }];
-  UIAlertAction *secondAction = [UIAlertAction actionWithTitle:kComposeTweetWithImage
-                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                           [self.videoSource stop];
-                                                           UIImage * image = [UIImage imageWithMat:outputFrame.clone() andDeviceOrientation:[[UIDevice currentDevice] orientation]];
-                                                           [self tweetImage:image withCompletionHandler:^{ [self.videoSource start]; }];
-                                                         }];
 
   [self.actionSheet addAction:firstAction];
-  [self.actionSheet addAction:secondAction];
 }
 
 - (void) viewWillAppear:(BOOL)animated

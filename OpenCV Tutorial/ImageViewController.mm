@@ -17,7 +17,6 @@
 #define kTransitionDuration	0.75
 
 #define kSaveImageActionTitle  @"Save image"
-#define kComposeTweetWithImage @"Tweet image"
 
 @interface ImageViewController ()
 {
@@ -74,13 +73,8 @@
                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                           [self saveImage:self.imageView.image withCompletionHandler:nil];
                                                         }];
-  UIAlertAction *secondAction = [UIAlertAction actionWithTitle:kComposeTweetWithImage
-                                                         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                           [self tweetImage:self.imageView.image withCompletionHandler:nil];
-                                                         }];
 
   [self.actionSheet addAction:firstAction];
-  [self.actionSheet addAction:secondAction];
 }
 
 - (void)viewDidUnload
@@ -129,7 +123,7 @@
         self.optionsViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
         
         // Limit options popover dimensions. Todo make a popover automaticaly resize depending on number of registered properties
-        [viewController setContentSizeForViewInPopover:CGSizeMake(320, 500)];
+        [viewController setPreferredContentSize:CGSizeMake(320, 500)];
         
         self.optionsPopover = [[UIPopoverController alloc] initWithContentViewController:self.optionsViewController];
     }
@@ -190,7 +184,7 @@
                  
                  [self.optionsView reloadData];
                  
-                 NSLog(@"Visible cells count %d" , [[self.optionsView visibleCells] count]);
+                 NSLog(@"Visible cells count %lu" , (unsigned long)[[self.optionsView visibleCells] count]);
                  NSLog(@"Options view size %fx%f" , self.optionsView.bounds.size.width, self.optionsView.bounds.size.height);
              }];
         }

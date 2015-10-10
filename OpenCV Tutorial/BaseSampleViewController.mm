@@ -10,8 +10,6 @@
 #import "NSString+StdString.h"
 #import "UIImage2OpenCV.h"
 
-#import <Twitter/Twitter.h>
-
 @interface BaseSampleViewController ()
 
 @end
@@ -54,47 +52,6 @@
   {
       self.title = [self.currentSample title];
   }
-}
-
-#pragma mark - Image Tweeting
-
-- (void) tweetImage:(UIImage*) image withCompletionHandler: (TweetImageCompletionHandler) handler
-{
-  // Create the view controller
-  TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
-  
-  NSString * text = [NSString stringWithFormat:@"%@ with OpenCV Tutorial made by @cvtalks", 
-                     [self.currentSample friendlyName]];
-  
-  [twitter addImage:image];
-  [twitter addURL:[NSURL URLWithString:@"http://computer-vision-talks.com/"]];
-  [twitter setInitialText:text];
-  
-  // Show the controller
-  [self presentModalViewController:twitter animated:YES];
-  
-  // Called when the tweet dialog has been closed
-  twitter.completionHandler = ^(TWTweetComposeViewControllerResult result) 
-  {
-    NSString *title = @"Tweet Status";
-    NSString *msg; 
-    
-    if (result == TWTweetComposeViewControllerResultDone)
-    {
-      msg = @"Picture was tweeted.";
-      
-      // Show alert to see how things went...
-      UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-      [alertView show];
-    }
-    
-    // Dismiss the controller
-  [self dismissViewControllerAnimated:YES completion:nil];
-
-    if (handler != nil)
-      handler();
-  };
-
 }
 
 #pragma mark - Image Saving
