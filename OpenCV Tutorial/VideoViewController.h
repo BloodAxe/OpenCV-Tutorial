@@ -10,7 +10,7 @@
 #import "SampleBase.h"
 #import "BaseSampleViewController.h"
 
-@interface VideoViewController : BaseSampleViewController<UIActionSheetDelegate>
+@interface VideoViewController : BaseSampleViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *containerView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toggleCameraButton;
@@ -20,7 +20,7 @@
 @property (nonatomic, strong) UIPopoverController * optionsPopover;
 @property (nonatomic, strong) UIViewController * optionsViewController;
 
-@property (nonatomic, strong) UIActionSheet * actionSheet;
+@property (nonatomic, strong) UIAlertController * actionSheet;
 
 - (IBAction)toggleCameraPressed:(id)sender;
 - (IBAction)showOptions:(id)sender;

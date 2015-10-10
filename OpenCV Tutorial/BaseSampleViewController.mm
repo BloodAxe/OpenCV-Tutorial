@@ -89,8 +89,8 @@
     }
     
     // Dismiss the controller
-    [self dismissModalViewControllerAnimated:YES];
-    
+  [self dismissViewControllerAnimated:YES completion:nil];
+
     if (handler != nil)
       handler();
   };

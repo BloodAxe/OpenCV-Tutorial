@@ -270,8 +270,8 @@
 			children = (
 				8A6E0BD61614946100C1D644 /* FeatureDetectionClass.cpp */,
 				8A6E0BD71614946100C1D644 /* FeatureDetectionClass.h */,
-				363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */,
 				363DA0BE15C097AC00347AB2 /* FeatureDetectionSample.cpp */,
+				363DA0BD15C097A500347AB2 /* FeatureDetectionSample.h */,
 				369F2C2B15C1A5290032BD08 /* FeatureDetectionSampleIcon.png */,
 			);
 			name = FeatureDetection;
@@ -280,10 +280,10 @@
 		369F2C2215C1A2AD0032BD08 /* ObjectTracking */ = {
 			isa = PBXGroup;
 			children = (
-				369F2C2515C1A3D40032BD08 /* ObjectTrackingClass.h */,
 				369F2C2315C1A3C70032BD08 /* ObjectTrackingClass.cpp */,
-				369F2C2615C1A3E20032BD08 /* ObjectTrackingSample.h */,
+				369F2C2515C1A3D40032BD08 /* ObjectTrackingClass.h */,
 				369F2C2715C1A3EF0032BD08 /* ObjectTrackingSample.cpp */,
+				369F2C2615C1A3E20032BD08 /* ObjectTrackingSample.h */,
 				369F2C2915C1A4950032BD08 /* ObjectTrackingSampleIcon.png */,
 			);
 			name = ObjectTracking;
@@ -292,8 +292,8 @@
 		8A4388591595BC4E00027D3C = {
 			isa = PBXGroup;
 			children = (
-				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388671595BC4F00027D3C /* Frameworks */,
+				8A43886E1595BC4F00027D3C /* OpenCV Tutorial */,
 				8A4388651595BC4F00027D3C /* Products */,
 				8A4388F01597C49B00027D3C /* README.md */,
 			);
@@ -310,19 +310,19 @@
 		8A4388671595BC4F00027D3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8AD96330165B90BC00772BCD /* opencv2.framework */,
-				8AB6D04415B9969C0029641C /* Twitter.framework */,
 				8AE69C0215A3A40000DAA115 /* AssetsLibrary.framework */,
-				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
-				8A723FD11599B700008C72DB /* QuartzCore.framework */,
+				8A723FC71599B6EE008C72DB /* AVFoundation.framework */,
+				8A43886C1595BC4F00027D3C /* CoreGraphics.framework */,
 				8A723FCD1599B6FC008C72DB /* CoreImage.framework */,
 				8A723FCE1599B6FC008C72DB /* CoreMedia.framework */,
-				8A723FC91599B6F2008C72DB /* GLKit.framework */,
-				8A723FCA1599B6F2008C72DB /* OpenGLES.framework */,
-				8A723FC71599B6EE008C72DB /* AVFoundation.framework */,
-				8A4388681595BC4F00027D3C /* UIKit.framework */,
+				8A723FD31599B70B008C72DB /* CoreVideo.framework */,
 				8A43886A1595BC4F00027D3C /* Foundation.framework */,
-				8A43886C1595BC4F00027D3C /* CoreGraphics.framework */,
+				8A723FC91599B6F2008C72DB /* GLKit.framework */,
+				8AD96330165B90BC00772BCD /* opencv2.framework */,
+				8A723FCA1599B6F2008C72DB /* OpenGLES.framework */,
+				8A723FD11599B700008C72DB /* QuartzCore.framework */,
+				8AB6D04415B9969C0029641C /* Twitter.framework */,
+				8A4388681595BC4F00027D3C /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -331,10 +331,10 @@
 			isa = PBXGroup;
 			children = (
 				8AFE53D015D7F19100E7ADEB /* OpenCV Neon */,
-				8AA7F84E15A462250052C95A /* View Controllers */,
-				8A723FD81599B751008C72DB /* Storyboards */,
 				8A43888A1595C1DF00027D3C /* Samples */,
+				8A723FD81599B751008C72DB /* Storyboards */,
 				8A43886F1595BC4F00027D3C /* Supporting Files */,
+				8AA7F84E15A462250052C95A /* View Controllers */,
 			);
 			path = "OpenCV Tutorial";
 			sourceTree = "<group>";
@@ -342,21 +342,21 @@
 		8A43886F1595BC4F00027D3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388D01596E0B300027D3C /* Icons */,
-				8AA7F84D15A4620A0052C95A /* Button Images */,
-				8AB993C315A354F900D6AB1D /* Startup Images */,
 				8A4388A61595DE5800027D3C /* AppDelegate.h */,
 				8A4388A71595DE5800027D3C /* AppDelegate.mm */,
-				8A4388701595BC4F00027D3C /* OpenCV Tutorial-Info.plist */,
-				8A4388711595BC4F00027D3C /* InfoPlist.strings */,
-				8A4388741595BC4F00027D3C /* main.mm */,
-				8A4388761595BC4F00027D3C /* OpenCV Tutorial-Prefix.pch */,
-				8A4388E61597B75400027D3C /* UIImage2OpenCV.h */,
-				8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */,
+				8AA7F84D15A4620A0052C95A /* Button Images */,
 				8AA7F84F15A462400052C95A /* FPSCalculator.h */,
 				8AA7F85015A462400052C95A /* FPSCalculator.mm */,
+				8A4388D01596E0B300027D3C /* Icons */,
+				8A4388711595BC4F00027D3C /* InfoPlist.strings */,
+				8A4388741595BC4F00027D3C /* main.mm */,
 				8A7934A915AB48C80043BE99 /* NSString+StdString.h */,
 				8A7934AA15AB48C80043BE99 /* NSString+StdString.mm */,
+				8A4388701595BC4F00027D3C /* OpenCV Tutorial-Info.plist */,
+				8A4388761595BC4F00027D3C /* OpenCV Tutorial-Prefix.pch */,
+				8AB993C315A354F900D6AB1D /* Startup Images */,
+				8A4388E61597B75400027D3C /* UIImage2OpenCV.h */,
+				8A4388E71597B7BB00027D3C /* UIImage2OpenCV.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -365,9 +365,9 @@
 			isa = PBXGroup;
 			children = (
 				8A64E5921A7A70F500319DCB /* Camera Calibration */,
-				8A4A123915F68B460096D272 /* DrawingCanvas */,
 				8AB6D04015B856010029641C /* CartoonFilter */,
 				8A4388E41597B6E500027D3C /* Contour Detection */,
+				8A4A123915F68B460096D272 /* DrawingCanvas */,
 				8A4388DF15971FE000027D3C /* Edge Detection */,
 				363DA0B615C0970200347AB2 /* FeatureDetection */,
 				8A79349415A9A3FB0043BE99 /* Image Filters */,
@@ -382,13 +382,6 @@
 		8A4388D01596E0B300027D3C /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				8AB6D03E15B5588D0029641C /* photos_polaroid@2x.png */,
-				8AB6D03C15B5585D0029641C /* photos_polaroid.png */,
-				8AB6D03A15B5556D0029641C /* switchCamera@2x.png */,
-				8AB6D03615B552900029641C /* switchCamera.png */,
-				8AB6D03015B54EA60029641C /* record.png */,
-				8AB6D03115B54EA60029641C /* refresh_straight_arrows.png */,
-				8AB6D03215B54EA60029641C /* repeat.png */,
 				8AB6D01E15B54D450029641C /* cog_01.png */,
 				8AB6D02215B54D540029641C /* cog_01@2x.png */,
 				8AB6D01F15B54D450029641C /* cog_02.png */,
@@ -397,11 +390,18 @@
 				8A4388D71596E11700027D3C /* Icon-72@2x.png */,
 				8A4388D11596E0ED00027D3C /* Icon.png */,
 				8A4388D31596E10600027D3C /* Icon@2x.png */,
+				8AB6D03C15B5585D0029641C /* photos_polaroid.png */,
+				8AB6D03E15B5588D0029641C /* photos_polaroid@2x.png */,
+				8AB6D03015B54EA60029641C /* record.png */,
 				8AB6D02615B54DFE0029641C /* record@2x.png */,
+				8AB6D03115B54EA60029641C /* refresh_straight_arrows.png */,
+				8AB6D02715B54DFE0029641C /* refresh_straight_arrows@2x.png */,
 				8AB6D02E15B54E560029641C /* refresh.png */,
 				8AB6D02A15B54E0B0029641C /* refresh@2x.png */,
-				8AB6D02715B54DFE0029641C /* refresh_straight_arrows@2x.png */,
+				8AB6D03215B54EA60029641C /* repeat.png */,
 				8AB6D02B15B54E0B0029641C /* repeat@2x.png */,
+				8AB6D03615B552900029641C /* switchCamera.png */,
+				8AB6D03A15B5556D0029641C /* switchCamera@2x.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -409,10 +409,10 @@
 		8A4388DF15971FE000027D3C /* Edge Detection */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png */,
-				8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */,
 				8A4388D91597171900027D3C /* EdgeDetectionSample.cpp */,
 				8A4388DB1597172300027D3C /* EdgeDetectionSample.h */,
+				8A4388E015971FF200027D3C /* EdgeDetectionSampleIcon.png */,
+				8A4388E215971FFE00027D3C /* EdgeDetectionSampleIcon~ipad.png */,
 			);
 			name = "Edge Detection";
 			sourceTree = "<group>";
@@ -420,10 +420,10 @@
 		8A4388E41597B6E500027D3C /* Contour Detection */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */,
-				8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */,
 				8A4388911595CAF700027D3C /* ContourDetectionSample.cpp */,
 				8A4388931595CB0300027D3C /* ContourDetectionSample.h */,
+				8A4388E91597BD9D00027D3C /* ContourDetectionSampleIcon.png */,
+				8A4388EA1597BD9D00027D3C /* ContourDetectionSampleIcon@2x.png */,
 			);
 			name = "Contour Detection";
 			sourceTree = "<group>";
@@ -431,8 +431,8 @@
 		8A4A123915F68B460096D272 /* DrawingCanvas */ = {
 			isa = PBXGroup;
 			children = (
-				8A4A123B15F68B5F0096D272 /* DrawingCanvas.h */,
 				8A4A123C15F68B680096D272 /* DrawingCanvas.cpp */,
+				8A4A123B15F68B5F0096D272 /* DrawingCanvas.h */,
 			);
 			name = DrawingCanvas;
 			sourceTree = "<group>";
@@ -452,10 +452,10 @@
 		8A64E5921A7A70F500319DCB /* Camera Calibration */ = {
 			isa = PBXGroup;
 			children = (
-				8A64E5931A7A711200319DCB /* CameraCalibrationSample.cpp */,
-				8A64E5941A7A711200319DCB /* CameraCalibrationSample.h */,
 				8A64E5D81A7A867400319DCB /* CameraCalibrationAlgorithm.cpp */,
 				8A64E5D91A7A867400319DCB /* CameraCalibrationAlgorithm.h */,
+				8A64E5931A7A711200319DCB /* CameraCalibrationSample.cpp */,
+				8A64E5941A7A711200319DCB /* CameraCalibrationSample.h */,
 			);
 			name = "Camera Calibration";
 			sourceTree = "<group>";
@@ -463,8 +463,8 @@
 		8A723FD81599B751008C72DB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
 				8A4388AC1595DE5800027D3C /* MainStoryboard_iPad.storyboard */,
+				8A4388A91595DE5800027D3C /* MainStoryboard_iPhone.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -472,8 +472,8 @@
 		8A79349415A9A3FB0043BE99 /* Image Filters */ = {
 			isa = PBXGroup;
 			children = (
-				8A79349015A9A3EA0043BE99 /* ImageFiltersSample.h */,
 				8A79349215A9A3F70043BE99 /* ImageFiltersSample.cpp */,
+				8A79349015A9A3EA0043BE99 /* ImageFiltersSample.h */,
 			);
 			name = "Image Filters";
 			sourceTree = "<group>";
@@ -483,14 +483,14 @@
 			children = (
 				8A66F70815DA3E2600EF1959 /* DefaultSampleIcon.png */,
 				8A66F70915DA3E2600EF1959 /* DefaultSampleIcon~ipad.png */,
-				369F2C2D15C1AEDD0032BD08 /* Globals.h */,
 				369F2C2E15C1AEE50032BD08 /* Globals.cpp */,
-				8A4388891595BCC400027D3C /* SampleBase.h */,
+				369F2C2D15C1AEDD0032BD08 /* Globals.h */,
 				8A43888B1595C1F000027D3C /* SampleBase.cpp */,
-				8A7934AC15AB4A9C0043BE99 /* SampleOptions.h */,
-				8A7934AD15AB4B750043BE99 /* SampleOptions.cpp */,
+				8A4388891595BCC400027D3C /* SampleBase.h */,
 				8A66F71015DA535C00EF1959 /* SampleFacade.h */,
 				8A66F71115DA535C00EF1959 /* SampleFacade.mm */,
+				8A7934AD15AB4B750043BE99 /* SampleOptions.cpp */,
+				8A7934AC15AB4A9C0043BE99 /* SampleOptions.h */,
 			);
 			name = SampleBase;
 			sourceTree = "<group>";
@@ -498,27 +498,27 @@
 		8A7934C415AB5DB30043BE99 /* Options */ = {
 			isa = PBXGroup;
 			children = (
-				8AFE53C715D7E3B200E7ADEB /* DoubleTableViewCell.h */,
-				8AFE53C815D7E3B200E7ADEB /* DoubleTableViewCell.mm */,
-				8AFE53C915D7E3B200E7ADEB /* DoubleTableViewCell.xib */,
-				8A7934A615AB47060043BE99 /* SampleOptionsTableViewDelegate.h */,
-				8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */,
 				8A79349D15A9ADA20043BE99 /* BooleanTableViewCell.h */,
 				8A79349E15A9ADA20043BE99 /* BooleanTableViewCell.mm */,
 				8A7934BC15AB5C5A0043BE99 /* BooleanTableViewCell.xib */,
-				8A7934C515AB5E2F0043BE99 /* Int32TableViewCell.h */,
-				8A7934C615AB5E2F0043BE99 /* Int32TableViewCell.mm */,
-				8A7934C015AB5D490043BE99 /* Int32TableViewCell.xib */,
-				8A7934C815AB5E390043BE99 /* FloatTableViewCell.h */,
-				8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */,
-				8A7934BE15AB5CB20043BE99 /* FloatTableViewCell.xib */,
+				8AFE53C715D7E3B200E7ADEB /* DoubleTableViewCell.h */,
+				8AFE53C815D7E3B200E7ADEB /* DoubleTableViewCell.mm */,
+				8AFE53C915D7E3B200E7ADEB /* DoubleTableViewCell.xib */,
 				8A7934CB15AB5E440043BE99 /* EnumTableViewCell.h */,
 				8A7934CC15AB5E440043BE99 /* EnumTableViewCell.mm */,
 				8A7934C215AB5D560043BE99 /* EnumTableViewCell.xib */,
+				8A7934C815AB5E390043BE99 /* FloatTableViewCell.h */,
+				8A7934C915AB5E390043BE99 /* FloatTableViewCell.mm */,
+				8A7934BE15AB5CB20043BE99 /* FloatTableViewCell.xib */,
+				8A7934C515AB5E2F0043BE99 /* Int32TableViewCell.h */,
+				8A7934C615AB5E2F0043BE99 /* Int32TableViewCell.mm */,
+				8A7934C015AB5D490043BE99 /* Int32TableViewCell.xib */,
 				8A00096D15AD6DF8001EA42D /* OptionCell.h */,
 				8A00096E15AD6DF9001EA42D /* OptionCell.mm */,
 				8A00097115AE0F08001EA42D /* OptionsTableView.h */,
 				8A00097215AE0F09001EA42D /* OptionsTableView.mm */,
+				8A7934A615AB47060043BE99 /* SampleOptionsTableViewDelegate.h */,
+				8A7934A715AB47060043BE99 /* SampleOptionsTableViewDelegate.mm */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -533,17 +533,17 @@
 		8AA7F84E15A462250052C95A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8A7934C415AB5DB30043BE99 /* Options */,
-				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
-				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
-				8A4388B21595DE5800027D3C /* DetailViewController.h */,
-				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
-				8A723FD91599BB74008C72DB /* VideoViewController.h */,
-				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
-				8AE69C0415A3A47F00DAA115 /* ImageViewController.h */,
-				8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */,
 				8AB6D04615B99B590029641C /* BaseSampleViewController.h */,
 				8AB6D04715B99B5A0029641C /* BaseSampleViewController.mm */,
+				8A4388B21595DE5800027D3C /* DetailViewController.h */,
+				8A4388B31595DE5800027D3C /* DetailViewController.mm */,
+				8AE69C0415A3A47F00DAA115 /* ImageViewController.h */,
+				8AE69C0515A3A47F00DAA115 /* ImageViewController.mm */,
+				8A4388AF1595DE5800027D3C /* MasterViewController.h */,
+				8A4388B01595DE5800027D3C /* MasterViewController.mm */,
+				8A7934C415AB5DB30043BE99 /* Options */,
+				8A723FD91599BB74008C72DB /* VideoViewController.h */,
+				8A723FDA1599BB74008C72DB /* VideoViewController.mm */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -551,8 +551,8 @@
 		8AB6D04015B856010029641C /* CartoonFilter */ = {
 			isa = PBXGroup;
 			children = (
-				8AB6D04115B8567C0029641C /* CartoonFilter.h */,
 				8AB6D04215B856850029641C /* CartoonFilter.cpp */,
+				8AB6D04115B8567C0029641C /* CartoonFilter.h */,
 			);
 			name = CartoonFilter;
 			sourceTree = "<group>";
@@ -560,9 +560,9 @@
 		8AB6D05115BDEB320029641C /* Video Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				8A66F71415DA85BA00EF1959 /* VideoTrackingSampleIcon.png */,
-				8AB6D04D15BDEB220029641C /* VideoTracking.hpp */,
 				8AB6D04F15BDEB2F0029641C /* VideoTracking.cpp */,
+				8AB6D04D15BDEB220029641C /* VideoTracking.hpp */,
+				8A66F71415DA85BA00EF1959 /* VideoTrackingSampleIcon.png */,
 			);
 			name = "Video Tracking";
 			sourceTree = "<group>";
@@ -571,12 +571,12 @@
 			isa = PBXGroup;
 			children = (
 				8A9ED49D19A6A56400D22EA9 /* Default-568h@2x.png */,
-				8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */,
 				8AB993BF15A354BA00D6AB1D /* Default-Landscape@2x~ipad.png */,
+				8AB993C115A354BF00D6AB1D /* Default-Landscape~ipad.png */,
 				8AB993BD15A354B100D6AB1D /* Default-Portrait@2x~ipad.png */,
 				8AB993BB15A3549F00D6AB1D /* Default-Portrait~ipad.png */,
-				8AB993B915A3549200D6AB1D /* Default@2x.png */,
 				8AB993B715A3548A00D6AB1D /* Default.png */,
+				8AB993B915A3549200D6AB1D /* Default@2x.png */,
 			);
 			name = "Startup Images";
 			sourceTree = "<group>";
@@ -584,8 +584,8 @@
 		8AFE53D015D7F19100E7ADEB /* OpenCV Neon */ = {
 			isa = PBXGroup;
 			children = (
-				8AFE53CD15D7F18500E7ADEB /* cvneon.h */,
 				8AFE53CE15D7F18E00E7ADEB /* cvneon.cpp */,
+				8AFE53CD15D7F18500E7ADEB /* cvneon.h */,
 			);
 			name = "OpenCV Neon";
 			sourceTree = "<group>";
@@ -616,10 +616,10 @@
 		8A43885B1595BC4E00027D3C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					8A4388971595DE5800027D3C = {
-						DevelopmentTeam = N3HW7B2HTK;
+						DevelopmentTeam = 3RLCC68XU9;
 					};
 				};
 			};
@@ -785,6 +785,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -803,8 +804,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
@@ -843,7 +845,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
@@ -872,9 +874,10 @@
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "computer-vision-talks.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WARNING_LDFLAGS = "";
@@ -899,9 +902,10 @@
 				GCC_PREFIX_HEADER = "OpenCV Tutorial/OpenCV Tutorial-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OpenCV Tutorial/OpenCV Tutorial-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "computer-vision-talks.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WARNING_LDFLAGS = "";
