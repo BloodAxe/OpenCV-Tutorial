@@ -16,13 +16,13 @@ Samples list (plans)
 
 Step by step tutorials
 ==========================
-* [Part 1](http://computer-vision-talks.com/articles/2012-06-23-opencv-tutorial-part-1/)
-* [Part 2](http://computer-vision-talks.com/articles/2012-06-24-opencv-tutorial-part-2/)
-* [Part 3](http://computer-vision-talks.com/articles/2012-06-27-opencv-tutorial-part-3/)
-* [Part 4](http://computer-vision-talks.com/articles/2012-07-07-opencv-tutorial-part-4/)
-* [Part 5](http://computer-vision-talks.com/articles/2012-07-14-opencv-tutorial-part-5/)
-* [Part 6](http://computer-vision-talks.com/articles/2012-07-22-opencv-tutorial-part-6/)
-* [Part 7](http://computer-vision-talks.com/articles/2012-10-22-opencv-tutorial-part-7/)
+* [Part 1](http://computer-vision-talks.com/2012-06-23-opencv-tutorial-part-1/)
+* [Part 2](http://computer-vision-talks.com/2012-06-24-opencv-tutorial-part-2/)
+* [Part 3](http://computer-vision-talks.com/2012-06-27-opencv-tutorial-part-3/)
+* [Part 4](http://computer-vision-talks.com/2012-07-07-opencv-tutorial-part-4/)
+* [Part 5](http://computer-vision-talks.com/2012-07-14-opencv-tutorial-part-5/)
+* [Part 6](http://computer-vision-talks.com/2012-07-22-opencv-tutorial-part-6/)
+* [Part 7](http://computer-vision-talks.com/2012-10-22-opencv-tutorial-part-7/)
 
 Roadmap
 ==========================
